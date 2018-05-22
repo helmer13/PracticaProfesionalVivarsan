@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PracticaProfesionalVivarsan", "PracticaProfesionalVivarsan\PracticaProfesionalVivarsan.csproj", "{9E8E048B-9972-4C67-8BCA-6D0B9379D088}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "PracticaProfesionalVivarsan\UI.csproj", "{9E8E048B-9972-4C67-8BCA-6D0B9379D088}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccesoDatos", "AccesoDatos\AccesoDatos.csproj", "{9655BBBB-A567-43AF-BE8F-0455F457FD78}"
 EndProject
