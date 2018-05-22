@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PracticaProfesionalVivarsan"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
+        Title="MainWindow" Height="374" Width="587">
+    <Grid Margin="0,0,0,-4">
         <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="140,110,0,0" VerticalAlignment="Top" Width="75"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="314,110,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
 
