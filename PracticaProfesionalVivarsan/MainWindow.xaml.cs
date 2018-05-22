@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using Entidad;
+using Logica;
+
 namespace PracticaProfesionalVivarsan
 {
     /// <summary>
@@ -23,6 +26,15 @@ namespace PracticaProfesionalVivarsan
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            Usuario usuario = new Usuario();
+            UsuarioLogica usuarioLogica = new UsuarioLogica();
+            usuarioLogica.obtenerUsuarios();
+
+
         }
     }
 }
