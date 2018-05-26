@@ -24,7 +24,23 @@ namespace Logica
                 usuario1.UsuarioGeneral = row["Usuario"].ToString();
                 usuario1.Tipo = int.Parse( row["Tipo"].ToString());
                 usuario1.Nombre = row["Nombre"].ToString();
-                usuario1.Contrasena = row["Contrasena"].ToString();
+                usuario1.Contrasena = row["Contraseña"].ToString();
+            }
+            return usuario1;
+        }
+
+        public Usuario seleccionarUsuario(String usuario, String contrasenna)
+        {
+            Usuario usuario1 = new Usuario();
+            DataSet ds = AccesoDatos.UsuarioDato.seleccionarUsuario(usuario, contrasenna);
+
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {
+                usuario1.Id = row["ID"].ToString();
+                usuario1.UsuarioGeneral = row["Usuario"].ToString();
+                usuario1.Tipo = int.Parse(row["Tipo"].ToString());
+                usuario1.Nombre = row["Nombre"].ToString();
+                usuario1.Contrasena = row["Contraseña"].ToString();
             }
             return usuario1;
         }

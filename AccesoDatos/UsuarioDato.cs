@@ -29,6 +29,21 @@ namespace AccesoDatos
 
         }
 
+        public static DataSet seleccionarUsuario(String usuario, String contrasenna)
+        {
+
+            Database db = DatabaseFactory.CreateDatabase("Default");
+
+            SqlCommand comando = new SqlCommand("SPR_INICIARSESION");
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@USUARIO", usuario);
+            comando.Parameters.AddWithValue("@CONTRASENA", contrasenna);
+
+            DataSet ds = db.ExecuteReader(comando, "usuario");
+            return ds;
+
+        }
+
 
 
 

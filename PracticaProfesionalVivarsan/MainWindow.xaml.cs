@@ -34,9 +34,41 @@ namespace PracticaProfesionalVivarsan
         private void button_Click(object sender, RoutedEventArgs e)
         {
             Usuario usuario = new Usuario();
-            UsuarioLogica usuarioLogica = new UsuarioLogica();
-            usuarioLogica.obtenerUsuarios();
+            string nombreUsuario;
+            string contrasena;
 
+            UsuarioLogica usuarioLogica = new UsuarioLogica();
+
+            if (txtUsuario.Text == "" || txtUsuario.Text == null)
+            {
+                MessageBox.Show("Debe ingresar el nombre de usuario.", "Error");
+            }
+            else
+            {
+                if (txtContrasenna.Password == "" || txtContrasenna.Password == null)
+                {
+                    MessageBox.Show("Debe ingresar la contraseña.","Error");
+                }
+                else
+                {
+                    nombreUsuario = txtUsuario.Text;
+                    contrasena = txtContrasenna.Password;
+                    usuario= usuarioLogica.seleccionarUsuario(nombreUsuario, contrasena);
+
+                    if (!nombreUsuario.Equals(usuario.UsuarioGeneral) || !contrasena.Equals(usuario.Contrasena))
+                    {
+                        MessageBox.Show("Nombre de usuario o contraseña son incorrectos.", "Advertencia");
+                    }
+                    else
+                    {
+                        //Principal prin = Principal();
+                        //prin.Show();
+
+                        //Quitar esto despues
+                        MessageBox.Show("Correcto.", "Advertencia");
+                    }
+                }
+            }           
 
         }
     }
