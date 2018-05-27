@@ -40,7 +40,7 @@ namespace Logica
                 usuario1.UsuarioGeneral = row["Usuario"].ToString();
                 usuario1.Tipo = int.Parse(row["Tipo"].ToString());
                 usuario1.Nombre = row["Nombre"].ToString();
-                usuario1.Contrasena = row["Contraseña"].ToString();
+                usuario1.Contrasena = row["Contrasena"].ToString();
             }
             return usuario1;
         }
