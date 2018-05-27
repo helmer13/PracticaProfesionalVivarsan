@@ -44,5 +44,22 @@ namespace AccesoDatos
         }
 
 
+        public static void InsertarActaulizarCliente(string id, string indentificacion, string nombre, string correo, string direccion, int telefono)
+        {
+            Database db = DatabaseFactory.CreateDatabase("Default");
+
+            SqlCommand comando = new SqlCommand("SPR_INSERTAR_ACTUALIZAR_CLIENTE");
+            comando.CommandType = CommandType.StoredProcedure;
+
+            comando.Parameters.AddWithValue("@ID", id);
+            comando.Parameters.AddWithValue("@INDENTIFICACION", indentificacion);
+            comando.Parameters.AddWithValue("@NOMBRE", nombre);
+            comando.Parameters.AddWithValue("@CORREO", correo);
+            comando.Parameters.AddWithValue("@DIRECCION", direccion);
+            comando.Parameters.AddWithValue("@TELEFONO", telefono);
+
+            db.ExecuteNonQuery(comando);
+        }
+
     }
 }

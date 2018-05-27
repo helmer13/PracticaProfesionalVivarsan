@@ -27,8 +27,11 @@ namespace PracticaProfesionalVivarsan
         {
             InitializeComponent();
 
-          //  Uri iconUri = new Uri("C:/Users/PC/Desktop/key_102281.ico", UriKind.RelativeOrAbsolute);
-           // this.Icon = BitmapFrame.Create(iconUri);
+            //  Uri iconUri = new Uri("C:/Users/PC/Desktop/key_102281.ico", UriKind.RelativeOrAbsolute);
+            // this.Icon = BitmapFrame.Create(iconUri);
+
+            frmCliente frmCliente = new frmCliente();
+            frmCliente.Show();
         }
 
         private void button_Click(object sender, RoutedEventArgs e)

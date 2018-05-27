@@ -16,13 +16,14 @@ namespace Logica
 
         public List< Cliente> obtenerClientes()
         {
-            Cliente Cliente = new Cliente();
+           
 
             DataSet ds = AccesoDatos.ClienteDato.seleccionarClienteTodo();
 
             List<Cliente> resultado = new List<Cliente>();
             foreach (DataRow row in ds.Tables[0].Rows)
             {
+                Cliente Cliente = new Cliente();
                 Cliente.Id = row["ID"].ToString();
                 Cliente.Indentificacion = row["Identificacion"].ToString();
                 Cliente.Nombre = row["Nombre"].ToString();
@@ -59,7 +60,10 @@ namespace Logica
             return Cliente;
         }
 
-
+        public void InsertarActialiarCliente(Cliente cliente)
+        {
+            AccesoDatos.ClienteDato.InsertarActaulizarCliente(cliente.Id, cliente.Indentificacion, cliente.Nombre, cliente.Correo, cliente.Direccion, cliente.Telefono);
+        }
 
     }
 }

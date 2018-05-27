@@ -5,8 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PracticaProfesionalVivarsan"
         mc:Ignorable="d"
-        Title="Mantenimiento Clientes" Background="White">
-    <Grid>
+        Title="Mantenimiento Clientes" Background="White" Loaded="Window_Loaded">
+    <Grid    >
+        <Label x:Name="label" Content="Identificacion" HorizontalAlignment="Left" Margin="48,71,0,0" VerticalAlignment="Top" Width="88"/>
+        <TextBox x:Name="txtIndentificacion" HorizontalAlignment="Left" Height="23" Margin="174,66,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label_Copy" Content="Nombre" HorizontalAlignment="Left" Margin="357,68,0,0" VerticalAlignment="Top" Width="88" RenderTransformOrigin="0.5,0.5"/>
+        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Height="23" Margin="483,71,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label_Copy1" Content="Correo" HorizontalAlignment="Left" Margin="48,145,0,0" VerticalAlignment="Top" Width="88"/>
+        <TextBox x:Name="txtCorreo" HorizontalAlignment="Left" Height="23" Margin="174,145,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label_Copy2" Content="Dirección" HorizontalAlignment="Left" Margin="357,153,0,0" VerticalAlignment="Top" Width="88"/>
+        <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Height="23" Margin="483,153,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label_Copy3" Content="Telefono" HorizontalAlignment="Left" Margin="48,206,0,0" VerticalAlignment="Top" Width="88"/>
+        <TextBox x:Name="txtTelefono" HorizontalAlignment="Left" Height="23" Margin="174,206,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <DataGrid x:Name="dataGrid" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="dataGrid_SelectionChanged" Margin="48,303,409,0" VerticalAlignment="Top" Height="172">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Indentificación" Binding="{Binding Indentificacion}" />
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" />
+                <DataGridTextColumn Header="Correo" Binding="{Binding Correo}" />
+                <DataGridTextColumn Header="Dirección" Binding="{Binding Direccion}" />
+                <DataGridTextColumn Header="Telefono" Binding="{Binding Telefono}" />
+            </DataGrid.Columns>
+            
+        </DataGrid>
+        <Button x:Name="btnGuardar"  Content="Guardar" HorizontalAlignment="Left" Margin="357,213,0,0" VerticalAlignment="Top" Width="76" Height="29" Click="btnGuardar_Click"/>
+        <TextBox x:Name="txtid" Visibility="Collapsed" HorizontalAlignment="Left" Height="23" Margin="56,43,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnNuevo" Content="Nuevo" HorizontalAlignment="Left" Margin="465,213,0,0" VerticalAlignment="Top" Width="78" Height="29" Click="btnNuevo_Click"/>
+
 
     </Grid>
 </Window>
