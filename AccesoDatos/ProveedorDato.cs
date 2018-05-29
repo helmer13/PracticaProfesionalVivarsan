@@ -53,7 +53,7 @@ namespace AccesoDatos
             comando.CommandType = CommandType.StoredProcedure;
 
             comando.Parameters.AddWithValue("@ID", id);
-            comando.Parameters.AddWithValue("@NOMBREPROVEEDOR", nombreContacto);
+            comando.Parameters.AddWithValue("@NOMBREPROVEEDOR", nombreProveedor);
             comando.Parameters.AddWithValue("@NOMBRECONTACTO", nombreContacto);
             comando.Parameters.AddWithValue("@CORREO", correo);
             comando.Parameters.AddWithValue("@TELEFONO", telefono);
