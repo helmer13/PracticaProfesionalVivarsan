@@ -32,7 +32,7 @@ namespace PracticaProfesionalVivarsan
 
             //frmCliente frmCliente = new frmCliente();
             //frmCliente.Show();
-            frmProveedor frmProveedor = new frmProveedor();
+            frmProducto frmProveedor = new frmProducto();
             frmProveedor.Show();
         }
 
@@ -66,7 +66,7 @@ namespace PracticaProfesionalVivarsan
                     }
                     else
                     {
-                        //Principal prin = Principal();
+                        //Principal prin = new Principal();
                         //prin.Show();
 
                         //Quitar esto despues
