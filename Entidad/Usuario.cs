@@ -12,7 +12,7 @@ namespace Entidad
         string nombre;
         string usuarioGeneral;
         string contrasena;
-        int tipo;
+        string tipo;
 
         public string Id
         {
@@ -55,7 +55,7 @@ namespace Entidad
             }
         }
 
-        public int Tipo
+        public string Tipo
         {
             get
             {
