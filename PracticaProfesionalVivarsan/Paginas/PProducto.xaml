@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:PracticaProfesionalVivarsan.Paginas"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-      Title="PProducto" Width="1360" Height="670" Loaded="Page_Loaded" Background="#1186C4">
+      Title="PProducto" Width="1360" Height="670" Loaded="Page_Loaded" Background="#204C74">
 
     <Grid Width="1000" Margin="180,30,180,94" Background="#EBEBEB">
         <Grid.ColumnDefinitions>
