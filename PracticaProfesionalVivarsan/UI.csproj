@@ -55,7 +55,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Paginas\PProducto.xaml.cs">
+      <DependentUpon>PProducto.xaml</DependentUpon>
+    </Compile>
     <Page Include="frmCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="frmMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -82,6 +89,9 @@
     <Compile Include="frmCliente.xaml.cs">
       <DependentUpon>frmCliente.xaml</DependentUpon>
     </Compile>
+    <Compile Include="frmMenu.xaml.cs">
+      <DependentUpon>frmMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="frmProducto.xaml.cs">
       <DependentUpon>frmProducto.xaml</DependentUpon>
     </Compile>
@@ -95,6 +105,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Paginas\PProducto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

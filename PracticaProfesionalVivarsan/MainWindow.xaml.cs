@@ -32,7 +32,7 @@ namespace PracticaProfesionalVivarsan
 
             //frmCliente frmCliente = new frmCliente();
             //frmCliente.Show();
-            frmUsuario frmProveedor = new frmUsuario();
+            frmMenu frmProveedor = new frmMenu();
             frmProveedor.Show();
         }
 

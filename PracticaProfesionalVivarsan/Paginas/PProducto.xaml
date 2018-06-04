@@ -1,0 +1,54 @@
+﻿<Page x:Class="PracticaProfesionalVivarsan.Paginas.PProducto"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PracticaProfesionalVivarsan.Paginas"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="PProducto" Width="1360" Height="670" Loaded="Page_Loaded" Background="#1186C4">
+
+    <Grid Width="1000" Margin="180,30,180,94" Background="#EBEBEB">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="100"/>
+            <RowDefinition  Height="100"/>
+            <RowDefinition  Height="100"/>
+            <RowDefinition  Height="100"/>
+        </Grid.RowDefinitions>
+
+        <Label x:Name="label6" Grid.Column="0" Content="Código" HorizontalAlignment="Stretch"  VerticalAlignment="Center" Width="88"/>
+        <TextBox x:Name="txtCodigo" Grid.Column="1" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="23" TextWrapping="Wrap" Text="" Width="120"/>
+        <Label x:Name="label" Grid.Column="2" Content="Nombre" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="88"/>
+        <TextBox x:Name="txtNombre" Grid.Column="3" HorizontalAlignment="Center"  VerticalAlignment="Center" TextWrapping="Wrap" Text="" Height="23" Width="120"/>
+        <Label x:Name="label_Copy" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center"  VerticalAlignment="Center"  Content="Marca"  Width="88" />
+        <TextBox x:Name="txtMarca"  Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="23"  TextWrapping="Wrap" Text="" Width="120"/>
+        <Label x:Name="label_Copy1" Content="Precio Compra" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="23"  Width="88"/>
+        <TextBox x:Name="txtPrecioCompra" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="23"  TextWrapping="Wrap" Text=""  Width="120" PreviewTextInput="txtPrecioCompra_PreviewTextInput"/>
+        <Label x:Name="label_Copy2" Content="Precio Venta" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center"  VerticalAlignment="Center"  Width="88"/>
+        <TextBox x:Name="txtPrecioVenta" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center"  VerticalAlignment="Center"  Height="23"  TextWrapping="Wrap" Text=""  Width="120" PreviewTextInput="txtPrecioVenta_PreviewTextInput"/>
+
+        <!--botones-->
+        <Button x:Name="btnGuardar"  Content="Guardar"  Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center"  VerticalAlignment="Center"   Width="76" Height="29" Click="btnGuardar_Click"/>
+        <TextBox x:Name="txtid" Visibility="Collapsed"  Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center"  VerticalAlignment="Center"   Height="23" TextWrapping="Wrap" Text="" Width="120"/>
+        <Button x:Name="btnNuevo" Content="Nuevo"  Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center"  VerticalAlignment="Center"  Width="78" Height="29" Click="btnNuevo_Click"/>
+
+        <!--datagrid-->
+
+        <DataGrid x:Name="dataGridProductos" Grid.Row="3" Grid.ColumnSpan="4" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="dataGridProductos_SelectionChanged"  VerticalAlignment="Top" Height="180" Width="350">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Código" Binding="{Binding IdProducto}" />
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" />
+                <DataGridTextColumn Header="Marca" Binding="{Binding Marca}" />
+                <DataGridTextColumn Header="Precio Compra" Binding="{Binding PrecioCompra}" />
+                <DataGridTextColumn Header="Precio Venta" Binding="{Binding PrecioVenta}" />
+            </DataGrid.Columns>
+
+        </DataGrid>
+    </Grid>
+</Page>
