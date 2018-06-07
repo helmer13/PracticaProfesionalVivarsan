@@ -60,8 +60,9 @@ namespace PracticaProfesionalVivarsan
             usu.Tipo = cboTipo.Text;
 
             logica.InsertarActualizarUsuario(usu);
-            MessageBox.Show("Correcto.", "Advertencia");
             Refrescar();
+            MessageBox.Show("Correcto.", "Advertencia");
+          
         }
 
         private void btnNuevo_Click(object sender, RoutedEventArgs e)

@@ -12,7 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using Entidad;
+using Logica;
 namespace PracticaProfesionalVivarsan.Paginas
 {
     /// <summary>
@@ -23,6 +24,103 @@ namespace PracticaProfesionalVivarsan.Paginas
         public PCliente()
         {
             InitializeComponent();
+        }
+
+        private void btnGuardar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Cliente cliente = new Cliente();
+                ClienteLogica logica = new ClienteLogica();
+
+                cliente.Id = txtid.Text;
+                if (cliente.Id == "")
+                {
+                    cliente.Id = Guid.NewGuid().ToString();
+                }
+
+
+                //  cliente.Id = Guid.NewGuid().ToString();
+                cliente.Indentificacion = txtIndentificacion.Text;
+                cliente.Nombre = txtNombre.Text;
+                cliente.Direccion = txtDireccion.Text;
+                cliente.Correo = txtCorreo.Text;
+                cliente.Telefono = int.Parse(txtTelefono.Text);
+
+                logica.InsertarActialiarCliente(cliente);
+                Refrescar();
+                MessageBox.Show("Correcto.", "Advertencia");
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+           
+          
+        }
+
+        private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                Cliente c = (Cliente)dataGrid.SelectedCells[0].Item;
+                txtCorreo.Text = c.Correo;
+                txtid.Text = c.Id;
+                txtDireccion.Text = c.Direccion;
+                txtIndentificacion.Text = c.Indentificacion;
+                txtNombre.Text = c.Nombre;
+                txtTelefono.Text = c.Telefono.ToString();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+           
+
+        }
+
+        private void Refrescar()
+        {
+            try
+            {
+                ClienteLogica logica = new ClienteLogica();
+                List<Cliente> lista = new List<Cliente>();
+                lista = logica.obtenerClientes();
+                dataGrid.ItemsSource = lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+           
+        }
+
+        private void btnNuevo_Click(object sender, RoutedEventArgs e)
+        {
+
+            txtCorreo.Text = "";
+            txtid.Text = "";
+            txtDireccion.Text = "";
+            txtIndentificacion.Text = "";
+            txtNombre.Text = "";
+            txtTelefono.Text = "";
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Refrescar();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+          
         }
     }
 }

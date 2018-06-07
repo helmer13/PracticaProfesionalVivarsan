@@ -52,7 +52,7 @@ namespace AccesoDatos
 
             comando.Parameters.AddWithValue("@ID", id);
             comando.Parameters.AddWithValue("@NOMBRE", nombre);
-            comando.Parameters.AddWithValue("@USUARIOGENERAL", usuarioGeneral);
+            comando.Parameters.AddWithValue("@USUARIO", usuarioGeneral);
             comando.Parameters.AddWithValue("@CONTRASENA", contrasena);
             comando.Parameters.AddWithValue("@TIPO", tipo);
 
