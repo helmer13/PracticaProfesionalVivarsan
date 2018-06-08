@@ -32,49 +32,56 @@ namespace PracticaProfesionalVivarsan
 
             //frmCliente frmCliente = new frmCliente();
             //frmCliente.Show();
-            frmMenu frmProveedor = new frmMenu();
-            frmProveedor.Show();
+         //   frmMenu frmProveedor = new frmMenu();
+           // frmProveedor.Show();
         }
 
-        //private void button_Click(object sender, RoutedEventArgs e)
-        //{
-        //    Usuario usuario = new Usuario();
-        //    string nombreUsuario;
-        //    string contrasena;
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            Usuario usuario = new Usuario();
+            string nombreUsuario;
+            string contrasena;
 
-        //    UsuarioLogica usuarioLogica = new UsuarioLogica();
+            UsuarioLogica usuarioLogica = new UsuarioLogica();
 
-        //    if (txtUsuario.Text == "" || txtUsuario.Text == null)
-        //    {
-        //        MessageBox.Show("Debe ingresar el nombre de usuario.", "Error");
-        //    }
-        //    else
-        //    {
-        //        if (txtContrasenna.Password == "" || txtContrasenna.Password == null)
-        //        {
-        //            MessageBox.Show("Debe ingresar la contraseña.","Error");
-        //        }
-        //        else
-        //        {
-        //            nombreUsuario = txtUsuario.Text;
-        //            contrasena = txtContrasenna.Password;
-        //            usuario= usuarioLogica.seleccionarUsuario(nombreUsuario, contrasena);
+            if (txtUsuario.Text == "" || txtUsuario.Text == null)
+            {
+                txtTextBlockDialogo.Text = "Debe ingresar el nombre de usuario";
+                dialogo.IsOpen = true;
+             //   MessageBox.Show("Debe ingresar el nombre de usuario.", "Error");
+            }
+            else
+            {
+                if (txtContrasena.Password == "" || txtContrasena.Password == null)
+                {
+                    txtTextBlockDialogo.Text = "Debe ingresar la contraseña";
+                    dialogo.IsOpen = true;
+                  //  MessageBox.Show("Debe ingresar la contraseña.", "Error");
+                }
+                else
+                {
+                    nombreUsuario = txtUsuario.Text;
+                    contrasena = txtContrasena.Password;
+                    usuario = usuarioLogica.seleccionarUsuario(nombreUsuario, contrasena);
 
-        //            if (!nombreUsuario.Equals(usuario.UsuarioGeneral) || !contrasena.Equals(usuario.Contrasena))
-        //            {
-        //                MessageBox.Show("Nombre de usuario o contraseña son incorrectos.", "Advertencia");
-        //            }
-        //            else
-        //            {
-        //                //Principal prin = new Principal();
-        //                //prin.Show();
+                    if (!nombreUsuario.Equals(usuario.UsuarioGeneral) || !contrasena.Equals(usuario.Contrasena))
+                    {
+                        txtTextBlockDialogo.Text = "Nombre de usuario o contraseña son incorrectos";
+                        dialogo.IsOpen = true;
+                        //  MessageBox.Show("Nombre de usuario o contraseña son incorrectos.", "Advertencia");
+                    }
+                    else
+                    {
+                        frmMenu prin = new frmMenu();
+                        prin.Show();
+                        this.Hide();
+                        txtTextBlockDialogo.Text = "Iniciaste correctamente";
+                        dialogo.IsOpen = true;
+                        // MessageBox.Show("Correcto.", "Advertencia");
+                    }
+                }
+            }
 
-        //                //Quitar esto despues
-        //                MessageBox.Show("Correcto.", "Advertencia");
-        //            }
-        //        }
-        //    }           
-
-        //}
+        }
     }
 }
