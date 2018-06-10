@@ -76,7 +76,7 @@ namespace PracticaProfesionalVivarsan
                         prin.Show();
                         this.Hide();
                         txtTextBlockDialogo.Text = "Iniciaste correctamente";
-                        dialogo.IsOpen = true;
+                        dialogo.IsOpen = false;
                         // MessageBox.Show("Correcto.", "Advertencia");
                     }
                 }
