@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PracticaProfesionalVivarsan"
        mc:Ignorable="d" Height="768" Width="1366" ResizeMode="NoResize" 
-        WindowStartupLocation="CenterScreen" WindowStyle="ThreeDBorderWindow" WindowState="Maximized" >
+        WindowStartupLocation="CenterScreen" WindowStyle="ThreeDBorderWindow" WindowState="Maximized" Loaded="Window_Loaded">
     <Window.Resources>
         <Style x:Key="{x:Type ContextMenu}" TargetType="{x:Type ContextMenu}">
             <Setter Property="OverridesDefaultStyle" Value="True"/>
@@ -24,7 +24,7 @@
     
     <StackPanel  Orientation="Vertical" Background="WhiteSmoke">
 
-        <Grid Height="100"  VerticalAlignment="Center" Background="#C1CCD1" >
+        <Grid Height="100"  VerticalAlignment="Center" Background="#35A3D3" >
 
             <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="10,10">
                 <Button Content="Mantenimientos" Height="50" HorizontalAlignment="Center"  Name="button1" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" Width="150" Click="button1_Click" >

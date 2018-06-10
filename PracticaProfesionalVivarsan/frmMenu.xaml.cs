@@ -53,5 +53,10 @@ namespace PracticaProfesionalVivarsan
         {
             frame.Content = new PUsuario();
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            frame.Content = new PMenuLogo();
+        }
     }
 }

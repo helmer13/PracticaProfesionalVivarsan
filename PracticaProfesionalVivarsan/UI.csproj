@@ -66,6 +66,9 @@
     <Compile Include="Paginas\PCliente.xaml.cs">
       <DependentUpon>PCliente.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Paginas\PMenuLogo.xaml.cs">
+      <DependentUpon>PMenuLogo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Paginas\PProducto.xaml.cs">
       <DependentUpon>PProducto.xaml</DependentUpon>
     </Compile>
@@ -117,6 +120,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Paginas\PCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Paginas\PMenuLogo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -176,6 +183,9 @@
       <Project>{2b3fb797-6373-41fb-8cc4-c795c48c52bb}</Project>
       <Name>Logica</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="imagenes\Background Transparent.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
