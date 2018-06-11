@@ -18,6 +18,7 @@ namespace Logica
            
             DataSet ds = AccesoDatos.UsuarioDato.seleccionarUsuarios();
             List<Usuario> resultado = new List<Usuario>();
+            EmpresaLogica empresaLogica = new EmpresaLogica();
             foreach (DataRow row in ds.Tables[0].Rows)
             {
                 Usuario usuario1 = new Usuario();
@@ -26,7 +27,7 @@ namespace Logica
                 usuario1.Tipo = row["Tipo"].ToString();
                 usuario1.Nombre = row["Nombre"].ToString();
                 usuario1.Contrasena = row["Contrasena"].ToString();
-
+                usuario1.Empresa = empresaLogica.obtenerEmpresa(Convert.ToInt32(row["IDEmpresa"]));
                 resultado.Add(usuario1);
             }
             return resultado;
@@ -36,7 +37,7 @@ namespace Logica
         {
             Usuario usuario1 = new Usuario();
             DataSet ds = AccesoDatos.UsuarioDato.seleccionarUsuario(usuario, contrasenna);
-
+            EmpresaLogica empresaLogica = new EmpresaLogica();
             foreach (DataRow row in ds.Tables[0].Rows)
             {
                 usuario1.Id = row["ID"].ToString();
@@ -44,12 +45,13 @@ namespace Logica
                 usuario1.Tipo = row["Tipo"].ToString();
                 usuario1.Nombre = row["Nombre"].ToString();
                 usuario1.Contrasena = row["Contrasena"].ToString();
+                usuario1.Empresa = empresaLogica.obtenerEmpresa(Convert.ToInt32(row["IDEmpresa"]));
             }
             return usuario1;
         }
         public void InsertarActualizarUsuario(Usuario usu)
         {
-            AccesoDatos.UsuarioDato.InsertarActualizarUsuario(usu.Id, usu.Nombre, usu.UsuarioGeneral, usu.Contrasena, usu.Tipo);
+            AccesoDatos.UsuarioDato.InsertarActualizarUsuario(usu.Id, usu.Nombre, usu.UsuarioGeneral, usu.Contrasena, usu.Tipo,usu.Empresa.IdEmpresa);
         }
     }
 }

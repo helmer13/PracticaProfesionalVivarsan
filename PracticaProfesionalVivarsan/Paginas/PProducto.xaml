@@ -53,7 +53,7 @@
 
         <!--datagrid-->
 
-        <DataGrid x:Name="dataGridProductos" Margin="199,55,10,-89" Grid.Row="3" Grid.ColumnSpan="4" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="dataGridProductos_SelectionChanged"  VerticalAlignment="Top" Height="180" Width="490">
+        <DataGrid x:Name="dataGridProductos" Margin="199,55,10,-89" Grid.Row="3" Grid.ColumnSpan="4" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="dataGridProductos_SelectionChanged"  VerticalAlignment="Top" Height="180" Width="500">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Código" Binding="{Binding IdProducto}" />
                 <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" />

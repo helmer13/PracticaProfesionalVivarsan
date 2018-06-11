@@ -13,7 +13,7 @@ namespace Entidad
         string usuarioGeneral;
         string contrasena;
         string tipo;
-
+        Empresa empresa;
         public string Id
         {
             get
@@ -78,6 +78,19 @@ namespace Entidad
             set
             {
                 usuarioGeneral = value;
+            }
+        }
+
+        public Empresa Empresa
+        {
+            get
+            {
+                return empresa;
+            }
+
+            set
+            {
+                empresa = value;
             }
         }
     }

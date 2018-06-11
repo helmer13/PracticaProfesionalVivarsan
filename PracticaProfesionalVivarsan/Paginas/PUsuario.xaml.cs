@@ -45,7 +45,7 @@ namespace PracticaProfesionalVivarsan.Paginas
         {
             Usuario usu = new Usuario();
             UsuarioLogica logica = new UsuarioLogica();
-
+            Usuario usuarioGlobal = new Usuario();
             //usu.Id = txtid.Text;
             //if (usu.Id == "")
             //{
@@ -60,6 +60,9 @@ namespace PracticaProfesionalVivarsan.Paginas
             usu.Contrasena = txtContrasena.Password;
             usu.Tipo = cboTipo.Text;
 
+            //usuarioLogueado
+            usuarioGlobal = (Usuario)App.Current.Properties["usuarioSesion"];
+            usu.Empresa = usuarioGlobal.Empresa;
             logica.InsertarActualizarUsuario(usu);
             Refrescar();
             txtTextBlockDialogo.Text = "Registro procesado";

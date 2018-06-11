@@ -21,14 +21,35 @@ namespace AccesoDatos
 
             SqlCommand comando = new SqlCommand("SPR_VISTA_USUARIOS");
             comando.CommandType = CommandType.StoredProcedure;
-        //    comando.Parameters.AddWithValue("@TIPOCONSULTA", "TODO");
-            
+           comando.Parameters.AddWithValue("@TIPOCONSULTA", "TODO");
+            comando.Parameters.AddWithValue("@IDUSUARIO", DBNull.Value);
 
             DataSet ds = db.ExecuteReader(comando, "Usuario");
             return ds;
 
         }
 
+        public static DataSet seleccionarUsuario(string idUsuario)
+        {
+
+            Database db = DatabaseFactory.CreateDatabase("Default");
+
+            SqlCommand comando = new SqlCommand("SPR_VISTA_USUARIOS");
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@TIPOCONSULTA", "USUARIO");
+            comando.Parameters.AddWithValue("@IDUSUARIO", idUsuario);
+
+            DataSet ds = db.ExecuteReader(comando, "Usuario");
+            return ds;
+
+        }
+
+        /// <summary>
+        /// login
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <param name="contrasenna"></param>
+        /// <returns></returns>
         public static DataSet seleccionarUsuario(String usuario, String contrasenna)
         {
 
@@ -43,7 +64,7 @@ namespace AccesoDatos
             return ds;
 
         }
-        public static void InsertarActualizarUsuario(string id, string nombre, string usuarioGeneral, string contrasena, string tipo)
+        public static void InsertarActualizarUsuario(string id, string nombre, string usuarioGeneral, string contrasena, string tipo,int idEmpresa)
         {
             Database db = DatabaseFactory.CreateDatabase("Default");
 
@@ -55,6 +76,7 @@ namespace AccesoDatos
             comando.Parameters.AddWithValue("@USUARIO", usuarioGeneral);
             comando.Parameters.AddWithValue("@CONTRASENA", contrasena);
             comando.Parameters.AddWithValue("@TIPO", tipo);
+            comando.Parameters.AddWithValue("@IDEMPRESA", Convert.ToInt32( idEmpresa));
 
             db.ExecuteNonQuery(comando);
         }

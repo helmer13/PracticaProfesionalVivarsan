@@ -63,6 +63,8 @@ namespace PracticaProfesionalVivarsan
                     nombreUsuario = txtUsuario.Text;
                     contrasena = txtContrasena.Password;
                     usuario = usuarioLogica.seleccionarUsuario(nombreUsuario, contrasena);
+                    //variable local
+                    App.Current.Properties["usuarioSesion"] = usuario;
 
                     if (!nombreUsuario.Equals(usuario.UsuarioGeneral) || !contrasena.Equals(usuario.Contrasena))
                     {
