@@ -61,8 +61,9 @@ namespace PracticaProfesionalVivarsan.Paginas
             usu.Tipo = cboTipo.Text;
 
             logica.InsertarActualizarUsuario(usu);
-            MessageBox.Show("Correcto.", "Advertencia");
             Refrescar();
+            txtTextBlockDialogo.Text = "Registro procesado";
+            dialogo.IsOpen = true;
         }
 
         private void btnNuevo_Click(object sender, RoutedEventArgs e)

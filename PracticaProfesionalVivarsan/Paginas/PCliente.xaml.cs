@@ -49,7 +49,8 @@ namespace PracticaProfesionalVivarsan.Paginas
 
                 logica.InsertarActialiarCliente(cliente);
                 Refrescar();
-                MessageBox.Show("Correcto.", "Advertencia");
+                txtTextBlockDialogo.Text = "Registro procesado";
+                dialogo.IsOpen = true;
             }
             catch (Exception ex)
             {

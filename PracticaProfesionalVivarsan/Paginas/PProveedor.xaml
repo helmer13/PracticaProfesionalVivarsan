@@ -1,4 +1,9 @@
 ﻿<Page x:Class="PracticaProfesionalVivarsan.Paginas.PProveedor"
+       TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,9 +11,9 @@
       xmlns:local="clr-namespace:PracticaProfesionalVivarsan.Paginas"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-     Title="PProducto" Width="1360" Height="670" Loaded="Page_Loaded" Background="#204C74">
+     Title="PProducto" Width="1360" Height="670" Loaded="Page_Loaded" Background="#F1F8FB">
 
-    <Grid Width="1000" Margin="180,30,180,94" Background="#EBEBEB">
+    <Grid Width="1000" Margin="180,30,180,94" Background="#E4ECF0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="200"/>
@@ -22,24 +27,23 @@
             <RowDefinition  Height="100"/>
         </Grid.RowDefinitions>
 
-        <Label x:Name="label6" Grid.Column="0" Content="Nombre proveedor" HorizontalAlignment="Stretch"  VerticalAlignment="Center" Margin="56,38,33,37"/>
-        <TextBox x:Name="txtNombreProveedor" Grid.Column="1" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="23" TextWrapping="Wrap" Text="" Width="120"/>
-        <Label x:Name="label" Grid.Column="2" Content="Nombre contacto" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="103" Margin="56,38,42,37"/>
-        <TextBox x:Name="txtNombreContacto" Grid.Column="3" HorizontalAlignment="Center"  VerticalAlignment="Center" TextWrapping="Wrap" Text="" Height="23" Width="120"/>
-        <Label x:Name="label_Copy" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center"  VerticalAlignment="Center"  Content="Correo"  Width="56" Margin="56,37,89,38" />
-        <TextBox x:Name="txtCorreo"  Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="23"  TextWrapping="Wrap" Text="" Width="120"/>
-        <Label x:Name="label_Copy1" Content="Teléfono" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="23"  Width="88"/>
-        <TextBox x:Name="txtTelefono" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="23"  TextWrapping="Wrap" Text=""  Width="120" />
+        <TextBox x:Name="txtNombreProveedor" Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Nombre proveedor" materialDesign:HintAssist.IsFloating="True"/>
+
+        <TextBox x:Name="txtNombreContacto" Grid.Column="3" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Nombre contacto" materialDesign:HintAssist.IsFloating="True"/>
+
+        <TextBox x:Name="txtCorreo"  Grid.Row="1" Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Correo" materialDesign:HintAssist.IsFloating="True"/>
+
+        <TextBox x:Name="txtTelefono" Grid.Row="1" Grid.Column="3" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Teléfono" materialDesign:HintAssist.IsFloating="True" />
        
 
         <!--botones-->
-        <Button x:Name="btnGuardar"  Content="Guardar"  Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center"  VerticalAlignment="Center"   Width="76" Height="29" Click="btnGuardar_Click"/>
+        <Button x:Name="btnGuardar"  Content="Guardar"  Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left"  VerticalAlignment="Center"   Width="90" Height="29" Click="btnGuardar_Click"/>
         <TextBox x:Name="txtID" Visibility="Collapsed"  Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center"  VerticalAlignment="Center"   Height="23" TextWrapping="Wrap" Text="" Width="120"/>
-        <Button x:Name="btnNuevo" Content="Nuevo"  Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center"  VerticalAlignment="Center"  Width="78" Height="29" Click="btnNuevo_Click"/>
+        <Button x:Name="btnNuevo" Content="Nuevo"  Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center"  VerticalAlignment="Center"  Width="78" Height="29" Margin="110 0 0 0" Click="btnNuevo_Click"/>
 
         <!--datagrid-->
 
-        <DataGrid x:Name="dataGrid" Grid.Row="3" Grid.ColumnSpan="4" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="dataGrid_SelectionChanged"  VerticalAlignment="Top" Height="180" Width="350">
+        <DataGrid x:Name="dataGrid" Margin="199,0,10,-89" Grid.Row="3" Grid.ColumnSpan="4" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="dataGrid_SelectionChanged"  VerticalAlignment="Top" Height="180" Width="440">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Nombre Proveedor" Binding="{Binding NombreProveedor}" />
                 <DataGridTextColumn Header="Nombre Conacto" Binding="{Binding NombreContacto}" />
@@ -48,5 +52,16 @@
             </DataGrid.Columns>
 
         </DataGrid>
+
+        <materialDesign:DialogHost IsOpen="False" x:Name="dialogo" Grid.ColumnSpan="4" Grid.RowSpan="4" Margin="0,0,-186,-132">
+            <materialDesign:DialogHost.DialogContent>
+                <StackPanel Margin="15" Orientation="Vertical">
+                    <TextBlock x:Name="txtTextBlockDialogo" Text="Registro procesado"/>
+                    <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandTarget="{Binding ElementName=dialogo}" 
+                        Style="{DynamicResource MaterialDesignFlatButton}" Content="Aceptar" Margin="0 10 0 0"/>
+                </StackPanel>
+            </materialDesign:DialogHost.DialogContent>
+        </materialDesign:DialogHost>
+
     </Grid>
 </Page>

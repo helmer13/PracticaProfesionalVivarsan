@@ -55,13 +55,13 @@ namespace PracticaProfesionalVivarsan.Paginas
                 prod.IdProducto = txtCodigo.Text;
                 prod.Nombre = txtNombre.Text;
                 prod.Marca = txtMarca.Text;
-                prod.PrecioCompra = Convert.ToDecimal(txtPrecioCompra.Text);
+                prod.PrecioCompra = 0; // Convert.ToDecimal(txtPrecioCompra.Text);
                 prod.PrecioVenta = Convert.ToDecimal(txtPrecioVenta.Text);
 
                 logica.InsertarActialiarProducto(prod);
                 Refrescar();
-                MessageBox.Show("Correcto.", "Advertencia");
-               
+                txtTextBlockDialogo.Text = "Registro procesado";
+                dialogo.IsOpen = true;
             }
             catch (Exception ex)
             {
