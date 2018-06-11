@@ -25,7 +25,7 @@
             <RowDefinition  Height="100"/>
             <RowDefinition  Height="100"/>
             <RowDefinition  Height="100"/>
-            <RowDefinition  Height="100"/>
+            <RowDefinition  Height="200"/>
         </Grid.RowDefinitions>
 
  
@@ -33,21 +33,30 @@
 
         <TextBox x:Name="txtNombre" Grid.Column="3" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Nombre" materialDesign:HintAssist.IsFloating="True"/>
 
-        <TextBox x:Name="txtMarca"  Grid.Row="1" Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Marca" materialDesign:HintAssist.IsFloating="True"/>
-       
-        <TextBox x:Name="txtPrecioCompra" Grid.Row="1" IsReadOnly="True" Grid.Column="3" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Precio compra" materialDesign:HintAssist.IsFloating="True" PreviewTextInput="txtPrecioCompra_PreviewTextInput"/>
+        <!--<TextBox x:Name="txtMarca"  Grid.Row="1" Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Marca" materialDesign:HintAssist.IsFloating="True"/>-->
+        <ComboBox x:Name="cboMarca" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="200" Height="50" materialDesign:HintAssist.Hint="Marca" materialDesign:HintAssist.IsFloating="True" >
+            <ComboBoxItem IsSelected="True">Administrador</ComboBoxItem>
+            <ComboBoxItem >Asistente</ComboBoxItem>
+        </ComboBox>
+
+        <ComboBox x:Name="cboModelo" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="200" Height="50" materialDesign:HintAssist.Hint="Modelo" materialDesign:HintAssist.IsFloating="True" >
+            <ComboBoxItem IsSelected="True">Administrador</ComboBoxItem>
+            <ComboBoxItem >Asistente</ComboBoxItem>
+        </ComboBox>
+
+        <TextBox x:Name="txtPrecioCompra" Grid.Row="2" IsReadOnly="True" Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Precio compra" materialDesign:HintAssist.IsFloating="True" PreviewTextInput="txtPrecioCompra_PreviewTextInput"/>
      
 
-        <TextBox x:Name="txtPrecioVenta" Grid.Row="2" Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Precio venta" materialDesign:HintAssist.IsFloating="True" PreviewTextInput="txtPrecioVenta_PreviewTextInput"/>
+        <TextBox x:Name="txtPrecioVenta" Grid.Row="2" Grid.Column="3" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Precio venta" materialDesign:HintAssist.IsFloating="True" PreviewTextInput="txtPrecioVenta_PreviewTextInput"/>
 
         <!--botones-->
-        <Button x:Name="btnGuardar"  Content="Guardar"  Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left"  VerticalAlignment="Center"   Width="90" Height="29" Click="btnGuardar_Click"/>
+        <Button x:Name="btnGuardar"  Content="Guardar"  Grid.Row="3" Grid.Column="3" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="0 0 0 160"   Width="90" Height="29" Click="btnGuardar_Click"/>
         <TextBox x:Name="txtid" Visibility="Collapsed"  Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center"  VerticalAlignment="Center"   Height="23" TextWrapping="Wrap" Text="" Width="120"/>
-        <Button x:Name="btnNuevo" Content="Nuevo"  Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center"  VerticalAlignment="Center"  Width="78" Height="29" Click="btnNuevo_Click" Margin="100 0 0 0"/>
+        <Button x:Name="btnNuevo" Content="Nuevo"  Grid.Row="3" Grid.Column="3" HorizontalAlignment="Center"  VerticalAlignment="Center"  Width="78" Height="29" Click="btnNuevo_Click" Margin="100 0 0 160"/>
 
         <!--datagrid-->
 
-        <DataGrid x:Name="dataGridProductos" Margin="199,0,10,-89" Grid.Row="3" Grid.ColumnSpan="4" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="dataGridProductos_SelectionChanged"  VerticalAlignment="Top" Height="180" Width="490">
+        <DataGrid x:Name="dataGridProductos" Margin="199,55,10,-89" Grid.Row="3" Grid.ColumnSpan="4" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="dataGridProductos_SelectionChanged"  VerticalAlignment="Top" Height="180" Width="490">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Código" Binding="{Binding IdProducto}" />
                 <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" />
