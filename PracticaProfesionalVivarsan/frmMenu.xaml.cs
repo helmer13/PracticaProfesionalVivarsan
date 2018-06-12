@@ -73,5 +73,10 @@ namespace PracticaProfesionalVivarsan
         {
             frame.Content = new PModelo();
         }
+
+        private void ProcesoCompras_Click(object sender, RoutedEventArgs e)
+        {
+            frame.Content = new PCompraFacturacion();
+        }
     }
 }

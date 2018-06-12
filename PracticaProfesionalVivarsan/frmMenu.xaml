@@ -40,7 +40,17 @@
                         </ContextMenu>
                     </Button.ContextMenu>
                 </Button>
-                <Button Content="Reportes" Height="50" HorizontalAlignment="Center"  Name="btn2" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" Width="150" Click="button1_Click" >
+                <Button Content="Procesos" Height="50" HorizontalAlignment="Center"  Name="btn2" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" Width="150" Click="button1_Click" >
+
+                    <Button.ContextMenu>
+                        <ContextMenu >
+                            <MenuItem Name="ProcesoCompras" Foreground="Snow" Header="Compras" Click="ProcesoCompras_Click"/>
+                            <MenuItem Foreground="Snow" Header="Ventas"/>
+                            <MenuItem Foreground="Snow" Header="Gastos"/>
+                        </ContextMenu>
+                    </Button.ContextMenu>
+                </Button>
+                <Button Content="Reportes" Height="50" HorizontalAlignment="Center"  Name="btn3" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" Width="150" Click="button1_Click" >
 
                     <Button.ContextMenu>
                         <ContextMenu >
