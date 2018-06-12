@@ -9,7 +9,7 @@
 
     <StackPanel  Orientation="Vertical" Background="WhiteSmoke">
 
-        <Grid Height="auto"  VerticalAlignment="Center" Background="#BEAFAF" >
+            <Grid Height="auto"  VerticalAlignment="Center" Background="#BEAFAF" >
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="190"></ColumnDefinition>
@@ -107,10 +107,12 @@
             </ListBox>
 
         </Grid>
+
         <!--segundo panel-->
-        <Grid Height="670">
+        <Grid Height="670" >
             <Frame Content="" Height="670" Width="1360"  HorizontalAlignment="Left"  VerticalAlignment="Top" Source="/PracticaProfesionalVivarsan;component/Paginas/PProducto.xaml" />
 
         </Grid>
+
     </StackPanel>
 </Window>
