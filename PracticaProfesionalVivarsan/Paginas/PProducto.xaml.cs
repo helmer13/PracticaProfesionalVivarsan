@@ -28,37 +28,47 @@ namespace PracticaProfesionalVivarsan.Paginas
 
         private void dataGridProductos_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Producto c = (Producto)dataGridProductos.SelectedCells[0].Item;
-            txtCodigo.Text = c.IdProducto;
-            //txtid.Text = c.Id;
-            txtMarca.Text = c.Marca;
-            txtNombre.Text = c.Nombre;
-            txtPrecioCompra.Text = c.PrecioCompra.ToString();
-            txtPrecioVenta.Text = c.PrecioVenta.ToString();
+            try
+            {
+                Producto c = (Producto)dataGridProductos.SelectedCells[0].Item;
+                txtCodigo.Text = c.IdProducto;
+                //txtid.Text = c.Id;
+                txtMarca.Text = c.Marca;
+                txtNombre.Text = c.Nombre;
+                txtPrecioCompra.Text = c.PrecioCompra.ToString();
+                txtPrecioVenta.Text = c.PrecioVenta.ToString();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+          
         }
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            Producto prod = new Producto();
-            ProductoLogica logica = new ProductoLogica();
+            try
+            {
+                Producto prod = new Producto();
+                ProductoLogica logica = new ProductoLogica();
+                prod.IdProducto = txtCodigo.Text;
+                prod.Nombre = txtNombre.Text;
+                prod.Marca = txtMarca.Text;
+                prod.PrecioCompra = Convert.ToDecimal(txtPrecioCompra.Text);
+                prod.PrecioVenta = Convert.ToDecimal(txtPrecioVenta.Text);
 
-            //cliente.Id = txtid.Text;
-            //if (cliente.Id == "")
-            //{
-            //    cliente.Id = Guid.NewGuid().ToString();
-            //}
+                logica.InsertarActialiarProducto(prod);
+                Refrescar();
+                MessageBox.Show("Correcto.", "Advertencia");
+               
+            }
+            catch (Exception ex)
+            {
 
-
-            //  cliente.Id = Guid.NewGuid().ToString();
-            prod.IdProducto = txtCodigo.Text;
-            prod.Nombre = txtNombre.Text;
-            prod.Marca = txtMarca.Text;
-            prod.PrecioCompra = Convert.ToDecimal(txtPrecioCompra.Text);
-            prod.PrecioVenta = Convert.ToDecimal(txtPrecioVenta.Text);
-
-            logica.InsertarActialiarProducto(prod);
-            MessageBox.Show("Correcto.", "Advertencia");
-            Refrescar();
+                throw ex;
+            }
+           
         }
 
         private void btnNuevo_Click(object sender, RoutedEventArgs e)
@@ -73,10 +83,19 @@ namespace PracticaProfesionalVivarsan.Paginas
 
         private void Refrescar()
         {
-            ProductoLogica logica = new ProductoLogica();
-            List<Producto> lista = new List<Producto>();
-            lista = logica.obtenerProductos();
-            dataGridProductos.ItemsSource = lista;
+            try
+            {
+                ProductoLogica logica = new ProductoLogica();
+                List<Producto> lista = new List<Producto>();
+                lista = logica.obtenerProductos();
+                dataGridProductos.ItemsSource = lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+          
         }
 
         public void SoloNumeros(TextCompositionEventArgs e)

@@ -1,0 +1,55 @@
+﻿<Page x:Class="PracticaProfesionalVivarsan.Paginas.PUsuario"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PracticaProfesionalVivarsan.Paginas"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="Ciente" Width="1360" Height="670" Loaded="Page_Loaded"  Background="#204C74">
+
+    <Grid Width="1000" Margin="180,30,180,94" Background="#EBEBEB">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="100"/>
+            <RowDefinition  Height="100"/>
+            <RowDefinition  Height="100"/>
+            <RowDefinition  Height="100"/>
+        </Grid.RowDefinitions>
+
+        <Label x:Name="label6" Grid.Column="0" Content="Identificación" HorizontalAlignment="Stretch"  VerticalAlignment="Center" Width="88"/>
+        <TextBox x:Name="txtIndentificacion" Grid.Column="1" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="23" TextWrapping="Wrap" Text="" Width="120"/>
+        <Label x:Name="label" Grid.Column="2" Content="Nombre Completo" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="113" Margin="56,38,32,37"/>
+        <TextBox x:Name="txtNombre" Grid.Column="3" HorizontalAlignment="Center"  VerticalAlignment="Center" TextWrapping="Wrap" Text="" Height="23" Width="120"/>
+        <Label x:Name="label_Copy" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center"  VerticalAlignment="Center"  Content="Nombre de Usuario"  Width="116" Margin="56,37,29,38" />
+        <TextBox x:Name="txtUsuarioGeneral"  Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="23"  TextWrapping="Wrap" Text="" Width="120"/>
+        <Label x:Name="label_Copy1" Content="Contraseña" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="23"  Width="88"/>
+        <PasswordBox x:Name="txtContrasena" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="23"   Width="120" />
+        <Label x:Name="label_Copy2" Content="Tipo de Usuario" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center"  VerticalAlignment="Center"  Width="98" Margin="56,38,47,37"/>
+        <ComboBox x:Name="cboTipo" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="120" >
+            <ComboBoxItem IsSelected="True">Administrador</ComboBoxItem>
+            <ComboBoxItem >Asistente</ComboBoxItem>
+        </ComboBox>
+        <!--botones-->
+        <Button x:Name="btnGuardar"  Content="Guardar"  Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center"  VerticalAlignment="Center"   Width="76" Height="29" Click="btnGuardar_Click"/>
+        <TextBox x:Name="txtid" Visibility="Collapsed"  Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center"  VerticalAlignment="Center"   Height="23" TextWrapping="Wrap" Text="" Width="120"/>
+        <Button x:Name="btnNuevo" Content="Nuevo"  Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center"  VerticalAlignment="Center"  Width="78" Height="29" Click="btnNuevo_Click"/>
+
+        <!--datagrid-->
+
+        <DataGrid x:Name="dataGridUsuarios" Grid.Row="3" Grid.ColumnSpan="4" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="dataGridUsuarios_SelectionChanged"  VerticalAlignment="Top" Height="180" Width="450">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Indentificación" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Nombre Completo" Binding="{Binding Nombre}" />
+                <DataGridTextColumn Header="Nombre de Usuario" Binding="{Binding UsuarioGeneral}" />
+                <DataGridTextColumn Header="Tipo de Usuario" Binding="{Binding Tipo}" />
+            </DataGrid.Columns>
+
+        </DataGrid>
+    </Grid>
+</Page>

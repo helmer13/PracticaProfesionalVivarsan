@@ -6,113 +6,56 @@
         xmlns:local="clr-namespace:PracticaProfesionalVivarsan"
        mc:Ignorable="d" Height="768" Width="1366" ResizeMode="NoResize" 
         WindowStartupLocation="CenterScreen" WindowStyle="ThreeDBorderWindow" WindowState="Maximized" >
-
+    <Window.Resources>
+        <Style x:Key="{x:Type ContextMenu}" TargetType="{x:Type ContextMenu}">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ContextMenu}">
+                        <Border Background="#326B9E" CornerRadius="7, 7, 8, 8" BorderBrush="#326B9E" BorderThickness="2" Opacity="0.96">
+                            <StackPanel ClipToBounds="True" Orientation="Vertical" IsItemsHost="True" Margin="5,4,5,4"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    
     <StackPanel  Orientation="Vertical" Background="WhiteSmoke">
 
-            <Grid Height="auto"  VerticalAlignment="Center" Background="#BEAFAF" >
+        <Grid Height="100"  VerticalAlignment="Center" Background="#C1CCD1" >
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="190"></ColumnDefinition>
-                <ColumnDefinition Width="200"></ColumnDefinition>
-                <ColumnDefinition Width="200"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <ListBox  Grid.Column="0"  >
-                <ListBox.Resources>
-                    <Style TargetType="{x:Type Expander}">
-                        <Setter Property="IsExpanded"
-           Value="{Binding Path=IsSelected, RelativeSource={RelativeSource AncestorType={x:Type ListBoxItem}}}"/>
-                    </Style>
-                </ListBox.Resources>
-                <ListBox.Template>
-                    <ControlTemplate TargetType="{x:Type ListBox}">
-                        <ItemsPresenter/>
-                    </ControlTemplate>
-                </ListBox.Template>
-                <ListBox.ItemContainerStyle>
-                    <Style TargetType="{x:Type ListBoxItem}">
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="{x:Type ListBoxItem}">
-                                    <ContentPresenter Content="{TemplateBinding Content}"/>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                    </Style>
-                </ListBox.ItemContainerStyle>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="10,10">
+                <Button Content="Mantenimientos" Height="50" HorizontalAlignment="Center"  Name="button1" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" Width="150" Click="button1_Click" >
 
+                    <Button.ContextMenu>
+                        <ContextMenu >
+                            <MenuItem Name="mantProducto" Foreground="Snow" Header="Producto" Click="mantProducto_Click"/>
+                            <MenuItem Name="mantProveedor" Foreground="Snow" Header="Proveedor" Click="mantProveedor_Click"/>
+                            <MenuItem Name="mantCliente" Foreground="Snow" Header="Cliente" Click="mantCliente_Click"/>
+                            <MenuItem Name="mantUsuario" Foreground="Snow" Header="Usuario" Click="mantUsuario_Click"/>
+                        </ContextMenu>
+                    </Button.ContextMenu>
+                </Button>
+                <Button Content="Reportes" Height="50" HorizontalAlignment="Center"  Name="btn2" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" Width="150" Click="button1_Click" >
 
-                <Expander  Background="#006ABD" Margin="-1,0,1,0" >
-                    <Expander.Header>
-                        <BulletDecorator>
-                            <BulletDecorator.Bullet>
-                                <Image  Width="64" Height="64" HorizontalAlignment="Left" VerticalAlignment="Top" />
-                            </BulletDecorator.Bullet>
-                            <TextBlock Margin="10,0,0,0" Text="Mantenimientos" VerticalAlignment="Center" HorizontalAlignment="Stretch" Foreground="White" />
-                        </BulletDecorator>
-                    </Expander.Header>
-                    <WrapPanel>
-                      
-                        <Label Margin="20,5,5,5" Foreground="white" Content="Producto" MouseLeftButtonUp="Label_MouseLeftButtonUp" />
-                        <Label Margin="20,5,5,5" Foreground="white" Content="Proveedor          "/>
-                        <Label Margin="20,5,5,5" Foreground="white" Content="Cliente        "/>
-                        <Label Margin="20,5,5,5" Foreground="white" Content="Usuario            "/>
-                    </WrapPanel>
-                </Expander>
-
-
-
-
-            </ListBox>
-            <ListBox  Grid.Column="1" >
-                <ListBox.Resources>
-                    <Style TargetType="{x:Type Expander}">
-                        <Setter Property="IsExpanded"
-           Value="{Binding Path=IsSelected, RelativeSource={RelativeSource AncestorType={x:Type ListBoxItem}}}"/>
-                    </Style>
-                </ListBox.Resources>
-                <ListBox.Template>
-                    <ControlTemplate TargetType="{x:Type ListBox}">
-                        <ItemsPresenter/>
-                    </ControlTemplate>
-                </ListBox.Template>
-                <ListBox.ItemContainerStyle>
-                    <Style TargetType="{x:Type ListBoxItem}">
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="{x:Type ListBoxItem}">
-                                    <ContentPresenter Content="{TemplateBinding Content}"/>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                    </Style>
-                </ListBox.ItemContainerStyle>
-
-
-                <Expander Background="#006ABD">
-                    <Expander.Header>
-                        <BulletDecorator>
-                            <BulletDecorator.Bullet>
-                                <Image  Width="64" Height="64" HorizontalAlignment="Left" VerticalAlignment="Top" />
-                            </BulletDecorator.Bullet>
-                            <TextBlock Margin="10,0,0,0" Text="Facturas" VerticalAlignment="Center" HorizontalAlignment="Stretch" Foreground="White" />
-                        </BulletDecorator>
-                    </Expander.Header>
-                    <WrapPanel>
-                        <Label Margin="20,5,5,5" Foreground="white" Content="Nueva Factura"/>
-                        <Label Margin="20,5,5,5" Foreground="white" Content="Consultar Facturas Normales y Anuladas"/>
-                    </WrapPanel>
-                </Expander>
-
-
-            </ListBox>
-
-        </Grid>
-
+                    <Button.ContextMenu>
+                        <ContextMenu >
+                            <MenuItem  Foreground="Snow" Header="Compras" />
+                            <MenuItem Foreground="Snow" Header="Ventas"/>
+                            <MenuItem Foreground="Snow" Header="Gastos"/>
+                            <MenuItem Foreground="Snow" Header="Contabilidad"/>
+                        </ContextMenu>
+                    </Button.ContextMenu>
+                </Button>
+            </StackPanel>
+              
+    </Grid>
         <!--segundo panel-->
-        <Grid Height="670" >
-            <Frame Content="" Height="670" Width="1360"  HorizontalAlignment="Left"  VerticalAlignment="Top" Source="/PracticaProfesionalVivarsan;component/Paginas/PProducto.xaml" />
+        <Grid Height="670">
+            <Frame Name="frame" Content="" Height="670" Width="1360"  HorizontalAlignment="Left"  VerticalAlignment="Top" NavigationUIVisibility="Hidden" />
 
         </Grid>
-
-    </StackPanel>
+  </StackPanel>
 </Window>

@@ -14,19 +14,19 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace PracticaProfesionalVivarsan
+namespace PracticaProfesionalVivarsan.Paginas
 {
     /// <summary>
-    /// Interaction logic for frmUsuario.xaml
+    /// Interaction logic for PUsuario.xaml
     /// </summary>
-    public partial class frmUsuario : Window
+    public partial class PUsuario : Page
     {
-        public frmUsuario()
+        public PUsuario()
         {
             InitializeComponent();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             Refrescar();
         }
@@ -36,6 +36,7 @@ namespace PracticaProfesionalVivarsan
             Usuario c = (Usuario)dataGridUsuarios.SelectedCells[0].Item;
             txtIndentificacion.Text = c.Id;
             txtNombre.Text = c.Nombre;
+            txtContrasena.Password = c.Contrasena;
             txtUsuarioGeneral.Text = c.UsuarioGeneral;
             cboTipo.Text = c.Tipo;
         }
@@ -60,9 +61,8 @@ namespace PracticaProfesionalVivarsan
             usu.Tipo = cboTipo.Text;
 
             logica.InsertarActualizarUsuario(usu);
-            Refrescar();
             MessageBox.Show("Correcto.", "Advertencia");
-          
+            Refrescar();
         }
 
         private void btnNuevo_Click(object sender, RoutedEventArgs e)

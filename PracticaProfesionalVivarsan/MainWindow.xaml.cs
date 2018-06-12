@@ -32,8 +32,8 @@ namespace PracticaProfesionalVivarsan
 
             //frmCliente frmCliente = new frmCliente();
             //frmCliente.Show();
-            frmMenu frmProveedor = new frmMenu();
-            frmProveedor.Show();
+         //   frmMenu frmProveedor = new frmMenu();
+           // frmProveedor.Show();
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -46,34 +46,41 @@ namespace PracticaProfesionalVivarsan
 
             if (txtUsuario.Text == "" || txtUsuario.Text == null)
             {
-                MessageBox.Show("Debe ingresar el nombre de usuario.", "Error");
+                txtTextBlockDialogo.Text = "Debe ingresar el nombre de usuario";
+                dialogo.IsOpen = true;
+             //   MessageBox.Show("Debe ingresar el nombre de usuario.", "Error");
             }
             else
             {
-                if (txtContrasenna.Password == "" || txtContrasenna.Password == null)
+                if (txtContrasena.Password == "" || txtContrasena.Password == null)
                 {
-                    MessageBox.Show("Debe ingresar la contraseña.","Error");
+                    txtTextBlockDialogo.Text = "Debe ingresar la contraseña";
+                    dialogo.IsOpen = true;
+                  //  MessageBox.Show("Debe ingresar la contraseña.", "Error");
                 }
                 else
                 {
                     nombreUsuario = txtUsuario.Text;
-                    contrasena = txtContrasenna.Password;
-                    usuario= usuarioLogica.seleccionarUsuario(nombreUsuario, contrasena);
+                    contrasena = txtContrasena.Password;
+                    usuario = usuarioLogica.seleccionarUsuario(nombreUsuario, contrasena);
 
                     if (!nombreUsuario.Equals(usuario.UsuarioGeneral) || !contrasena.Equals(usuario.Contrasena))
                     {
-                        MessageBox.Show("Nombre de usuario o contraseña son incorrectos.", "Advertencia");
+                        txtTextBlockDialogo.Text = "Nombre de usuario o contraseña son incorrectos";
+                        dialogo.IsOpen = true;
+                        //  MessageBox.Show("Nombre de usuario o contraseña son incorrectos.", "Advertencia");
                     }
                     else
                     {
-                        //Principal prin = new Principal();
-                        //prin.Show();
-
-                        //Quitar esto despues
-                        MessageBox.Show("Correcto.", "Advertencia");
+                        frmMenu prin = new frmMenu();
+                        prin.Show();
+                        this.Hide();
+                        txtTextBlockDialogo.Text = "Iniciaste correctamente";
+                        dialogo.IsOpen = true;
+                        // MessageBox.Show("Correcto.", "Advertencia");
                     }
                 }
-            }           
+            }
 
         }
     }

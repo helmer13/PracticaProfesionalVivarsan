@@ -14,12 +14,13 @@ namespace Logica
 
         public List<Usuario> obtenerUsuarios()
         {
-            Usuario usuario1 = new Usuario();
+        
            
             DataSet ds = AccesoDatos.UsuarioDato.seleccionarUsuarios();
             List<Usuario> resultado = new List<Usuario>();
             foreach (DataRow row in ds.Tables[0].Rows)
             {
+                Usuario usuario1 = new Usuario();
                 usuario1.Id = row["ID"].ToString();
                 usuario1.UsuarioGeneral = row["Usuario"].ToString();
                 usuario1.Tipo = row["Tipo"].ToString();
