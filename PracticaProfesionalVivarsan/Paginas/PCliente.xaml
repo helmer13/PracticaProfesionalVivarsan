@@ -35,7 +35,7 @@
         <TextBox x:Name="txtTelefono" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center"  VerticalAlignment="Center"  Height="23"  TextWrapping="Wrap" Text=""  Width="120" />
 
         <!--botones-->
-        <Button x:Name="btnGuardar"  Content="Guardar"  Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center"  VerticalAlignment="Center"   Width="76" Height="29" Click="btnGuardar_Click"/>
+        <Button x:Name="btnGuardar"  Content="Guardar"  Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center"  VerticalAlignment="Center"   Width="85" Height="29" Click="btnGuardar_Click"/>
         <TextBox x:Name="txtid" Visibility="Collapsed"  Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center"  VerticalAlignment="Center"   Height="23" TextWrapping="Wrap" Text="" Width="120"/>
         <Button x:Name="btnNuevo" Content="Nuevo"  Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center"  VerticalAlignment="Center"  Width="78" Height="29" Click="btnNuevo_Click"/>
 
