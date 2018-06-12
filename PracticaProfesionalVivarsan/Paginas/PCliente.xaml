@@ -31,7 +31,7 @@
         <TextBox x:Name="txtCorreo"  Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="23"  TextWrapping="Wrap" Text="" Width="120"/>
         <Label x:Name="label_Copy1" Content="Dirección" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="23"  Width="88"/>
         <TextBox x:Name="txtDireccion" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="23"  TextWrapping="Wrap" Text=""  Width="120" />
-        <Label x:Name="label_Copy2" Content="Telefono" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center"  VerticalAlignment="Center"  Width="88"/>
+        <Label x:Name="label_Copy2" Content="Teléfono" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center"  VerticalAlignment="Center"  Width="88"/>
         <TextBox x:Name="txtTelefono" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center"  VerticalAlignment="Center"  Height="23"  TextWrapping="Wrap" Text=""  Width="120" />
 
         <!--botones-->
@@ -41,13 +41,13 @@
 
         <!--datagrid-->
 
-        <DataGrid x:Name="dataGrid" Grid.Row="3" Grid.ColumnSpan="4" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="dataGrid_SelectionChanged"  VerticalAlignment="Top" Height="180" Width="450">
+        <DataGrid x:Name="dataGrid" Grid.Row="3" Grid.ColumnSpan="4" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="dataGrid_SelectionChanged"  VerticalAlignment="Top" Height="190" Width="585" Margin="199,0,10,-89">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Indentificación" Binding="{Binding Indentificacion}" />
                 <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" />
                 <DataGridTextColumn Header="Correo" Binding="{Binding Correo}" />
                 <DataGridTextColumn Header="Dirección" Binding="{Binding Direccion}" />
-                <DataGridTextColumn Header="Telefono" Binding="{Binding Telefono}" />
+                <DataGridTextColumn Header="Teléfono" Binding="{Binding Telefono}" />
             </DataGrid.Columns>
 
         </DataGrid>
