@@ -51,7 +51,8 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Código" Binding="{Binding IdProducto}" />
                 <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" />
-                <DataGridTextColumn Header="Marca" Binding="{Binding Marca}" />
+                <DataGridTextColumn Header="Marca" Binding="{Binding Modelo.Marca}" />
+                <DataGridTextColumn Header="Modelo" Binding="{Binding Modelo}" />
                 <DataGridTextColumn Header="Precio Compra" Binding="{Binding PrecioCompra}" />
                 <DataGridTextColumn Header="Precio Venta" Binding="{Binding PrecioVenta}" />
             </DataGrid.Columns>

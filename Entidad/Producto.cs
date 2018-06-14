@@ -10,7 +10,7 @@ namespace Entidad
     {
         string idProducto;
         string nombre;
-        Marca marca;
+        Modelo modelo;
         decimal precioCompra;
         decimal precioVenta;
 
@@ -40,16 +40,16 @@ namespace Entidad
             }
         }
 
-        public Marca Marca
+        public Modelo Modelo
         {
             get
             {
-                return marca;
+                return modelo;
             }
 
             set
             {
-                marca = value;
+                modelo = value;
             }
         }
 

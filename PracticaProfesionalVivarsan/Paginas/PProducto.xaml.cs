@@ -33,7 +33,7 @@ namespace PracticaProfesionalVivarsan.Paginas
                 Producto c = (Producto)dataGridProductos.SelectedCells[0].Item;
                 txtCodigo.Text = c.IdProducto;
                 //txtid.Text = c.Id;
-                txtMarca.Text = c.Marca.Descripcion;
+                //txtMarca.Text = c.Marca.Descripcion;
                 txtNombre.Text = c.Nombre;
                 txtPrecioCompra.Text = c.PrecioCompra.ToString();
                 txtPrecioVenta.Text = c.PrecioVenta.ToString();
@@ -52,9 +52,10 @@ namespace PracticaProfesionalVivarsan.Paginas
             {
                 Producto prod = new Producto();
                 ProductoLogica logica = new ProductoLogica();
+                ModeloLogica logModelo = new ModeloLogica();
                 prod.IdProducto = txtCodigo.Text;
                 prod.Nombre = txtNombre.Text;
-                //prod.Marca = txtMarca.Text;
+                //prod.Modelo = logModelo.seleccionarModelo(Convert.ToInt32(cboModelo.SelectedValue));
                 prod.PrecioCompra = 0; // Convert.ToDecimal(txtPrecioCompra.Text);
                 prod.PrecioVenta = Convert.ToDecimal(txtPrecioVenta.Text);
 
@@ -75,10 +76,10 @@ namespace PracticaProfesionalVivarsan.Paginas
         {
             txtNombre.Text = "";
             txtid.Text = "";
-            txtMarca.Text = "";
             txtPrecioCompra.Text = "";
             txtPrecioVenta.Text = "";
             txtCodigo.Text = "";
+            //cboMarcas.SelectedValue = 1;
         }
 
         private void Refrescar()
@@ -121,6 +122,50 @@ namespace PracticaProfesionalVivarsan.Paginas
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             Refrescar();
+            CargarCboMarcas();
+            CargarCboModelos();
+        }
+
+        private void CargarCboMarcas()
+        {
+            try
+            {
+                MarcaLogica logica = new MarcaLogica();
+                List<Marca> lista = new List<Marca>();
+                lista = logica.obtenerMarcas();
+                //cboMarcas.ItemsSource = lista;
+
+                //cboMarcas.DisplayMemberPath = "Descripcion";
+                //cboMarcas.SelectedValuePath = "Id";
+                //cboMarcas.SelectedValue = 1;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
+        private void CargarCboModelos()
+        {
+            try
+            {
+                ModeloLogica logica = new ModeloLogica();
+                List<Modelo> lista = new List<Modelo>();
+                //lista = logica.seleccionarModeloPorMarca(cboMarcas.SelectedValue);
+                //cboModelos.ItemsSource = lista;
+
+                //cboModelos.DisplayMemberPath = "Descripcion";
+                //cboModelos.SelectedValuePath = "Id";
+                //cboModelos.SelectedValue = 1;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
         }
     }
 }

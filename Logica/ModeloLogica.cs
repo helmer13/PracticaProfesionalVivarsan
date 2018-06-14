@@ -26,8 +26,24 @@ namespace Logica
                 resultado.Add(modelo);
             }
             return resultado;
-        }
+        }        
+        public List<Modelo> seleccionarModeloPorMarca(int id)
+        {
+            DataSet ds = AccesoDatos.ModeloDato.seleccionarModeloPorMarca(id);
+            MarcaLogica mlogica = new MarcaLogica();
+            List<Modelo> resultado = new List<Modelo>();
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {
+                Modelo modelo = new Modelo();
+                modelo.Id = Convert.ToInt32(row["ID"]);
+                modelo.Descripcion = row["Descripcion"].ToString();
+                modelo.Anno = Convert.ToInt32(row["Anno"]);
+                modelo.Marca = mlogica.seleccionarMarca(Convert.ToInt32(row["IDMarca"]));
 
+                resultado.Add(modelo);
+            }
+            return resultado;
+        }
         public Modelo seleccionarModelo(int id)
         {
             Modelo modelo = new Modelo();

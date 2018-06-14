@@ -66,5 +66,10 @@ namespace Entidad
                 marca = value;
             }
         }
+
+        public override string ToString()
+        {
+            return Descripcion + " " + Anno;
+        }
     }
 }

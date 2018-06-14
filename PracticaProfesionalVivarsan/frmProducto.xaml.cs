@@ -36,7 +36,7 @@ namespace PracticaProfesionalVivarsan
             Producto c = (Producto)dataGridProductos.SelectedCells[0].Item;
             txtCodigo.Text = c.IdProducto;
             //txtid.Text = c.Id;
-            txtMarca.Text = c.Marca.Descripcion;
+            //txtMarca.Text = c.Marca.Descripcion;
             txtNombre.Text = c.Nombre;
             txtPrecioCompra.Text = c.PrecioCompra.ToString();
             txtPrecioVenta.Text = c.PrecioVenta.ToString();
