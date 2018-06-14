@@ -34,14 +34,11 @@
         <TextBox x:Name="txtNombre" Grid.Column="3" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Nombre" materialDesign:HintAssist.IsFloating="True"/>
 
         <!--<TextBox x:Name="txtMarca"  Grid.Row="1" Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Marca" materialDesign:HintAssist.IsFloating="True"/>-->
-        <ComboBox x:Name="cboMarca" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="200" Height="50" materialDesign:HintAssist.Hint="Marca" materialDesign:HintAssist.IsFloating="True" >
-            <ComboBoxItem IsSelected="True">Administrador</ComboBoxItem>
-            <ComboBoxItem >Asistente</ComboBoxItem>
+        <ComboBox x:Name="cboMarcas" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="200" Height="50" materialDesign:HintAssist.Hint="Marca" materialDesign:HintAssist.IsFloating="True" SelectionChanged="cboMarcas_SelectionChanged">
+            
         </ComboBox>
 
-        <ComboBox x:Name="cboModelo" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="200" Height="50" materialDesign:HintAssist.Hint="Modelo" materialDesign:HintAssist.IsFloating="True" >
-            <ComboBoxItem IsSelected="True">Administrador</ComboBoxItem>
-            <ComboBoxItem >Asistente</ComboBoxItem>
+        <ComboBox x:Name="cboModelos" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="200" Height="50" materialDesign:HintAssist.Hint="Modelo" materialDesign:HintAssist.IsFloating="True" >
         </ComboBox>
 
         <TextBox x:Name="txtPrecioCompra" Grid.Row="2" IsReadOnly="True" Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Precio compra" materialDesign:HintAssist.IsFloating="True" PreviewTextInput="txtPrecioCompra_PreviewTextInput"/>

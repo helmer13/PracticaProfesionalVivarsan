@@ -34,6 +34,9 @@ namespace PracticaProfesionalVivarsan.Paginas
                 txtCodigo.Text = c.IdProducto;
                 //txtid.Text = c.Id;
                 //txtMarca.Text = c.Marca.Descripcion;
+                cboMarcas.SelectedValue = (Convert.ToString(c.Modelo.Marca.Id));
+                CargarCboModelos();
+                cboModelos.SelectedValue = (Convert.ToString(c.Modelo.Id));
                 txtNombre.Text = c.Nombre;
                 txtPrecioCompra.Text = c.PrecioCompra.ToString();
                 txtPrecioVenta.Text = c.PrecioVenta.ToString();
@@ -55,7 +58,7 @@ namespace PracticaProfesionalVivarsan.Paginas
                 ModeloLogica logModelo = new ModeloLogica();
                 prod.IdProducto = txtCodigo.Text;
                 prod.Nombre = txtNombre.Text;
-                //prod.Modelo = logModelo.seleccionarModelo(Convert.ToInt32(cboModelo.SelectedValue));
+                prod.Modelo = logModelo.seleccionarModelo(Convert.ToInt32(cboModelos.SelectedValue));
                 prod.PrecioCompra = 0; // Convert.ToDecimal(txtPrecioCompra.Text);
                 prod.PrecioVenta = Convert.ToDecimal(txtPrecioVenta.Text);
 
@@ -133,11 +136,11 @@ namespace PracticaProfesionalVivarsan.Paginas
                 MarcaLogica logica = new MarcaLogica();
                 List<Marca> lista = new List<Marca>();
                 lista = logica.obtenerMarcas();
-                //cboMarcas.ItemsSource = lista;
+                cboMarcas.ItemsSource = lista;
 
-                //cboMarcas.DisplayMemberPath = "Descripcion";
-                //cboMarcas.SelectedValuePath = "Id";
-                //cboMarcas.SelectedValue = 1;
+                cboMarcas.DisplayMemberPath = "Descripcion";
+                cboMarcas.SelectedValuePath = "Id";
+                cboMarcas.SelectedValue = 1;
             }
             catch (Exception ex)
             {
@@ -153,12 +156,12 @@ namespace PracticaProfesionalVivarsan.Paginas
             {
                 ModeloLogica logica = new ModeloLogica();
                 List<Modelo> lista = new List<Modelo>();
-                //lista = logica.seleccionarModeloPorMarca(cboMarcas.SelectedValue);
-                //cboModelos.ItemsSource = lista;
+                lista = logica.seleccionarModeloPorMarca(Convert.ToInt32(cboMarcas.SelectedValue));
+                cboModelos.ItemsSource = lista;
 
-                //cboModelos.DisplayMemberPath = "Descripcion";
-                //cboModelos.SelectedValuePath = "Id";
-                //cboModelos.SelectedValue = 1;
+                cboModelos.DisplayMemberPath = "NombreCompleto";
+                cboModelos.SelectedValuePath = "Id";
+                cboModelos.SelectedValue = 1;
             }
             catch (Exception ex)
             {
@@ -166,6 +169,11 @@ namespace PracticaProfesionalVivarsan.Paginas
                 throw ex;
             }
 
+        }
+
+        private void cboMarcas_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            CargarCboModelos();
         }
     }
 }

@@ -12,6 +12,7 @@ namespace Entidad
         string descripcion;
         int anno;
         Marca marca;
+        string nombreCompleto;
 
         public int Id
         {
@@ -67,6 +68,18 @@ namespace Entidad
             }
         }
 
+        public string NombreCompleto
+        {
+            get
+            {
+                return descripcion + " " + anno;
+            }
+
+            set
+            {
+                descripcion = value;
+            }
+        }
         public override string ToString()
         {
             return Descripcion + " " + Anno;
