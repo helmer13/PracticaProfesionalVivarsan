@@ -133,6 +133,11 @@ namespace PracticaProfesionalVivarsan.Paginas
         }
         private void txtAnno_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
+            SoloNumeros(e);
+        }
+
+        public void SoloNumeros(TextCompositionEventArgs e)
+        {
             //se convierte a Ascci del la tecla presionada 
             int ascci = Convert.ToInt32(Convert.ToChar(e.Text));
             //verificamos que se encuentre en ese rango que son entre el 0 y el 9 
