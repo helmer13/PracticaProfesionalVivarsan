@@ -63,5 +63,15 @@ namespace PracticaProfesionalVivarsan
         {
             Application.Current.Shutdown();
         }
+
+        private void mantMarca_Click(object sender, RoutedEventArgs e)
+        {
+            frame.Content = new PMarca();
+        }
+
+        private void mantModelo_Click(object sender, RoutedEventArgs e)
+        {
+            frame.Content = new PModelo();
+        }
     }
 }

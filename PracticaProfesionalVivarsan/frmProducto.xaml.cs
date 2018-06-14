@@ -36,7 +36,7 @@ namespace PracticaProfesionalVivarsan
             Producto c = (Producto)dataGridProductos.SelectedCells[0].Item;
             txtCodigo.Text = c.IdProducto;
             //txtid.Text = c.Id;
-            txtMarca.Text = c.Marca;
+            txtMarca.Text = c.Marca.Descripcion;
             txtNombre.Text = c.Nombre;
             txtPrecioCompra.Text = c.PrecioCompra.ToString();
             txtPrecioVenta.Text = c.PrecioVenta.ToString();
@@ -57,7 +57,7 @@ namespace PracticaProfesionalVivarsan
             //  cliente.Id = Guid.NewGuid().ToString();
             prod.IdProducto = txtCodigo.Text;
             prod.Nombre = txtNombre.Text;
-            prod.Marca = txtMarca.Text;
+            //prod.Marca = txtMarca.Text;
             prod.PrecioCompra = Convert.ToDecimal(txtPrecioCompra.Text);
             prod.PrecioVenta = Convert.ToDecimal(txtPrecioVenta.Text);
 

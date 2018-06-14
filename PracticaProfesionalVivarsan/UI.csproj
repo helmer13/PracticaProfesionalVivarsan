@@ -66,8 +66,14 @@
     <Compile Include="Paginas\PCliente.xaml.cs">
       <DependentUpon>PCliente.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Paginas\PMarca.xaml.cs">
+      <DependentUpon>PMarca.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Paginas\PMenuLogo.xaml.cs">
       <DependentUpon>PMenuLogo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\PModelo.xaml.cs">
+      <DependentUpon>PModelo.xaml</DependentUpon>
     </Compile>
     <Compile Include="Paginas\PProducto.xaml.cs">
       <DependentUpon>PProducto.xaml</DependentUpon>
@@ -123,7 +129,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Paginas\PMarca.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Paginas\PMenuLogo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Paginas\PModelo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

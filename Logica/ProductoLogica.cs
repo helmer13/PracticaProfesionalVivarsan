@@ -19,14 +19,14 @@ namespace Logica
 
 
             DataSet ds = AccesoDatos.ProductoDato.seleccionarProductoTodo();
-
+            MarcaLogica mlogica = new MarcaLogica();
             List<Producto> resultado = new List<Producto>();
             foreach (DataRow row in ds.Tables[0].Rows)
             {
                 Producto producto = new Producto();
                 producto.IdProducto = row["IDProducto"].ToString();
                 producto.Nombre = row["Nombre"].ToString();
-                producto.Marca = row["Marca"].ToString();
+                producto.Marca = mlogica.seleccionarMarca(Convert.ToInt32(row["Marca"]));
                 producto.PrecioCompra = decimal.Parse( row["PrecioCompra"].ToString());
                 producto.PrecioVenta = decimal.Parse(row["PrecioVenta"].ToString());
 
@@ -40,7 +40,7 @@ namespace Logica
         public Producto obtenerProducto(string idProducto)
         {
             Producto producto = new Producto();
-
+            MarcaLogica mlogica = new MarcaLogica();
             DataSet ds = AccesoDatos.ProductoDato.seleccionarProductoPorID(idProducto);
 
 
@@ -48,7 +48,7 @@ namespace Logica
             {
                 producto.IdProducto = row["IDProducto"].ToString();
                 producto.Nombre = row["Nombre"].ToString();
-                producto.Marca = row["Marca"].ToString();
+                producto.Marca = mlogica.seleccionarMarca(Convert.ToInt32(row["Marca"]));
                 producto.PrecioCompra = decimal.Parse(row["PrecioCompra"].ToString());
                 producto.PrecioVenta = decimal.Parse(row["PrecioVenta"].ToString());
 
@@ -61,7 +61,7 @@ namespace Logica
 
         public void InsertarActialiarProducto(Producto producto)
         {
-            AccesoDatos.ProductoDato.InsertarActaulizarProducto(producto.IdProducto, producto.Nombre, producto.Marca, producto.PrecioCompra, producto.PrecioVenta);
+            AccesoDatos.ProductoDato.InsertarActaulizarProducto(producto.IdProducto, producto.Nombre, producto.Marca.Id, producto.PrecioCompra, producto.PrecioVenta);
         }
     }
 }

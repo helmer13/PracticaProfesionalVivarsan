@@ -10,7 +10,7 @@ namespace Entidad
     {
         string idProducto;
         string nombre;
-        string marca;
+        Marca marca;
         decimal precioCompra;
         decimal precioVenta;
 
@@ -40,7 +40,7 @@ namespace Entidad
             }
         }
 
-        public string Marca
+        public Marca Marca
         {
             get
             {

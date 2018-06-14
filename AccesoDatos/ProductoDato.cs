@@ -44,7 +44,7 @@ namespace AccesoDatos
         }
 
 
-        public static void InsertarActaulizarProducto(string idProducto, string nombre, string marca, decimal precioCompra, decimal precioVenta)
+        public static void InsertarActaulizarProducto(string idProducto, string nombre, int idmarca, decimal precioCompra, decimal precioVenta)
         {
             Database db = DatabaseFactory.CreateDatabase("Default");
 
@@ -53,7 +53,7 @@ namespace AccesoDatos
 
             comando.Parameters.AddWithValue("@IDPRODUCTO", idProducto);
             comando.Parameters.AddWithValue("@NOMBRE", nombre);
-            comando.Parameters.AddWithValue("@MARCA", marca);
+            comando.Parameters.AddWithValue("@IDMARCA", idmarca);
             comando.Parameters.AddWithValue("@PRECIOCOMPRA", precioCompra);
             comando.Parameters.AddWithValue("@PRECIOVENTA", precioVenta);
 

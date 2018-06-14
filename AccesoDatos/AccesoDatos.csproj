@@ -45,6 +45,8 @@
     <Compile Include="Database.cs" />
     <Compile Include="DatabaseFactory.cs" />
     <Compile Include="Log.cs" />
+    <Compile Include="MarcaDato.cs" />
+    <Compile Include="ModeloDato.cs" />
     <Compile Include="ProductoDato.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProveedorDato.cs" />

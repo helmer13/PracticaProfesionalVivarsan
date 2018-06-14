@@ -35,6 +35,8 @@
                             <MenuItem Name="mantProveedor" Foreground="Snow" Header="Proveedor" Click="mantProveedor_Click"/>
                             <MenuItem Name="mantCliente" Foreground="Snow" Header="Cliente" Click="mantCliente_Click"/>
                             <MenuItem Name="mantUsuario" Foreground="Snow" Header="Usuario" Click="mantUsuario_Click"/>
+                            <MenuItem Name="mantMarca" Foreground="Snow" Header="Marca" Click="mantMarca_Click"/>
+                            <MenuItem Name="mantModelo" Foreground="Snow" Header="Modelo" Click="mantModelo_Click"/>
                         </ContextMenu>
                     </Button.ContextMenu>
                 </Button>
