@@ -32,6 +32,7 @@
         <TextBox x:Name="txtProducto" IsReadOnly="True" Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Producto" materialDesign:HintAssist.IsFloating="True"/>
         <Button x:Name="btnBuscarProducto"  Content="Buscar"  Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="0 0 0 -30"   Width="90" Height="29" Click="btnBuscarProducto_Click"/>
 
+        <!--POPUP CON LA TABLA DE PRODUCTOS-->
         <materialDesign:DialogHost IsOpen="False" x:Name="dialogo" Grid.ColumnSpan="4" Grid.RowSpan="4" Margin="0,0,-186,-132">
             <materialDesign:DialogHost.DialogContent>
                 <StackPanel Margin="25" Orientation="Vertical">
@@ -73,11 +74,41 @@
             </materialDesign:DialogHost.DialogContent>
         </materialDesign:DialogHost>
 
-        <TextBox x:Name="txtCantidad" IsReadOnly="True" Grid.Row="1"  Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Cantidad" materialDesign:HintAssist.IsFloating="True"/>
+        <TextBox x:Name="txtCantidad" Grid.Row="0"  Grid.Column="3" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Cantidad" materialDesign:HintAssist.IsFloating="True"/>
+        <TextBox x:Name="txtPrecioCosto" Grid.Row="1"  Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Precio Costo" materialDesign:HintAssist.IsFloating="True"/>
         <ComboBox x:Name="cboBodegas" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="200" Height="50" materialDesign:HintAssist.Hint="Bodegas" materialDesign:HintAssist.IsFloating="True" >
         </ComboBox>
 
-        <Button x:Name="btnAgregar"  Content="Agregar"  Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="0 0 0 -30"   Width="90" Height="29" Click="btnAgregar_Click"/>
+        <Button x:Name="btnAgregar"  Content="Agregar"  Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="0 0 0 65"   Width="90" Height="29" Click="btnAgregar_Click"/>
 
+        <!--TABLA CON LA LISTA DE DETALLE-->
+
+        <DataGrid  x:Name="dataGridLineaDetalle" RowEditEnding="dataGridLineaDetalle_RowEditEnding"
+                   CellEditEnding="dataGridLineaDetalle_CellEditEnding" SelectionChanged="dataGridLineaDetalle_SelectionChanged" 
+                   Margin="199,55,10,-89" Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="4" CanUserDeleteRows="True"  IsReadOnly="True"
+                   CanUserAddRows="False" AutoGenerateColumns="False"  VerticalAlignment="Top" Height="180" Width="500">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Eliminar" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="btnEliminar" Click="btnEliminar_Click" Content="Eliminar" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Cantidad" Binding="{Binding Cantidad}" />
+                <DataGridTextColumn Header="Código" Binding="{Binding Producto.IdProducto}" />
+                <DataGridTextColumn Header="Descripción" Binding="{Binding Producto.Nombre}" />
+                <DataGridTextColumn Header="Sub Total" Binding="{Binding SubTotal}" />
+               
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+       
+        <TextBox x:Name="txtSubTotal" IsReadOnly="True"   Grid.Row="3" Grid.Column="1" Width="150" Height="50"  Margin="0 150 0 0 "  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Subtotal" materialDesign:HintAssist.IsFloating="True"/>
+      
+            <Button x:Name="btnFacturar"  Content="Facturar"  Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left"  VerticalAlignment="Stretch" Margin="0 180 0 -10"   Width="120" Height="30" Click="btnFacturar_Click"/>
+        
+       
     </Grid>
 </Page>

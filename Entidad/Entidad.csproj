@@ -43,6 +43,9 @@
     <Compile Include="Bodega.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="Empresa.cs" />
+    <Compile Include="FacturaCompras.cs" />
+    <Compile Include="Inventario.cs" />
+    <Compile Include="LineaDetalleCompras.cs" />
     <Compile Include="Marca.cs" />
     <Compile Include="Modelo.cs" />
     <Compile Include="Producto.cs" />

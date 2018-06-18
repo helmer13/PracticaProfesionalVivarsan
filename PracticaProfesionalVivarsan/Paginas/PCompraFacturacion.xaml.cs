@@ -17,11 +17,19 @@ using Logica;
 
 namespace PracticaProfesionalVivarsan.Paginas
 {
+   
+   
+
     /// <summary>
     /// Interaction logic for PCompraFacturacion.xaml
     /// </summary>
     public partial class PCompraFacturacion : Page
     {
+
+        public Producto producto = new Producto();
+        List<LineaDetalleCompras> listaDetalle = new List<LineaDetalleCompras>();
+        List<Inventario> listaInventario = new List<Inventario>();
+
         public PCompraFacturacion()
         {
             InitializeComponent();
@@ -36,15 +44,17 @@ namespace PracticaProfesionalVivarsan.Paginas
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             CargarCboBodegas();
+
+            txtSubTotal.Text = "0";
         }
 
         private void dataGridProductos_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
             {
-                Producto c = (Producto)dataGridProductos.SelectedCells[0].Item;
-                txtidProducto.Text = c.IdProducto;
-                txtProducto.Text = c.Nombre;
+                producto = (Producto)dataGridProductos.SelectedCells[0].Item;
+                txtidProducto.Text = producto.IdProducto;
+                txtProducto.Text = producto.Nombre;
                 
             }
             catch (Exception ex)
@@ -99,6 +109,34 @@ namespace PracticaProfesionalVivarsan.Paginas
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
         {
 
+            Usuario usuario = new Usuario();
+            LineaDetalleCompras lineaDetalle = new LineaDetalleCompras();
+            Inventario inventario = new Inventario();
+
+            usuario= (Usuario)App.Current.Properties["usuarioSesion"];
+
+            lineaDetalle.Id = Guid.NewGuid().ToString();
+            lineaDetalle.Cantidad = Convert.ToInt32( txtCantidad.Text);
+            lineaDetalle.Producto = producto;
+            lineaDetalle.SubTotal = lineaDetalle.Cantidad * Convert.ToInt32( txtPrecioCosto.Text);
+            listaDetalle.Add(lineaDetalle);
+            dataGridLineaDetalle.ItemsSource = listaDetalle;
+            dataGridLineaDetalle.Items.Refresh();
+            //inventario
+            inventario.Cantidad = Convert.ToInt32(txtCantidad.Text); ;
+            inventario.IdBodega =  (int)cboBodegas.SelectedValue;
+            inventario.IdEmpresa = usuario.Empresa.IdEmpresa;
+            inventario.Producto = producto;
+            listaInventario.Add(inventario);
+
+            //para el label del total
+            double total=0;
+            for (int i = 0; i < listaDetalle.Count; i++)
+            {
+                 total += listaDetalle[i].SubTotal;
+              
+            }
+            txtSubTotal.Text = total.ToString();
         }
 
 
@@ -123,6 +161,29 @@ namespace PracticaProfesionalVivarsan.Paginas
 
         }
 
+        private void btnEliminar_Click(object sender, RoutedEventArgs e)
+        {
 
+        }
+
+        private void dataGridLineaDetalle_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
+        {
+
+        }
+
+        private void dataGridLineaDetalle_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
+        {
+
+        }
+
+        private void dataGridLineaDetalle_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void btnFacturar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
