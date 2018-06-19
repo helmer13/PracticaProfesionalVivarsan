@@ -85,5 +85,11 @@ namespace PracticaProfesionalVivarsan.Paginas
             lista = logica.obtenerUsuarios();
             dataGridUsuarios.ItemsSource = lista;
         }
+
+        private void btnAyuda_Click(object sender, RoutedEventArgs e)
+        {
+            txtTextBlockAyuda.Text = string.Format("My Text \n Your Text");
+            ayuda.IsOpen = true;
+        }
     }
 }

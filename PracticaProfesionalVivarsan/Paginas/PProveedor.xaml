@@ -18,7 +18,7 @@
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="200"/>
-            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="400"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition  Height="100"/>
@@ -27,23 +27,26 @@
             <RowDefinition  Height="100"/>
         </Grid.RowDefinitions>
 
+        <Button x:Name="btnAyuda"  Content="Ayuda"  Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right"  VerticalAlignment="Center" Margin="0 0 0 60"   Width="90" Height="29" Click="btnAyuda_Click"/>
+
+
         <TextBox x:Name="txtNombreProveedor" Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Nombre proveedor" materialDesign:HintAssist.IsFloating="True"/>
 
-        <TextBox x:Name="txtNombreContacto" Grid.Column="3" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Nombre contacto" materialDesign:HintAssist.IsFloating="True"/>
+        <TextBox x:Name="txtNombreContacto" Grid.Column="3" Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Nombre contacto" materialDesign:HintAssist.IsFloating="True"/>
 
         <TextBox x:Name="txtCorreo"  Grid.Row="1" Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Correo" materialDesign:HintAssist.IsFloating="True"/>
 
-        <TextBox x:Name="txtTelefono" Grid.Row="1" Grid.Column="3" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Teléfono" materialDesign:HintAssist.IsFloating="True" />
+        <TextBox x:Name="txtTelefono" Grid.Row="1" Grid.Column="3" Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Teléfono" materialDesign:HintAssist.IsFloating="True" />
        
 
         <!--botones-->
         <Button x:Name="btnGuardar"  Content="Guardar"  Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left"  VerticalAlignment="Center"   Width="90" Height="29" Click="btnGuardar_Click"/>
         <TextBox x:Name="txtID" Visibility="Collapsed"  Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center"  VerticalAlignment="Center"   Height="23" TextWrapping="Wrap" Text="" Width="120"/>
-        <Button x:Name="btnNuevo" Content="Nuevo"  Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center"  VerticalAlignment="Center"  Width="78" Height="29" Margin="110 0 0 0" Click="btnNuevo_Click"/>
+        <Button x:Name="btnNuevo" Content="Nuevo"  Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center"  VerticalAlignment="Center"  Width="78" Height="29" Margin="-50 0 0 0" Click="btnNuevo_Click"/>
 
         <!--datagrid-->
 
-        <DataGrid x:Name="dataGrid" Margin="199,0,10,-89" Grid.Row="3" Grid.ColumnSpan="4" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="dataGrid_SelectionChanged"  VerticalAlignment="Top" Height="180" Width="440">
+        <DataGrid x:Name="dataGrid" Margin="0,0,10,-89" Grid.Row="3" Grid.ColumnSpan="4" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="dataGrid_SelectionChanged"  VerticalAlignment="Top" Height="180" Width="440">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Nombre Proveedor" Binding="{Binding NombreProveedor}" />
                 <DataGridTextColumn Header="Nombre Conacto" Binding="{Binding NombreContacto}" />
@@ -62,6 +65,18 @@
                 </StackPanel>
             </materialDesign:DialogHost.DialogContent>
         </materialDesign:DialogHost>
+
+
+        <materialDesign:DialogHost IsOpen="False" x:Name="ayuda" Grid.ColumnSpan="4" Grid.RowSpan="4" Margin="0,0,-186,-132">
+            <materialDesign:DialogHost.DialogContent>
+                <StackPanel Margin="20" Orientation="Vertical">
+                    <TextBlock x:Name="txtTextBlockAyuda" Text="Registro procesado"/>
+                    <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandTarget="{Binding ElementName=ayuda}" 
+                        Style="{DynamicResource MaterialDesignFlatButton}" Content="Aceptar" Margin="0 10 0 0"/>
+                </StackPanel>
+            </materialDesign:DialogHost.DialogContent>
+        </materialDesign:DialogHost>
+
 
     </Grid>
 </Page>

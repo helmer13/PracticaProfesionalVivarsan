@@ -35,8 +35,8 @@ namespace PracticaProfesionalVivarsan
 
         private void mantProducto_Click(object sender, RoutedEventArgs e)
         {
-           // PProducto pProducto = new PProducto();
-            frame.Content= new PProducto();
+            // PProducto pProducto = new PProducto();
+            frame.Content = new PProducto();
         }
 
         private void mantProveedor_Click(object sender, RoutedEventArgs e)
@@ -56,6 +56,9 @@ namespace PracticaProfesionalVivarsan
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            Usuario usuarioGlobal = new Usuario();
+            usuarioGlobal = (Usuario)App.Current.Properties["usuarioSesion"];
+            lnlNombreUsuario.Content = "Usuario: " + usuarioGlobal.Nombre;
             frame.Content = new PMenuLogo();
         }
 

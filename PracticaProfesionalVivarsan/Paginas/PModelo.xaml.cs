@@ -145,5 +145,11 @@ namespace PracticaProfesionalVivarsan.Paginas
                 e.Handled = false;
             else e.Handled = true;
         }
+
+        private void btnAyuda_Click(object sender, RoutedEventArgs e)
+        {
+            txtTextBlockAyuda.Text = string.Format("My Text \n Your Text");
+            ayuda.IsOpen = true;
+        }
     }
 }
