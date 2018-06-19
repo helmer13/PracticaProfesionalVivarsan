@@ -46,6 +46,8 @@ namespace PracticaProfesionalVivarsan.Paginas
             CargarCboBodegas();
 
             txtSubTotal.Text = "0";
+
+          
         }
 
         private void dataGridProductos_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -161,6 +163,27 @@ namespace PracticaProfesionalVivarsan.Paginas
 
         }
 
+        private void CargarCboProveedores()
+        {
+            try
+            {
+                ProveedorLogica logica = new ProveedorLogica();
+                List<Proveedor> lista = new List<Proveedor>();
+                lista = logica.obtenerProveedores();
+                cboBodegas.ItemsSource = lista;
+
+                cboBodegas.DisplayMemberPath = "NombreProveedor";
+                cboBodegas.SelectedValuePath = "Id";
+                cboBodegas.SelectedValue = 1;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
 
@@ -183,7 +206,8 @@ namespace PracticaProfesionalVivarsan.Paginas
 
         private void btnFacturar_Click(object sender, RoutedEventArgs e)
         {
-
+            gridLineaDetalle.Visibility = Visibility.Collapsed;
+            CargarCboProveedores();
         }
     }
 }

@@ -14,7 +14,9 @@
       d:DesignHeight="300" d:DesignWidth="300"
       Title="PProducto" Width="1360" Height="670" Loaded="Page_Loaded" Background="#F1F8FB">
 
-    <Grid Width="1000" Margin="180,30,180,94" Background="#E4ECF0">
+    <StackPanel>
+    
+    <Grid Width="1000" x:Name="gridLineaDetalle" Margin="180,30,180,94" Background="#E4ECF0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="200"/>
@@ -109,6 +111,29 @@
       
             <Button x:Name="btnFacturar"  Content="Facturar"  Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left"  VerticalAlignment="Stretch" Margin="0 180 0 -10"   Width="120" Height="30" Click="btnFacturar_Click"/>
         
-       
+   
+
+
     </Grid>
+
+        <Grid Width="1000" x:Name="gridFacturacion" Margin="180,30,180,94" Background="#E4ECF0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition  Height="100"/>
+                <RowDefinition  Height="100"/>
+                <RowDefinition  Height="100"/>
+                <RowDefinition  Height="200"/>
+            </Grid.RowDefinitions>
+            <ComboBox x:Name="cboProveedores" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="200" Height="50" materialDesign:HintAssist.Hint="Proveedores" materialDesign:HintAssist.IsFloating="True" >
+            </ComboBox>
+        </Grid>
+
+      
+
+    </StackPanel>
 </Page>
