@@ -47,7 +47,11 @@ namespace PracticaProfesionalVivarsan.Paginas
 
             txtSubTotal.Text = "0";
 
-          
+           // Style dpStyle = new Style(typeof(System.Windows.Controls.DatePicker));
+           // dpStyle.Setters.Add(new Setter(System.Windows.Controls.DatePicker.LanguageProperty, System.Windows.Markup.XmlLanguage.GetLanguage("es-US")));
+           // this.Resources.Add(typeof(System.Windows.Controls.DatePicker), dpStyle);
+
+
         }
 
         private void dataGridProductos_SelectionChanged(object sender, SelectionChangedEventArgs e)
