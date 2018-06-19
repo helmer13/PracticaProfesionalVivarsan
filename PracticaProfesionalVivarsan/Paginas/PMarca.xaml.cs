@@ -47,8 +47,8 @@ namespace PracticaProfesionalVivarsan.Paginas
 
                 logica.InsertarActualizarMarca(marca);
                 Refrescar();
-                //txtTextBlockDialogo.Text = "Registro procesado";
-                //dialogo.IsOpen = true;
+                txtTextBlockDialogo.Text = "Registro procesado";
+                dialogo.IsOpen = true;
             }
             catch (Exception ex)
             {
