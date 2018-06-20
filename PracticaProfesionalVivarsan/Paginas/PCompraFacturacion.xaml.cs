@@ -17,8 +17,8 @@ using Logica;
 
 namespace PracticaProfesionalVivarsan.Paginas
 {
-   
-   
+
+
 
     /// <summary>
     /// Interaction logic for PCompraFacturacion.xaml
@@ -46,10 +46,10 @@ namespace PracticaProfesionalVivarsan.Paginas
             CargarCboBodegas();
 
             txtSubTotal.Text = "0";
-
-           // Style dpStyle = new Style(typeof(System.Windows.Controls.DatePicker));
-           // dpStyle.Setters.Add(new Setter(System.Windows.Controls.DatePicker.LanguageProperty, System.Windows.Markup.XmlLanguage.GetLanguage("es-US")));
-           // this.Resources.Add(typeof(System.Windows.Controls.DatePicker), dpStyle);
+            CargarCboProveedores();
+            // Style dpStyle = new Style(typeof(System.Windows.Controls.DatePicker));
+            // dpStyle.Setters.Add(new Setter(System.Windows.Controls.DatePicker.LanguageProperty, System.Windows.Markup.XmlLanguage.GetLanguage("es-US")));
+            // this.Resources.Add(typeof(System.Windows.Controls.DatePicker), dpStyle);
 
 
         }
@@ -61,7 +61,7 @@ namespace PracticaProfesionalVivarsan.Paginas
                 producto = (Producto)dataGridProductos.SelectedCells[0].Item;
                 txtidProducto.Text = producto.IdProducto;
                 txtProducto.Text = producto.Nombre;
-                
+
             }
             catch (Exception ex)
             {
@@ -88,8 +88,8 @@ namespace PracticaProfesionalVivarsan.Paginas
                 dataGridProductos.ItemsSource = lista;
                 if (rbNombre.IsChecked.Value)
                 {
-                    listaAuxiliar = lista.Where(p=> p.Nombre.ToLower().Contains(txtBuscar.Text.ToLower())).ToList();
-                    dataGridProductos.ItemsSource = listaAuxiliar; 
+                    listaAuxiliar = lista.Where(p => p.Nombre.ToLower().Contains(txtBuscar.Text.ToLower())).ToList();
+                    dataGridProductos.ItemsSource = listaAuxiliar;
                 }
                 if (rbMarca.IsChecked.Value)
                 {
@@ -119,28 +119,29 @@ namespace PracticaProfesionalVivarsan.Paginas
             LineaDetalleCompras lineaDetalle = new LineaDetalleCompras();
             Inventario inventario = new Inventario();
 
-            usuario= (Usuario)App.Current.Properties["usuarioSesion"];
+            usuario = (Usuario)App.Current.Properties["usuarioSesion"];
 
             lineaDetalle.Id = Guid.NewGuid().ToString();
-            lineaDetalle.Cantidad = Convert.ToInt32( txtCantidad.Text);
+            lineaDetalle.Cantidad = Convert.ToInt32(txtCantidad.Text);
             lineaDetalle.Producto = producto;
-            lineaDetalle.SubTotal = lineaDetalle.Cantidad * Convert.ToInt32( txtPrecioCosto.Text);
+            lineaDetalle.SubTotal = lineaDetalle.Cantidad * Convert.ToInt32(txtPrecioCosto.Text);
+
             listaDetalle.Add(lineaDetalle);
             dataGridLineaDetalle.ItemsSource = listaDetalle;
             dataGridLineaDetalle.Items.Refresh();
             //inventario
             inventario.Cantidad = Convert.ToInt32(txtCantidad.Text); ;
-            inventario.IdBodega =  (int)cboBodegas.SelectedValue;
+            inventario.IdBodega = (int)cboBodegas.SelectedValue;
             inventario.IdEmpresa = usuario.Empresa.IdEmpresa;
             inventario.Producto = producto;
             listaInventario.Add(inventario);
 
             //para el label del total
-            double total=0;
+            double total = 0;
             for (int i = 0; i < listaDetalle.Count; i++)
             {
-                 total += listaDetalle[i].SubTotal;
-              
+                total += listaDetalle[i].SubTotal;
+
             }
             txtSubTotal.Text = total.ToString();
         }
@@ -174,11 +175,11 @@ namespace PracticaProfesionalVivarsan.Paginas
                 ProveedorLogica logica = new ProveedorLogica();
                 List<Proveedor> lista = new List<Proveedor>();
                 lista = logica.obtenerProveedores();
-                cboBodegas.ItemsSource = lista;
+                cboProveedores.ItemsSource = lista;
 
-                cboBodegas.DisplayMemberPath = "NombreProveedor";
-                cboBodegas.SelectedValuePath = "Id";
-                cboBodegas.SelectedValue = 1;
+                cboProveedores.DisplayMemberPath = "NombreProveedor";
+                cboProveedores.SelectedValuePath = "Id";
+                cboProveedores.SelectedValue = 1;
             }
             catch (Exception ex)
             {
@@ -210,8 +211,33 @@ namespace PracticaProfesionalVivarsan.Paginas
 
         private void btnFacturar_Click(object sender, RoutedEventArgs e)
         {
-            gridLineaDetalle.Visibility = Visibility.Collapsed;
-            CargarCboProveedores();
+            FacturaCompras factura = new FacturaCompras();
+            FacturaComprasLogica logica = new FacturaComprasLogica();
+
+            var count = logica.ObtenerContadorFacturas();
+
+            Usuario usuarioGlobal = new Usuario();
+
+            Proveedor proveedor = (Proveedor)cboProveedores.SelectedItem;
+
+            usuarioGlobal = (Usuario)App.Current.Properties["usuarioSesion"];
+
+            factura.Id = count.Id + 1;
+            factura.Usuario = usuarioGlobal;
+            factura.IdProveedor = proveedor.Id;
+            factura.Fecha = fecha.SelectedDate.Value;
+            factura.Total = Convert.ToDouble( txtSubTotal.Text);
+            factura.TipoPago = cboTipoPago.Text;
+
+            foreach (var item in listaDetalle)
+            {
+                item.IdFactua = factura.Id;
+            }
+            factura.LineasDetalleCompras = listaDetalle;
+
+            logica.GuardarFactura(factura);
+
+
         }
     }
 }

@@ -43,12 +43,14 @@
     <Compile Include="BodegaLogica.cs" />
     <Compile Include="ClienteLogica.cs" />
     <Compile Include="EmpresaLogica.cs" />
+    <Compile Include="FacturaComprasLogica.cs" />
     <Compile Include="MarcaLogica.cs" />
     <Compile Include="ModeloLogica.cs" />
     <Compile Include="ProductoLogica.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProveedorLogica.cs" />
     <Compile Include="UsuarioLogica.cs" />
+    <Compile Include="Utiles.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AccesoDatos\AccesoDatos.csproj">

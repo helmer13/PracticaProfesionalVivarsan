@@ -9,11 +9,13 @@ namespace Entidad
   public  class FacturaCompras
     {
         int id;
-        string idUsuario;
+        Usuario usuario;
         string idProveedor;
         DateTime fecha;
         double total;
         string tipoPago;
+
+        List<LineaDetalleCompras> lineasDetalleCompras = new List<LineaDetalleCompras>();
 
         public int Id
         {
@@ -28,16 +30,16 @@ namespace Entidad
             }
         }
 
-        public string IdUsuario
+        public Usuario  Usuario
         {
             get
             {
-                return idUsuario;
+                return usuario;
             }
 
             set
             {
-                idUsuario = value;
+                usuario = value;
             }
         }
 
@@ -90,6 +92,19 @@ namespace Entidad
             set
             {
                 tipoPago = value;
+            }
+        }
+
+        public List<LineaDetalleCompras> LineasDetalleCompras
+        {
+            get
+            {
+                return lineasDetalleCompras;
+            }
+
+            set
+            {
+                lineasDetalleCompras = value;
             }
         }
     }
