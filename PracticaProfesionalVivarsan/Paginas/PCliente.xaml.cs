@@ -40,17 +40,26 @@ namespace PracticaProfesionalVivarsan.Paginas
                 }
 
 
-                //  cliente.Id = Guid.NewGuid().ToString();
-                cliente.Indentificacion = txtIndentificacion.Text;
-                cliente.Nombre = txtNombre.Text;
-                cliente.Direccion = txtDireccion.Text;
-                cliente.Correo = txtCorreo.Text;
-                cliente.Telefono = int.Parse(txtTelefono.Text);
+                if (validaciones() == true)
+                {
+                    txtTextBlockDialogo.Text = "Debe ingresar todos los datos solicitados.";
+                    dialogo.IsOpen = true;
+                    return;
+                }
+                else
+                {
+                    cliente.Indentificacion = txtIndentificacion.Text;
+                    cliente.Nombre = txtNombre.Text;
+                    cliente.Direccion = txtDireccion.Text;
+                    cliente.Correo = txtCorreo.Text;
+                    cliente.Telefono = int.Parse(txtTelefono.Text);
 
-                logica.InsertarActialiarCliente(cliente);
-                Refrescar();
-                txtTextBlockDialogo.Text = "Registro procesado";
-                dialogo.IsOpen = true;
+                    logica.InsertarActialiarCliente(cliente);
+                    Refrescar();
+                    txtTextBlockDialogo.Text = "Registro procesado";
+                    dialogo.IsOpen = true;
+                }
+                
             }
             catch (Exception ex)
             {
@@ -59,6 +68,17 @@ namespace PracticaProfesionalVivarsan.Paginas
             }
            
           
+        }
+        public Boolean validaciones()
+        {
+            if (string.IsNullOrEmpty(txtIndentificacion.Text) || string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrEmpty(txtDireccion.Text) || string.IsNullOrEmpty(txtCorreo.Text) || string.IsNullOrEmpty(txtCorreo.Text) || string.IsNullOrEmpty(txtTelefono.Text))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -126,8 +146,24 @@ namespace PracticaProfesionalVivarsan.Paginas
 
         private void btnAyuda_Click(object sender, RoutedEventArgs e)
         {
-            txtTextBlockAyuda.Text = string.Format("My Text \n Your Text");
+            txtTextBlockAyuda.Text = string.Format(" En el campo Identificación, se debe digitar la cédula del cliente a registrar.  \n En el campo Nombre, se debe digitar el nombre completo del cliente." +
+                "\n En el campo Dirección, se debe digitar la dirección del cliente. \n En el campo Correo, se debe digitar el correo electrónico del cliente. \n En el campo Teléfono, se debe digitar el numero de teléfono del cliente.");
             ayuda.IsOpen = true;
+        }
+
+        public void SoloNumeros(TextCompositionEventArgs e)
+        {
+            //se convierte a Ascci del la tecla presionada 
+            int ascci = Convert.ToInt32(Convert.ToChar(e.Text));
+            //verificamos que se encuentre en ese rango que son entre el 0 y el 9 
+            if (ascci >= 48 && ascci <= 57)
+                e.Handled = false;
+            else e.Handled = true;
+        }
+
+        private void txtTelefono_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            SoloNumeros(e);
         }
     }
 }

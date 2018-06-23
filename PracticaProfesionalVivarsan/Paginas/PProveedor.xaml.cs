@@ -35,18 +35,39 @@ namespace PracticaProfesionalVivarsan.Paginas
                 proveedor.Id = Guid.NewGuid().ToString();
             }
 
+            if (validaciones() == true)
+            {
+                txtTextBlockDialogo.Text = "Debe ingresar todos los datos solicitados.";
+                dialogo.IsOpen = true;
+                return;
+            }
+            else
+            {
+                //  cliente.Id = Guid.NewGuid().ToString();
+                proveedor.NombreContacto = txtNombreContacto.Text;
+                proveedor.NombreProveedor = txtNombreProveedor.Text;
+                proveedor.Correo = txtCorreo.Text;
+                proveedor.Telefono = int.Parse(txtTelefono.Text);
 
-            //  cliente.Id = Guid.NewGuid().ToString();
-            proveedor.NombreContacto = txtNombreContacto.Text;
-            proveedor.NombreProveedor = txtNombreProveedor.Text;
-            proveedor.Correo = txtCorreo.Text;
-            proveedor.Telefono = int.Parse(txtTelefono.Text);
+                logica.InsertarActialiarProveedor(proveedor);
+                Refrescar();
+                txtTextBlockDialogo.Text = "Registro procesado";
+                dialogo.IsOpen = true;
+            }
+            
 
-            logica.InsertarActialiarProveedor(proveedor);
-            Refrescar();
-            txtTextBlockDialogo.Text = "Registro procesado";
-            dialogo.IsOpen = true;
+        }
 
+        public Boolean validaciones()
+        {
+            if (string.IsNullOrEmpty(txtNombreContacto.Text) || string.IsNullOrEmpty(txtNombreProveedor.Text) || string.IsNullOrEmpty(txtCorreo.Text) || string.IsNullOrEmpty(txtTelefono.Text))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private void btnNuevo_Click(object sender, RoutedEventArgs e)
@@ -83,7 +104,8 @@ namespace PracticaProfesionalVivarsan.Paginas
 
         private void btnAyuda_Click(object sender, RoutedEventArgs e)
         {
-            txtTextBlockAyuda.Text = string.Format("My Text \n Your Text");
+            txtTextBlockAyuda.Text = string.Format(" En el campo Nombre Proveedor, se debe digitar el nombre del proveedor a registrar.  \n En el campo Nombre Contacto, se debe digitar el nombre de la persona encargada de la empresa proveedora." +
+                "\n En el campo Correo, se debe digitar el correo electrónico del proveedor. \n En el campo Teléfono, se debe digitar el numero de teléfono del proveedor.");
             ayuda.IsOpen = true;
         }
     }

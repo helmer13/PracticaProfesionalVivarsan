@@ -63,20 +63,42 @@ namespace PracticaProfesionalVivarsan.Paginas
                     modelo.Id = Convert.ToInt32(txtid.Text);
                 }
 
-                modelo.Descripcion = txtDescripcion.Text;
-                modelo.Anno = Convert.ToInt32(txtAnno.Text);
-                modelo.Marca = logMarca.seleccionarMarca(Convert.ToInt32(cboMarcas.SelectedValue));
+                if (validaciones() == true )
+                {
+                    txtTextBlockDialogo.Text = "Debe completar todos los campos solicitados";
+                    dialogo.IsOpen = true;
+                    return;
+                }
+                else
+                {
+                    modelo.Descripcion = txtDescripcion.Text;
+                    modelo.Anno = Convert.ToInt32(txtAnno.Text);
+                    modelo.Marca = logMarca.seleccionarMarca(Convert.ToInt32(cboMarcas.SelectedValue));
 
-                logica.InsertarActualizarModelo(modelo);
+                    logica.InsertarActualizarModelo(modelo);
 
-                Refrescar();
-                txtTextBlockDialogo.Text = "Registro procesado";
-                dialogo.IsOpen = true;
+                    Refrescar();
+                    txtTextBlockDialogo.Text = "Registro procesado";
+                    dialogo.IsOpen = true;
+                }              
+               
             }
             catch (Exception ex)
             {
 
                 throw ex;
+            }
+        }
+
+        public Boolean validaciones()
+        {           
+            if (string.IsNullOrEmpty(txtDescripcion.Text) || string.IsNullOrEmpty(txtDescripcion.Text) || string.IsNullOrEmpty(txtDescripcion.Text) || string.IsNullOrEmpty(txtDescripcion.Text))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 
@@ -148,7 +170,7 @@ namespace PracticaProfesionalVivarsan.Paginas
 
         private void btnAyuda_Click(object sender, RoutedEventArgs e)
         {
-            txtTextBlockAyuda.Text = string.Format("My Text \n Your Text");
+            txtTextBlockAyuda.Text = string.Format(" En el combo box Marca, debe de elegir la correspondiente al modelo que desea registrar. \n En el campo descipción, debe de ingresar el modelo.  \n En el campo Año, debe ingresar el año que corresponda al modelo que se esta registrando.");
             ayuda.IsOpen = true;
         }
     }

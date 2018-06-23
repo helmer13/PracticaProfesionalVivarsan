@@ -43,12 +43,20 @@ namespace PracticaProfesionalVivarsan.Paginas
                     marca.Id = Convert.ToInt32(txtid.Text);
                 }
 
-                marca.Descripcion = txtDescripcion.Text;
-
-                logica.InsertarActualizarMarca(marca);
-                Refrescar();
-                txtTextBlockDialogo.Text = "Registro procesado";
-                dialogo.IsOpen = true;
+                if (string.IsNullOrEmpty(txtDescripcion.Text))
+                {
+                    txtTextBlockDialogo.Text = "Debe ingresar la descripción de la marca";
+                    dialogo.IsOpen = true;
+                }
+                else
+                {
+                    marca.Descripcion = txtDescripcion.Text;
+                    logica.InsertarActualizarMarca(marca);
+                    Refrescar();
+                    txtTextBlockDialogo.Text = "Registro procesado";
+                    dialogo.IsOpen = true;
+                }
+                
             }
             catch (Exception ex)
             {
@@ -103,7 +111,7 @@ namespace PracticaProfesionalVivarsan.Paginas
 
         private void btnAyuda_Click(object sender, RoutedEventArgs e)
         {
-            txtTextBlockAyuda.Text = string.Format("My Text \n Your Text");
+            txtTextBlockAyuda.Text = string.Format("En el campo Descripción, debe ingresar el nombre de la marca.");
             ayuda.IsOpen = true;
         }
     }

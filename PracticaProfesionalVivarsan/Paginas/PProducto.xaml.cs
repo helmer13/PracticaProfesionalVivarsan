@@ -56,16 +56,27 @@ namespace PracticaProfesionalVivarsan.Paginas
                 Producto prod = new Producto();
                 ProductoLogica logica = new ProductoLogica();
                 ModeloLogica logModelo = new ModeloLogica();
-                prod.IdProducto = txtCodigo.Text;
-                prod.Nombre = txtNombre.Text;
-                prod.Modelo = logModelo.seleccionarModelo(Convert.ToInt32(cboModelos.SelectedValue));
-                prod.PrecioCompra = 0; // Convert.ToDecimal(txtPrecioCompra.Text);
-                prod.PrecioVenta = Convert.ToDecimal(txtPrecioVenta.Text);
 
-                logica.InsertarActialiarProducto(prod);
-                Refrescar();
-                txtTextBlockDialogo.Text = "Registro procesado";
-                dialogo.IsOpen = true;
+                if (validaciones() == true)
+                {
+                    txtTextBlockDialogo.Text = "Debe completar todos los campos solicitados";
+                    dialogo.IsOpen = true;
+                    return;
+                }
+                else
+                {
+                    prod.IdProducto = txtCodigo.Text;
+                    prod.Nombre = txtNombre.Text;
+                    prod.Modelo = logModelo.seleccionarModelo(Convert.ToInt32(cboModelos.SelectedValue));
+                    prod.PrecioCompra = 0; // Convert.ToDecimal(txtPrecioCompra.Text);
+                    prod.PrecioVenta = Convert.ToDecimal(txtPrecioVenta.Text);
+
+                    logica.InsertarActialiarProducto(prod);
+                    Refrescar();
+                    txtTextBlockDialogo.Text = "Registro procesado";
+                    dialogo.IsOpen = true;
+                }
+                
             }
             catch (Exception ex)
             {
@@ -73,6 +84,18 @@ namespace PracticaProfesionalVivarsan.Paginas
                 throw ex;
             }
            
+        }
+
+        public Boolean validaciones()
+        {
+            if (string.IsNullOrEmpty(txtCodigo.Text) || string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrEmpty(txtPrecioVenta.Text))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private void btnNuevo_Click(object sender, RoutedEventArgs e)
@@ -178,7 +201,9 @@ namespace PracticaProfesionalVivarsan.Paginas
 
         private void btnAyuda_Click(object sender, RoutedEventArgs e)
         {
-            txtTextBlockAyuda.Text = string.Format("My Text \n Your Text");
+            txtTextBlockAyuda.Text = string.Format(" En el campo Código, se debe digitar la código del producto a registrar.  \n En el campo Nombre, se debe digitar el nombre del producto." +
+                "\n En el combo box Marca, debe elegir la marca de los automóviles en la que funciona ese producto. \n En el combo box Modelo, debe elegir el modelo del automóvil en la que funciona ese producto. "+
+                "\n En el campo Precio Venta, se debe digitar el precio en el que desea vender ese producto. \n ");
             ayuda.IsOpen = true;
         }
     }

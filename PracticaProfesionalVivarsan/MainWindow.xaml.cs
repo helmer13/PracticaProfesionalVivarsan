@@ -85,5 +85,13 @@ namespace PracticaProfesionalVivarsan
             }
 
         }
+
+        private void txtContrasena_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                button_Click(sender, e);
+            }
+        }
     }
 }

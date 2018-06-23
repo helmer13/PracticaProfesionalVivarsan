@@ -39,7 +39,7 @@
         <TextBox x:Name="txtDireccion" Grid.Row="1" Grid.Column="3" Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Dirección" materialDesign:HintAssist.IsFloating="True" />
        
 
-        <TextBox x:Name="txtTelefono" Grid.Row="2" Grid.Column="1"  Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Teléfono" materialDesign:HintAssist.IsFloating="True" />
+        <TextBox x:Name="txtTelefono" Grid.Row="2" Grid.Column="1"  Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Teléfono" materialDesign:HintAssist.IsFloating="True" PreviewTextInput="txtTelefono_PreviewTextInput"/>
 
         <!--botones-->
         <Button x:Name="btnGuardar"  Content="Guardar"  Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left"  VerticalAlignment="Center"   Width="90" Height="29" Click="btnGuardar_Click"/>
