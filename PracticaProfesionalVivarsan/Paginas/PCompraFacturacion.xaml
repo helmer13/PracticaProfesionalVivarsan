@@ -1,7 +1,7 @@
 ﻿<Page x:Class="PracticaProfesionalVivarsan.Paginas.PCompraFacturacion"
       TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Medium"
-        TextElement.FontSize="14"
+        TextElement.FontSize="14" 
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       
@@ -12,128 +12,131 @@
       xmlns:local="clr-namespace:PracticaProfesionalVivarsan.Paginas"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-      Title="PProducto" Width="1360" Height="670" Loaded="Page_Loaded" Background="#F1F8FB">
+      Title="PProducto" Width="1360" Height="770" Loaded="Page_Loaded" Background="#F1F8FB" ScrollViewer.VerticalScrollBarVisibility="Auto">
 
-    <StackPanel>
-    
-    <Grid Width="1000" x:Name="gridLineaDetalle" Margin="180,30,180,94" Background="#E4ECF0">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
-            <ColumnDefinition Width="200"/>
-            <ColumnDefinition Width="200"/>
-            <ColumnDefinition Width="200"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition  Height="100"/>
-            <RowDefinition  Height="100"/>
-            <RowDefinition  Height="100"/>
-            <RowDefinition  Height="200"/>
-        </Grid.RowDefinitions>
-
-        <TextBox x:Name="txtidProducto" Visibility="Collapsed" Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Producto" materialDesign:HintAssist.IsFloating="True"/>
-        <TextBox x:Name="txtProducto" IsReadOnly="True" Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Producto" materialDesign:HintAssist.IsFloating="True"/>
-        <Button x:Name="btnBuscarProducto"  Content="Buscar"  Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="0 0 0 -30"   Width="90" Height="29" Click="btnBuscarProducto_Click"/>
-
-        <!--POPUP CON LA TABLA DE PRODUCTOS-->
-        <materialDesign:DialogHost IsOpen="False" x:Name="dialogo" Grid.ColumnSpan="4" Grid.RowSpan="4" Margin="0,0,-186,-132">
-            <materialDesign:DialogHost.DialogContent>
-                <StackPanel Margin="25" Orientation="Vertical">
+    <ScrollViewer>
 
 
-                    <TextBox x:Name="txtBuscar"  Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Buscar" materialDesign:HintAssist.IsFloating="True"/>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100"/>
-                            <ColumnDefinition Width="100"/>
-                            <ColumnDefinition Width="100"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition  Height="50"/>
+        <StackPanel>
 
-                        </Grid.RowDefinitions>
+            <Grid Width="1000" x:Name="gridLineaDetalle" Margin="180,30,180,94" Background="#E4ECF0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="400"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition  Height="100"/>
+                    <RowDefinition  Height="100"/>
+                    <RowDefinition  Height="100"/>
+                    <RowDefinition  Height="100"/>
+                    <RowDefinition  Height="100"/>
+                    <RowDefinition  Height="250"/>
+                </Grid.RowDefinitions>
 
-                        <RadioButton x:Name="rbNombre" GroupName="rbBuscar" Grid.Row="0" Grid.Column="0" Content="Nombre" Margin="10"  />
-                        <RadioButton x:Name="rbMarca" GroupName="rbBuscar"  Grid.Row="0" Grid.Column="1" Content="Marca" Margin="10"  />
-                        <RadioButton x:Name="rbModelo" GroupName="rbBuscar"  Grid.Row="0" Grid.Column="2" Content="Modelo" Margin="10"  />
-                    </Grid>
+                <TextBox x:Name="txtNumeroFactura" Grid.Row="0"  Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Factura No." materialDesign:HintAssist.IsFloating="True"/>
+
+                <ComboBox x:Name="cboTipoPago" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="200" Height="50" materialDesign:HintAssist.Hint="Tipo Pago" materialDesign:HintAssist.IsFloating="True" />
+
+                <ComboBox x:Name="cboProveedores" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="200" Height="50" materialDesign:HintAssist.Hint="Proveedores" materialDesign:HintAssist.IsFloating="True" />
+
+                <DatePicker Grid.Row="1" Grid.Column="3" Name="fecha" Language="es-US" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha factura" materialDesign:HintAssist.IsFloating="True"  />
+
+                <Grid Grid.Row="2" Grid.ColumnSpan="4">
+                    <materialDesign:ColorZone Mode="Standard">
+                        <TextBlock   FontSize="35" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0 -35 0 0 "/>
+                    </materialDesign:ColorZone>
+                </Grid>
+
+                <TextBox x:Name="txtidProducto" Visibility="Collapsed"  Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Producto" materialDesign:HintAssist.IsFloating="True"/>
+                <TextBox x:Name="txtProducto" IsReadOnly="True" Grid.Row="2" Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Producto" materialDesign:HintAssist.IsFloating="True"/>
+                <Button x:Name="btnBuscarProducto"  Content="Buscar"  Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="0 0 0 -30"   Width="90" Height="29" Click="btnBuscarProducto_Click"/>
+
+                <!--POPUP CON LA TABLA DE PRODUCTOS-->
+                <materialDesign:DialogHost IsOpen="False" x:Name="dialogo" Grid.ColumnSpan="4" Grid.RowSpan="6" Margin="0,0,0,0">
+                    <materialDesign:DialogHost.DialogContent>
+                        <StackPanel Margin="25" Orientation="Vertical">
 
 
-                    <Button x:Name="btnEncontrarProducto"  Content="Buscar"   HorizontalAlignment="Left"  VerticalAlignment="Center"   Width="90" Height="29" Click="btnEncontrarProducto_Click"/>
-                    <DataGrid  x:Name="dataGridProductos"  IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="dataGridProductos_SelectionChanged"  VerticalAlignment="Top" Height="180" Width="500">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Código" Binding="{Binding IdProducto}" />
-                            <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" />
-                            <DataGridTextColumn Header="Marca" Binding="{Binding Modelo.Marca}" />
-                            <DataGridTextColumn Header="Modelo" Binding="{Binding Modelo}" />
-                            <DataGridTextColumn Header="Precio Compra" Binding="{Binding PrecioCompra}" />
-                            <DataGridTextColumn Header="Precio Venta" Binding="{Binding PrecioVenta}" />
-                        </DataGrid.Columns>
+                            <TextBox x:Name="txtBuscar"  Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Buscar" materialDesign:HintAssist.IsFloating="True"/>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="100"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition  Height="50"/>
 
-                    </DataGrid>
-                    <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandTarget="{Binding ElementName=dialogo}" 
+                                </Grid.RowDefinitions>
+
+                                <RadioButton x:Name="rbNombre" GroupName="rbBuscar" Grid.Row="0" Grid.Column="0" Content="Nombre" Margin="10"  />
+                                <RadioButton x:Name="rbMarca" GroupName="rbBuscar"  Grid.Row="0" Grid.Column="1" Content="Marca" Margin="10"  />
+                                <RadioButton x:Name="rbModelo" GroupName="rbBuscar"  Grid.Row="0" Grid.Column="2" Content="Modelo" Margin="10"  />
+                            </Grid>
+
+
+                            <Button x:Name="btnEncontrarProducto"  Content="Buscar"   HorizontalAlignment="Left"  VerticalAlignment="Center"   Width="90" Height="29" Click="btnEncontrarProducto_Click"/>
+                            <DataGrid  x:Name="dataGridProductos"  IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="dataGridProductos_SelectionChanged"  VerticalAlignment="Top" Height="180" Width="500">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Código" Binding="{Binding IdProducto}" />
+                                    <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" />
+                                    <DataGridTextColumn Header="Marca" Binding="{Binding Modelo.Marca}" />
+                                    <DataGridTextColumn Header="Modelo" Binding="{Binding Modelo}" />
+                                    <DataGridTextColumn Header="Precio Compra" Binding="{Binding PrecioCompra}" />
+                                    <DataGridTextColumn Header="Precio Venta" Binding="{Binding PrecioVenta}" />
+                                </DataGrid.Columns>
+
+                            </DataGrid>
+                            <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandTarget="{Binding ElementName=dialogo}" 
                         Style="{DynamicResource MaterialDesignFlatButton}" Content="Aceptar" Margin="0 10 0 0"/>
-                </StackPanel>
-            </materialDesign:DialogHost.DialogContent>
-        </materialDesign:DialogHost>
+                        </StackPanel>
+                    </materialDesign:DialogHost.DialogContent>
+                </materialDesign:DialogHost>
 
-        <TextBox x:Name="txtCantidad" Grid.Row="0"  Grid.Column="3" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Cantidad" materialDesign:HintAssist.IsFloating="True"/>
-        <TextBox x:Name="txtPrecioCosto" Grid.Row="1"  Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Precio Costo" materialDesign:HintAssist.IsFloating="True"/>
-        <ComboBox x:Name="cboBodegas" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="200" Height="50" materialDesign:HintAssist.Hint="Bodegas" materialDesign:HintAssist.IsFloating="True" >
-        </ComboBox>
+                <TextBox x:Name="txtCantidad" Grid.Row="2"  Grid.Column="3" Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Cantidad" materialDesign:HintAssist.IsFloating="True"/>
+                <TextBox x:Name="txtPrecioCosto" Grid.Row="3"  Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Precio Costo" materialDesign:HintAssist.IsFloating="True"/>
+                <ComboBox x:Name="cboBodegas" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="200" Height="50" materialDesign:HintAssist.Hint="Bodegas" materialDesign:HintAssist.IsFloating="True" >
+                </ComboBox>
 
-        <Button x:Name="btnAgregar"  Content="Agregar"  Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="0 0 0 65"   Width="90" Height="29" Click="btnAgregar_Click"/>
+                <Button x:Name="btnAgregar"  Content="Agregar"  Grid.Row="4" Grid.Column="3" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="0 0 0 65"   Width="90" Height="29" Click="btnAgregar_Click"/>
 
-        <!--TABLA CON LA LISTA DE DETALLE-->
+                <!--TABLA CON LA LISTA DE DETALLE-->
 
-        <DataGrid  x:Name="dataGridLineaDetalle" RowEditEnding="dataGridLineaDetalle_RowEditEnding"
+                <DataGrid  x:Name="dataGridLineaDetalle" RowEditEnding="dataGridLineaDetalle_RowEditEnding"
                    CellEditEnding="dataGridLineaDetalle_CellEditEnding" SelectionChanged="dataGridLineaDetalle_SelectionChanged" 
-                   Margin="199,55,10,-89" Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="4" CanUserDeleteRows="True"  IsReadOnly="True"
+                   Margin="0,55,10,-89" Grid.Row="4" Grid.RowSpan="2" Grid.ColumnSpan="4" CanUserDeleteRows="True"  IsReadOnly="True"
                    CanUserAddRows="False" AutoGenerateColumns="False"  VerticalAlignment="Top" Height="180" Width="500">
-            <DataGrid.Columns>
-                <DataGridTemplateColumn Header="Eliminar" >
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button x:Name="btnEliminar" Click="btnEliminar_Click" Content="Eliminar" />
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTextColumn Header="Cantidad" Binding="{Binding Cantidad}" />
-                <DataGridTextColumn Header="Código" Binding="{Binding Producto.IdProducto}" />
-                <DataGridTextColumn Header="Descripción" Binding="{Binding Producto.Nombre}" />
-                <DataGridTextColumn Header="Sub Total" Binding="{Binding SubTotal}" />
-               
-            </DataGrid.Columns>
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Header="Eliminar" >
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button x:Name="btnEliminar" Click="btnEliminar_Click" Content="Eliminar" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Header="Cantidad" Binding="{Binding Cantidad}" />
+                        <DataGridTextColumn Header="Código" Binding="{Binding Producto.IdProducto}" />
+                        <DataGridTextColumn Header="Descripción" Binding="{Binding Producto.Nombre}" />
+                        <DataGridTextColumn Header="Sub Total" Binding="{Binding SubTotal}" />
 
-        </DataGrid>
+                    </DataGrid.Columns>
 
-       
-        <TextBox x:Name="txtSubTotal" IsReadOnly="True"   Grid.Row="3" Grid.Column="1" Width="150" Height="50"  Margin="0 150 0 0 "  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Subtotal" materialDesign:HintAssist.IsFloating="True"/>
-      
-            <Button x:Name="btnFacturar"  Content="Facturar"  Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left"  VerticalAlignment="Stretch" Margin="0 180 0 -10"   Width="120" Height="30" Click="btnFacturar_Click"/>
-        
-   
+                </DataGrid>
 
 
-    </Grid>
+                <TextBox x:Name="txtSubTotal" IsReadOnly="True"   Grid.Row="5" Grid.Column="1" Width="150" Height="50"  Margin="0 100 0 0 "  HorizontalAlignment="Right"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Subtotal" materialDesign:HintAssist.IsFloating="True"/>
 
-        <Grid Width="1000" x:Name="gridFacturacion" Margin="180,30,180,94" Background="#E4ECF0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"/>
-                <ColumnDefinition Width="200"/>
-                <ColumnDefinition Width="200"/>
-                <ColumnDefinition Width="200"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition  Height="100"/>
-                <RowDefinition  Height="100"/>
-                <RowDefinition  Height="100"/>
-                <RowDefinition  Height="200"/>
-            </Grid.RowDefinitions>
-            <ComboBox x:Name="cboProveedores" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="200" Height="50" materialDesign:HintAssist.Hint="Proveedores" materialDesign:HintAssist.IsFloating="True" >
-            </ComboBox>
-        </Grid>
+                <Button x:Name="btnFacturar"  Content="Aplicar"  Grid.Row="5" Grid.Column="2" HorizontalAlignment="Center"  VerticalAlignment="Stretch" Margin="0 100 0 -10"   Width="120" Height="30" Click="btnFacturar_Click"/>
 
-      
 
-    </StackPanel>
+
+
+            </Grid>
+
+
+
+        </StackPanel>
+    </ScrollViewer>
 </Page>
