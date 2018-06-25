@@ -123,6 +123,8 @@ namespace PracticaProfesionalVivarsan.Paginas
 
             lineaDetalle.Id = Guid.NewGuid().ToString();
             lineaDetalle.Cantidad = Convert.ToInt32(txtCantidad.Text);
+            producto.IdLineaDetalle = lineaDetalle.Id;
+            producto.IdBodega= (int)cboBodegas.SelectedValue;
             lineaDetalle.Producto = producto;
             lineaDetalle.SubTotal = lineaDetalle.Cantidad * Convert.ToInt32(txtPrecioCosto.Text);
 
@@ -237,6 +239,7 @@ namespace PracticaProfesionalVivarsan.Paginas
 
             logica.GuardarFactura(factura);
 
+            MessageBox.Show("funciona");
 
         }
     }

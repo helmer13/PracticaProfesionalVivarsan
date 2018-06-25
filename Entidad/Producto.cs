@@ -14,6 +14,8 @@ namespace Entidad
         decimal precioCompra;
         decimal precioVenta;
 
+        string idLineaDetalle;
+        int idBodega;
         public string IdProducto
         {
             get
@@ -76,6 +78,32 @@ namespace Entidad
             set
             {
                 precioVenta = value;
+            }
+        }
+
+        public string IdLineaDetalle
+        {
+            get
+            {
+                return idLineaDetalle;
+            }
+
+            set
+            {
+                idLineaDetalle = value;
+            }
+        }
+
+        public int IdBodega
+        {
+            get
+            {
+                return idBodega;
+            }
+
+            set
+            {
+                idBodega = value;
             }
         }
     }

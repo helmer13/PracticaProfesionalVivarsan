@@ -33,7 +33,7 @@ namespace AccesoDatos
         {
             Database db = DatabaseFactory.CreateDatabase("Default");
 
-            SqlCommand comando = new SqlCommand("SPR_INSERTAR_ACTUALIZAR_CLIENTE");
+            SqlCommand comando = new SqlCommand("SPR_INSERTAR_FACTURA_COMPRA");
             comando.CommandType = CommandType.StoredProcedure;
 
             comando.Parameters.AddWithValue("@XML", XML);
