@@ -2,6 +2,7 @@
 using Logica;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +28,11 @@ namespace PracticaProfesionalVivarsan.Paginas
             InitializeComponent();
         }
 
+
+        public PModelo(Modelo Modelo)
+        {
+
+        }
         private void dgModelos_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
@@ -36,8 +42,9 @@ namespace PracticaProfesionalVivarsan.Paginas
                 txtAnno.Text = Convert.ToString(m.Anno);
                 txtid.Text = Convert.ToString(m.Id);
                 cboMarcas.SelectedValue = Convert.ToString(m.Marca.Id);
-                
 
+                gridForm.Visibility = Visibility.Visible;
+                gridVista.Visibility = Visibility.Collapsed;
             }
             catch (Exception ex)
             {
@@ -108,10 +115,13 @@ namespace PracticaProfesionalVivarsan.Paginas
             txtid.Text = "";
             txtAnno.Text = "";
             CargarCboMarcas();
+            gridVista.Visibility = Visibility.Collapsed;
+            gridForm.Visibility = Visibility.Visible;
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            rbDescripcion.IsChecked=true;
             Refrescar();
             CargarCboMarcas();
         }
@@ -122,8 +132,11 @@ namespace PracticaProfesionalVivarsan.Paginas
             {
                 ModeloLogica logica = new ModeloLogica();
                 List<Modelo> lista = new List<Modelo>();
+
                 lista = logica.obtenerModelos();
                 dgModelos.ItemsSource = lista;
+
+
             }
             catch (Exception ex)
             {
@@ -141,7 +154,7 @@ namespace PracticaProfesionalVivarsan.Paginas
                 List<Marca> lista = new List<Marca>();
                 lista = logica.obtenerMarcas();
                 cboMarcas.ItemsSource = lista;
-
+                
                 cboMarcas.DisplayMemberPath = "Descripcion";
                 cboMarcas.SelectedValuePath = "Id";
                 cboMarcas.SelectedValue = 1;
@@ -172,6 +185,51 @@ namespace PracticaProfesionalVivarsan.Paginas
         {
             txtTextBlockAyuda.Text = string.Format(" En el combo box Marca, debe de elegir la correspondiente al modelo que desea registrar. \n En el campo descipción, debe de ingresar el modelo.  \n En el campo Año, debe ingresar el año que corresponda al modelo que se esta registrando.");
             ayuda.IsOpen = true;
+        }
+
+        private void btnVolver_Click(object sender, RoutedEventArgs e)
+        {
+            txtid.Text = string.Empty;
+            txtDescripcion.Text = string.Empty;
+            txtid.Text = string.Empty;
+            txtAnno.Text = string.Empty;
+            CargarCboMarcas();
+            gridVista.Visibility = Visibility.Visible;
+            gridForm.Visibility = Visibility.Collapsed;
+        }
+
+        private void txtBuscar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox t = (TextBox)sender;
+            string filter = t.Text;
+
+            List<Modelo> lista = new List<Modelo>();
+            List<Modelo> listaAxiliar = new List<Modelo>();
+            lista = (List<Modelo>)dgModelos.ItemsSource;
+
+            if (filter=="")
+            {
+                Refrescar();
+            }
+            else
+            {
+                if (rbDescripcion.IsChecked.Value)
+                {
+                    listaAxiliar = lista.Where(p => p.Descripcion.ToLower().Contains(txtBuscar.Text.ToLower())).ToList();
+                    dgModelos.ItemsSource = listaAxiliar;
+                }
+                if (rbanno.IsChecked.Value)
+                {
+                    listaAxiliar = lista.Where(p => p.Anno.ToString().ToLower().Contains(txtBuscar.Text.ToLower())).ToList();
+                    dgModelos.ItemsSource = listaAxiliar;
+                }
+                if (rbMarca.IsChecked.Value)
+                {
+                    listaAxiliar = lista.Where(p => p.Marca.Descripcion.ToLower().Contains(txtBuscar.Text.ToLower())).ToList();
+                    dgModelos.ItemsSource = listaAxiliar;
+                }
+            }    
+
         }
     }
 }
