@@ -181,7 +181,7 @@ namespace PracticaProfesionalVivarsan.Paginas
 
                 cboProveedores.DisplayMemberPath = "NombreProveedor";
                 cboProveedores.SelectedValuePath = "Id";
-                cboProveedores.SelectedValue = 1;
+                cboProveedores.SelectedIndex = 1;
             }
             catch (Exception ex)
             {
@@ -224,7 +224,7 @@ namespace PracticaProfesionalVivarsan.Paginas
 
             usuarioGlobal = (Usuario)App.Current.Properties["usuarioSesion"];
 
-            factura.Id = count.Id + 1;
+            factura.Id = count.Id + 1; 
             factura.Usuario = usuarioGlobal;
             factura.IdProveedor = proveedor.Id;
             factura.Fecha = fecha.SelectedDate.Value;
@@ -241,6 +241,12 @@ namespace PracticaProfesionalVivarsan.Paginas
 
             MessageBox.Show("funciona");
 
+
+
+             factura = new FacturaCompras();
+            proveedor = new Proveedor();
+            listaInventario = new List<Inventario>();
+            listaDetalle = new List<LineaDetalleCompras>();
         }
     }
 }
