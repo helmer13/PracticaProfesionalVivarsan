@@ -67,6 +67,14 @@
                         </ContextMenu>
                     </Button.ContextMenu>
                 </Button>
+                <Button Content="Cerrar Sesión" Height="50" HorizontalAlignment="Center"  Name="btn4" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" Width="150" Click="button1_Click" >
+
+                    <Button.ContextMenu>
+                        <ContextMenu >
+                            <MenuItem  Foreground="Snow" Header="Cerrar Sesión" Click="MenuItem_Click" />
+                        </ContextMenu>
+                    </Button.ContextMenu>
+                </Button>
             </StackPanel>
 
             <Label Content="" Height="55" Margin="1050 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Stretch"  Name="lnlNombreUsuario" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" Width="300" />

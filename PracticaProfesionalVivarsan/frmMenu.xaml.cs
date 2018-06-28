@@ -35,8 +35,12 @@ namespace PracticaProfesionalVivarsan
 
         private void mantProducto_Click(object sender, RoutedEventArgs e)
         {
-            // PProducto pProducto = new PProducto();
-            frame.Content = new PProducto();
+            Usuario usuarioGlobal = new Usuario();
+            usuarioGlobal = (Usuario)App.Current.Properties["usuarioSesion"];
+            if(usuarioGlobal.Tipo == "Administrador")
+            {
+                frame.Content = new PProducto();
+            }            
         }
 
         private void mantProveedor_Click(object sender, RoutedEventArgs e)
@@ -51,7 +55,13 @@ namespace PracticaProfesionalVivarsan
 
         private void mantUsuario_Click(object sender, RoutedEventArgs e)
         {
-            frame.Content = new PUsuario();
+            Usuario usuarioGlobal = new Usuario();
+            usuarioGlobal = (Usuario)App.Current.Properties["usuarioSesion"];
+            if (usuarioGlobal.Tipo == "Administrador")
+            {
+                frame.Content = new PUsuario();
+            }
+            
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -80,6 +90,15 @@ namespace PracticaProfesionalVivarsan
         private void ProcesoCompras_Click(object sender, RoutedEventArgs e)
         {
             frame.Content = new PCompraFacturacion();
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow frmlogin = new MainWindow();
+            this.Hide();
+            frmlogin.Show();
+            
+
         }
     }
 }

@@ -29,11 +29,7 @@ namespace PracticaProfesionalVivarsan
 
             //  Uri iconUri = new Uri("C:/Users/PC/Desktop/key_102281.ico", UriKind.RelativeOrAbsolute);
             // this.Icon = BitmapFrame.Create(iconUri);
-
-            //frmCliente frmCliente = new frmCliente();
-            //frmCliente.Show();
-         //   frmMenu frmProveedor = new frmMenu();
-           // frmProveedor.Show();
+            
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -48,7 +44,7 @@ namespace PracticaProfesionalVivarsan
             {
                 txtTextBlockDialogo.Text = "Debe ingresar el nombre de usuario";
                 dialogo.IsOpen = true;
-             //   MessageBox.Show("Debe ingresar el nombre de usuario.", "Error");
+             
             }
             else
             {
@@ -56,7 +52,7 @@ namespace PracticaProfesionalVivarsan
                 {
                     txtTextBlockDialogo.Text = "Debe ingresar la contraseña";
                     dialogo.IsOpen = true;
-                  //  MessageBox.Show("Debe ingresar la contraseña.", "Error");
+                  
                 }
                 else
                 {
@@ -70,7 +66,7 @@ namespace PracticaProfesionalVivarsan
                     {
                         txtTextBlockDialogo.Text = "Nombre de usuario o contraseña son incorrectos";
                         dialogo.IsOpen = true;
-                        //  MessageBox.Show("Nombre de usuario o contraseña son incorrectos.", "Advertencia");
+                        
                     }
                     else
                     {
@@ -79,7 +75,7 @@ namespace PracticaProfesionalVivarsan
                         this.Hide();
                         txtTextBlockDialogo.Text = "Iniciaste correctamente";
                         dialogo.IsOpen = false;
-                        // MessageBox.Show("Correcto.", "Advertencia");
+                        
                     }
                 }
             }
@@ -92,6 +88,12 @@ namespace PracticaProfesionalVivarsan
             {
                 button_Click(sender, e);
             }
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {        
+         Application.Current.Shutdown();
+        
         }
     }
 }
