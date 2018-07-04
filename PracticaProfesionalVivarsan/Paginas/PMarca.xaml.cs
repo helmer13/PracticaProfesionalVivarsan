@@ -69,6 +69,8 @@ namespace PracticaProfesionalVivarsan.Paginas
         {
             txtDescripcion.Text = "";
             txtid.Text = "";
+            gridTabla.Visibility = Visibility.Collapsed;
+            gridForm.Visibility = Visibility.Visible;
         }
 
         private void dgMarcas_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -78,6 +80,9 @@ namespace PracticaProfesionalVivarsan.Paginas
                 Marca m = (Marca)dgMarcas.SelectedCells[0].Item;
                 txtDescripcion.Text = m.Descripcion;
                 txtid.Text = Convert.ToString(m.Id);
+
+                gridForm.Visibility = Visibility.Visible;
+                gridTabla.Visibility = Visibility.Collapsed;
 
             }
             catch (Exception ex)
@@ -89,6 +94,7 @@ namespace PracticaProfesionalVivarsan.Paginas
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            rbDescripcion.IsChecked = true;
             Refrescar();
         }
 
@@ -113,6 +119,43 @@ namespace PracticaProfesionalVivarsan.Paginas
         {
             txtTextBlockAyuda.Text = string.Format("En el campo Descripción, debe ingresar el nombre de la marca.");
             ayuda.IsOpen = true;
+        }
+
+        private void txtBuscar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+            TextBox t = (TextBox)sender;
+            string filter = t.Text;
+
+            List<Marca> lista = new List<Marca>();
+            List<Marca> listaAxiliar = new List<Marca>();
+            lista = (List<Marca>)dgMarcas.ItemsSource;
+
+            if (filter == "")
+            {
+                Refrescar();
+            }
+            else
+            {
+
+                if (rbDescripcion.IsChecked.Value)
+                {
+                    listaAxiliar = lista.Where(p => p.Descripcion.ToLower().Contains(txtBuscar.Text.ToLower())).ToList();
+                    dgMarcas.ItemsSource = listaAxiliar;
+                }
+
+            }
+
+        }
+
+        private void btnVolver_Click(object sender, RoutedEventArgs e)
+        {
+            txtid.Text = string.Empty;
+            txtDescripcion.Text = string.Empty;
+            txtBuscar.Text = string.Empty;
+
+            gridTabla.Visibility = Visibility.Visible;
+            gridForm.Visibility = Visibility.Collapsed;
         }
     }
 }
