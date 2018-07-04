@@ -28,6 +28,22 @@ namespace AccesoDatos
 
         }
 
+        public static DataSet obtenerBodega(int id)
+        {
+
+            Database db = DatabaseFactory.CreateDatabase("Default");
+
+            SqlCommand comando = new SqlCommand("SPR_BODEGA_VISTA");
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@TIPOCONSULTA", "BODEGA");
+            comando.Parameters.AddWithValue("@IDBODEGA", id);
+
+
+            DataSet ds = db.ExecuteReader(comando, "Bodega");
+            return ds;
+
+        }
+
 
     }
 }

@@ -100,5 +100,10 @@ namespace PracticaProfesionalVivarsan
             
 
         }
+
+        private void ProcesoVentas_Click(object sender, RoutedEventArgs e)
+        {
+            frame.Content = new PVentaFacturacion();
+        }
     }
 }

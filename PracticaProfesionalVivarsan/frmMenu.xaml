@@ -51,7 +51,7 @@
                     <Button.ContextMenu>
                         <ContextMenu >
                             <MenuItem Name="ProcesoCompras" Foreground="Snow" Header="Compras" Click="ProcesoCompras_Click"/>
-                            <MenuItem Foreground="Snow" Header="Ventas"/>
+                            <MenuItem Name="ProcesoVentas" Foreground="Snow" Header="Ventas" Click="ProcesoVentas_Click"/>
                             <MenuItem Foreground="Snow" Header="Gastos"/>
                         </ContextMenu>
                     </Button.ContextMenu>

@@ -44,6 +44,8 @@
     <Compile Include="ClienteLogica.cs" />
     <Compile Include="EmpresaLogica.cs" />
     <Compile Include="FacturaComprasLogica.cs" />
+    <Compile Include="FacturaVentasLogica.cs" />
+    <Compile Include="InventarioLogica.cs" />
     <Compile Include="MarcaLogica.cs" />
     <Compile Include="ModeloLogica.cs" />
     <Compile Include="ProductoLogica.cs" />

@@ -9,8 +9,8 @@ namespace Entidad
   public  class Inventario
     {
         Producto producto;
-        int idBodega;
-        int idEmpresa;
+        Bodega bodega;
+        Empresa empresa;
         int cantidad;
 
         public Producto Producto
@@ -26,29 +26,29 @@ namespace Entidad
             }
         }
 
-        public int IdBodega
+        public Bodega Bodega
         {
             get
             {
-                return idBodega;
+                return bodega;
             }
 
             set
             {
-                idBodega = value;
+                bodega = value;
             }
         }
 
-        public int IdEmpresa
+        public Empresa Empresa
         {
             get
             {
-                return idEmpresa;
+                return empresa;
             }
 
             set
             {
-                idEmpresa = value;
+                empresa = value;
             }
         }
 
