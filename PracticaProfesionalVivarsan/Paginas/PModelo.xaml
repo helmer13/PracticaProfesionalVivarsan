@@ -14,8 +14,9 @@
       d:DesignHeight="300" d:DesignWidth="400"
        Title="PModelo" Width="1360" Height="670" Loaded="Page_Loaded" Background="#F1F8FB">
 
+    <StackPanel>
 
-    <Grid Width="1000" Margin="180,30,180,94" Background="#E4ECF0">
+    <Grid Width="1000" x:Name="gridForm" Visibility="Collapsed" Margin="180,30,180,94" Background="#E4ECF0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="200"/>
@@ -29,32 +30,36 @@
             <RowDefinition  Height="200"/>
         </Grid.RowDefinitions>
 
-        <Button x:Name="btnAyuda"  Content="Ayuda"  Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right"  VerticalAlignment="Center" Margin="0 0 0 60"   Width="90" Height="29" Click="btnAyuda_Click"/>
+
+            <Button x:Name="btnVolver"  Content="Volver"  Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right"  VerticalAlignment="Center" Margin="0 0 140 60"   Width="90" Height="29" Click="btnVolver_Click"/>
+
+            <Button x:Name="btnAyuda"  Content="Ayuda"  Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right"  VerticalAlignment="Center" Margin="0 0 15 60"   Width="90" Height="29" Click="btnAyuda_Click"/>
 
 
         <TextBox x:Name="txtid" Visibility="Collapsed" HorizontalAlignment="Left" Height="23" Margin="56,43,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
 
 
-        <ComboBox x:Name="cboMarcas" Grid.Column="1" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="200" Height="50" materialDesign:HintAssist.Hint="Marca" materialDesign:HintAssist.IsFloating="True"  />
+            <ComboBox x:Name="cboMarcas" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="200" Height="50" materialDesign:HintAssist.Hint="Marca" materialDesign:HintAssist.IsFloating="True"  />
 
-        <TextBox x:Name="txtDescripcion" Grid.Row="0" Grid.Column="3"  Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Descripción" materialDesign:HintAssist.IsFloating="True"/>
+        <TextBox x:Name="txtDescripcion" Grid.Row="1" Grid.Column="3"  Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Descripción" materialDesign:HintAssist.IsFloating="True"/>
         
-        <TextBox x:Name="txtAnno"  Grid.Row="1" Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Año" materialDesign:HintAssist.IsFloating="True" PreviewTextInput="txtAnno_PreviewTextInput"/>
+        <TextBox x:Name="txtAnno"  Grid.Row="2" Grid.Column="1"  Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Año" materialDesign:HintAssist.IsFloating="True" PreviewTextInput="txtAnno_PreviewTextInput"/>
 
-        <Button x:Name="btnGuardar" Content="Guardar"  Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left"  VerticalAlignment="Center"    Width="90" Height="29" Click="btnGuardar_Click"/>
-        <Button x:Name="btnNuevo" Content="Nuevo" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Right"  VerticalAlignment="Center"  Width="78" Height="29" Click="btnNuevo_Click" Margin="-50 0 0 0"/>
+        <Button x:Name="btnGuardar" Content="Guardar"  Grid.Row="2" Grid.Column="3" Margin="0 0 15 0" HorizontalAlignment="Right"  VerticalAlignment="Center"    Width="90" Height="29" Click="btnGuardar_Click"/>
+     
+     
 
 
 
      
-        <DataGrid x:Name="dgModelos"  Margin="0,0,10,-89" Grid.Row="3" Grid.ColumnSpan="4" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="dgModelos_SelectionChanged" HorizontalAlignment="Center"  VerticalAlignment="Top"  Height="180" Width="500">
+        <!--<DataGrid x:Name="dgModelos"  Margin="0,0,10,-89" Grid.Row="3" Grid.ColumnSpan="4" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="dgModelos_SelectionChanged" HorizontalAlignment="Center"  VerticalAlignment="Top"  Height="180" Width="500">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Código" Binding="{Binding Id}" />
                 <DataGridTextColumn Header="Descripción" Binding="{Binding Descripcion}" />
                 <DataGridTextColumn Header="Año" Binding="{Binding Anno}" />
                 <DataGridTextColumn Header="Marca" Binding="{Binding Marca}" />
             </DataGrid.Columns>
-        </DataGrid>
+        </DataGrid>-->
 
 
         <materialDesign:DialogHost IsOpen="False" x:Name="dialogo" Grid.ColumnSpan="4" Grid.RowSpan="4" Margin="0,0,-186,-132">
@@ -79,6 +84,39 @@
         </materialDesign:DialogHost>
 
     </Grid>
- 
-       
+
+    <Grid Width="1000"  x:Name="gridVista" Visibility="Visible" Margin="180,30,180,94" Background="#E4ECF0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="400"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="100"/>
+            <RowDefinition  Height="100"/>
+            <RowDefinition  Height="100"/>
+            <RowDefinition  Height="200"/>
+        </Grid.RowDefinitions>
+
+            <Button x:Name="btnNuevo" Content="Nuevo" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right"  VerticalAlignment="Center"  Width="78" Height="29" Click="btnNuevo_Click" Margin="0 -40 30 0" />
+
+            <TextBox x:Name="txtBuscar" Grid.Row="1" Grid.ColumnSpan="2" Margin="90 0 0 0" Width="200" Height="50"  HorizontalAlignment="Center"  VerticalAlignment="Top" materialDesign:HintAssist.Hint="Buscar" materialDesign:HintAssist.IsFloating="True" TextChanged="txtBuscar_TextChanged"/>
+
+            <RadioButton x:Name="rbDescripcion" GroupName="rbBuscar" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Content="Descripción" Margin="150 20 0 0"  />
+            <RadioButton x:Name="rbanno" GroupName="rbBuscar"  Grid.Row="1" Grid.Column="2" Content="Año" Margin="80 20 0 0"   />
+            <RadioButton x:Name="rbMarca" GroupName="rbBuscar"  Grid.Row="1" Grid.Column="3" Content="Marca" Margin="-50 20 0 0"  />
+        
+            <DataGrid x:Name="dgModelos" Margin="0 60 0 0"   Grid.Row="1" Grid.ColumnSpan="4" Grid.RowSpan="4" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="dgModelos_SelectionChanged" HorizontalAlignment="Center"  VerticalAlignment="Top"  Height="330" Width="700">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Código" Binding="{Binding Id}" />
+                    <DataGridTextColumn Header="Descripción" Binding="{Binding Descripcion}" />
+                    <DataGridTextColumn Header="Año" Binding="{Binding Anno}" />
+                    <DataGridTextColumn Header="Marca" Binding="{Binding Marca}" />
+                </DataGrid.Columns>
+            </DataGrid>
+
+
+        </Grid>
+    </StackPanel>
 </Page>
