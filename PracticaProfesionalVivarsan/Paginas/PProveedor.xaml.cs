@@ -72,11 +72,14 @@ namespace PracticaProfesionalVivarsan.Paginas
 
         private void btnNuevo_Click(object sender, RoutedEventArgs e)
         {
-            txtID.Text = "";
-            txtNombreContacto.Text = "";
-            txtNombreProveedor.Text = "";
-            txtCorreo.Text = "";
-            txtTelefono.Text = "";
+            txtID.Text = string.Empty;
+            txtNombreContacto.Text = string.Empty;
+            txtNombreProveedor.Text = string.Empty;
+            txtCorreo.Text = string.Empty;
+            txtTelefono.Text = string.Empty;
+
+            gridForm.Visibility = Visibility.Visible;
+            gridTabla.Visibility = Visibility.Collapsed;
         }
         private void Refrescar()
         {
@@ -95,10 +98,14 @@ namespace PracticaProfesionalVivarsan.Paginas
             txtNombreContacto.Text = p.NombreContacto;
             txtNombreProveedor.Text = p.NombreProveedor;
             txtTelefono.Text = p.Telefono.ToString();
+
+            gridForm.Visibility = Visibility.Visible;
+            gridTabla.Visibility = Visibility.Collapsed;
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            rbProveedor.IsChecked = true;
             Refrescar();
         }
 
@@ -107,6 +114,46 @@ namespace PracticaProfesionalVivarsan.Paginas
             txtTextBlockAyuda.Text = string.Format(" En el campo Nombre Proveedor, se debe digitar el nombre del proveedor a registrar.  \n En el campo Nombre Contacto, se debe digitar el nombre de la persona encargada de la empresa proveedora." +
                 "\n En el campo Correo, se debe digitar el correo electrónico del proveedor. \n En el campo Teléfono, se debe digitar el numero de teléfono del proveedor.");
             ayuda.IsOpen = true;
+        }
+
+        private void txtBuscar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox t = (TextBox)sender;
+            string filter = t.Text;
+
+            List<Proveedor> lista = new List<Proveedor>();
+            List<Proveedor> listaAxiliar = new List<Proveedor>();
+            lista = (List<Proveedor>)dataGrid.ItemsSource;
+
+            if (filter == "")
+            {
+                Refrescar();
+            }
+            else
+            {
+                if (rbProveedor.IsChecked.Value)
+                {
+                    listaAxiliar = lista.Where(p => p.NombreProveedor.ToLower().Contains(txtBuscar.Text.ToLower())).ToList();
+                    dataGrid.ItemsSource = listaAxiliar;
+                }
+                if (rbCorreo.IsChecked.Value)
+                {
+                    listaAxiliar = lista.Where(p => p.Correo.ToLower().Contains(txtBuscar.Text.ToLower())).ToList();
+                    dataGrid.ItemsSource = listaAxiliar;
+                }
+            }
+        }
+
+        private void btnVolver_Click(object sender, RoutedEventArgs e)
+        {
+            txtID.Text = string.Empty;
+            txtNombreContacto.Text = string.Empty;
+            txtNombreProveedor.Text = string.Empty;
+            txtCorreo.Text = string.Empty;
+            txtTelefono.Text = string.Empty;
+
+            gridForm.Visibility = Visibility.Collapsed;
+            gridTabla.Visibility = Visibility.Visible;
         }
     }
 }

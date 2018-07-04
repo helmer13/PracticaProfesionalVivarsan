@@ -40,6 +40,10 @@ namespace PracticaProfesionalVivarsan.Paginas
                 txtNombre.Text = c.Nombre;
                 txtPrecioCompra.Text = c.PrecioCompra.ToString();
                 txtPrecioVenta.Text = c.PrecioVenta.ToString();
+
+                gridTabla.Visibility = Visibility.Collapsed;
+                gridForm.Visibility = Visibility.Visible;
+
             }
             catch (Exception ex)
             {
@@ -100,12 +104,15 @@ namespace PracticaProfesionalVivarsan.Paginas
 
         private void btnNuevo_Click(object sender, RoutedEventArgs e)
         {
-            txtNombre.Text = "";
-            txtid.Text = "";
-            txtPrecioCompra.Text = "";
-            txtPrecioVenta.Text = "";
-            txtCodigo.Text = "";
+            txtNombre.Text = string.Empty;
+            txtid.Text = string.Empty;
+            txtPrecioCompra.Text = string.Empty;
+            txtPrecioVenta.Text = string.Empty;
+            txtCodigo.Text = string.Empty;
             //cboMarcas.SelectedValue = 1;
+            gridTabla.Visibility = Visibility.Collapsed;
+            gridForm.Visibility = Visibility.Visible;
+
         }
 
         private void Refrescar()
@@ -147,6 +154,7 @@ namespace PracticaProfesionalVivarsan.Paginas
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            rbCodigo.IsChecked = true;
             Refrescar();
             CargarCboMarcas();
             CargarCboModelos();
@@ -205,6 +213,57 @@ namespace PracticaProfesionalVivarsan.Paginas
                 "\n En el combo box Marca, debe elegir la marca de los automóviles en la que funciona ese producto. \n En el combo box Modelo, debe elegir el modelo del automóvil en la que funciona ese producto. "+
                 "\n En el campo Precio Venta, se debe digitar el precio en el que desea vender ese producto. \n ");
             ayuda.IsOpen = true;
+        }
+
+        private void txtBuscar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox t = (TextBox)sender;
+            string filter = t.Text;
+
+            List<Producto> lista = new List<Producto>();
+            List<Producto> listaAxiliar = new List<Producto>();
+            lista = (List<Producto>)dataGridProductos.ItemsSource;
+
+            if (filter == "")
+            {
+                Refrescar();
+            }
+            else
+            {
+                if (rbCodigo.IsChecked.Value)
+                {
+                    listaAxiliar = lista.Where(p => p.IdProducto.ToLower().Contains(txtBuscar.Text.ToLower())).ToList();
+                    dataGridProductos.ItemsSource = listaAxiliar;
+                }
+                if (rbNombre.IsChecked.Value)
+                {
+                    listaAxiliar = lista.Where(p => p.Nombre.ToLower().Contains(txtBuscar.Text.ToLower())).ToList();
+                    dataGridProductos.ItemsSource = listaAxiliar;
+                }
+                if (rbMarca.IsChecked.Value)
+                {
+                    listaAxiliar = lista.Where(p => p.Modelo.Marca.Descripcion.ToLower().Contains(txtBuscar.Text.ToLower())).ToList();
+                    dataGridProductos.ItemsSource = listaAxiliar;
+                }
+                if (rbModelo.IsChecked.Value)
+                {
+                    listaAxiliar = lista.Where(p => p.Modelo.NombreCompleto.ToLower().Contains(txtBuscar.Text.ToLower())).ToList();
+                    dataGridProductos.ItemsSource = listaAxiliar;
+                }
+            }
+        }
+
+        private void btnVolver_Click(object sender, RoutedEventArgs e)
+        {
+            txtNombre.Text = string.Empty;
+            txtid.Text = string.Empty;
+            txtPrecioCompra.Text = string.Empty;
+            txtPrecioVenta.Text = string.Empty;
+            txtCodigo.Text = string.Empty;
+
+
+            gridTabla.Visibility = Visibility.Visible;
+            gridForm.Visibility = Visibility.Collapsed;
         }
     }
 }

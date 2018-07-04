@@ -28,6 +28,7 @@ namespace PracticaProfesionalVivarsan.Paginas
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            rbIndentificacion.IsChecked = true;
             Refrescar();
         }
 
@@ -39,6 +40,9 @@ namespace PracticaProfesionalVivarsan.Paginas
             txtContrasena.Password = c.Contrasena;
             txtUsuarioGeneral.Text = c.UsuarioGeneral;
             cboTipo.Text = c.Tipo;
+
+            gridForm.Visibility = Visibility.Visible;
+            gridTabla.Visibility = Visibility.Collapsed;
         }
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
@@ -84,11 +88,14 @@ namespace PracticaProfesionalVivarsan.Paginas
         }
         private void btnNuevo_Click(object sender, RoutedEventArgs e)
         {
-            txtIndentificacion.Text = "";
-            txtNombre.Text = "";
-            txtUsuarioGeneral.Text = "";
-            txtContrasena.Password = "";
+            txtIndentificacion.Text = string.Empty;
+            txtNombre.Text = string.Empty;
+            txtUsuarioGeneral.Text = string.Empty;
+            txtContrasena.Password = string.Empty;
+            txtid.Text= string.Empty;
             cboTipo.Text = "Administrador";
+            gridTabla.Visibility = Visibility.Collapsed;
+            gridForm.Visibility = Visibility.Visible;
         }
 
         private void Refrescar()
@@ -105,6 +112,52 @@ namespace PracticaProfesionalVivarsan.Paginas
                 "\n En el campo Nombre de Usuario, se debe digitar el usuario que va utilizar el usuario para acceder al sistema. \n En el campo Contraseña, se debe digitar la contraseña temporal que va usar el usuario para acceder al sistema." +
                 "\n En el combo box Tipo, se debe seleccionar el perfil del usuario.");
             ayuda.IsOpen = true;
+        }
+
+        private void txtBuscar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox t = (TextBox)sender;
+            string filter = t.Text;
+
+            List<Usuario> lista = new List<Usuario>();
+            List<Usuario> listaAxiliar = new List<Usuario>();
+            lista = (List<Usuario>)dataGridUsuarios.ItemsSource;
+
+            if (filter == "")
+            {
+                Refrescar();
+            }
+            else
+            {
+                if (rbIndentificacion.IsChecked.Value)
+                {
+                    listaAxiliar = lista.Where(p => p.Id.ToLower().Contains(txtBuscar.Text.ToLower())).ToList();
+                    dataGridUsuarios.ItemsSource = listaAxiliar;
+                }
+                if (rbNombreCompleto.IsChecked.Value)
+                {
+                    listaAxiliar = lista.Where(p => p.Nombre.ToLower().Contains(txtBuscar.Text.ToLower())).ToList();
+                    dataGridUsuarios.ItemsSource = listaAxiliar;
+                }
+                if (rbUsuario.IsChecked.Value)
+                {
+                    listaAxiliar = lista.Where(p => p.UsuarioGeneral.ToLower().Contains(txtBuscar.Text.ToLower())).ToList();
+                    dataGridUsuarios.ItemsSource = listaAxiliar;
+                }
+            }
+
+        }
+
+        private void btnVolver_Click(object sender, RoutedEventArgs e)
+        {
+            txtid.Text = string.Empty;
+            txtIndentificacion.Text = string.Empty;
+            txtNombre.Text = string.Empty;
+            txtUsuarioGeneral.Text = string.Empty;
+            txtContrasena.Password = string.Empty;
+
+            gridTabla.Visibility = Visibility.Visible;
+            gridForm.Visibility = Visibility.Collapsed;
         }
     }
 }

@@ -13,7 +13,9 @@
       d:DesignHeight="300" d:DesignWidth="300"
      Title="PProducto" Width="1360" Height="670" Loaded="Page_Loaded" Background="#F1F8FB">
 
-    <Grid Width="1000" Margin="180,30,180,94" Background="#E4ECF0">
+    <StackPanel>
+    
+    <Grid Width="1000" x:Name="gridForm" Visibility="Collapsed" Margin="180,30,180,94" Background="#E4ECF0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="200"/>
@@ -24,11 +26,12 @@
             <RowDefinition  Height="100"/>
             <RowDefinition  Height="100"/>
             <RowDefinition  Height="100"/>
-            <RowDefinition  Height="100"/>
+            <RowDefinition  Height="200"/>
         </Grid.RowDefinitions>
 
-        <Button x:Name="btnAyuda"  Content="Ayuda"  Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right"  VerticalAlignment="Center" Margin="0 0 0 60"   Width="90" Height="29" Click="btnAyuda_Click"/>
+        <Button x:Name="btnVolver"  Content="Volver"  Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right"  VerticalAlignment="Center" Margin="0 0 140 60"   Width="90" Height="29" Click="btnVolver_Click"/>
 
+        <Button x:Name="btnAyuda"  Content="Ayuda"  Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right"  VerticalAlignment="Center" Margin="0 0 0 60"   Width="90" Height="29" Click="btnAyuda_Click"/>
 
         <TextBox x:Name="txtNombreProveedor" Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Nombre proveedor" materialDesign:HintAssist.IsFloating="True"/>
 
@@ -42,9 +45,8 @@
         <!--botones-->
         <Button x:Name="btnGuardar"  Content="Guardar"  Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left"  VerticalAlignment="Center"   Width="90" Height="29" Click="btnGuardar_Click"/>
         <TextBox x:Name="txtID" Visibility="Collapsed"  Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center"  VerticalAlignment="Center"   Height="23" TextWrapping="Wrap" Text="" Width="120"/>
-        <Button x:Name="btnNuevo" Content="Nuevo"  Grid.Row="2" Grid.Column="2" HorizontalAlignment="Right"  VerticalAlignment="Center"  Width="78" Height="29" Margin="-50 0 0 0" Click="btnNuevo_Click"/>
-
-        <!--datagrid-->
+       
+        <!--datagrid--><!--
 
         <DataGrid x:Name="dataGrid" Margin="0,0,10,-89" Grid.Row="3" Grid.ColumnSpan="4" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="dataGrid_SelectionChanged"  VerticalAlignment="Top" Height="180" Width="440">
             <DataGrid.Columns>
@@ -54,7 +56,7 @@
                 <DataGridTextColumn Header="Telefono" Binding="{Binding Telefono}" />
             </DataGrid.Columns>
 
-        </DataGrid>
+        </DataGrid>-->
 
         <materialDesign:DialogHost IsOpen="False" x:Name="dialogo" Grid.ColumnSpan="4" Grid.RowSpan="4" Margin="0,0,-186,-132">
             <materialDesign:DialogHost.DialogContent>
@@ -79,4 +81,45 @@
 
 
     </Grid>
+
+        <Grid Width="1000" x:Name="gridTabla" Visibility="Visible" Margin="180,30,180,94" Background="#E4ECF0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="400"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition  Height="100"/>
+                <RowDefinition  Height="100"/>
+                <RowDefinition  Height="100"/>
+                <RowDefinition  Height="200"/>
+            </Grid.RowDefinitions>
+
+
+            <Button x:Name="btnNuevo" Content="Nuevo" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right"  VerticalAlignment="Center"  Width="78" Height="29" Click="btnNuevo_Click" Margin="0 -40 30 0" />
+
+
+
+            <TextBox x:Name="txtBuscar" Grid.Row="1" Grid.ColumnSpan="2" Margin="90 0 0 0" Width="200" Height="50"  HorizontalAlignment="Center"  VerticalAlignment="Top" materialDesign:HintAssist.Hint="Buscar" materialDesign:HintAssist.IsFloating="True" TextChanged="txtBuscar_TextChanged"/>
+
+            <RadioButton x:Name="rbProveedor" GroupName="rbBuscar" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Content="Proveedor" Margin="150 20 0 0"  />
+            <RadioButton x:Name="rbCorreo" GroupName="rbBuscar"  Grid.Row="1" Grid.Column="2" Content="Correo" Margin="80 20 0 0"   />
+           
+
+
+            <!--datagrid-->
+
+            <DataGrid x:Name="dataGrid" Margin="0 60 0 0"   Grid.Row="1" Grid.ColumnSpan="4" Grid.RowSpan="4" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="dataGrid_SelectionChanged"  VerticalAlignment="Top" Height="330" Width="700">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Nombre Proveedor" Binding="{Binding NombreProveedor}" />
+                    <DataGridTextColumn Header="Nombre Conacto" Binding="{Binding NombreContacto}" />
+                    <DataGridTextColumn Header="Correo" Binding="{Binding Correo}" />
+                    <DataGridTextColumn Header="Telefono" Binding="{Binding Telefono}" />
+                </DataGrid.Columns>
+
+            </DataGrid>
+
+        </Grid>
+    </StackPanel>
 </Page>

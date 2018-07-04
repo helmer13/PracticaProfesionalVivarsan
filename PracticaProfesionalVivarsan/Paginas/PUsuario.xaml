@@ -29,6 +29,8 @@
                 <RowDefinition  Height="100"/>
             </Grid.RowDefinitions>
 
+            <Button x:Name="btnVolver"  Content="Volver"  Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right"  VerticalAlignment="Center" Margin="0 0 140 60"   Width="90" Height="29" Click="btnVolver_Click"/>
+
 
             <Button x:Name="btnAyuda"  Content="Ayuda"  Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right"  VerticalAlignment="Center" Margin="0 0 0 60"   Width="90" Height="29" Click="btnAyuda_Click"/>
 
@@ -47,8 +49,8 @@
             <!--botones-->
             <Button x:Name="btnGuardar"  Content="Guardar"  Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left"  VerticalAlignment="Center"   Width="90" Height="29" Click="btnGuardar_Click"/>
             <TextBox x:Name="txtid" Visibility="Collapsed"  Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center"  VerticalAlignment="Center"   Height="23" TextWrapping="Wrap" Text="" Width="120"/>
-            <Button x:Name="btnNuevo" Content="Nuevo"  Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center"  VerticalAlignment="Center"  Width="78" Height="29" Margin="-50 0 0 0" Click="btnNuevo_Click"/>
-
+           
+            
             <!--datagrid--><!--
 
             <DataGrid x:Name="dataGridUsuarios" Grid.Row="3" VerticalScrollBarVisibility="Auto" Grid.ColumnSpan="4" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="dataGridUsuarios_SelectionChanged"  VerticalAlignment="Top" Height="180" Width="520" Margin="0,0,10,-89">
@@ -100,9 +102,17 @@
             </Grid.RowDefinitions>
 
 
+            <Button x:Name="btnNuevo" Content="Nuevo"  Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right"  VerticalAlignment="Center"  Width="78" Height="29" Margin="0 -40 30 0"  Click="btnNuevo_Click"/>
+
+
+            <TextBox x:Name="txtBuscar" Grid.Row="1" Grid.ColumnSpan="2" Margin="90 0 0 0" Width="200" Height="50"  HorizontalAlignment="Center"  VerticalAlignment="Top" materialDesign:HintAssist.Hint="Buscar" materialDesign:HintAssist.IsFloating="True" TextChanged="txtBuscar_TextChanged"/>
+
+            <RadioButton x:Name="rbIndentificacion" GroupName="rbBuscar" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Content="Indentificacion" Margin="150 20 0 0"  />
+            <RadioButton x:Name="rbNombreCompleto" GroupName="rbBuscar"  Grid.Row="1" Grid.Column="2" Content="Nombre" Margin="70 20 0 0"   />
+            <RadioButton x:Name="rbUsuario" GroupName="rbBuscar"  Grid.Row="1" Grid.Column="3" Content="Usuario" Margin="-45 20 0 0"  />
             <!--datagrid-->
 
-            <DataGrid x:Name="dataGridUsuarios" Visibility="Visible" Grid.Row="3" VerticalScrollBarVisibility="Auto" Grid.ColumnSpan="4" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="dataGridUsuarios_SelectionChanged"  VerticalAlignment="Top" Height="180" Width="520" Margin="0,0,10,-89">
+            <DataGrid x:Name="dataGridUsuarios" Visibility="Visible" Margin="0 60 0 0"   Grid.Row="1" Grid.ColumnSpan="4" Grid.RowSpan="4" VerticalScrollBarVisibility="Auto" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="dataGridUsuarios_SelectionChanged"  VerticalAlignment="Top" Height="330" Width="700" >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Indentificación" Binding="{Binding Id}" />
                     <DataGridTextColumn Header="Nombre Completo" Binding="{Binding Nombre}" />

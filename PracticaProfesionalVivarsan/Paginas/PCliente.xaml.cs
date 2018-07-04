@@ -92,6 +92,10 @@ namespace PracticaProfesionalVivarsan.Paginas
                 txtIndentificacion.Text = c.Indentificacion;
                 txtNombre.Text = c.Nombre;
                 txtTelefono.Text = c.Telefono.ToString();
+
+                gridForm.Visibility = Visibility.Visible;
+                gridTabla.Visibility = Visibility.Collapsed;
+
             }
             catch (Exception ex)
             {
@@ -122,18 +126,22 @@ namespace PracticaProfesionalVivarsan.Paginas
         private void btnNuevo_Click(object sender, RoutedEventArgs e)
         {
 
-            txtCorreo.Text = "";
-            txtid.Text = "";
-            txtDireccion.Text = "";
-            txtIndentificacion.Text = "";
-            txtNombre.Text = "";
-            txtTelefono.Text = "";
+            txtCorreo.Text = string.Empty;
+            txtid.Text = string.Empty;
+            txtDireccion.Text = string.Empty;
+            txtIndentificacion.Text = string.Empty;
+            txtNombre.Text = string.Empty;
+            txtTelefono.Text = string.Empty;
+
+            gridForm.Visibility = Visibility.Visible;
+            gridTabla.Visibility = Visibility.Collapsed;
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             try
             {
+                rbIndentificacion.IsChecked = true;
                 Refrescar();
             }
             catch (Exception ex)
@@ -164,6 +172,54 @@ namespace PracticaProfesionalVivarsan.Paginas
         private void txtTelefono_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             SoloNumeros(e);
+        }
+
+        private void btnVolver_Click(object sender, RoutedEventArgs e)
+        {
+            txtCorreo.Text = string.Empty;
+            txtid.Text = string.Empty;
+            txtDireccion.Text = string.Empty;
+            txtIndentificacion.Text = string.Empty;
+            txtNombre.Text = string.Empty;
+            txtTelefono.Text = string.Empty;
+
+            gridForm.Visibility = Visibility.Collapsed;
+            gridTabla.Visibility = Visibility.Visible;
+        }
+
+        private void txtBuscar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox t = (TextBox)sender;
+            string filter = t.Text;
+
+            List<Cliente> lista = new List<Cliente>();
+            List<Cliente> listaAxiliar = new List<Cliente>();
+            lista = (List<Cliente>)dataGrid.ItemsSource;
+
+            if (filter == "")
+            {
+                Refrescar();
+            }
+            else
+            {
+
+          
+            if (rbIndentificacion.IsChecked.Value)
+            {
+                listaAxiliar = lista.Where(p => p.Indentificacion.ToLower().Contains(txtBuscar.Text.ToLower())).ToList();
+                dataGrid.ItemsSource = listaAxiliar;
+            }
+            if (rbNombre.IsChecked.Value)
+            {
+                listaAxiliar = lista.Where(p => p.Nombre.ToLower().Contains(txtBuscar.Text.ToLower())).ToList();
+                dataGrid.ItemsSource = listaAxiliar;
+            }
+            if (rbCorreo.IsChecked.Value)
+            {
+                listaAxiliar = lista.Where(p => p.Correo.ToLower().Contains(txtBuscar.Text.ToLower())).ToList();
+                dataGrid.ItemsSource = listaAxiliar;
+            }
+            }
         }
     }
 }
