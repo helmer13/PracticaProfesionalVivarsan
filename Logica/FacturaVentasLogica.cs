@@ -16,7 +16,7 @@ namespace Logica
                 var xml = Utiles.toXML(factura);
 
 
-                AccesoDatos.FacturaComprasDato.GuardarFactura(xml);
+                AccesoDatos.FacturaVentasDato.GuardarFactura(xml);
             }
             catch (Exception ex)
             {
