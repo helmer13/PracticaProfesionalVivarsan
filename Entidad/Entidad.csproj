@@ -44,8 +44,10 @@
     <Compile Include="Cliente.cs" />
     <Compile Include="Empresa.cs" />
     <Compile Include="FacturaCompras.cs" />
+    <Compile Include="FacturaVentas.cs" />
     <Compile Include="Inventario.cs" />
     <Compile Include="LineaDetalleCompras.cs" />
+    <Compile Include="LineaDetalleVentas.cs" />
     <Compile Include="Marca.cs" />
     <Compile Include="Modelo.cs" />
     <Compile Include="Producto.cs" />

@@ -32,5 +32,20 @@ namespace Logica
             return resultado;
         }
 
+        public Bodega obtenerBodega(int id)
+        {
+            DataSet ds = AccesoDatos.BodegaDato.obtenerBodega(id);
+            Bodega bodega = new Bodega();
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {                
+                bodega.Id = Convert.ToInt32(row["ID"]);
+                bodega.Nombre = row["Nombre"].ToString();
+                bodega.Direccion = row["Direccion"].ToString();
+                bodega.Telefono = Convert.ToInt32(row["Telefono"]);
+
+            }
+            return bodega;
+        }
+
     }
 }

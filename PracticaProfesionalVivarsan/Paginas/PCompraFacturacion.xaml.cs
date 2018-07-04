@@ -118,6 +118,7 @@ namespace PracticaProfesionalVivarsan.Paginas
             Usuario usuario = new Usuario();
             LineaDetalleCompras lineaDetalle = new LineaDetalleCompras();
             Inventario inventario = new Inventario();
+            BodegaLogica bLogica = new BodegaLogica();
 
             usuario = (Usuario)App.Current.Properties["usuarioSesion"];
 
@@ -133,8 +134,8 @@ namespace PracticaProfesionalVivarsan.Paginas
             dataGridLineaDetalle.Items.Refresh();
             //inventario
             inventario.Cantidad = Convert.ToInt32(txtCantidad.Text); ;
-            inventario.IdBodega = (int)cboBodegas.SelectedValue;
-            inventario.IdEmpresa = usuario.Empresa.IdEmpresa;
+            inventario.Bodega = bLogica.obtenerBodega((int)cboBodegas.SelectedValue);
+            inventario.Empresa = usuario.Empresa;
             inventario.Producto = producto;
             listaInventario.Add(inventario);
 
@@ -243,7 +244,7 @@ namespace PracticaProfesionalVivarsan.Paginas
 
 
 
-             factura = new FacturaCompras();
+            factura = new FacturaCompras();
             proveedor = new Proveedor();
             listaInventario = new List<Inventario>();
             listaDetalle = new List<LineaDetalleCompras>();
