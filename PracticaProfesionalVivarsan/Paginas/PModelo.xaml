@@ -16,7 +16,7 @@
 
     <StackPanel>
 
-        <Grid Width="1000" x:Name="gridForm" Visibility="Collapsed" Margin="180,30,180,94" Background="#E4ECF0">
+        <Grid Width="1000" Height="570" x:Name="gridForm" Visibility="Collapsed" Margin="180,30,180,94" Background="#E4ECF0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="200"/>
@@ -51,19 +51,6 @@
 
 
 
-
-
-
-            <!--<DataGrid x:Name="dgModelos"  Margin="0,0,10,-89" Grid.Row="3" Grid.ColumnSpan="4" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="dgModelos_SelectionChanged" HorizontalAlignment="Center"  VerticalAlignment="Top"  Height="180" Width="500">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Código" Binding="{Binding Id}" />
-                <DataGridTextColumn Header="Descripción" Binding="{Binding Descripcion}" />
-                <DataGridTextColumn Header="Año" Binding="{Binding Anno}" />
-                <DataGridTextColumn Header="Marca" Binding="{Binding Marca}" />
-            </DataGrid.Columns>
-        </DataGrid>-->
-
-
             <materialDesign:DialogHost IsOpen="False" x:Name="dialogo" Grid.ColumnSpan="4" Grid.RowSpan="4" Margin="0,0,-186,-132">
                 <materialDesign:DialogHost.DialogContent>
                     <StackPanel Margin="15" Orientation="Vertical">
@@ -87,7 +74,7 @@
 
         </Grid>
 
-        <Grid Width="1000"  x:Name="gridVista" Visibility="Visible" Margin="180,30,180,94" Background="#E4ECF0">
+        <Grid Width="1000" Height="570"  x:Name="gridVista" Visibility="Visible" Margin="180,30,180,94" Background="#E4ECF0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="200"/>

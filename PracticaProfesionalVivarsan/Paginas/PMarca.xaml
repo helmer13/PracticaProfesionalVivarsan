@@ -17,7 +17,7 @@
 
     <StackPanel>
 
-    <Grid Width="1000" Visibility="Collapsed" x:Name="gridForm" Margin="180,30,180,94" Background="#E4ECF0">
+        <Grid Width="1000" Height="570" Visibility="Collapsed" x:Name="gridForm" Margin="180,30,180,94" Background="#E4ECF0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="200"/>
@@ -86,7 +86,7 @@
     </Grid>
 
 
-        <Grid Width="1000" x:Name="gridTabla" Visibility="Visible" Margin="180,30,180,94" Background="#E4ECF0">
+        <Grid Width="1000" Height="570" x:Name="gridTabla" Visibility="Visible" Margin="180,30,180,94" Background="#E4ECF0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="200"/>

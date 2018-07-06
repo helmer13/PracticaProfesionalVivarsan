@@ -15,7 +15,7 @@
 
     <StackPanel>
 
-        <Grid Width="1000" x:Name="gridForm" Visibility="Collapsed" Margin="180,30,180,94" Background="#E4ECF0">
+        <Grid Width="1000" Height="570" x:Name="gridForm" Visibility="Collapsed" Margin="180,30,180,94" Background="#E4ECF0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="200"/>
@@ -29,39 +29,34 @@
                 <RowDefinition  Height="100"/>
             </Grid.RowDefinitions>
 
-            <Button x:Name="btnVolver"  Content="Volver"  Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right"  VerticalAlignment="Center" Margin="0 0 140 60"   Width="90" Height="29" Click="btnVolver_Click"/>
+
+            <TextBlock Text="Mantenimiento de usuarios" Margin="0 0 0 30"  HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" FontSize="22" />
+            <TextBlock Text="Información de los usuarios" Grid.Row="0" Grid.Column="1"  Grid.ColumnSpan="2" Margin="0 0 0 30" HorizontalAlignment="Left" VerticalAlignment="Bottom" Style="{StaticResource MaterialDesignSubheadingTextBlock}" />
 
 
-            <Button x:Name="btnAyuda"  Content="Ayuda"  Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right"  VerticalAlignment="Center" Margin="0 0 0 60"   Width="90" Height="29" Click="btnAyuda_Click"/>
+            <Button x:Name="btnVolver"  Content="Volver"  Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Margin="0 0 140 0"   Width="90" Height="29" Click="btnVolver_Click"/>
 
-            <TextBox x:Name="txtIndentificacion" Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Identificación" materialDesign:HintAssist.IsFloating="True"/>
 
-            <TextBox x:Name="txtNombre" Grid.Column="3" Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Nombre Completo" materialDesign:HintAssist.IsFloating="True"/>
+            <Button x:Name="btnAyuda"  Content="Ayuda"  Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Margin="0 0 0 0"   Width="90" Height="29" Click="btnAyuda_Click"/>
 
-            <TextBox x:Name="txtUsuarioGeneral"  Grid.Row="1" Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Nombre de Usuario" materialDesign:HintAssist.IsFloating="True"/>
+            <TextBox x:Name="txtIndentificacion" Grid.Row="1" Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Identificación" materialDesign:HintAssist.IsFloating="True"/>
 
-            <PasswordBox x:Name="txtContrasena" Grid.Row="1" Grid.Column="3" Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Contraseña" materialDesign:HintAssist.IsFloating="True" />
+            <TextBox x:Name="txtNombre" Grid.Row="1" Grid.Column="3" Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Nombre Completo" materialDesign:HintAssist.IsFloating="True"/>
 
-            <ComboBox x:Name="cboTipo" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="200" Height="50" materialDesign:HintAssist.Hint="Tipo usuario" materialDesign:HintAssist.IsFloating="True" >
+            <TextBox x:Name="txtUsuarioGeneral"  Grid.Row="2" Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Nombre de Usuario" materialDesign:HintAssist.IsFloating="True"/>
+
+            <PasswordBox x:Name="txtContrasena" Grid.Row="2" Grid.Column="3" Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Contraseña" materialDesign:HintAssist.IsFloating="True" />
+
+            <ComboBox x:Name="cboTipo" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="200" Height="50" materialDesign:HintAssist.Hint="Tipo usuario" materialDesign:HintAssist.IsFloating="True" >
                 <ComboBoxItem IsSelected="True">Administrador</ComboBoxItem>
                 <ComboBoxItem >Asistente</ComboBoxItem>
             </ComboBox>
             <!--botones-->
-            <Button x:Name="btnGuardar"  Content="Guardar"  Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left"  VerticalAlignment="Center"   Width="90" Height="29" Click="btnGuardar_Click"/>
+            <Button x:Name="btnGuardar"  Content="Guardar"  Grid.Row="3" Grid.Column="3" HorizontalAlignment="Left"  VerticalAlignment="Center"   Width="90" Height="29" Click="btnGuardar_Click"/>
             <TextBox x:Name="txtid" Visibility="Collapsed"  Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center"  VerticalAlignment="Center"   Height="23" TextWrapping="Wrap" Text="" Width="120"/>
            
             
-            <!--datagrid--><!--
-
-            <DataGrid x:Name="dataGridUsuarios" Grid.Row="3" VerticalScrollBarVisibility="Auto" Grid.ColumnSpan="4" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="dataGridUsuarios_SelectionChanged"  VerticalAlignment="Top" Height="180" Width="520" Margin="0,0,10,-89">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Indentificación" Binding="{Binding Id}" />
-                    <DataGridTextColumn Header="Nombre Completo" Binding="{Binding Nombre}" />
-                    <DataGridTextColumn Header="Nombre de Usuario" Binding="{Binding UsuarioGeneral}" />
-                    <DataGridTextColumn Header="Tipo de Usuario" Binding="{Binding Tipo}" />
-                </DataGrid.Columns>
-
-            </DataGrid>-->
+       
 
             <materialDesign:DialogHost IsOpen="False" x:Name="dialogo" Grid.ColumnSpan="4" Grid.RowSpan="4" Margin="0,0,-186,-132">
                 <materialDesign:DialogHost.DialogContent>
@@ -87,7 +82,7 @@
 
         </Grid>
 
-        <Grid Width="1000" x:Name="gridTabla" Margin="180,30,180,94" Background="#E4ECF0">
+        <Grid Width="1000" Height="570" x:Name="gridTabla" Visibility="Visible" Margin="180,30,180,94" Background="#E4ECF0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="200"/>
@@ -101,9 +96,11 @@
                 <RowDefinition  Height="200"/>
             </Grid.RowDefinitions>
 
+            <TextBlock Text="Mantenimiento de usuarios" Margin="-20 0 0 30"  HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.ColumnSpan="3" FontSize="22" />
+            <TextBlock Text="Listado de los usuarios" Grid.Row="0"  Grid.ColumnSpan="3" Margin="-145 0 0 30" HorizontalAlignment="Center" VerticalAlignment="Bottom" Style="{StaticResource MaterialDesignSubheadingTextBlock}" />
 
-            <Button x:Name="btnNuevo" Content="Nuevo"  Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right"  VerticalAlignment="Center"  Width="78" Height="29" Margin="0 -40 30 0"  Click="btnNuevo_Click"/>
 
+            <Button x:Name="btnNuevo" Content="Nuevo"  Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right"  VerticalAlignment="Bottom"  Width="78" Height="29" Margin="0 -40 30 0"  Click="btnNuevo_Click"/>
 
             <TextBox x:Name="txtBuscar" Grid.Row="1" Grid.ColumnSpan="2" Margin="90 0 0 0" Width="200" Height="50"  HorizontalAlignment="Center"  VerticalAlignment="Top" materialDesign:HintAssist.Hint="Buscar" materialDesign:HintAssist.IsFloating="True" TextChanged="txtBuscar_TextChanged"/>
 

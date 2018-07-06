@@ -14,8 +14,8 @@
      Title="PProducto" Width="1360" Height="670" Loaded="Page_Loaded" Background="#F1F8FB">
 
     <StackPanel>
-    
-    <Grid Width="1000" x:Name="gridForm" Visibility="Visible" Margin="180,30,180,94" Background="#E4ECF0">
+
+        <Grid Width="1000" Height="570" x:Name="gridForm" Visibility="Collapsed" Margin="180,30,180,94" Background="#E4ECF0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="200"/>
@@ -34,9 +34,9 @@
             <TextBlock Text="Información de los proveedores" Grid.Row="0" Grid.Column="1"  Grid.ColumnSpan="2" Margin="0 0 0 30" HorizontalAlignment="Left" VerticalAlignment="Bottom" Style="{StaticResource MaterialDesignSubheadingTextBlock}" />
 
 
-            <Button x:Name="btnVolver"  Content="Volver"  Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right"  VerticalAlignment="Center" Margin="0 0 140 60"   Width="90" Height="29" Click="btnVolver_Click"/>
+            <Button x:Name="btnVolver"  Content="Volver"  Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Margin="0 0 140 0"   Width="90" Height="29" Click="btnVolver_Click"/>
 
-        <Button x:Name="btnAyuda"  Content="Ayuda"  Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right"  VerticalAlignment="Center" Margin="0 0 0 60"   Width="90" Height="29" Click="btnAyuda_Click"/>
+        <Button x:Name="btnAyuda"  Content="Ayuda"  Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Margin="0 0 0 0"   Width="90" Height="29" Click="btnAyuda_Click"/>
 
         <TextBox x:Name="txtNombreProveedor" Grid.Row="1" Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Nombre proveedor" materialDesign:HintAssist.IsFloating="True"/>
 
@@ -87,7 +87,7 @@
 
     </Grid>
 
-        <Grid Width="1000" x:Name="gridTabla" Visibility="Collapsed" Margin="180,30,180,94" Background="#E4ECF0">
+        <Grid Width="1000" Height="570" x:Name="gridTabla" Visibility="Visible" Margin="180,30,180,94" Background="#E4ECF0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="200"/>

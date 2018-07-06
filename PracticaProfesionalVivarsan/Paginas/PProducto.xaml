@@ -15,8 +15,8 @@
       Title="PProducto" Width="1360" Height="670" Loaded="Page_Loaded" Background="#F1F8FB">
 
     <StackPanel>
-    
-    <Grid Width="1000" x:Name="gridForm" Visibility="Collapsed" Margin="180,30,180,94" Background="#E4ECF0">
+
+        <Grid Width="1000" Height="570" x:Name="gridForm" Visibility="Collapsed" Margin="180,30,180,94" Background="#E4ECF0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="200"/>
@@ -97,7 +97,7 @@
     </Grid>
 
 
-        <Grid Width="1000" x:Name="gridTabla" Visibility="Visible" Margin="180,30,180,94" Background="#E4ECF0">
+        <Grid Width="1000" Height="570" x:Name="gridTabla" Visibility="Visible" Margin="180,30,180,94" Background="#E4ECF0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="200"/>

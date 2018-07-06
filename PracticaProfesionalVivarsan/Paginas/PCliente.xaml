@@ -16,76 +16,7 @@
 
     <StackPanel>
 
-        <Grid Width="1000" x:Name="gridForm" Visibility="Collapsed" Margin="180,50,180,94" Background="#E4ECF0">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
-            <ColumnDefinition Width="200"/>
-            <ColumnDefinition Width="200"/>
-            <ColumnDefinition Width="400"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition  Height="100"/>
-            <RowDefinition  Height="100"/>
-            <RowDefinition  Height="100"/>
-            <RowDefinition  Height="200"/>
-        </Grid.RowDefinitions>
-
-        <Button x:Name="btnVolver"  Content="Volver"  Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right"  VerticalAlignment="Center" Margin="0 0 140 60"   Width="90" Height="29" Click="btnVolver_Click"/>
-
-        <Button x:Name="btnAyuda"  Content="Ayuda"  Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right"  VerticalAlignment="Center" Margin="0 0 0 60"   Width="90" Height="29" Click="btnAyuda_Click"/>
-
-        <TextBox x:Name="txtIndentificacion" Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Indentificación" materialDesign:HintAssist.IsFloating="True" />
-       
-        <TextBox x:Name="txtNombre" Grid.Column="3" Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Nombre" materialDesign:HintAssist.IsFloating="True" />
-      
-        <TextBox x:Name="txtCorreo"  Grid.Row="1" Grid.Column="1"  Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Correo" materialDesign:HintAssist.IsFloating="True"/>
-       
-        <TextBox x:Name="txtDireccion" Grid.Row="1" Grid.Column="3" Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Dirección" materialDesign:HintAssist.IsFloating="True" />
-       
-
-        <TextBox x:Name="txtTelefono" Grid.Row="2" Grid.Column="1"  Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Teléfono" materialDesign:HintAssist.IsFloating="True" PreviewTextInput="txtTelefono_PreviewTextInput"/>
-
-        <!--botones-->
-        <Button x:Name="btnGuardar"  Content="Guardar"  Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left"  VerticalAlignment="Center"   Width="90" Height="29" Click="btnGuardar_Click"/>
-        <TextBox x:Name="txtid" Visibility="Collapsed"  Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center"  VerticalAlignment="Center"   Height="23" TextWrapping="Wrap" Text="" Width="120"/>
-        
-        <!--datagrid--><!--
-
-        <DataGrid x:Name="dataGrid" Grid.Row="3" Grid.ColumnSpan="4" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="dataGrid_SelectionChanged"  VerticalAlignment="Top" Height="190" Width="585" Margin="0,0,10,-89">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Indentificación" Binding="{Binding Indentificacion}" />
-                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" />
-                <DataGridTextColumn Header="Correo" Binding="{Binding Correo}" />
-                <DataGridTextColumn Header="Dirección" Binding="{Binding Direccion}" />
-                <DataGridTextColumn Header="Teléfono" Binding="{Binding Telefono}" />
-            </DataGrid.Columns>
-
-        </DataGrid>-->
-
-        <materialDesign:DialogHost IsOpen="False" x:Name="dialogo" Grid.ColumnSpan="4" Grid.RowSpan="4" Margin="0,0,-186,-132">
-            <materialDesign:DialogHost.DialogContent>
-                <StackPanel Margin="15" Orientation="Vertical">
-                    <TextBlock x:Name="txtTextBlockDialogo" Text="Registro procesado"/>
-                    <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandTarget="{Binding ElementName=dialogo}" 
-                        Style="{DynamicResource MaterialDesignFlatButton}" Content="Aceptar" Margin="0 10 0 0"/>
-                </StackPanel>
-            </materialDesign:DialogHost.DialogContent>
-        </materialDesign:DialogHost>
-
-
-        <materialDesign:DialogHost IsOpen="False" x:Name="ayuda" Grid.ColumnSpan="4" Grid.RowSpan="4" Margin="0,0,-186,-132">
-            <materialDesign:DialogHost.DialogContent>
-                <StackPanel Margin="20" Orientation="Vertical">
-                    <TextBlock x:Name="txtTextBlockAyuda" Text="Registro procesado"/>
-                    <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandTarget="{Binding ElementName=ayuda}" 
-                        Style="{DynamicResource MaterialDesignFlatButton}" Content="Aceptar" Margin="0 10 0 0"/>
-                </StackPanel>
-            </materialDesign:DialogHost.DialogContent>
-        </materialDesign:DialogHost>
-
-    </Grid>
-
-        <Grid Width="1000" x:Name="gridTabla"  Visibility="Visible" Margin="180,50,180,94" Background="#E4ECF0">
+        <Grid Width="1000" Height="570" x:Name="gridForm" Visibility="Collapsed" Margin="180,50,180,94" Background="#E4ECF0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="200"/>
@@ -99,9 +30,73 @@
                 <RowDefinition  Height="200"/>
             </Grid.RowDefinitions>
 
-            <Button x:Name="btnNuevo" Content="Nuevo" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right"  VerticalAlignment="Center"  Width="78" Height="29" Click="btnNuevo_Click" Margin="0 -40 30 0" />
+            <TextBlock Text="Mantenimiento de clientes" Margin="0 0 0 30"  HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" FontSize="22" />
+            <TextBlock Text="Información de los clientes" Grid.Row="0" Grid.Column="1"  Grid.ColumnSpan="2" Margin="0 0 0 30" HorizontalAlignment="Left" VerticalAlignment="Bottom" Style="{StaticResource MaterialDesignSubheadingTextBlock}" />
+
+            <Button x:Name="btnVolver"  Content="Volver"  Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Margin="0 0 140 0"   Width="90" Height="29" Click="btnVolver_Click"/>
+
+            <Button x:Name="btnAyuda"  Content="Ayuda"  Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Margin="0 0 0 0"   Width="90" Height="29" Click="btnAyuda_Click"/>
+
+            <TextBox x:Name="txtIndentificacion"  Grid.Row="1" Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Indentificación" materialDesign:HintAssist.IsFloating="True" />
+
+            <TextBox x:Name="txtNombre"  Grid.Row="1" Grid.Column="3" Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Nombre" materialDesign:HintAssist.IsFloating="True" />
+
+            <TextBox x:Name="txtCorreo"  Grid.Row="2" Grid.Column="1"  Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Correo" materialDesign:HintAssist.IsFloating="True"/>
+
+            <TextBox x:Name="txtDireccion" Grid.Row="2" Grid.Column="3" Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Dirección" materialDesign:HintAssist.IsFloating="True" />
 
 
+            <TextBox x:Name="txtTelefono" Grid.Row="3" Grid.Column="1"  Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Teléfono" materialDesign:HintAssist.IsFloating="True" PreviewTextInput="txtTelefono_PreviewTextInput"/>
+
+            <!--botones-->
+            <Button x:Name="btnGuardar"  Content="Guardar"  Grid.Row="3" Grid.Column="3" HorizontalAlignment="Left"  VerticalAlignment="Center"   Width="90" Height="29" Click="btnGuardar_Click"/>
+            <TextBox x:Name="txtid" Visibility="Collapsed"  Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center"  VerticalAlignment="Center"   Height="23" TextWrapping="Wrap" Text="" Width="120"/>
+
+
+
+            <materialDesign:DialogHost IsOpen="False" x:Name="dialogo" Grid.ColumnSpan="4" Grid.RowSpan="4" Margin="0,0,-186,-132">
+                <materialDesign:DialogHost.DialogContent>
+                    <StackPanel Margin="15" Orientation="Vertical">
+                        <TextBlock x:Name="txtTextBlockDialogo" Text="Registro procesado"/>
+                        <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandTarget="{Binding ElementName=dialogo}" 
+                        Style="{DynamicResource MaterialDesignFlatButton}" Content="Aceptar" Margin="0 10 0 0"/>
+                    </StackPanel>
+                </materialDesign:DialogHost.DialogContent>
+            </materialDesign:DialogHost>
+
+
+            <materialDesign:DialogHost IsOpen="False" x:Name="ayuda" Grid.ColumnSpan="4" Grid.RowSpan="4" Margin="0,0,-186,-132">
+                <materialDesign:DialogHost.DialogContent>
+                    <StackPanel Margin="20" Orientation="Vertical">
+                        <TextBlock x:Name="txtTextBlockAyuda" Text="Registro procesado"/>
+                        <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandTarget="{Binding ElementName=ayuda}" 
+                        Style="{DynamicResource MaterialDesignFlatButton}" Content="Aceptar" Margin="0 10 0 0"/>
+                    </StackPanel>
+                </materialDesign:DialogHost.DialogContent>
+            </materialDesign:DialogHost>
+
+        </Grid>
+
+        <Grid Width="1000" Height="570" x:Name="gridTabla"  Visibility="Visible" Margin="180,50,180,94" Background="#E4ECF0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="400"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition  Height="100"/>
+                <RowDefinition  Height="100"/>
+                <RowDefinition  Height="100"/>
+                <RowDefinition  Height="200"/>
+            </Grid.RowDefinitions>
+
+
+            <TextBlock Text="Mantenimiento de Clientes" Margin="-20 0 0 30"  HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.ColumnSpan="3" FontSize="22" />
+            <TextBlock Text="Listado de los clientess" Grid.Row="0"  Grid.ColumnSpan="3" Margin="-125 0 0 30" HorizontalAlignment="Center" VerticalAlignment="Bottom" Style="{StaticResource MaterialDesignSubheadingTextBlock}" />
+
+
+            <Button x:Name="btnNuevo" Content="Nuevo" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right"  VerticalAlignment="Bottom"  Width="78" Height="29" Click="btnNuevo_Click" Margin="0 -40 30 0" />
 
             <!--datagrid-->
             <TextBox x:Name="txtBuscar" Grid.Row="1" Grid.ColumnSpan="2" Margin="90 0 0 0" Width="200" Height="50"  HorizontalAlignment="Center"  VerticalAlignment="Top" materialDesign:HintAssist.Hint="Buscar" materialDesign:HintAssist.IsFloating="True" TextChanged="txtBuscar_TextChanged"/>
@@ -113,15 +108,15 @@
 
 
             <DataGrid x:Name="dataGrid" Margin="0 60 0 0"   Grid.Row="1" Grid.ColumnSpan="4" Grid.RowSpan="4" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="dataGrid_SelectionChanged"  VerticalAlignment="Top" Height="330" Width="700">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Indentificación" Binding="{Binding Indentificacion}" />
-                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" />
-                <DataGridTextColumn Header="Correo" Binding="{Binding Correo}" />
-                <DataGridTextColumn Header="Dirección" Binding="{Binding Direccion}" />
-                <DataGridTextColumn Header="Teléfono" Binding="{Binding Telefono}" />
-            </DataGrid.Columns>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Indentificación" Binding="{Binding Indentificacion}" />
+                    <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" />
+                    <DataGridTextColumn Header="Correo" Binding="{Binding Correo}" />
+                    <DataGridTextColumn Header="Dirección" Binding="{Binding Direccion}" />
+                    <DataGridTextColumn Header="Teléfono" Binding="{Binding Telefono}" />
+                </DataGrid.Columns>
 
-        </DataGrid>
+            </DataGrid>
         </Grid>
     </StackPanel>
 </Page>
