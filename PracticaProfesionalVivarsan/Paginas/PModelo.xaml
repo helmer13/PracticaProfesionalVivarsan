@@ -99,6 +99,17 @@
             <RowDefinition  Height="200"/>
         </Grid.RowDefinitions>
 
+          
+            <TextBlock Grid.Row="0" Grid.Column="2" Style="{StaticResource MaterialDesignTitleTextBlock}" Margin="0 6 0 8">Medium 20sp</TextBlock>
+           
+
+
+            <TextBlock Grid.Row="1" Grid.Column="2" Style="{StaticResource MaterialDesignSubheadingTextBlock}" Margin="0 8 0 8">Regular 15sp</TextBlock>
+    
+
+
+            <TextBlock Text="Lista de modelos" Margin="40 0 0 0"  HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.ColumnSpan="2" FontSize="22" />
+
             <Button x:Name="btnNuevo" Content="Nuevo" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right"  VerticalAlignment="Center"  Width="78" Height="29" Click="btnNuevo_Click" Margin="0 -40 30 0" />
 
             <TextBox x:Name="txtBuscar" Grid.Row="1" Grid.ColumnSpan="2" Margin="90 0 0 0" Width="200" Height="50"  HorizontalAlignment="Center"  VerticalAlignment="Top" materialDesign:HintAssist.Hint="Buscar" materialDesign:HintAssist.IsFloating="True" TextChanged="txtBuscar_TextChanged"/>

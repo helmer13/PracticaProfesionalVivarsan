@@ -68,7 +68,10 @@ namespace PracticaProfesionalVivarsan
         {
             Usuario usuarioGlobal = new Usuario();
             usuarioGlobal = (Usuario)App.Current.Properties["usuarioSesion"];
-            lnlNombreUsuario.Content = "Usuario: " + usuarioGlobal.Nombre;
+            //lnlNombreUsuario.Content = "Usuario: " + usuarioGlobal.Nombre;
+
+            btn4.Content = "Usuario: " + usuarioGlobal.Nombre;
+
             frame.Content = new PMenuLogo();
         }
 
