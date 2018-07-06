@@ -108,5 +108,15 @@ namespace PracticaProfesionalVivarsan
         {
             frame.Content = new PVentaFacturacion();
         }
+
+        private void ProcesoGastos_Click(object sender, RoutedEventArgs e)
+        {
+            frame.Content = new PGasto();
+        }
+
+        private void ProcesoDevoluciones_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
