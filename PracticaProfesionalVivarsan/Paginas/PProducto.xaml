@@ -30,26 +30,30 @@
             <RowDefinition  Height="200"/>
         </Grid.RowDefinitions>
 
-        <Button x:Name="btnVolver"  Content="Volver"  Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right"  VerticalAlignment="Center" Margin="0 0 140 60"   Width="90" Height="29" Click="btnVolver_Click"/>
+            <TextBlock Text="Mantenimiento de productos" Margin="0 0 0 30"  HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" FontSize="22" />
+            <TextBlock Text="Información de los productos" Grid.Row="0" Grid.Column="1"  Grid.ColumnSpan="2" Margin="0 0 0 30" HorizontalAlignment="Left" VerticalAlignment="Bottom" Style="{StaticResource MaterialDesignSubheadingTextBlock}" />
 
-        <Button x:Name="btnAyuda"  Content="Ayuda"  Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right"  VerticalAlignment="Center" Margin="0 0 0 60"   Width="90" Height="29" Click="btnAyuda_Click"/>
 
-        <TextBox x:Name="txtCodigo" Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Código" materialDesign:HintAssist.IsFloating="True"/>
+            <Button x:Name="btnVolver"  Content="Volver"  Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Margin="0 0 140 0"   Width="90" Height="29" Click="btnVolver_Click"/>
 
-        <TextBox x:Name="txtNombre" Grid.Column="3" Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Nombre" materialDesign:HintAssist.IsFloating="True"/>
+            <Button x:Name="btnAyuda"  Content="Ayuda"  Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Margin="0 0 15 0"   Width="90" Height="29" Click="btnAyuda_Click"/>
+
+            <TextBox x:Name="txtCodigo" Grid.Row="1" Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Código" materialDesign:HintAssist.IsFloating="True"/>
+
+            <TextBox x:Name="txtNombre" Grid.Row="1" Grid.Column="3" Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Nombre" materialDesign:HintAssist.IsFloating="True"/>
 
         <!--<TextBox x:Name="txtMarca"  Grid.Row="1" Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Marca" materialDesign:HintAssist.IsFloating="True"/>-->
-        <ComboBox x:Name="cboMarcas" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="200" Height="50" materialDesign:HintAssist.Hint="Marca" materialDesign:HintAssist.IsFloating="True" SelectionChanged="cboMarcas_SelectionChanged">
+        <ComboBox x:Name="cboMarcas" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="200" Height="50" materialDesign:HintAssist.Hint="Marca" materialDesign:HintAssist.IsFloating="True" SelectionChanged="cboMarcas_SelectionChanged">
 
         </ComboBox>
 
-        <ComboBox x:Name="cboModelos" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="200" Height="50" materialDesign:HintAssist.Hint="Modelo" materialDesign:HintAssist.IsFloating="True" >
+        <ComboBox x:Name="cboModelos" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="200" Height="50" materialDesign:HintAssist.Hint="Modelo" materialDesign:HintAssist.IsFloating="True" >
         </ComboBox>
 
-        <TextBox x:Name="txtPrecioCompra" Grid.Row="2" IsReadOnly="True" Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Precio Compra" materialDesign:HintAssist.IsFloating="True" PreviewTextInput="txtPrecioCompra_PreviewTextInput"/>
+        <TextBox x:Name="txtPrecioCompra" Grid.Row="3" IsReadOnly="True" Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Precio Compra" materialDesign:HintAssist.IsFloating="True" PreviewTextInput="txtPrecioCompra_PreviewTextInput"/>
 
 
-        <TextBox x:Name="txtPrecioVenta" Grid.Row="2" Grid.Column="3" Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Precio Venta" materialDesign:HintAssist.IsFloating="True" PreviewTextInput="txtPrecioVenta_PreviewTextInput"/>
+        <TextBox x:Name="txtPrecioVenta" Grid.Row="3" Grid.Column="3" Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Precio Venta" materialDesign:HintAssist.IsFloating="True" PreviewTextInput="txtPrecioVenta_PreviewTextInput"/>
 
         <!--botones-->
         <Button x:Name="btnGuardar"  Content="Guardar" Margin="-0 0 0 160" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left"  VerticalAlignment="Center"    Width="90" Height="29" Click="btnGuardar_Click"/>
@@ -107,7 +111,12 @@
                 <RowDefinition  Height="200"/>
             </Grid.RowDefinitions>
 
-            <Button x:Name="btnNuevo" Content="Nuevo" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right"  VerticalAlignment="Center"  Width="78" Height="29" Click="btnNuevo_Click" Margin="0 -40 30 0" />
+
+            <TextBlock Text="Mantenimiento de productos" Margin="-20 0 0 30"  HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.ColumnSpan="3" FontSize="22" />
+            <TextBlock Text="Listado de los productos" Grid.Row="0"  Grid.ColumnSpan="3" Margin="-145 0 0 30" HorizontalAlignment="Center" VerticalAlignment="Bottom" Style="{StaticResource MaterialDesignSubheadingTextBlock}" />
+
+
+            <Button x:Name="btnNuevo" Content="Nuevo" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right"  VerticalAlignment="Bottom"  Width="78" Height="29" Click="btnNuevo_Click" Margin="0 -40 30 0" />
 
             <TextBox x:Name="txtBuscar" Grid.Row="1" Grid.ColumnSpan="2" Margin="90 0 0 0" Width="200" Height="50"  HorizontalAlignment="Center"  VerticalAlignment="Top" materialDesign:HintAssist.Hint="Buscar" materialDesign:HintAssist.IsFloating="True" TextChanged="txtBuscar_TextChanged"/>
 
