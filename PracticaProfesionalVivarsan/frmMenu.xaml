@@ -85,6 +85,9 @@
         </Grid>
         <!--segundo panel-->
         <Grid Height="670">
+            <Grid.Background>
+                <ImageBrush   ImageSource="/PracticaProfesionalVivarsan;component/imagenes/brushed-alum.png" />
+            </Grid.Background>
             <Frame Name="frame" Content="" Height="670" Width="1360"  HorizontalAlignment="Left"  VerticalAlignment="Top" NavigationUIVisibility="Hidden" />
 
         </Grid>
