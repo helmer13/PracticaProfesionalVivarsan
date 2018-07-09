@@ -45,6 +45,7 @@
     <Compile Include="Empresa.cs" />
     <Compile Include="FacturaCompras.cs" />
     <Compile Include="FacturaVentas.cs" />
+    <Compile Include="Gasto.cs" />
     <Compile Include="Inventario.cs" />
     <Compile Include="LineaDetalleCompras.cs" />
     <Compile Include="LineaDetalleVentas.cs" />

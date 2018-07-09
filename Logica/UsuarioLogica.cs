@@ -49,6 +49,23 @@ namespace Logica
             }
             return usuario1;
         }
+
+        public Usuario seleccionarUsuario(string id)
+        {
+            Usuario usuario1 = new Usuario();
+            DataSet ds = AccesoDatos.UsuarioDato.seleccionarUsuario(id);
+            EmpresaLogica empresaLogica = new EmpresaLogica();
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {
+                usuario1.Id = row["ID"].ToString();
+                usuario1.UsuarioGeneral = row["Usuario"].ToString();
+                usuario1.Tipo = row["Tipo"].ToString();
+                usuario1.Nombre = row["Nombre"].ToString();
+                usuario1.Contrasena = row["Contrasena"].ToString();
+                usuario1.Empresa = empresaLogica.obtenerEmpresa(Convert.ToInt32(row["IDEmpresa"]));
+            }
+            return usuario1;
+        }
         public void InsertarActualizarUsuario(Usuario usu)
         {
             AccesoDatos.UsuarioDato.InsertarActualizarUsuario(usu.Id, usu.Nombre, usu.UsuarioGeneral, usu.Contrasena, usu.Tipo,usu.Empresa.IdEmpresa);
