@@ -69,6 +69,9 @@
     <Compile Include="Paginas\PCompraFacturacion.xaml.cs">
       <DependentUpon>PCompraFacturacion.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Paginas\PDevolucion.xaml.cs">
+      <DependentUpon>PDevolucion.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Paginas\PGasto.xaml.cs">
       <DependentUpon>PGasto.xaml</DependentUpon>
     </Compile>
@@ -136,6 +139,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Paginas\PCompraFacturacion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Paginas\PDevolucion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
