@@ -52,5 +52,12 @@ namespace Logica
             return resultado;
         }
 
+
+
+        public void InsertarDevolucion(LineaDetalleVentas lineaDetalle,string idDevolucion,DateTime fechaDevolucion,int cantidad,string tipo,int idBodega,int idEmpresa)
+        {
+            AccesoDatos.FacturaVentasDato.InsertarDevolucion(idDevolucion,lineaDetalle.IdFactura,fechaDevolucion,0,
+                lineaDetalle.Id,cantidad,tipo,idEmpresa,idBodega,lineaDetalle.Producto.IdProducto);
+        }
     }
 }

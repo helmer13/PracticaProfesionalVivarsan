@@ -19,8 +19,13 @@ namespace PracticaProfesionalVivarsan.Paginas
     /// <summary>
     /// Interaction logic for PDevolucion.xaml
     /// </summary>
+    /// 
+
     public partial class PDevolucion : Page
     {
+
+        LineaDetalleVentas lineaDetalle = new LineaDetalleVentas();
+
         public PDevolucion()
         {
             InitializeComponent();
@@ -40,17 +45,17 @@ namespace PracticaProfesionalVivarsan.Paginas
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-
+            this.CargarCboBodegas();
         }
 
         private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
             {
-                LineaDetalleVentas l = (LineaDetalleVentas)dataGrid.SelectedCells[0].Item;
+                lineaDetalle = (LineaDetalleVentas)dataGrid.SelectedCells[0].Item;
 
-                txtCantidad.Text = l.Cantidad.ToString();
-                txtid.Text = l.Id;
+                txtCantidad.Text = lineaDetalle.Cantidad.ToString();
+                txtid.Text = lineaDetalle.Id;
             }
             catch (Exception ex)
             {
@@ -96,12 +101,43 @@ namespace PracticaProfesionalVivarsan.Paginas
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
+           // LineaDetalleVentas lineaDetalle = new LineaDetalleVentas();
+            FacturaVentasLogica logica = new FacturaVentasLogica();
 
+            var idDevolucion = Guid.NewGuid().ToString();
+            Bodega bodega = (Bodega)cboBodegas.SelectedItem;
+
+            Usuario usuarioGlobal = new Usuario();
+            usuarioGlobal = (Usuario)App.Current.Properties["usuarioSesion"];
+
+            logica.InsertarDevolucion(lineaDetalle, idDevolucion, fecha.SelectedDate.Value,Convert.ToInt32( txtCantidad.Text), cboTipo.Text, bodega.Id, usuarioGlobal.Empresa.IdEmpresa);
         }
 
         private void btnEncontrarFactura_Click(object sender, RoutedEventArgs e)
         {
 
         }
+
+        private void CargarCboBodegas()
+        {
+            try
+            {
+                BodegaLogica logica = new BodegaLogica();
+                List<Bodega> lista = new List<Bodega>();
+                lista = logica.obtenerBodegas();
+                cboBodegas.ItemsSource = lista;
+
+                cboBodegas.DisplayMemberPath = "Nombre";
+                cboBodegas.SelectedValuePath = "Id";
+                cboBodegas.SelectedValue = 1;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
     }
 }

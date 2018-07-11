@@ -56,5 +56,28 @@ namespace AccesoDatos
 
         }
 
+
+        public static void InsertarDevolucion(string id, int idRegistroVentas, DateTime fechaDevolucion, double monto, string idLineaDetalleVentas, int cantidad,
+            string tipo,int idEmpresa, int idBodega, string idProducto)
+        {
+            Database db = DatabaseFactory.CreateDatabase("Default");
+
+            SqlCommand comando = new SqlCommand("SPR_INSERTAR_ACTUALIZAR_DEVOLUCION");
+            comando.CommandType = CommandType.StoredProcedure;
+
+            comando.Parameters.AddWithValue("@ID", id);
+            comando.Parameters.AddWithValue("@IDREGISTROVENTAS", idRegistroVentas);
+            comando.Parameters.AddWithValue("@FECHADEVOLUCION", fechaDevolucion);
+            comando.Parameters.AddWithValue("@MONTO", monto);
+            comando.Parameters.AddWithValue("@IDLINEADETALLEVENTAS", idLineaDetalleVentas);
+            comando.Parameters.AddWithValue("@CANTIDAD", cantidad);
+            comando.Parameters.AddWithValue("@TIPO", tipo);
+            comando.Parameters.AddWithValue("@IDEMPRESA", idEmpresa);
+            comando.Parameters.AddWithValue("@IDBODEGA", idBodega);
+            comando.Parameters.AddWithValue("@IDPRODUCTO", idProducto);
+            db.ExecuteNonQuery(comando);
+        }
+
+
     }
 }
