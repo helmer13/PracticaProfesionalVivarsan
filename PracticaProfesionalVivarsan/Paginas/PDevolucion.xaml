@@ -11,7 +11,7 @@
       xmlns:local="clr-namespace:PracticaProfesionalVivarsan.Paginas"
         mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-     Title="PDevolucion" Width="1360" Height="670" Loaded="Page_Loaded" Background="#F1F8FB">
+     Title="PDevolucion" Width="1360" Height="670" Loaded="Page_Loaded" Background="#F1F8FB" >
 
     <StackPanel>
 
@@ -31,39 +31,73 @@
 
 
             <TextBlock Text="Devoluciones" Margin="0 0 0 30"  HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" FontSize="22" />
-            <TextBlock Text="Información de las marcas" Grid.Row="0" Grid.Column="1"  Grid.ColumnSpan="2" Margin="0 0 0 30" HorizontalAlignment="Left" VerticalAlignment="Bottom" Style="{StaticResource MaterialDesignSubheadingTextBlock}" />
+            <TextBlock Text="Proceso de devolución de productos" Grid.Row="0" Grid.Column="1"  Grid.ColumnSpan="2" Margin="0 0 0 30" HorizontalAlignment="Left" VerticalAlignment="Bottom" Style="{StaticResource MaterialDesignSubheadingTextBlock}" />
 
 
-            <Button x:Name="btnVolver"  Content="Volver"  Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Margin="0 0 140 0"   Width="90" Height="29" Click="btnVolver_Click"/>
+           
             <Button x:Name="btnAyuda"  Content="Ayuda"  Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Margin="0 0 0 0"   Width="90" Height="29" Click="btnAyuda_Click"/>
 
             <TextBox x:Name="txtid" Visibility="Collapsed" HorizontalAlignment="Left" Height="23" Margin="56,43,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
 
 
         
-            <TextBox x:Name="txtFactura" IsReadOnly="True" Grid.Row="1" Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="# Factura" materialDesign:HintAssist.IsFloating="True"/>
+            <TextBox x:Name="txtFactura"  Grid.Row="1" Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="# Factura" materialDesign:HintAssist.IsFloating="True"/>
             <Button x:Name="btnBuscarFactura"  Content="Buscar"  Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="0 0 0 -30"   Width="90" Height="29" Click="btnBuscarFactura_Click"/>
 
 
 
-            <Button x:Name="btnGuardar" Content="Guardar"  Grid.Row="3" Grid.Column="3" HorizontalAlignment="Left"  VerticalAlignment="Center"    Width="90" Height="29" Click="btnGuardar_Click"/>
+            <Button x:Name="btnGuardar" Content="Guardar" Margin="280 0 0 0"  Grid.Row="3" Grid.Column="4" HorizontalAlignment="Left"  VerticalAlignment="Center"    Width="90" Height="29" Click="btnGuardar_Click"/>
 
             <!--<Button x:Name="btnNuevo" Content="Nuevo" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Right"  VerticalAlignment="Center"  Width="78" Height="29" Click="btnNuevo_Click" Margin="-50 0 0 0"/>-->
 
-
-
-
-            <!--<DataGrid x:Name="dgMarcas"  Margin="0,0,10,-89" Grid.Row="3" Grid.ColumnSpan="4" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="dgMarcas_SelectionChanged" HorizontalAlignment="Center"  VerticalAlignment="Top" Height="180" Width="500">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Código" Binding="{Binding Id}" />
-                <DataGridTextColumn Header="Descripción" Binding="{Binding Descripcion}" />
-            </DataGrid.Columns>
-        </DataGrid>-->
-
-
-            <materialDesign:DialogHost IsOpen="False" x:Name="dialogo" Grid.ColumnSpan="4" Grid.RowSpan="4" Margin="0,0,-186,-132">
+            <!--POPUP CON LA TABLA DE facturas-->
+            <materialDesign:DialogHost IsOpen="False" x:Name="popup" Grid.ColumnSpan="4" Grid.RowSpan="6" Margin="0,0,0,0">
                 <materialDesign:DialogHost.DialogContent>
-                    <StackPanel Margin="15" Orientation="Vertical">
+                    <StackPanel Margin="25" Orientation="Vertical">
+
+
+                        <TextBox x:Name="txtBuscar"  Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Buscar" materialDesign:HintAssist.IsFloating="True"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="100"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition  Height="50"/>
+
+                            </Grid.RowDefinitions>
+
+                            <RadioButton x:Name="rbNombre" GroupName="rbBuscar" Grid.Row="0" Grid.Column="0" Content="Nombre" Margin="10"  />
+                            <RadioButton x:Name="rbMarca" GroupName="rbBuscar"  Grid.Row="0" Grid.Column="1" Content="Marca" Margin="10"  />
+                            <RadioButton x:Name="rbModelo" GroupName="rbBuscar"  Grid.Row="0" Grid.Column="2" Content="Modelo" Margin="10"  />
+                        </Grid>
+
+
+                        <Button x:Name="btnEncontrarFactura"  Content="Buscar"   HorizontalAlignment="Left"  VerticalAlignment="Center"   Width="90" Height="29" Click="btnEncontrarFactura_Click"/>
+                        <DataGrid x:Name="dataGrid" Margin="0 0 0 0"   Grid.Row="2" Grid.ColumnSpan="4" Grid.RowSpan="4" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="dataGrid_SelectionChanged"  VerticalAlignment="Top" Height="330" Width="700">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="# Factura" Binding="{Binding IdFactura}" />
+                                <DataGridTextColumn Header="Producto" Binding="{Binding Producto.Nombre}" />
+                                <DataGridTextColumn Header="Cantidad" Binding="{Binding Cantidad}" />
+                                <DataGridTextColumn Header="SubTotal" Binding="{Binding SubTotal}" />
+
+                            </DataGrid.Columns>
+
+                        </DataGrid>
+                        <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandTarget="{Binding ElementName=popup}" 
+                        Style="{DynamicResource MaterialDesignFlatButton}" Content="Aceptar" Margin="0 10 0 0"/>
+                    </StackPanel>
+                </materialDesign:DialogHost.DialogContent>
+            </materialDesign:DialogHost>
+
+
+          
+
+
+            <materialDesign:DialogHost IsOpen="False" x:Name="dialogo" Grid.ColumnSpan="4" Grid.RowSpan="4" Margin="0,0,0,-60">
+                <materialDesign:DialogHost.DialogContent>
+                    <StackPanel Margin="25" Orientation="Vertical">
                         <TextBlock x:Name="txtTextBlockDialogo" Text="Registro procesado"/>
                         <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandTarget="{Binding ElementName=dialogo}" 
                         Style="{DynamicResource MaterialDesignFlatButton}" Content="Aceptar" Margin="0 10 0 0"/>

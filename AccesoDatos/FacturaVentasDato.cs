@@ -39,5 +39,22 @@ namespace AccesoDatos
 
             db.ExecuteNonQuery(comando);
         }
+
+
+        public static DataSet seleccionarLineaDetalleVentas(int idFacturaVentas)
+        {
+
+            Database db = DatabaseFactory.CreateDatabase("Default");
+
+            SqlCommand comando = new SqlCommand("SPR_FACTURAVENTAS_VISTA");
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@TIPOCONSULTA", "LINEADETALLE");
+            comando.Parameters.AddWithValue("@IDFACTURAVENTAS", idFacturaVentas);
+
+            DataSet ds = db.ExecuteReader(comando, "factura");
+            return ds;
+
+        }
+
     }
 }

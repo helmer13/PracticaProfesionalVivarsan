@@ -54,7 +54,7 @@
                             <MenuItem Name="ProcesoVentas" Foreground="Snow" Header="Ventas" Click="ProcesoVentas_Click"/>
                             <MenuItem Name="ProcesoGastos" Foreground="Snow" Header="Gastos" Click="ProcesoGastos_Click"/>
                             <MenuItem Name="ProcesoDevoluciones" Foreground="Snow" Header="Devoluciones" Click="ProcesoDevoluciones_Click"/>
-                            <MenuItem Foreground="Snow" Header="Gastos"/>
+                         
                         </ContextMenu>
                     </Button.ContextMenu>
                 </Button>

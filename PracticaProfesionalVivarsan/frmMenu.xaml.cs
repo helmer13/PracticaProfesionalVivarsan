@@ -116,7 +116,7 @@ namespace PracticaProfesionalVivarsan
 
         private void ProcesoDevoluciones_Click(object sender, RoutedEventArgs e)
         {
-
+            frame.Content = new PDevolucion();
         }
     }
 }

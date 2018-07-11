@@ -12,7 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using Entidad;
+using Logica;
 namespace PracticaProfesionalVivarsan.Paginas
 {
     /// <summary>
@@ -26,6 +27,86 @@ namespace PracticaProfesionalVivarsan.Paginas
         }
 
         private void btnBuscarFactura_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty( txtFactura.Text))
+            {
+                this.dialogo.IsOpen = true;
+                this.txtTextBlockDialogo.Text = "# Factura requerido";
+                return;
+            }
+            this.popup.IsOpen = true;
+            Refrescar(Convert.ToInt32( txtFactura.Text));
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                LineaDetalleVentas l = (LineaDetalleVentas)dataGrid.SelectedCells[0].Item;
+                //txtCorreo.Text = c.Correo;
+                //txtid.Text = c.Id;
+                //txtDireccion.Text = c.Direccion;
+                //txtIndentificacion.Text = c.Indentificacion;
+                //txtNombre.Text = c.Nombre;
+                //txtTelefono.Text = c.Telefono.ToString();
+
+                //gridForm.Visibility = Visibility.Visible;
+                //gridTabla.Visibility = Visibility.Collapsed;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
+        private void Refrescar(int idFactura)
+        {
+            try
+            {
+                FacturaVentasLogica logica = new FacturaVentasLogica();
+                List<LineaDetalleVentas> lista = new List<LineaDetalleVentas>();
+
+                lista = logica.obtenerLineaDetalleVentas(idFactura);
+
+                if (lista.Count==0)
+                {
+                    this.dialogo.IsOpen = true;
+                    this.txtTextBlockDialogo.Text = "El # Factura no existe";
+                    this.popup.IsOpen = false;
+                    return;
+                }
+
+                dataGrid.ItemsSource = lista;
+
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
+        private void btnAyuda_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnGuardar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnEncontrarFactura_Click(object sender, RoutedEventArgs e)
         {
 
         }
