@@ -48,16 +48,9 @@ namespace PracticaProfesionalVivarsan.Paginas
             try
             {
                 LineaDetalleVentas l = (LineaDetalleVentas)dataGrid.SelectedCells[0].Item;
-                //txtCorreo.Text = c.Correo;
-                //txtid.Text = c.Id;
-                //txtDireccion.Text = c.Direccion;
-                //txtIndentificacion.Text = c.Indentificacion;
-                //txtNombre.Text = c.Nombre;
-                //txtTelefono.Text = c.Telefono.ToString();
 
-                //gridForm.Visibility = Visibility.Visible;
-                //gridTabla.Visibility = Visibility.Collapsed;
-
+                txtCantidad.Text = l.Cantidad.ToString();
+                txtid.Text = l.Id;
             }
             catch (Exception ex)
             {

@@ -44,6 +44,7 @@
             <TextBox x:Name="txtFactura"  Grid.Row="1" Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="# Factura" materialDesign:HintAssist.IsFloating="True"/>
             <Button x:Name="btnBuscarFactura"  Content="Buscar"  Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="0 0 0 -30"   Width="90" Height="29" Click="btnBuscarFactura_Click"/>
 
+            <DatePicker Grid.Row="1" Grid.Column="3" Name="fecha" Language="es-US" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha factura" materialDesign:HintAssist.IsFloating="True"  />
 
 
             <Button x:Name="btnGuardar" Content="Guardar" Margin="280 0 0 0"  Grid.Row="3" Grid.Column="4" HorizontalAlignment="Left"  VerticalAlignment="Center"    Width="90" Height="29" Click="btnGuardar_Click"/>
@@ -92,7 +93,13 @@
             </materialDesign:DialogHost>
 
 
-          
+            <TextBox x:Name="txtCantidad"  Grid.Row="2" Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Cantidad" materialDesign:HintAssist.IsFloating="True"/>
+
+
+            <ComboBox x:Name="cboTipo" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="200" Height="50" materialDesign:HintAssist.Hint="Tipo usuario" materialDesign:HintAssist.IsFloating="True" >
+                <ComboBoxItem IsSelected="True">A inventario</ComboBoxItem>
+                <ComboBoxItem >A proveedor</ComboBoxItem>
+            </ComboBox>
 
 
             <materialDesign:DialogHost IsOpen="False" x:Name="dialogo" Grid.ColumnSpan="4" Grid.RowSpan="4" Margin="0,0,0,-60">
