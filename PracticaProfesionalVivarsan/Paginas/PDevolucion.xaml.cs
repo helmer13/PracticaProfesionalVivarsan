@@ -33,14 +33,15 @@ namespace PracticaProfesionalVivarsan.Paginas
 
         private void btnBuscarFactura_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty( txtFactura.Text))
+            if (string.IsNullOrEmpty(txtFactura.Text))
             {
                 this.dialogo.IsOpen = true;
                 this.txtTextBlockDialogo.Text = "# Factura requerido";
+                txtFactura.Focus();
                 return;
             }
             this.popup.IsOpen = true;
-            Refrescar(Convert.ToInt32( txtFactura.Text));
+            Refrescar(Convert.ToInt32(txtFactura.Text));
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -74,7 +75,7 @@ namespace PracticaProfesionalVivarsan.Paginas
 
                 lista = logica.obtenerLineaDetalleVentas(idFactura);
 
-                if (lista.Count==0)
+                if (lista.Count == 0)
                 {
                     this.dialogo.IsOpen = true;
                     this.txtTextBlockDialogo.Text = "El # Factura no existe";
@@ -101,7 +102,7 @@ namespace PracticaProfesionalVivarsan.Paginas
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-           // LineaDetalleVentas lineaDetalle = new LineaDetalleVentas();
+            // LineaDetalleVentas lineaDetalle = new LineaDetalleVentas();
             FacturaVentasLogica logica = new FacturaVentasLogica();
 
             var idDevolucion = Guid.NewGuid().ToString();
@@ -110,7 +111,7 @@ namespace PracticaProfesionalVivarsan.Paginas
             Usuario usuarioGlobal = new Usuario();
             usuarioGlobal = (Usuario)App.Current.Properties["usuarioSesion"];
 
-            logica.InsertarDevolucion(lineaDetalle, idDevolucion, fecha.SelectedDate.Value,Convert.ToInt32( txtCantidad.Text), cboTipo.Text, bodega.Id, usuarioGlobal.Empresa.IdEmpresa);
+            logica.InsertarDevolucion(lineaDetalle, idDevolucion, fecha.SelectedDate.Value, Convert.ToInt32(txtCantidad.Text), cboTipo.Text, bodega.Id, usuarioGlobal.Empresa.IdEmpresa);
         }
 
         private void btnEncontrarFactura_Click(object sender, RoutedEventArgs e)
