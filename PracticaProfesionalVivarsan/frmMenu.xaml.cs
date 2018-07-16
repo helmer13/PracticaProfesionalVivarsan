@@ -118,5 +118,10 @@ namespace PracticaProfesionalVivarsan
         {
             frame.Content = new PDevolucion();
         }
+
+        private void AbrirCaja_Click(object sender, RoutedEventArgs e)
+        {
+            frame.Content = new PAbrirCaja();
+        }
     }
 }
