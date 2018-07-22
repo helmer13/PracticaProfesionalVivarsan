@@ -39,5 +39,10 @@ namespace PracticaProfesionalVivarsan.Paginas
         {
 
         }
+
+        private void btnGuardar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
