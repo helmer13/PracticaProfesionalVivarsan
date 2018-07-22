@@ -63,6 +63,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Paginas\PAbrirCaja.xaml.cs">
+      <DependentUpon>PAbrirCaja.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\PCerrarCaja.xaml.cs">
+      <DependentUpon>PCerrarCaja.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Paginas\PCliente.xaml.cs">
       <DependentUpon>PCliente.xaml</DependentUpon>
     </Compile>
@@ -134,6 +140,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Paginas\PAbrirCaja.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Paginas\PCerrarCaja.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Paginas\PCliente.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
