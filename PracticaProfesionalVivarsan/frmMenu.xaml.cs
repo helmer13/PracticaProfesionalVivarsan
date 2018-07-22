@@ -123,5 +123,10 @@ namespace PracticaProfesionalVivarsan
         {
             frame.Content = new PAbrirCaja();
         }
+
+        private void cerrarCaja_Click(object sender, RoutedEventArgs e)
+        {
+            frame.Content = new PCerrarCaja();
+        }
     }
 }

@@ -12,11 +12,13 @@
       xmlns:local="clr-namespace:PracticaProfesionalVivarsan.Paginas"
       mc:Ignorable="d" 
         d:DesignHeight="300" d:DesignWidth="400"
-       Title="PCerrarCaja" Width="1360" Height="670" Loaded="Page_Loaded" Background="#F1F8FB">
+       Title="PCerrarCaja" Width="1360" Height="770" Loaded="Page_Loaded" Background="#F1F8FB">
 
+    <ScrollViewer>
+    
     <StackPanel>
 
-        <Grid Width="1000" Height="570" x:Name="gridForm" Visibility="Visible" Margin="180,30,180,94" Background="#E4ECF0">
+        <Grid Width="1000"  x:Name="gridForm" Visibility="Visible" Margin="180,30,180,94" Background="#E4ECF0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="200"/>
@@ -27,11 +29,15 @@
                 <RowDefinition  Height="100"/>
                 <RowDefinition  Height="100"/>
                 <RowDefinition  Height="100"/>
-                <RowDefinition  Height="200"/>
+                <RowDefinition  Height="100"/>
+                <RowDefinition  Height="100"/>
+                <RowDefinition  Height="250"/>
             </Grid.RowDefinitions>
 
+            
 
-            <TextBlock Text="Cerrar caja" Margin="0 0 0 30"  HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" FontSize="22" />
+
+                <TextBlock Text="Cerrar caja" Margin="0 0 0 30"  HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" FontSize="22" />
             <TextBlock Text="Información al cerrar la caja" Grid.Row="0" Grid.Column="1"  Grid.ColumnSpan="2" Margin="0 0 0 30" HorizontalAlignment="Left" VerticalAlignment="Bottom" Style="{StaticResource MaterialDesignSubheadingTextBlock}" />
 
             <Button x:Name="btnVolver"  Content="Volver"  Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Margin="0 0 140 0"   Width="90" Height="29" Click="btnVolver_Click"/>
@@ -49,10 +55,41 @@
             <DatePicker Grid.Row="2" Grid.Column="1" x:Name="fechaApertura" IsEnabled="False"  Language="es-US" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="190" materialDesign:HintAssist.Hint="Fecha apertura" materialDesign:HintAssist.IsFloating="True"  >
             </DatePicker>
 
-            <DatePicker Grid.Row="2" Grid.Column="3" x:Name="fechaCierre" IsEnabled="False"  Language="es-US" HorizontalAlignment="Left" VerticalAlignment="Center" Width="190" materialDesign:HintAssist.Hint="Fecha apertura" materialDesign:HintAssist.IsFloating="True"  >
+            <DatePicker Grid.Row="2" Grid.Column="3" x:Name="fechaCierre" IsEnabled="False"  Language="es-US" HorizontalAlignment="Left" VerticalAlignment="Center" Width="190" materialDesign:HintAssist.Hint="Fecha cierre" materialDesign:HintAssist.IsFloating="True"  >
             </DatePicker>
 
-            <Button x:Name="btnGuardar" Content="Confirmar"  Grid.Row="3" Grid.Column="3" Margin="0 0 15 0" HorizontalAlignment="Left"  VerticalAlignment="Center"    Width="100" Height="29" Click="btnGuardar_Click"/>
+
+
+            <TextBox x:Name="txtbase"   Grid.Row="3" Grid.Column="1"  Width="200" Height="50"  HorizontalAlignment="Center"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Base en caja" materialDesign:HintAssist.IsFloating="True" />
+
+            <TextBox x:Name="txtTotalEfectivo"  Grid.Row="3" Grid.Column="3"  Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Total efectivo en caja" materialDesign:HintAssist.IsFloating="True" />
+
+
+
+            <TextBlock Text="Datos del sistema" Grid.Row="4" Grid.Column="1"  Grid.ColumnSpan="2" Margin="0 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource MaterialDesignSubheadingTextBlock}" />
+
+
+                <TextBox x:Name="txtefectivoSinBase" Margin="0 0 0 0"  Grid.Row="4" Grid.Column="1"  Width="190" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Efectivo sin base" materialDesign:HintAssist.IsFloating="True" />
+
+                <TextBox x:Name="txtTotalGastos" Margin="0 0 0 0"  Grid.Row="4" Grid.Column="2"  Width="190" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Gastos" materialDesign:HintAssist.IsFloating="True" />
+
+                <TextBox x:Name="txtTotalEfectivoCaja" Margin="0 0 0 0"  Grid.Row="4" Grid.Column="3"  Width="190" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Total efectivo en caja" materialDesign:HintAssist.IsFloating="True" />
+
+                <DataGrid  x:Name="dataGridDetallePago" RowEditEnding="dataGridDetallePago_RowEditEnding"
+                   CellEditEnding="dataGridDetallePago_CellEditEnding" SelectionChanged="dataGridDetallePago_SelectionChanged" 
+                   Margin="0,110,10,0" Grid.Row="4" Grid.RowSpan="2" Grid.ColumnSpan="4" CanUserDeleteRows="True"  IsReadOnly="True"
+                   CanUserAddRows="False" AutoGenerateColumns="False"  VerticalAlignment="Top" Height="180" Width="500">
+                <DataGrid.Columns>
+                  
+                    <DataGridTextColumn Header="Forma de pago" Binding="{Binding Cantidad}" />
+                    <DataGridTextColumn Header="Valor cajero" Binding="{Binding Producto.IdProducto}" />
+                    <DataGridTextColumn Header="Valor sistema" Binding="{Binding Producto.Nombre}" />
+                  
+                </DataGrid.Columns>
+
+            </DataGrid>
+
+            <Button x:Name="btnGuardar" Content="Confirmar"  Grid.Row="0" Grid.Column="3" Margin="0 0 0 0" HorizontalAlignment="Left"  VerticalAlignment="Center"    Width="100" Height="29" Click="btnGuardar_Click"/>
 
 
 
@@ -80,4 +117,6 @@
         </Grid>
 
     </StackPanel>
+
+    </ScrollViewer>
 </Page>

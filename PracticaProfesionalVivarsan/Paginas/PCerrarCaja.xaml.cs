@@ -44,5 +44,20 @@ namespace PracticaProfesionalVivarsan.Paginas
         {
 
         }
+
+        private void dataGridDetallePago_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
+        {
+
+        }
+
+        private void dataGridDetallePago_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void dataGridDetallePago_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
+        {
+
+        }
     }
 }
