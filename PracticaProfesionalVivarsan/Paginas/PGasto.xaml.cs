@@ -37,8 +37,8 @@ namespace PracticaProfesionalVivarsan.Paginas
 
                 if (validaciones() == true)
                 {
-                    //txtTextBlockDialogo.Text = "Debe completar todos los campos solicitados";
-                    //dialogo.IsOpen = true;
+                    txtTextBlockDialogo.Text = "Debe completar todos los campos solicitados";
+                    dialogo.IsOpen = true;
                     return;
                 }
                 else
@@ -52,8 +52,8 @@ namespace PracticaProfesionalVivarsan.Paginas
                     gasto.Monto = Convert.ToDouble(txtMonto.Text); 
 
                     logica.InsertarGasto(gasto);
-                    //txtTextBlockDialogo.Text = "Registro procesado";
-                    //dialogo.IsOpen = true;
+                    txtTextBlockDialogo.Text = "Registro procesado";
+                    dialogo.IsOpen = true;
                     Refrescar();
                 }
 

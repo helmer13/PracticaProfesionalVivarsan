@@ -18,7 +18,7 @@ namespace AccesoDatos
 
             SqlCommand comando = new SqlCommand("SPR_CONTADOR_FACTURAS");
             comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@TIPOCONSULTA", "Ventas");
+            comando.Parameters.AddWithValue("@TIPOCONSULTA", "VENTAS");
 
 
             DataSet ds = db.ExecuteReader(comando, "factura");

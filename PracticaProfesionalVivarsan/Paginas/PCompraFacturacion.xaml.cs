@@ -29,7 +29,7 @@ namespace PracticaProfesionalVivarsan.Paginas
         public Producto producto = new Producto();
         List<LineaDetalleCompras> listaDetalle = new List<LineaDetalleCompras>();
         List<Inventario> listaInventario = new List<Inventario>();
-
+        private string error = "";
         public PCompraFacturacion()
         {
             InitializeComponent();
@@ -122,31 +122,41 @@ namespace PracticaProfesionalVivarsan.Paginas
 
             usuario = (Usuario)App.Current.Properties["usuarioSesion"];
 
-            lineaDetalle.Id = Guid.NewGuid().ToString();
-            lineaDetalle.Cantidad = Convert.ToInt32(txtCantidad.Text);
-            producto.IdLineaDetalle = lineaDetalle.Id;
-            producto.IdBodega= (int)cboBodegas.SelectedValue;
-            lineaDetalle.Producto = producto;
-            lineaDetalle.SubTotal = lineaDetalle.Cantidad * Convert.ToInt32(txtPrecioCosto.Text);
-
-            listaDetalle.Add(lineaDetalle);
-            dataGridLineaDetalle.ItemsSource = listaDetalle;
-            dataGridLineaDetalle.Items.Refresh();
-            //inventario
-            inventario.Cantidad = Convert.ToInt32(txtCantidad.Text); ;
-            inventario.Bodega = bLogica.obtenerBodega((int)cboBodegas.SelectedValue);
-            inventario.Empresa = usuario.Empresa;
-            inventario.Producto = producto;
-            listaInventario.Add(inventario);
-
-            //para el label del total
-            double total = 0;
-            for (int i = 0; i < listaDetalle.Count; i++)
+            if (ValidacionesAgregar() == true)
             {
-                total += listaDetalle[i].SubTotal;
-
+                txtTextBlockDialogo.Text = error;
+                dialogoMENS.IsOpen = true;
+                return;
             }
-            txtSubTotal.Text = total.ToString();
+            else
+            {
+                lineaDetalle.Id = Guid.NewGuid().ToString();
+                lineaDetalle.Cantidad = Convert.ToInt32(txtCantidad.Text);
+                producto.IdLineaDetalle = lineaDetalle.Id;
+                producto.IdBodega = (int)cboBodegas.SelectedValue;
+                lineaDetalle.Producto = producto;
+                lineaDetalle.SubTotal = lineaDetalle.Cantidad * Convert.ToInt32(txtPrecioCosto.Text);
+
+                listaDetalle.Add(lineaDetalle);
+                dataGridLineaDetalle.ItemsSource = listaDetalle;
+                dataGridLineaDetalle.Items.Refresh();
+                //inventario
+                inventario.Cantidad = Convert.ToInt32(txtCantidad.Text); ;
+                inventario.Bodega = bLogica.obtenerBodega((int)cboBodegas.SelectedValue);
+                inventario.Empresa = usuario.Empresa;
+                inventario.Producto = producto;
+                listaInventario.Add(inventario);
+
+                //para el label del total
+                double total = 0;
+                for (int i = 0; i < listaDetalle.Count; i++)
+                {
+                    total += listaDetalle[i].SubTotal;
+
+                }
+                txtSubTotal.Text = total.ToString();
+            }
+            
         }
 
 
@@ -225,29 +235,101 @@ namespace PracticaProfesionalVivarsan.Paginas
 
             usuarioGlobal = (Usuario)App.Current.Properties["usuarioSesion"];
 
-            factura.Id = count.Id + 1; 
-            factura.Usuario = usuarioGlobal;
-            factura.IdProveedor = proveedor.Id;
-            factura.Fecha = fecha.SelectedDate.Value;
-            factura.Total = Convert.ToDouble( txtSubTotal.Text);
-            factura.TipoPago = cboTipoPago.Text;
-
-            foreach (var item in listaDetalle)
+            if (ValidacionesFacturar() == true)
             {
-                item.IdFactua = factura.Id;
+                txtTextBlockDialogo.Text = "Debe completar todos los campos solicitados";
+                dialogoMENS.IsOpen = true;
+                return;
             }
-            factura.LineasDetalleCompras = listaDetalle;
+            else
+            {
+                factura.Id = Convert.ToInt32(txtNumeroFactura.Text);
+                factura.Usuario = usuarioGlobal;
+                factura.IdProveedor = proveedor.Id;
+                factura.Fecha = fecha.SelectedDate.Value;
+                factura.Total = Convert.ToDouble(txtSubTotal.Text);
+                factura.TipoPago = cboTipoPago.Text;
 
-            logica.GuardarFactura(factura);
+                foreach (var item in listaDetalle)
+                {
+                    item.IdFactua = factura.Id;
+                }
+                factura.LineasDetalleCompras = listaDetalle;
 
-            MessageBox.Show("funciona");
+                logica.GuardarFactura(factura);
 
+                //MessageBox.Show("funciona");
+                txtTextBlockDialogo.Text = "Registro Procesado";
+                dialogoMENS.IsOpen = true;
 
+                factura = new FacturaCompras();
+                proveedor = new Proveedor();
+                listaInventario = new List<Inventario>();
+                listaDetalle = new List<LineaDetalleCompras>();
+            }         
+        }
 
-            factura = new FacturaCompras();
-            proveedor = new Proveedor();
-            listaInventario = new List<Inventario>();
-            listaDetalle = new List<LineaDetalleCompras>();
+        private Boolean ValidacionesFacturar()
+        {
+            if (string.IsNullOrEmpty(txtNumeroFactura.Text) || string.IsNullOrEmpty(fecha.Text) || listaDetalle.Count == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private Boolean ValidacionesAgregar()
+        {
+            Boolean bandera = false;
+            if (string.IsNullOrEmpty(txtidProducto.Text))
+            {
+                error = "Debe seleccionar un producto.";
+                bandera = true;
+            }
+            if (string.IsNullOrEmpty(txtCantidad.Text))
+            {
+                error = "Debe digitar la cantidad.";
+                bandera = true;
+            }
+            if(string.IsNullOrEmpty(txtPrecioCosto.Text))
+            {
+                error = "Debe digitar el precio de compra del producto.";
+                bandera = true;
+            }
+            if (string.IsNullOrEmpty(txtProducto.Text))
+            {
+                error = "Debe seleccionar un producto.";
+                bandera = true;
+            }
+            return bandera;
+        }
+        public void SoloNumeros(TextCompositionEventArgs e)
+        {
+            //se convierte a Ascci del la tecla presionada 
+            int ascci = Convert.ToInt32(Convert.ToChar(e.Text));
+            //verificamos que se encuentre en ese rango que son entre el 0 y el 9 
+            if (ascci >= 48 && ascci <= 57)
+                e.Handled = false;
+            else e.Handled = true;
+        }
+
+        private void txtPrecioCosto_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            SoloNumeros(e);
+        }
+
+        private void txtCantidad_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            SoloNumeros(e);
+        }
+
+        private void txtNumeroFactura_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            //Consultar si solo son numeros o tambien letras
+            //SoloNumeros(e);
         }
     }
 }

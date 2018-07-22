@@ -93,7 +93,7 @@
             </materialDesign:DialogHost>
 
 
-            <TextBox x:Name="txtCantidad"  Grid.Row="2" Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Cantidad" materialDesign:HintAssist.IsFloating="True"/>
+            <TextBox x:Name="txtCantidad"  Grid.Row="2" Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Cantidad" materialDesign:HintAssist.IsFloating="True" PreviewTextInput="txtCantidad_PreviewTextInput"/>
 
 
             <ComboBox x:Name="cboTipo" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="200" Height="50" materialDesign:HintAssist.Hint="Tipo usuario" materialDesign:HintAssist.IsFloating="True" >
@@ -128,7 +128,15 @@
                 </materialDesign:DialogHost.DialogContent>
             </materialDesign:DialogHost>
 
-
+            <materialDesign:DialogHost IsOpen="False" x:Name="dialogoMENS" Grid.ColumnSpan="4" Grid.RowSpan="4" >
+                <materialDesign:DialogHost.DialogContent>
+                    <StackPanel Margin="15" Orientation="Vertical">
+                        <TextBlock x:Name="txtTextBlockDialogo2" Text="Registro procesado"/>
+                        <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandTarget="{Binding ElementName=dialogoMENS}" 
+                        Style="{DynamicResource MaterialDesignFlatButton}" Content="Aceptar" Margin="0 10 0 0"/>
+                    </StackPanel>
+                </materialDesign:DialogHost.DialogContent>
+            </materialDesign:DialogHost>
         </Grid>
 
 

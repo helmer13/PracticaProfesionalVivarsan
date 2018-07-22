@@ -52,6 +52,23 @@ namespace Logica
             return resultado;
         }
 
+        public FacturaVentas ObtenerContadorFacturas()
+        {
+            FacturaVentas factura = new FacturaVentas();
+
+            DataSet ds = AccesoDatos.FacturaVentasDato.seleccionarContadorFacturas();
+
+
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {
+                factura.Id = Convert.ToInt32(row["CONTADOR"].ToString());
+
+
+
+            }
+
+            return factura;
+        }
 
 
         public void InsertarDevolucion(LineaDetalleVentas lineaDetalle,string idDevolucion,DateTime fechaDevolucion,int cantidad,string tipo,int idBodega,int idEmpresa)

@@ -25,6 +25,7 @@ namespace PracticaProfesionalVivarsan.Paginas
     {
 
         LineaDetalleVentas lineaDetalle = new LineaDetalleVentas();
+        private string error = "";
 
         public PDevolucion()
         {
@@ -105,13 +106,22 @@ namespace PracticaProfesionalVivarsan.Paginas
             // LineaDetalleVentas lineaDetalle = new LineaDetalleVentas();
             FacturaVentasLogica logica = new FacturaVentasLogica();
 
-            var idDevolucion = Guid.NewGuid().ToString();
-            Bodega bodega = (Bodega)cboBodegas.SelectedItem;
+            if (Validaciones() == true)
+            {
+                txtTextBlockDialogo2.Text = error;
+                dialogoMENS.IsOpen = true;
+                return;
+            }
+            else
+            {
+                var idDevolucion = Guid.NewGuid().ToString();
+                Bodega bodega = (Bodega)cboBodegas.SelectedItem;
 
-            Usuario usuarioGlobal = new Usuario();
-            usuarioGlobal = (Usuario)App.Current.Properties["usuarioSesion"];
+                Usuario usuarioGlobal = new Usuario();
+                usuarioGlobal = (Usuario)App.Current.Properties["usuarioSesion"];
 
-            logica.InsertarDevolucion(lineaDetalle, idDevolucion, fecha.SelectedDate.Value, Convert.ToInt32(txtCantidad.Text), cboTipo.Text, bodega.Id, usuarioGlobal.Empresa.IdEmpresa);
+                logica.InsertarDevolucion(lineaDetalle, idDevolucion, fecha.SelectedDate.Value, Convert.ToInt32(txtCantidad.Text), cboTipo.Text, bodega.Id, usuarioGlobal.Empresa.IdEmpresa);
+            }
         }
 
         private void btnEncontrarFactura_Click(object sender, RoutedEventArgs e)
@@ -137,7 +147,35 @@ namespace PracticaProfesionalVivarsan.Paginas
 
                 throw ex;
             }
+        }
+        private Boolean Validaciones()
+        {
+            Boolean bandera = false;         
+            if (string.IsNullOrEmpty(txtCantidad.Text))
+            {
+                error = "Debe digitar la cantidad.";
+                bandera = true;
+            }
+            if (string.IsNullOrEmpty(fecha.Text))
+            {
+                error = "Debe digitar la fecha.";
+                bandera = true;
+            }           
+            return bandera;
+        }
+        public void SoloNumeros(TextCompositionEventArgs e)
+        {
+            //se convierte a Ascci del la tecla presionada 
+            int ascci = Convert.ToInt32(Convert.ToChar(e.Text));
+            //verificamos que se encuentre en ese rango que son entre el 0 y el 9 
+            if (ascci >= 48 && ascci <= 57)
+                e.Handled = false;
+            else e.Handled = true;
+        }
 
+        private void txtCantidad_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            SoloNumeros(e);
         }
 
     }

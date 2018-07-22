@@ -23,6 +23,7 @@ namespace PracticaProfesionalVivarsan
     /// </summary>
     public partial class MainWindow : Window
     {
+        private int contador = 0;
         public MainWindow()
         {
             InitializeComponent();
@@ -64,9 +65,13 @@ namespace PracticaProfesionalVivarsan
 
                     if (!nombreUsuario.Equals(usuario.UsuarioGeneral) || !contrasena.Equals(usuario.Contrasena))
                     {
-                        txtTextBlockDialogo.Text = "Nombre de usuario o contraseña son incorrectos";
+                        contador++;
+                        txtTextBlockDialogo.Text = "Nombre de usuario o contraseña son incorrectos.\nIntentos disponibles:" + (3 - contador);
                         dialogo.IsOpen = true;
-
+                        if (contador > 3)
+                        {
+                            Application.Current.Shutdown();
+                        }
                     }
                     else
                     {

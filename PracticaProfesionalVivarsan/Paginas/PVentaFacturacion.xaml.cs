@@ -25,6 +25,7 @@ namespace PracticaProfesionalVivarsan.Paginas
         public Inventario inventario = new Inventario();
         List<LineaDetalleVentas> listaDetalle = new List<LineaDetalleVentas>();
         List<Inventario> listaInventario = new List<Inventario>();
+        private string error = "";
         public PVentaFacturacion()
         {
             InitializeComponent();
@@ -39,42 +40,52 @@ namespace PracticaProfesionalVivarsan.Paginas
             BodegaLogica bLogica = new BodegaLogica();
 
             usuario = (Usuario)App.Current.Properties["usuarioSesion"];
-
-            lineaDetalle.Id = Guid.NewGuid().ToString();
-            if(Convert.ToInt32(txtCantDisp.Text) < Convert.ToInt32(txtCantidad.Text))
+            if (ValidacionesAgregar() == true)
             {
-                //mensaje de error para la cantidad
+                txtTextBlockDialogo.Text = error;
+                dialogoMENS.IsOpen = true;
                 return;
             }
             else
             {
-                lineaDetalle.Cantidad = Convert.ToInt32(txtCantidad.Text);
+                lineaDetalle.Id = Guid.NewGuid().ToString();
+                if (Convert.ToInt32(txtCantDisp.Text) < Convert.ToInt32(txtCantidad.Text))
+                {
+                    //mensaje de error para la cantidad
+                    txtTextBlockDialogo.Text = "La cantidad de producto ingresada, es mayor a la cantidad disponible.";
+                    dialogoMENS.IsOpen = true;
+                    return;
+                }
+                else
+                {
+                    lineaDetalle.Cantidad = Convert.ToInt32(txtCantidad.Text);
+                }
+
+                lineaDetalle.Producto = pLogica.obtenerProducto(txtidProducto.Text);
+                lineaDetalle.Producto.IdBodega = Convert.ToInt32(txtidBodega.Text);
+                lineaDetalle.Producto.IdLineaDetalle = lineaDetalle.Id;
+                lineaDetalle.SubTotal = Convert.ToDouble(lineaDetalle.Cantidad * lineaDetalle.Producto.PrecioVenta);
+
+                listaDetalle.Add(lineaDetalle);
+                dataGridLineaDetalle.ItemsSource = listaDetalle;
+                dataGridLineaDetalle.Items.Refresh();
+
+                //inventario
+                inventario.Producto = pLogica.obtenerProducto(txtidProducto.Text);
+                inventario.Bodega = bLogica.obtenerBodega(Convert.ToInt32(txtidBodega.Text));
+                inventario.Empresa = usuario.Empresa;
+
+                listaInventario.Add(inventario);
+
+                //para el label del total
+                double total = 0;
+                for (int i = 0; i < listaDetalle.Count; i++)
+                {
+                    total += listaDetalle[i].SubTotal;
+
+                }
+                txtSubTotal.Text = total.ToString();
             }
-
-            lineaDetalle.Producto = pLogica.obtenerProducto(txtidProducto.Text);
-            lineaDetalle.Producto.IdBodega = Convert.ToInt32(txtidBodega.Text);
-            lineaDetalle.Producto.IdLineaDetalle = lineaDetalle.Id;
-            lineaDetalle.SubTotal = Convert.ToDouble(lineaDetalle.Cantidad * lineaDetalle.Producto.PrecioVenta);
-
-            listaDetalle.Add(lineaDetalle);
-            dataGridLineaDetalle.ItemsSource = listaDetalle;
-            dataGridLineaDetalle.Items.Refresh();
-
-            //inventario
-            inventario.Producto = pLogica.obtenerProducto(txtidProducto.Text);
-            inventario.Bodega = bLogica.obtenerBodega(Convert.ToInt32(txtidBodega.Text));
-            inventario.Empresa = usuario.Empresa;
-            
-            listaInventario.Add(inventario);
-
-            //para el label del total
-            double total = 0;
-            for (int i = 0; i < listaDetalle.Count; i++)
-            {
-                total += listaDetalle[i].SubTotal;
-
-            }
-            txtSubTotal.Text = total.ToString();
         }
 
         private void dataGridLineaDetalle_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -99,7 +110,7 @@ namespace PracticaProfesionalVivarsan.Paginas
             ClienteLogica cLogica = new ClienteLogica();
 
 
-            //var count = logica.ObtenerContadorFacturas();
+            var count = logica.ObtenerContadorFacturas();
 
             Usuario usuarioGlobal = new Usuario();
 
@@ -107,31 +118,41 @@ namespace PracticaProfesionalVivarsan.Paginas
 
             usuarioGlobal = (Usuario)App.Current.Properties["usuarioSesion"];
 
-            //se puede cambiar a como esta en compras
-            factura.Id = Convert.ToInt32(txtNumeroFactura.Text);
-            factura.Usuario = usuarioGlobal;
-            factura.Cliente = cliente;
-            factura.Fecha = fecha.SelectedDate.Value;
-            factura.Total = Convert.ToDouble(txtSubTotal.Text);
-            factura.TipoPago = cboTipoPago.Text;
-
-            foreach (var item in listaDetalle)
+            if (ValidacionesFacturar() == true)
             {
-                item.IdFactura = factura.Id;
+                txtTextBlockDialogo.Text = "Debe completar todos los campos solicitados";
+                dialogoMENS.IsOpen = true;
+                return;
             }
-            factura.LineaDetalleVentas = listaDetalle;
+            else
+            {
+                factura.Id = count.Id + 1;
+                factura.Usuario = usuarioGlobal;
+                factura.Cliente = cliente;
+                factura.Fecha = fecha.SelectedDate.Value;
+                factura.Total = Convert.ToDouble(txtSubTotal.Text);
+                factura.TipoPago = cboTipoPago.Text;
 
-            logica.GuardarFactura(factura);
+                foreach (var item in listaDetalle)
+                {
+                    item.IdFactura = factura.Id;
+                }
+                factura.LineaDetalleVentas = listaDetalle;
 
-            MessageBox.Show("funciona");
+                logica.GuardarFactura(factura);
+
+                //MessageBox.Show("funciona");
+                txtTextBlockDialogo.Text = "Registro Procesado";
+                dialogoMENS.IsOpen = true;
 
 
+                factura = new FacturaVentas();
+                cliente = new Cliente();
+                listaInventario = new List<Inventario>();
+                listaDetalle = new List<LineaDetalleVentas>();
+                }
 
-            factura = new FacturaVentas();
-            cliente = new Cliente();
-            listaInventario = new List<Inventario>();
-            listaDetalle = new List<LineaDetalleVentas>();
-        }
+            }
 
         private void btnEncontrarProducto_Click(object sender, RoutedEventArgs e)
         {
@@ -223,12 +244,61 @@ namespace PracticaProfesionalVivarsan.Paginas
         {
             CargarCboClientes();
             txtSubTotal.Text = "0";
+            FacturaVentasLogica logica = new FacturaVentasLogica();
+            txtNumeroFactura.Text = logica.ObtenerContadorFacturas().Id.ToString();
         }
 
         private void btnBuscarProducto_Click(object sender, RoutedEventArgs e)
         {
             Refrescar();
             dialogo.IsOpen = true;
+        }
+
+        private Boolean ValidacionesFacturar()
+        {
+            if (string.IsNullOrEmpty(txtNumeroFactura.Text) || string.IsNullOrEmpty(fecha.Text) || listaDetalle.Count == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private Boolean ValidacionesAgregar()
+        {
+            Boolean bandera = false;
+            if (string.IsNullOrEmpty(txtidProducto.Text))
+            {
+                error = "Debe seleccionar un producto.";
+                bandera = true;
+            }
+            if (string.IsNullOrEmpty(txtCantidad.Text))
+            {
+                error = "Debe digitar la cantidad.";
+                bandera = true;
+            }           
+            if (string.IsNullOrEmpty(txtProducto.Text))
+            {
+                error = "Debe seleccionar un producto.";
+                bandera = true;
+            }
+            return bandera;
+        }
+        public void SoloNumeros(TextCompositionEventArgs e)
+        {
+            //se convierte a Ascci del la tecla presionada 
+            int ascci = Convert.ToInt32(Convert.ToChar(e.Text));
+            //verificamos que se encuentre en ese rango que son entre el 0 y el 9 
+            if (ascci >= 48 && ascci <= 57)
+                e.Handled = false;
+            else e.Handled = true;
+        }
+
+        private void txtCantidad_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            SoloNumeros(e);
         }
     }
 }
