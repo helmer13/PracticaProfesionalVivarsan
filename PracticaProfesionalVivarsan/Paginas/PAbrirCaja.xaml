@@ -49,8 +49,10 @@
             <DatePicker Grid.Row="2" Grid.Column="1" x:Name="fecha" IsEnabled="False"  Language="es-US" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha apertura" materialDesign:HintAssist.IsFloating="True"  >
             </DatePicker>
 
+            <TextBox x:Name="txtMonto" Grid.Row="2" Grid.Column="3"  Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Monto Apertura" materialDesign:HintAssist.IsFloating="True"/>
 
-            <Button x:Name="btnGuardar" Content="Confirmar"  Grid.Row="2" Grid.Column="3" Margin="0 0 15 0" HorizontalAlignment="Left"  VerticalAlignment="Center"    Width="100" Height="29" Click="btnGuardar_Click"/>
+
+            <Button x:Name="btnGuardar" Content="Guardar"  Grid.Row="3" Grid.Column="3" Margin="0 0 15 0" HorizontalAlignment="Left"  VerticalAlignment="Center"    Width="100" Height="29" Click="btnGuardar_Click"/>
 
 
 
@@ -60,7 +62,7 @@
                         <TextBlock x:Name="txtTextBlockDialogo" Text="Registro procesado"/>
                         <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandTarget="{Binding ElementName=dialogo}" 
                         Style="{DynamicResource MaterialDesignFlatButton}" Content="Aceptar" Margin="0 10 0 0"/>
-                    </StackPanel>
+                    </StackPanel> 
                 </materialDesign:DialogHost.DialogContent>
             </materialDesign:DialogHost>
 

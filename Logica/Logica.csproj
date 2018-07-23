@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BodegaLogica.cs" />
+    <Compile Include="CajaLogica.cs" />
     <Compile Include="ClienteLogica.cs" />
     <Compile Include="EmpresaLogica.cs" />
     <Compile Include="FacturaComprasLogica.cs" />

@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bodega.cs" />
+    <Compile Include="Caja.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="Empresa.cs" />
     <Compile Include="FacturaCompras.cs" />
