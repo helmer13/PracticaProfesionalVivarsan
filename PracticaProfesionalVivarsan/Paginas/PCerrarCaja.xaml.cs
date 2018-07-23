@@ -1,4 +1,5 @@
 ﻿using Entidad;
+using Logica;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,10 +32,23 @@ namespace PracticaProfesionalVivarsan.Paginas
             fechaCierre.SelectedDate = DateTime.Now;
 
             Usuario usuario = new Usuario();
-
+            TotalesCierreCaja totales = new TotalesCierreCaja();
 
             usuario = (Usuario)App.Current.Properties["usuarioSesion"];
             txtUsuario.Text = usuario.Nombre;
+
+            CajaLogica logica = new CajaLogica();
+            totales = logica.ObtenerTotalesCierrreCaja(fechaCierre.SelectedDate.Value, usuario.Id);
+            txtefectivoSinBase.Text = totales.Contado.ToString();
+            txtbase.Text = totales.MobtoApertura.ToString();
+            txtTotalGastos.Text = totales.Gastos.ToString();
+
+            fechaApertura.SelectedDate = totales.FechaApertura;
+            var totalEfectivoSistema = (totales.MobtoApertura + totales.Contado) - totales.Gastos;
+            txtTotalEfectivoSistema.Text = totalEfectivoSistema.ToString();
+
+
+            LlenarDataGrid();
         }
 
         private void btnVolver_Click(object sender, RoutedEventArgs e)
@@ -66,5 +80,16 @@ namespace PracticaProfesionalVivarsan.Paginas
         {
 
         }
+
+
+        public void LlenarDataGrid()
+        {
+            List<object> lista = new List<object>();
+            lista.Add(new { formaPago = "Efectivo", valorCajero = 0.00, valorSistema = 0.00 });
+
+            dataGridDetallePago.ItemsSource = lista;
+        }
+
+
     }
 }

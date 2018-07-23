@@ -54,5 +54,23 @@ namespace AccesoDatos
         }
 
 
+
+        public static DataSet seleccionarTotalesCierreCaja(DateTime fecha, string idUsuario)
+        {
+
+            Database db = DatabaseFactory.CreateDatabase("Default");
+
+            SqlCommand comando = new SqlCommand("SPR_CAJAVISTA");
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@TIPOCONSULTA", "TOTALES");
+            comando.Parameters.AddWithValue("@FECHA", fecha);
+            comando.Parameters.AddWithValue("@IDUSUARIO", idUsuario);
+
+
+            DataSet ds = db.ExecuteReader(comando, "caja");
+            return ds;
+
+        }
+
     }
 }

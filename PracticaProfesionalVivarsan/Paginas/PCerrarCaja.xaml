@@ -76,10 +76,10 @@
                    Margin="0,110,10,0" Grid.Row="4" Grid.RowSpan="2" Grid.ColumnSpan="4" CanUserDeleteRows="True"  IsReadOnly="True"
                    CanUserAddRows="False" AutoGenerateColumns="False"  VerticalAlignment="Top" Height="180" Width="500">
                 <DataGrid.Columns>
-                  
-                    <DataGridTextColumn Header="Forma de pago" Binding="{Binding Cantidad}" />
-                    <DataGridTextColumn Header="Valor cajero" Binding="{Binding Producto.IdProducto}" />
-                    <DataGridTextColumn Header="Valor sistema" Binding="{Binding Producto.Nombre}" />
+
+                        <DataGridTextColumn Header="Forma de pago" Binding="{Binding formaPago}" />
+                        <DataGridTextColumn Header="Valor cajero" Binding="{Binding valorCajero}" />
+                        <DataGridTextColumn Header="Valor sistema" Binding="{Binding valorSistema}" />
                   
                 </DataGrid.Columns>
 
