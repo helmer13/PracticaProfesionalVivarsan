@@ -225,12 +225,21 @@ namespace PracticaProfesionalVivarsan.Paginas
             {
                 ClienteLogica logica = new ClienteLogica();
                 List<Cliente> lista = new List<Cliente>();
+                Cliente cliente = new Cliente();
+                cliente.Id = null;
+                cliente.Direccion = "nada";
+                cliente.Correo = "nada";
+                cliente.Indentificacion = "nada";
+                cliente.Nombre = "Cliente no registrado";
+                cliente.Telefono = 0;
+
                 lista = logica.obtenerClientes();
+                lista.Insert(0, cliente);
                 cboClientes.ItemsSource = lista;
 
                 cboClientes.DisplayMemberPath = "Nombre";
                 cboClientes.SelectedValuePath = "Id";
-                cboClientes.SelectedIndex = 1;
+                cboClientes.SelectedIndex = 0;
             }
             catch (Exception ex)
             {
@@ -245,7 +254,8 @@ namespace PracticaProfesionalVivarsan.Paginas
             CargarCboClientes();
             txtSubTotal.Text = "0";
             FacturaVentasLogica logica = new FacturaVentasLogica();
-            txtNumeroFactura.Text = logica.ObtenerContadorFacturas().Id.ToString();
+            var contador = logica.ObtenerContadorFacturas().Id + 1;
+            txtNumeroFactura.Text = contador.ToString();
         }
 
         private void btnBuscarProducto_Click(object sender, RoutedEventArgs e)

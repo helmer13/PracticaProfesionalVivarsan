@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entidad;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,7 +28,13 @@ namespace PracticaProfesionalVivarsan.Paginas
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            fechaCierre.SelectedDate = DateTime.Now;
 
+            Usuario usuario = new Usuario();
+
+
+            usuario = (Usuario)App.Current.Properties["usuarioSesion"];
+            txtUsuario.Text = usuario.Nombre;
         }
 
         private void btnVolver_Click(object sender, RoutedEventArgs e)

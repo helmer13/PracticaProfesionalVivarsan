@@ -41,15 +41,12 @@
             <TextBox x:Name="txtid" Visibility="Collapsed" HorizontalAlignment="Left" Height="23" Margin="56,43,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
 
 
-            <TextBox x:Name="txtCaja" Grid.Row="1" Grid.Column="1"  Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Caja" materialDesign:HintAssist.IsFloating="True"/>
+            <TextBox x:Name="txtUsuario" IsReadOnly="True"  Grid.Row="1" Grid.Column="1"  Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Usuario/Cajero" materialDesign:HintAssist.IsFloating="True" />
 
-            
-            <TextBox x:Name="txtUsuario"  Grid.Row="1" Grid.Column="3"  Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Usuario" materialDesign:HintAssist.IsFloating="True" />
-
-            <DatePicker Grid.Row="2" Grid.Column="1" x:Name="fecha" IsEnabled="False"  Language="es-US" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha apertura" materialDesign:HintAssist.IsFloating="True"  >
+            <DatePicker Grid.Row="1" Grid.Column="3" x:Name="fecha" IsEnabled="False"  Language="es-US" HorizontalAlignment="Left" VerticalAlignment="Center" Width="190" materialDesign:HintAssist.Hint="Fecha apertura" materialDesign:HintAssist.IsFloating="True"  >
             </DatePicker>
 
-            <TextBox x:Name="txtMonto" Grid.Row="2" Grid.Column="3"  Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Monto Apertura" materialDesign:HintAssist.IsFloating="True"/>
+            <TextBox x:Name="txtMonto" Grid.Row="2" Grid.Column="1"  Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Monto Apertura" materialDesign:HintAssist.IsFloating="True"/>
 
 
             <Button x:Name="btnGuardar" Content="Guardar"  Grid.Row="3" Grid.Column="3" Margin="0 0 15 0" HorizontalAlignment="Left"  VerticalAlignment="Center"    Width="100" Height="29" Click="btnGuardar_Click"/>

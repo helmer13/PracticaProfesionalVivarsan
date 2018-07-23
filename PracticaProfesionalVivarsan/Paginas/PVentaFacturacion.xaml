@@ -38,10 +38,12 @@
 
                 <ComboBox x:Name="cboTipoPago" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="200" Height="50" materialDesign:HintAssist.Hint="Tipo Pago" materialDesign:HintAssist.IsFloating="True" >
                     <ComboBoxItem IsSelected="True">Contado</ComboBoxItem>
-                    <ComboBoxItem >Crédito</ComboBoxItem>
+                    <ComboBoxItem >Tarjeta</ComboBoxItem>
                 </ComboBox>
 
-                <ComboBox x:Name="cboClientes" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="200" Height="50" materialDesign:HintAssist.Hint="Cliente" materialDesign:HintAssist.IsFloating="True"/>
+                <ComboBox x:Name="cboClientes" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="200" Height="50" materialDesign:HintAssist.Hint="Cliente" materialDesign:HintAssist.IsFloating="True">
+         
+                </ComboBox>
 
                 <DatePicker Grid.Row="1" Grid.Column="3" Name="fecha" Language="es-US" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha Factura" materialDesign:HintAssist.IsFloating="True"  />
 
@@ -102,7 +104,7 @@
                 </materialDesign:DialogHost>
 
                 <TextBox x:Name="txtCantidad" Grid.Row="2"  Grid.Column="3" Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Cantidad" materialDesign:HintAssist.IsFloating="True" PreviewTextInput="txtCantidad_PreviewTextInput"/>
-                <TextBox x:Name="txtPrecioCosto" Grid.Row="3"  Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Precio Costo" materialDesign:HintAssist.IsFloating="True"/>
+                <TextBox x:Name="txtPrecioCosto" Grid.Row="3"  Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Precio Venta" materialDesign:HintAssist.IsFloating="True"/>
 
                 <Button x:Name="btnAgregar"  Content="Agregar"  Grid.Row="4" Grid.Column="2" HorizontalAlignment="Center"  VerticalAlignment="Center" Margin="0 0 0 65"   Width="90" Height="29" Click="btnAgregar_Click"/>
 

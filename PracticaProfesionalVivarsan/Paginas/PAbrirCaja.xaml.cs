@@ -30,7 +30,7 @@ namespace PracticaProfesionalVivarsan.Paginas
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             fecha.SelectedDate = DateTime.Now;
-
+         
             Usuario usuario = new Usuario();
         
 
@@ -64,7 +64,7 @@ namespace PracticaProfesionalVivarsan.Paginas
 
             logica.InsertarInsertaAbirCaja(caja);
 
-            MessageBox.Show("SSe guardo con exito");
+            MessageBox.Show("Se guardo con exito");
         }
     }
 }
