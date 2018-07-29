@@ -226,7 +226,7 @@ namespace PracticaProfesionalVivarsan.Paginas
                 ClienteLogica logica = new ClienteLogica();
                 List<Cliente> lista = new List<Cliente>();
                 Cliente cliente = new Cliente();
-                cliente.Id = null;
+                cliente.Id = "GENERICO";
                 cliente.Direccion = "nada";
                 cliente.Correo = "nada";
                 cliente.Indentificacion = "nada";
@@ -253,6 +253,7 @@ namespace PracticaProfesionalVivarsan.Paginas
         {
             CargarCboClientes();
             txtSubTotal.Text = "0";
+            fecha.SelectedDate = DateTime.Now;
             FacturaVentasLogica logica = new FacturaVentasLogica();
             var contador = logica.ObtenerContadorFacturas().Id + 1;
             txtNumeroFactura.Text = contador.ToString();
@@ -309,6 +310,20 @@ namespace PracticaProfesionalVivarsan.Paginas
         private void txtCantidad_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             SoloNumeros(e);
+        }
+
+        private void txtPrecioCosto_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            bool approvedDecimalPoint = false;
+
+            if (e.Text == ",")
+            {
+                if (!((TextBox)sender).Text.Contains("."))
+                    approvedDecimalPoint = true;
+            }
+
+            if (!(char.IsDigit(e.Text, e.Text.Length - 1) || approvedDecimalPoint))
+                e.Handled = true;
         }
     }
 }

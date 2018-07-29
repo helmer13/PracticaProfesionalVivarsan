@@ -67,7 +67,16 @@ namespace PracticaProfesionalVivarsan.Paginas
 
         private void textBox2_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            SoloNumeros(e);
+            bool approvedDecimalPoint = false;
+
+            if (e.Text == ",")
+            {
+                if (!((TextBox)sender).Text.Contains("."))
+                    approvedDecimalPoint = true;
+            }
+
+            if (!(char.IsDigit(e.Text, e.Text.Length - 1) || approvedDecimalPoint))
+                e.Handled = true;
         }
 
         public void SoloNumeros(TextCompositionEventArgs e)
@@ -97,6 +106,11 @@ namespace PracticaProfesionalVivarsan.Paginas
             txtTipo.Text = "";
             txtDescripcion.Text = "";
             txtMonto.Text = "";
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            fecha.SelectedDate = DateTime.Now;
         }
     }
 }

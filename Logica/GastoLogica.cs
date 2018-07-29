@@ -20,7 +20,7 @@ namespace Logica
             foreach (DataRow row in ds.Tables[0].Rows)
             {
                 Gasto gasto = new Gasto();
-                gasto.Id = Convert.ToInt32(row["IDProducto"]);
+                gasto.Id = Convert.ToInt32(row["ID"]);
                 gasto.Descripcion = row["Descripcion"].ToString();
                 gasto.Usuario = uLogica.seleccionarUsuario(row["IDUsuario"].ToString());
                 gasto.Fecha = Convert.ToDateTime(row["Fecha"].ToString());

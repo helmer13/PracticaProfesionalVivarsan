@@ -42,7 +42,7 @@ namespace PracticaProfesionalVivarsan.Paginas
             txtefectivoSinBase.Text = totales.Contado.ToString();
             txtbase.Text = totales.MobtoApertura.ToString();
             txtTotalGastos.Text = totales.Gastos.ToString();
-
+            
             fechaApertura.SelectedDate = totales.FechaApertura;
             var totalEfectivoSistema = (totales.MobtoApertura + totales.Contado) - totales.Gastos;
             txtTotalEfectivoSistema.Text = totalEfectivoSistema.ToString();
@@ -63,6 +63,10 @@ namespace PracticaProfesionalVivarsan.Paginas
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
+            Caja cajaCerrar = new Caja();
+
+
+
 
         }
 
@@ -84,12 +88,54 @@ namespace PracticaProfesionalVivarsan.Paginas
 
         public void LlenarDataGrid()
         {
+            Usuario usuario = new Usuario();
+            TotalesCierreCaja totales = new TotalesCierreCaja();
+
+            usuario = (Usuario)App.Current.Properties["usuarioSesion"];
+            txtUsuario.Text = usuario.Nombre;
+
+            CajaLogica logica = new CajaLogica();
+            totales = logica.ObtenerTotalesCierrreCaja(fechaCierre.SelectedDate.Value, usuario.Id);
+
             List<object> lista = new List<object>();
-            lista.Add(new { formaPago = "Efectivo", valorCajero = 0.00, valorSistema = 0.00 });
+            lista.Add(new { formaPago = "Efectivo", valorCajero = 0.00, valorSistema = txtTotalEfectivoSistema.Text });
+            lista.Add(new { formaPago = "Tarjeta", valorCajero = 0.00, valorSistema = totales.Tarjeta });
 
             dataGridDetallePago.ItemsSource = lista;
         }
 
+        private void txtTotalEfectivoCaja_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Usuario usuario = new Usuario();
+            TotalesCierreCaja totales = new TotalesCierreCaja();
 
+            usuario = (Usuario)App.Current.Properties["usuarioSesion"];
+            txtUsuario.Text = usuario.Nombre;
+
+            CajaLogica logica = new CajaLogica();
+            totales = logica.ObtenerTotalesCierrreCaja(fechaCierre.SelectedDate.Value, usuario.Id);
+
+            List<object> lista = new List<object>();
+            lista.Add(new { formaPago = "Efectivo", valorCajero = txtTotalEfectivoCaja.Text, valorSistema = txtTotalEfectivoSistema.Text });
+            lista.Add(new { formaPago = "Tarjeta", valorCajero = 0.00, valorSistema = totales.Tarjeta });
+
+            dataGridDetallePago.ItemsSource = lista;
+        }
+
+   
+
+        private void txtTotalEfectivoCaja_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            bool approvedDecimalPoint = false;
+
+            if (e.Text == ",")
+            {
+                if (!((TextBox)sender).Text.Contains("."))
+                    approvedDecimalPoint = true;
+            }
+
+            if (!(char.IsDigit(e.Text, e.Text.Length - 1) || approvedDecimalPoint))
+                e.Handled = true;
+        }
     }
 }

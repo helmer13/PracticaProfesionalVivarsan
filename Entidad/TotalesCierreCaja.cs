@@ -8,6 +8,7 @@ namespace Entidad
 {
    public class TotalesCierreCaja
     {
+        string id;
         decimal gastos;
         decimal contado;
         decimal tarjeta;
@@ -75,6 +76,19 @@ namespace Entidad
             set
             {
                 fechaApertura = value;
+            }
+        }
+
+        public string Id
+        {
+            get
+            {
+                return id;
+            }
+
+            set
+            {
+                id = value;
             }
         }
     }

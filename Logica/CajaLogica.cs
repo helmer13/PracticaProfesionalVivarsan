@@ -26,14 +26,24 @@ namespace Logica
             TotalesCierreCaja totales = new TotalesCierreCaja();
             foreach (DataRow row in ds.Tables[0].Rows)
             {
+                totales.Id =row["ID"].ToString();
                 totales.FechaApertura = Convert.ToDateTime(row["FechaApertura"]);
                 totales.MobtoApertura = Convert.ToDecimal(row["MontoApertura"]);
-                totales.Gastos = Convert.ToDecimal(row["GASTOS"]);
+            
+            }
+
+            foreach (DataRow row in ds.Tables[1].Rows)
+            {            
+                totales.Gastos = Convert.ToDecimal(row["GASTOS"]); 
+            }
+
+            foreach (DataRow row in ds.Tables[2].Rows)
+            {
+
                 totales.Contado = Convert.ToDecimal(row["CONTADO"].ToString());
                 totales.Tarjeta = Convert.ToDecimal( row["TARJETA"].ToString());
-              
-
             }
+
             return totales;
         }
     }
