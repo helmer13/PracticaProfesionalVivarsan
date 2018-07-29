@@ -63,11 +63,41 @@ namespace PracticaProfesionalVivarsan.Paginas
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+
+    
+          
+
             Caja cajaCerrar = new Caja();
 
+            Usuario usuario = new Usuario();
+            TotalesCierreCaja totales = new TotalesCierreCaja();
 
+            usuario = (Usuario)App.Current.Properties["usuarioSesion"];
+            txtUsuario.Text = usuario.Nombre;
 
+            CajaLogica logica = new CajaLogica();
+            totales = logica.ObtenerTotalesCierrreCaja(fechaCierre.SelectedDate.Value, usuario.Id);
 
+            cajaCerrar.Id = totales.Id;
+            cajaCerrar.FechaCierre = fechaCierre.SelectedDate.Value;
+            cajaCerrar.MontoCierre = Convert.ToDouble( txtTotalEfectivoCaja.Text);
+            cajaCerrar.Usuario = usuario;
+            cajaCerrar.Estado = "CERRADO";
+            cajaCerrar.FechaApertura = fechaApertura.SelectedDate.Value;
+            cajaCerrar.MontoApertura =Convert.ToDouble( txtbase.Text);
+
+            logica.ActualizarCerrarCaja(cajaCerrar, Convert.ToDouble(txtefectivoSinBase.Text), 
+                Convert.ToDouble(txtTotalGastos.Text), Convert.ToDouble(txtTotalEfectivoSistema.Text));
+
+            MessageBox.Show("Inserto");
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
         private void dataGridDetallePago_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)

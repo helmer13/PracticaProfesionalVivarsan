@@ -19,6 +19,14 @@ namespace Logica
         }
 
 
+        public void ActualizarCerrarCaja(Caja caja, double montoEfectivoSinBase,
+            double montoGastos, double montoEfectivoSistema)
+        {
+            AccesoDatos.CajaDato.ActualizarCerrarCaja(caja.Id, caja.FechaCierre, caja.MontoCierre, caja.Estado, caja.Usuario.Id,montoEfectivoSinBase,
+              montoGastos,montoEfectivoSistema  );
+        }
+
+
 
         public TotalesCierreCaja ObtenerTotalesCierrreCaja(DateTime fecha, string idUsuario)
         {

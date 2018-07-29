@@ -34,7 +34,8 @@ namespace AccesoDatos
         }
 
 
-        public static void ActualizarCerrarCaja(string id, DateTime fechaCierre,double montoCierre, string estado, string idUsuario)
+        public static void ActualizarCerrarCaja(string id, DateTime fechaCierre,double montoCierre, string estado, string idUsuario, double montoEfectivoSinBase,
+            double montoGastos, double montoEfectivoSistema)
         {
             Database db = DatabaseFactory.CreateDatabase("Default");
 
@@ -50,6 +51,10 @@ namespace AccesoDatos
             comando.Parameters.AddWithValue("@DESCRIPCION", DBNull.Value);
             comando.Parameters.AddWithValue("@ESTADO", estado);
             comando.Parameters.AddWithValue("@IDUSUARIO", idUsuario);
+
+            comando.Parameters.AddWithValue("@MONTOEFECTIVOSINBASE", montoEfectivoSinBase);
+            comando.Parameters.AddWithValue("@MONTOGASTOS", montoGastos);
+            comando.Parameters.AddWithValue("@EFECTIVOSISTEMA", montoEfectivoSistema);
             db.ExecuteNonQuery(comando);
         }
 
