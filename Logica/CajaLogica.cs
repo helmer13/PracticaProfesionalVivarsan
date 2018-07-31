@@ -28,9 +28,9 @@ namespace Logica
 
 
 
-        public TotalesCierreCaja ObtenerTotalesCierrreCaja(DateTime fecha, string idUsuario)
+        public TotalesCierreCaja ObtenerTotalesCierrreCaja(DateTime fecha,DateTime fechaCierre, string idUsuario)
         {
-            DataSet ds = AccesoDatos.CajaDato.seleccionarTotalesCierreCaja(fecha,idUsuario);
+            DataSet ds = AccesoDatos.CajaDato.seleccionarTotalesCierreCaja(fecha, fechaCierre, idUsuario);
             TotalesCierreCaja totales = new TotalesCierreCaja();
             foreach (DataRow row in ds.Tables[0].Rows)
             {
@@ -54,5 +54,29 @@ namespace Logica
 
             return totales;
         }
+
+
+        public Caja ObtenerCajaAbierta( string idUsuario)
+        {
+            DataSet ds = AccesoDatos.CajaDato.SeleccionarCajaAbierta(idUsuario);
+            Caja caja = new Caja();
+            UsuarioLogica logica = new UsuarioLogica();
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {
+                caja.Id = row["ID"].ToString();
+                caja.FechaApertura = Convert.ToDateTime(row["FechaApertura"]);
+                caja.FechaCierre = Convert.ToDateTime(row["FechaCierre"]);
+                caja.MontoApertura = Convert.ToDouble(row["MontoApertura"].ToString());
+                caja.MontoCierre = Convert.ToDouble(row["MontoCierreCaja"].ToString());
+                caja.Descripcion = row["Descripcion"].ToString();
+                caja.Estado = row["Estado"].ToString();
+                caja.Usuario = logica.seleccionarUsuario( row["IDUsuario"].ToString());
+            }
+
+           
+
+            return caja;
+        }
+
     }
 }

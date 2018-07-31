@@ -27,6 +27,7 @@ namespace PracticaProfesionalVivarsan.Paginas
             InitializeComponent();
         }
 
+        Caja caja;
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             fechaCierre.SelectedDate = DateTime.Now;
@@ -36,19 +37,27 @@ namespace PracticaProfesionalVivarsan.Paginas
 
             usuario = (Usuario)App.Current.Properties["usuarioSesion"];
             txtUsuario.Text = usuario.Nombre;
-
             CajaLogica logica = new CajaLogica();
-            totales = logica.ObtenerTotalesCierrreCaja(fechaCierre.SelectedDate.Value, usuario.Id);
+
+            caja = logica.ObtenerCajaAbierta( usuario.Id);
+
+            fechaApertura.SelectedDate = caja.FechaApertura;
+
+
+
+            totales = logica.ObtenerTotalesCierrreCaja(fechaApertura.SelectedDate.Value,fechaCierre.SelectedDate.Value, usuario.Id);
             txtefectivoSinBase.Text = totales.Contado.ToString();
             txtbase.Text = totales.MobtoApertura.ToString();
             txtTotalGastos.Text = totales.Gastos.ToString();
             
-            fechaApertura.SelectedDate = totales.FechaApertura;
+          
             var totalEfectivoSistema = (totales.MobtoApertura + totales.Contado) - totales.Gastos;
             txtTotalEfectivoSistema.Text = totalEfectivoSistema.ToString();
 
 
             LlenarDataGrid();
+
+          
         }
 
         private void btnVolver_Click(object sender, RoutedEventArgs e)
@@ -78,7 +87,7 @@ namespace PracticaProfesionalVivarsan.Paginas
             txtUsuario.Text = usuario.Nombre;
 
             CajaLogica logica = new CajaLogica();
-            totales = logica.ObtenerTotalesCierrreCaja(fechaCierre.SelectedDate.Value, usuario.Id);
+            totales = logica.ObtenerTotalesCierrreCaja(fechaCierre.SelectedDate.Value,fechaCierre.SelectedDate.Value, usuario.Id);
 
             cajaCerrar.Id = totales.Id;
             cajaCerrar.FechaCierre = fechaCierre.SelectedDate.Value;
@@ -125,7 +134,7 @@ namespace PracticaProfesionalVivarsan.Paginas
             txtUsuario.Text = usuario.Nombre;
 
             CajaLogica logica = new CajaLogica();
-            totales = logica.ObtenerTotalesCierrreCaja(fechaCierre.SelectedDate.Value, usuario.Id);
+            totales = logica.ObtenerTotalesCierrreCaja(fechaCierre.SelectedDate.Value,fechaCierre.SelectedDate.Value, usuario.Id);
 
             List<object> lista = new List<object>();
             lista.Add(new { formaPago = "Efectivo", valorCajero = 0.00, valorSistema = txtTotalEfectivoSistema.Text });
@@ -143,7 +152,7 @@ namespace PracticaProfesionalVivarsan.Paginas
             txtUsuario.Text = usuario.Nombre;
 
             CajaLogica logica = new CajaLogica();
-            totales = logica.ObtenerTotalesCierrreCaja(fechaCierre.SelectedDate.Value, usuario.Id);
+            totales = logica.ObtenerTotalesCierrreCaja(fechaCierre.SelectedDate.Value,fechaCierre.SelectedDate.Value, usuario.Id);
 
             List<object> lista = new List<object>();
             lista.Add(new { formaPago = "Efectivo", valorCajero = txtTotalEfectivoCaja.Text, valorSistema = txtTotalEfectivoSistema.Text });

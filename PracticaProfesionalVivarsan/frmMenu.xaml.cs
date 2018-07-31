@@ -106,12 +106,43 @@ namespace PracticaProfesionalVivarsan
 
         private void ProcesoVentas_Click(object sender, RoutedEventArgs e)
         {
-            frame.Content = new PVentaFacturacion();
+            Usuario usuario = new Usuario();
+            usuario = (Usuario)App.Current.Properties["usuarioSesion"];
+            CajaLogica logica = new CajaLogica();
+            Caja caja = new Caja();
+            caja = logica.ObtenerCajaAbierta(usuario.Id);
+
+            if (caja.Id == null)
+            {
+                MessageBox.Show("La caja no se encuentra abierta");
+                return;
+
+            }
+            else
+            {
+                frame.Content = new PVentaFacturacion();
+            }
         }
 
         private void ProcesoGastos_Click(object sender, RoutedEventArgs e)
         {
-            frame.Content = new PGasto();
+            Usuario usuario = new Usuario();
+            usuario = (Usuario)App.Current.Properties["usuarioSesion"];
+            CajaLogica logica = new CajaLogica();
+            Caja caja = new Caja();
+            caja = logica.ObtenerCajaAbierta(usuario.Id);
+
+            if (caja.Id == null)
+            {
+                MessageBox.Show("La caja no se encuentra abierta");
+                return;
+
+            }
+            else
+            {
+                frame.Content = new PGasto();
+            }
+
         }
 
         private void ProcesoDevoluciones_Click(object sender, RoutedEventArgs e)
@@ -126,7 +157,23 @@ namespace PracticaProfesionalVivarsan
 
         private void cerrarCaja_Click(object sender, RoutedEventArgs e)
         {
-            frame.Content = new PCerrarCaja();
+            Usuario usuario = new Usuario();
+            usuario = (Usuario)App.Current.Properties["usuarioSesion"];
+            CajaLogica logica = new CajaLogica();
+            Caja caja = new Caja();
+            caja = logica.ObtenerCajaAbierta(usuario.Id);
+
+            if (caja.Id == null)
+            {
+                MessageBox.Show("La caja no se encuentra abierta");
+                return;
+
+            }
+            else
+            {
+                frame.Content = new PCerrarCaja();
+            }
+
         }
     }
 }
