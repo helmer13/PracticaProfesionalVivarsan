@@ -6,8 +6,12 @@
       xmlns:local="clr-namespace:PracticaProfesionalVivarsan.Paginas"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-      Title="Producto" Width="1360" Height="670"  Background="#F1F8FB">
+      Title="Producto" Width="1360" Height="670"  >
 
+    <Page.Resources>
+        <ImageBrush  x:Key="MyImageBrush" ImageSource="/PracticaProfesionalVivarsan;component/imagenes/brushed-alum.png" />
+    </Page.Resources>
+    
     <Grid Width="1000" Margin="180,50,180,94" Background="#E4ECF0">
 
         <Image Width="1000"  Source="/PracticaProfesionalVivarsan;component/imagenes/Background Transparent.png" />

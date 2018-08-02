@@ -11,8 +11,12 @@
       xmlns:local="clr-namespace:PracticaProfesionalVivarsan.Paginas"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-      Title="PGasto" Width="1360" Height="670" Background="#F1F8FB" Loaded="Page_Loaded">
+      Title="PGasto" Width="1360" Height="670"  Loaded="Page_Loaded">
 
+    <Page.Resources>
+        <ImageBrush  x:Key="MyImageBrush" ImageSource="/PracticaProfesionalVivarsan;component/imagenes/brushed-alum.png" />
+    </Page.Resources>
+    
     <Grid Width="1000" Height="570" Visibility="Visible" x:Name="gridForm" Margin="180,30,180,94" Background="#E4ECF0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>

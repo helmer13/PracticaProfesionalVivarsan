@@ -12,8 +12,12 @@
       xmlns:local="clr-namespace:PracticaProfesionalVivarsan.Paginas"
       mc:Ignorable="d" 
         d:DesignHeight="300" d:DesignWidth="400"
-       Title="PCerrarCaja" Width="1360" Height="770" Loaded="Page_Loaded" Background="#F1F8FB">
+       Title="PCerrarCaja" Width="1360" Height="770" Loaded="Page_Loaded" >
 
+    <Page.Resources>
+        <ImageBrush  x:Key="MyImageBrush" ImageSource="/PracticaProfesionalVivarsan;component/imagenes/brushed-alum.png" />
+    </Page.Resources>
+    
     <ScrollViewer>
     
     <StackPanel>

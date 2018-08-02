@@ -11,8 +11,12 @@
       xmlns:local="clr-namespace:PracticaProfesionalVivarsan.Paginas"
         mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-     Title="PDevolucion" Width="1360" Height="670" Loaded="Page_Loaded" Background="#F1F8FB" >
+     Title="PDevolucion" Width="1360" Height="670" Loaded="Page_Loaded"  >
 
+    <Page.Resources>
+        <ImageBrush  x:Key="MyImageBrush" ImageSource="/PracticaProfesionalVivarsan;component/imagenes/brushed-alum.png" />
+    </Page.Resources>
+    
     <StackPanel>
 
         <Grid Width="1000" Height="570" Visibility="Visible" x:Name="gridForm" Margin="180,30,180,94" Background="#E4ECF0">

@@ -11,8 +11,12 @@
       xmlns:local="clr-namespace:PracticaProfesionalVivarsan.Paginas"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-      Title="Registro Ventas" Width="1360" Height="770" Loaded="Page_Loaded" Background="#F1F8FB" ScrollViewer.VerticalScrollBarVisibility="Auto">
+      Title="Registro Ventas" Width="1360" Height="770" Loaded="Page_Loaded" ScrollViewer.VerticalScrollBarVisibility="Auto">
 
+    <Page.Resources>
+        <ImageBrush  x:Key="MyImageBrush" ImageSource="/PracticaProfesionalVivarsan;component/imagenes/brushed-alum.png" />
+    </Page.Resources>
+    
     <ScrollViewer>
 
 
