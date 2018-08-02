@@ -11,14 +11,35 @@
       xmlns:local="clr-namespace:PracticaProfesionalVivarsan.Paginas"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-      Title="PGasto" Width="760" Height="470" Background="#F1F8FB" Loaded="Page_Loaded">
+      Title="PGasto" Width="1360" Height="670" Background="#F1F8FB" Loaded="Page_Loaded">
 
-    <Grid>
-        <TextBox x:Name="txtTipo" HorizontalAlignment="Left" Height="50" Margin="109,123,0,297"  VerticalAlignment="Center" Width="285" materialDesign:HintAssist.Hint="Tipo de Gasto" materialDesign:HintAssist.IsFloating="True"/>
-        <DatePicker Name="fecha"  IsEnabled="False"  Language="es-US" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha factura" materialDesign:HintAssist.IsFloating="True" Margin="475,147,0,297"  />
-        <TextBox x:Name="txtDescripcion" HorizontalAlignment="Left" Height="91" Margin="109,248,0,0" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" VerticalAlignment="Top" Width="285" materialDesign:HintAssist.Hint="Descripción" materialDesign:HintAssist.IsFloating="True"/>
-        <TextBox x:Name="txtMonto" HorizontalAlignment="Left" Height="50" Margin="475,272,0,0" VerticalAlignment="Top" Width="161" materialDesign:HintAssist.Hint="Monto" materialDesign:HintAssist.IsFloating="True" PreviewTextInput="textBox2_PreviewTextInput"/>
-        <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="332,386,0,0" VerticalAlignment="Top" Width="99" RenderTransformOrigin="0.298,0.595" Click="btnGuardar_Click"/>
+    <Grid Width="1000" Height="570" Visibility="Visible" x:Name="gridForm" Margin="180,30,180,94" Background="#E4ECF0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="400"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="100"/>
+            <RowDefinition  Height="100"/>
+            <RowDefinition  Height="100"/>
+            <RowDefinition  Height="200"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Gastos" Margin="0 0 0 30"  HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" FontSize="22" />
+        <TextBlock Text="Gestion de los gastos del día" Grid.Row="0" Grid.Column="1"  Grid.ColumnSpan="2" Margin="0 0 0 30" HorizontalAlignment="Left" VerticalAlignment="Bottom" Style="{StaticResource MaterialDesignSubheadingTextBlock}" />
+
+
+        <TextBox x:Name="txtTipo" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center"   VerticalAlignment="Center" Width="200" Height="50"   materialDesign:HintAssist.Hint="Tipo de Gasto" materialDesign:HintAssist.IsFloating="True"/>
+       
+        <DatePicker Name="fecha"  Grid.Row="1" Grid.Column="3" IsEnabled="False"  Language="es-US" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha factura" materialDesign:HintAssist.IsFloating="True"   />
+
+        <TextBox x:Name="txtDescripcion"  Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  Width="200" Height="60" TextWrapping="Wrap" AcceptsReturn="True"  VerticalScrollBarVisibility="Visible"   materialDesign:HintAssist.Hint="Descripción" materialDesign:HintAssist.IsFloating="True"/>
+
+        <TextBox x:Name="txtMonto"  Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left"   VerticalAlignment="Center" Width="200" Height="50" materialDesign:HintAssist.Hint="Monto" materialDesign:HintAssist.IsFloating="True" PreviewTextInput="textBox2_PreviewTextInput"/>
+
+        <Button x:Name="btnGuardar"  Grid.Row="3" Grid.Column="3" Content="Guardar" HorizontalAlignment="Left"  VerticalAlignment="Center"  Width="90" Height="29"   Click="btnGuardar_Click"/>
         
         <materialDesign:DialogHost IsOpen="False" x:Name="dialogo" Grid.ColumnSpan="4" Grid.RowSpan="4" >
             <materialDesign:DialogHost.DialogContent>
@@ -29,5 +50,6 @@
                 </StackPanel>
             </materialDesign:DialogHost.DialogContent>
         </materialDesign:DialogHost>
+  
     </Grid>
 </Page>

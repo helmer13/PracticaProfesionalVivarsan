@@ -175,5 +175,25 @@ namespace PracticaProfesionalVivarsan
             }
 
         }
+
+        private void UsuarioMantenimientoPersonal_Click(object sender, RoutedEventArgs e)
+        {
+            Usuario c = new Usuario();
+            c = (Usuario)App.Current.Properties["usuarioSesion"];
+            PUsuario pusuario = new PUsuario();
+
+            pusuario.txtIndentificacion.Text = c.Id;
+            pusuario.txtNombre.Text = c.Nombre;
+            pusuario.txtContrasena.Password = c.Contrasena;
+            pusuario.txtUsuarioGeneral.Text = c.UsuarioGeneral;
+            pusuario.cboTipo.Text = c.Tipo;
+
+            pusuario.txtIndentificacion.IsReadOnly = true;
+            pusuario.btnVolver.Visibility = Visibility.Collapsed;
+            pusuario.cboTipo.IsEnabled = false;
+            pusuario.gridForm.Visibility = Visibility.Visible;
+            pusuario.gridTabla.Visibility = Visibility.Collapsed;
+            frame.Content =  pusuario;
+        }
     }
 }

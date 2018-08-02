@@ -70,5 +70,11 @@ namespace Logica
         {
             AccesoDatos.UsuarioDato.InsertarActualizarUsuario(usu.Id, usu.Nombre, usu.UsuarioGeneral, usu.Contrasena, usu.Tipo,usu.Empresa.IdEmpresa);
         }
+
+        public void InsertarActualizarUsuarioPrincipal(Usuario usu)
+        {
+            AccesoDatos.UsuarioDato.InsertarActualizarUsuarioPrincipal(usu.Id, usu.Nombre, usu.UsuarioGeneral, usu.Contrasena, usu.Empresa.IdEmpresa);
+        }
+
     }
 }

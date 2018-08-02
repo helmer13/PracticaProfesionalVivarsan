@@ -33,7 +33,7 @@
         <Grid Height="100"  VerticalAlignment="Center" Background="#35A3D3" >
 
             <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="10,10">
-                <Button Content="Mantenimientos" Height="50" HorizontalAlignment="Center"  Name="button1" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" Width="150" Click="button1_Click" >
+                <Button Content="Mantenimientos"  Height="50" HorizontalAlignment="Center"  Name="button1" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" FontSize="16" Width="150" Click="button1_Click" >
 
                     <Button.ContextMenu>
                         <ContextMenu >
@@ -46,7 +46,7 @@
                         </ContextMenu>
                     </Button.ContextMenu>
                 </Button>
-                <Button Content="Procesos" Height="50" HorizontalAlignment="Center"  Name="btn2" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" Width="150" Click="button1_Click" >
+                <Button Content="Procesos" Height="50" HorizontalAlignment="Center"  Name="btn2" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" FontSize="16" Width="150" Click="button1_Click" >
 
                     <Button.ContextMenu>
                         <ContextMenu >
@@ -59,7 +59,7 @@
                         </ContextMenu>
                     </Button.ContextMenu>
                 </Button>
-                <Button Content="Reportes" Height="50" HorizontalAlignment="Center"  Name="btn3" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" Width="150" Click="button1_Click" >
+                <Button Content="Reportes" Height="50" HorizontalAlignment="Center"  Name="btn3" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" FontSize="16" Width="150" Click="button1_Click" >
 
                     <Button.ContextMenu>
                         <ContextMenu >
@@ -71,11 +71,12 @@
                     </Button.ContextMenu>
                 </Button>
 
-                <Button Content="Usuario" Margin="750 0 0 0" Height="50" HorizontalAlignment="Center"  Name="btn4" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" Width="150" Click="button1_Click" >
+                <Button Content="Usuario" Margin="700 0 0 0" Height="50" HorizontalAlignment="Center"  Name="btn4" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" FontSize="16" Width="199" Click="button1_Click" >
 
                     <Button.ContextMenu>
                         <ContextMenu >
                             <MenuItem  Foreground="Snow" Header="Cerrar Sesión" Click="MenuItem_Click" />
+                            <MenuItem  Name="UsuarioMantenimientoPersonal"  Foreground="Snow" Header="Usuario" Click="UsuarioMantenimientoPersonal_Click" />
                         </ContextMenu>
                     </Button.ContextMenu>
                 </Button>
@@ -89,7 +90,7 @@
             <Grid.Background>
                 <ImageBrush   ImageSource="/PracticaProfesionalVivarsan;component/imagenes/brushed-alum.png" />
             </Grid.Background>
-            <Frame Name="frame" Content="" Height="670" Width="1360"  HorizontalAlignment="Left"  VerticalAlignment="Top" NavigationUIVisibility="Hidden" />
+            <Frame Name="frame" Content="" Height="800" Width="1360"  HorizontalAlignment="Left"  VerticalAlignment="Top" NavigationUIVisibility="Hidden" />
 
         </Grid>
     </StackPanel>

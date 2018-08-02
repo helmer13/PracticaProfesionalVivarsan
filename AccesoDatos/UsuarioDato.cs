@@ -81,6 +81,22 @@ namespace AccesoDatos
             db.ExecuteNonQuery(comando);
         }
 
+        public static void InsertarActualizarUsuarioPrincipal(string id, string nombre, string usuarioGeneral, string contrasena, int idEmpresa)
+        {
+            Database db = DatabaseFactory.CreateDatabase("Default");
+
+            SqlCommand comando = new SqlCommand("SPR_ACTUALIZAR_USUARIOPRINCIPAL");
+            comando.CommandType = CommandType.StoredProcedure;
+
+            comando.Parameters.AddWithValue("@ID", id);
+            comando.Parameters.AddWithValue("@NOMBRE", nombre);
+            comando.Parameters.AddWithValue("@USUARIO", usuarioGeneral);
+            comando.Parameters.AddWithValue("@CONTRASENA", contrasena);
+            comando.Parameters.AddWithValue("@IDEMPRESA", Convert.ToInt32(idEmpresa));
+
+            db.ExecuteNonQuery(comando);
+        }
+
 
 
 

@@ -43,6 +43,9 @@ namespace PracticaProfesionalVivarsan.Paginas
 
             gridForm.Visibility = Visibility.Visible;
             gridTabla.Visibility = Visibility.Collapsed;
+
+            txtIndentificacion.IsReadOnly = true;
+            txtContrasena.IsEnabled = false;
         }
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
@@ -68,7 +71,16 @@ namespace PracticaProfesionalVivarsan.Paginas
                 //usuarioLogueado
                 usuarioGlobal = (Usuario)App.Current.Properties["usuarioSesion"];
                 usu.Empresa = usuarioGlobal.Empresa;
-                logica.InsertarActualizarUsuario(usu);
+
+                if (cboTipo.IsEnabled==false)
+                {
+                    logica.InsertarActualizarUsuarioPrincipal(usu);
+                }
+                else
+                {
+                    logica.InsertarActualizarUsuario(usu);
+                }
+               
                 Refrescar();
                 txtTextBlockDialogo.Text = "Registro procesado";
                 dialogo.IsOpen = true;
@@ -104,6 +116,13 @@ namespace PracticaProfesionalVivarsan.Paginas
             List<Usuario> lista = new List<Usuario>();
             lista = logica.obtenerUsuarios();
             dataGridUsuarios.ItemsSource = lista;
+
+            if (cboTipo.IsEnabled == true)
+            {
+                gridTabla.Visibility = Visibility.Visible;
+                gridForm.Visibility = Visibility.Collapsed;
+            }
+           
         }
 
         private void btnAyuda_Click(object sender, RoutedEventArgs e)
