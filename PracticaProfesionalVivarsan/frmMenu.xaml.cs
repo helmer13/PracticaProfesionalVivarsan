@@ -120,6 +120,13 @@ namespace PracticaProfesionalVivarsan
             }
             else
             {
+                if (caja.FechaApertura.Date<caja.FechaCierre.Date)
+                {
+                    MessageBox.Show("No puedes facturar ventas un dia despues de haber abierto la caja");
+                    return;
+                }
+
+
                 frame.Content = new PVentaFacturacion();
             }
         }
@@ -140,6 +147,12 @@ namespace PracticaProfesionalVivarsan
             }
             else
             {
+                if (caja.FechaApertura.Date < caja.FechaCierre.Date)
+                {
+                    MessageBox.Show("No puedes ingresar gastos un dia despues de haber abierto la caja");
+                    return;
+                }
+
                 frame.Content = new PGasto();
             }
 

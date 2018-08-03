@@ -48,6 +48,21 @@ namespace PracticaProfesionalVivarsan.Paginas
             }
             else
             {
+                if (dataGridLineaDetalle.ItemsSource!=null)
+                {
+                    foreach (var item in dataGridLineaDetalle.ItemsSource as List<LineaDetalleVentas>)
+                    {
+                        if (item.Producto.IdProducto == txtidProducto.Text)
+                        {
+                            //mensaje de error si el producto ya se encuentra en la linea detalle
+                            txtTextBlockDialogo.Text = "No puedes ingresar el mismo producto más de una vez";
+                            dialogoMENS.IsOpen = true;
+                            return;
+                        }
+                    }
+                }
+
+
                 lineaDetalle.Id = Guid.NewGuid().ToString();
                 if (Convert.ToInt32(txtCantDisp.Text) < Convert.ToInt32(txtCantidad.Text))
                 {
@@ -86,22 +101,17 @@ namespace PracticaProfesionalVivarsan.Paginas
                 }
                 txtSubTotal.Text = total.ToString();
             }
+            txtidProducto.Text = string.Empty;
+            txtProducto.Text = string.Empty;
+            txtidBodega.Text = string.Empty;
+            txtidEmpresa.Text = string.Empty;
+            txtCantDisp.Text = string.Empty;
+
+            txtCantidad.Text= string.Empty;
+           
         }
 
-        private void dataGridLineaDetalle_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void dataGridLineaDetalle_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
-        {
-
-        }
-
-        private void dataGridLineaDetalle_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
-        {
-
-        }
+      
 
         private void btnFacturar_Click(object sender, RoutedEventArgs e)
         {
@@ -179,7 +189,13 @@ namespace PracticaProfesionalVivarsan.Paginas
 
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
+            var lista = dataGridLineaDetalle.ItemsSource as List<LineaDetalleVentas>; ;
+            var index = dataGridLineaDetalle.SelectedIndex;
+            dataGridLineaDetalle.ItemsSource = null;
 
+
+            lista.RemoveAt(index);
+            dataGridLineaDetalle.ItemsSource = lista;
         }
 
         private void Refrescar()

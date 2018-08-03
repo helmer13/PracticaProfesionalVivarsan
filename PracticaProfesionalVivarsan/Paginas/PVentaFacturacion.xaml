@@ -118,14 +118,13 @@
                 </materialDesign:DialogHost>
 
                 <TextBox x:Name="txtCantidad" Grid.Row="3"  Grid.Column="3" Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Cantidad" materialDesign:HintAssist.IsFloating="True" PreviewTextInput="txtCantidad_PreviewTextInput"/>
-                <TextBox x:Name="txtPrecioCosto" PreviewTextInput="txtPrecioCosto_PreviewTextInput" Grid.Row="4"  Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Precio Venta" materialDesign:HintAssist.IsFloating="True"/>
-
+               
                 <Button x:Name="btnAgregar"  Content="Agregar"  Grid.Row="4" Grid.Column="3" HorizontalAlignment="Left"  VerticalAlignment="Center"    Width="90" Height="29" Click="btnAgregar_Click"/>
 
                 <!--TABLA CON LA LISTA DE DETALLE-->
 
-                <DataGrid  x:Name="dataGridLineaDetalle" RowEditEnding="dataGridLineaDetalle_RowEditEnding"
-                   CellEditEnding="dataGridLineaDetalle_CellEditEnding" SelectionChanged="dataGridLineaDetalle_SelectionChanged" 
+                <DataGrid  x:Name="dataGridLineaDetalle" 
+                  
                    Margin="0,55,10,-89" Grid.Row="5" Grid.RowSpan="2" Grid.ColumnSpan="4" CanUserDeleteRows="True"  IsReadOnly="True"
                    CanUserAddRows="False" AutoGenerateColumns="False"  VerticalAlignment="Top" Height="180" Width="600">
                     <DataGrid.Columns>
@@ -147,7 +146,7 @@
                 </DataGrid>
 
 
-                <TextBox x:Name="txtSubTotal" IsReadOnly="True"   Grid.Row="6" Grid.Column="1" Width="150" Height="50"  Margin="0 100 0 0 "  HorizontalAlignment="Right"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Subtotal" materialDesign:HintAssist.IsFloating="True"/>
+                <TextBox x:Name="txtSubTotal" IsReadOnly="True"   Grid.Row="6" Grid.Column="1" Width="150" Height="50"  Margin="0 100 0 0 "  HorizontalAlignment="Right"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Total" materialDesign:HintAssist.IsFloating="True"/>
 
                 <Button x:Name="btnFacturar"  Content="Aplicar"  Grid.Row="6" Grid.Column="2" HorizontalAlignment="Center"  VerticalAlignment="Stretch" Margin="0 100 0 -10"   Width="120" Height="30" Click="btnFacturar_Click"/>
 
