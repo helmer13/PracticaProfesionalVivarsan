@@ -12,13 +12,13 @@
       xmlns:local="clr-namespace:PracticaProfesionalVivarsan.Paginas"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-      Title="Registro Compras" Width="1360" Height="770" Loaded="Page_Loaded"  ScrollViewer.VerticalScrollBarVisibility="Auto">
+      Title="Registro Compras" Width="1360" Height="670" Loaded="Page_Loaded"  ScrollViewer.VerticalScrollBarVisibility="Auto">
 
     <Page.Resources>
         <ImageBrush  x:Key="MyImageBrush" ImageSource="/PracticaProfesionalVivarsan;component/imagenes/brushed-alum.png" />
     </Page.Resources>
-    
-    <ScrollViewer>
+
+    <ScrollViewer >
 
 
         <StackPanel>
@@ -36,32 +36,40 @@
                     <RowDefinition  Height="100"/>
                     <RowDefinition  Height="100"/>
                     <RowDefinition  Height="100"/>
+                    <RowDefinition  Height="100"/>
                     <RowDefinition  Height="250"/>
                 </Grid.RowDefinitions>
 
-                <TextBox x:Name="txtNumeroFactura" Grid.Row="0"  Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Factura No." materialDesign:HintAssist.IsFloating="True" PreviewTextInput="txtNumeroFactura_PreviewTextInput"/>
+                <TextBlock Text="Facturación de compras" Margin="0 0 0 30"  HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" FontSize="22" />
+                <TextBlock Text="Encabezado de la factura" Grid.Row="0" Grid.Column="1"  Grid.ColumnSpan="2" Margin="0 0 0 30" HorizontalAlignment="Left" VerticalAlignment="Bottom" Style="{StaticResource MaterialDesignSubheadingTextBlock}" />
 
-                <ComboBox x:Name="cboTipoPago" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="200" Height="50" materialDesign:HintAssist.Hint="Tipo Pago" materialDesign:HintAssist.IsFloating="True" >
+
+                <TextBox x:Name="txtNumeroFactura" Grid.Row="1"  Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Factura No." materialDesign:HintAssist.IsFloating="True" PreviewTextInput="txtNumeroFactura_PreviewTextInput"/>
+
+                <ComboBox x:Name="cboTipoPago" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="200" Height="50" materialDesign:HintAssist.Hint="Tipo Pago" materialDesign:HintAssist.IsFloating="True" >
                     <ComboBoxItem IsSelected="True">Contado</ComboBoxItem>
                     <ComboBoxItem >Credito</ComboBoxItem>
                 </ComboBox>
 
-                <ComboBox x:Name="cboProveedores" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="200" Height="50" materialDesign:HintAssist.Hint="Proveedores" materialDesign:HintAssist.IsFloating="True" />
+                <ComboBox x:Name="cboProveedores" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="200" Height="50" materialDesign:HintAssist.Hint="Proveedores" materialDesign:HintAssist.IsFloating="True" />
 
-                <DatePicker Grid.Row="1" Grid.Column="3" Name="fecha" Language="es-US" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha factura" materialDesign:HintAssist.IsFloating="True"  />
+                <DatePicker Grid.Row="2" Grid.Column="3" Name="fecha" Language="es-US" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha factura" materialDesign:HintAssist.IsFloating="True"  />
 
-                <Grid Grid.Row="2" Grid.ColumnSpan="4">
+                <!--<Grid Grid.Row="3" Grid.ColumnSpan="4">
                     <materialDesign:ColorZone Mode="Standard">
                         <TextBlock   FontSize="35" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0 -35 0 0 "/>
                     </materialDesign:ColorZone>
-                </Grid>
+                </Grid>-->
+
+                <TextBlock Text="Detalle de la factura" Grid.Row="3" Grid.Column="1"  Grid.ColumnSpan="2" Margin="0 0 0 30" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource MaterialDesignSubheadingTextBlock}" />
+
 
                 <TextBox x:Name="txtidProducto" Visibility="Collapsed"  Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Producto" materialDesign:HintAssist.IsFloating="True"/>
-                <TextBox x:Name="txtProducto" IsReadOnly="True" Grid.Row="2" Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Producto" materialDesign:HintAssist.IsFloating="True"/>
-                <Button x:Name="btnBuscarProducto"  Content="Buscar"  Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="0 0 0 -30"   Width="90" Height="29" Click="btnBuscarProducto_Click"/>
+                <TextBox x:Name="txtProducto" IsReadOnly="True" Grid.Row="3" Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Producto" materialDesign:HintAssist.IsFloating="True"/>
+                <Button x:Name="btnBuscarProducto"  Content="Buscar"  Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="0 0 0 -30"   Width="90" Height="29" Click="btnBuscarProducto_Click"/>
 
                 <!--POPUP CON LA TABLA DE PRODUCTOS-->
-                <materialDesign:DialogHost IsOpen="False" x:Name="dialogo" Grid.ColumnSpan="4" Grid.RowSpan="6" Margin="0,0,0,0">
+                <materialDesign:DialogHost IsOpen="False" x:Name="dialogo" Grid.ColumnSpan="4" Grid.RowSpan="8" Margin="0,0,0,0">
                     <materialDesign:DialogHost.DialogContent>
                         <StackPanel Margin="25" Orientation="Vertical">
 
@@ -102,18 +110,17 @@
                     </materialDesign:DialogHost.DialogContent>
                 </materialDesign:DialogHost>
 
-                <TextBox x:Name="txtCantidad" Grid.Row="2"  Grid.Column="3" Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Cantidad" materialDesign:HintAssist.IsFloating="True" PreviewTextInput="txtCantidad_PreviewTextInput"/>
-                <TextBox x:Name="txtPrecioCosto" Grid.Row="3"  Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Precio Costo" materialDesign:HintAssist.IsFloating="True" PreviewTextInput="txtPrecioCosto_PreviewTextInput"/>
-                <ComboBox x:Name="cboBodegas" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="200" Height="50" materialDesign:HintAssist.Hint="Bodegas" materialDesign:HintAssist.IsFloating="True" >
+                <TextBox x:Name="txtCantidad" Grid.Row="3"  Grid.Column="3" Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Cantidad" materialDesign:HintAssist.IsFloating="True" PreviewTextInput="txtCantidad_PreviewTextInput"/>
+                <TextBox x:Name="txtPrecioCosto" Grid.Row="4"  Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Precio Costo" materialDesign:HintAssist.IsFloating="True" PreviewTextInput="txtPrecioCosto_PreviewTextInput"/>
+                <ComboBox x:Name="cboBodegas" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="200" Height="50" materialDesign:HintAssist.Hint="Bodegas" materialDesign:HintAssist.IsFloating="True" >
                 </ComboBox>
 
-                <Button x:Name="btnAgregar"  Content="Agregar"  Grid.Row="4" Grid.Column="3" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="0 0 0 65"   Width="90" Height="29" Click="btnAgregar_Click"/>
+                <Button x:Name="btnAgregar"  Content="Agregar"  Grid.Row="5" Grid.Column="3" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="0 0 0 65"   Width="90" Height="29" Click="btnAgregar_Click"/>
 
                 <!--TABLA CON LA LISTA DE DETALLE-->
 
-                <DataGrid  x:Name="dataGridLineaDetalle" RowEditEnding="dataGridLineaDetalle_RowEditEnding"
-                   CellEditEnding="dataGridLineaDetalle_CellEditEnding" SelectionChanged="dataGridLineaDetalle_SelectionChanged" 
-                   Margin="0,55,10,-89" Grid.Row="4" Grid.RowSpan="2" Grid.ColumnSpan="4" CanUserDeleteRows="True"  IsReadOnly="True"
+                <DataGrid  x:Name="dataGridLineaDetalle"
+                   Margin="0,55,10,-89" Grid.Row="5" Grid.RowSpan="2" Grid.ColumnSpan="4" CanUserDeleteRows="True"  IsReadOnly="True"
                    CanUserAddRows="False" AutoGenerateColumns="False"  VerticalAlignment="Top" Height="180" Width="500">
                     <DataGrid.Columns>
                         <DataGridTemplateColumn Header="Eliminar" >
@@ -133,12 +140,12 @@
                 </DataGrid>
 
 
-                <TextBox x:Name="txtSubTotal" IsReadOnly="True"   Grid.Row="5" Grid.Column="1" Width="150" Height="50"  Margin="0 100 0 0 "  HorizontalAlignment="Right"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Subtotal" materialDesign:HintAssist.IsFloating="True"/>
+                <TextBox x:Name="txtSubTotal" IsReadOnly="True"   Grid.Row="6" Grid.Column="1" Width="150" Height="50"  Margin="0 100 0 0 "  HorizontalAlignment="Right"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Total" materialDesign:HintAssist.IsFloating="True"/>
 
-                <Button x:Name="btnFacturar"  Content="Aplicar"  Grid.Row="5" Grid.Column="2" HorizontalAlignment="Center"  VerticalAlignment="Stretch" Margin="0 100 0 -10"   Width="120" Height="30" Click="btnFacturar_Click"/>
+                <Button x:Name="btnFacturar"  Content="Aplicar"  Grid.Row="6" Grid.Column="2" HorizontalAlignment="Center"  VerticalAlignment="Stretch" Margin="0 100 0 -10"   Width="120" Height="30" Click="btnFacturar_Click"/>
 
 
-                <materialDesign:DialogHost IsOpen="False" x:Name="dialogoMENS" Grid.ColumnSpan="4" Grid.RowSpan="4" >
+                <materialDesign:DialogHost IsOpen="False" x:Name="dialogoMENS" Grid.ColumnSpan="4" Grid.RowSpan="8" >
                     <materialDesign:DialogHost.DialogContent>
                         <StackPanel Margin="15" Orientation="Vertical">
                             <TextBlock x:Name="txtTextBlockDialogo" Text="Registro procesado"/>

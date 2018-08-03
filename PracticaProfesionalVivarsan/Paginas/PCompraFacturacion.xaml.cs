@@ -130,6 +130,18 @@ namespace PracticaProfesionalVivarsan.Paginas
             }
             else
             {
+                if (dataGridLineaDetalle.ItemsSource != null)
+                {
+                    foreach (var item in dataGridLineaDetalle.ItemsSource as List<LineaDetalleCompras>)
+                    {
+                        if (producto.IdProducto == item.Producto.IdProducto)
+                        {
+                            txtTextBlockDialogo.Text = "No puedes ingresar el mismo producto más de una vez";
+                            dialogoMENS.IsOpen = true;
+                            return;
+                        }
+                    }
+                }
                 lineaDetalle.Id = Guid.NewGuid().ToString();
                 lineaDetalle.Cantidad = Convert.ToInt32(txtCantidad.Text);
                 producto.IdLineaDetalle = lineaDetalle.Id;
@@ -141,7 +153,7 @@ namespace PracticaProfesionalVivarsan.Paginas
                 dataGridLineaDetalle.ItemsSource = listaDetalle;
                 dataGridLineaDetalle.Items.Refresh();
                 //inventario
-                inventario.Cantidad = Convert.ToInt32(txtCantidad.Text); ;
+                inventario.Cantidad = Convert.ToInt32(txtCantidad.Text);
                 inventario.Bodega = bLogica.obtenerBodega((int)cboBodegas.SelectedValue);
                 inventario.Empresa = usuario.Empresa;
                 inventario.Producto = producto;
@@ -156,7 +168,13 @@ namespace PracticaProfesionalVivarsan.Paginas
                 }
                 txtSubTotal.Text = total.ToString();
             }
-            
+            txtidProducto.Text = string.Empty;
+            txtProducto.Text = string.Empty;
+            txtCantidad.Text = string.Empty;
+            txtPrecioCosto.Text = string.Empty;
+            producto = new Producto();
+
+
         }
 
 
@@ -205,22 +223,16 @@ namespace PracticaProfesionalVivarsan.Paginas
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
 
+            var lista = dataGridLineaDetalle.ItemsSource as List<LineaDetalleCompras>; ;
+            var index = dataGridLineaDetalle.SelectedIndex;
+            dataGridLineaDetalle.ItemsSource = null;
+
+
+            lista.RemoveAt(index);
+            dataGridLineaDetalle.ItemsSource = lista;
         }
 
-        private void dataGridLineaDetalle_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
-        {
 
-        }
-
-        private void dataGridLineaDetalle_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
-        {
-
-        }
-
-        private void dataGridLineaDetalle_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
 
         private void btnFacturar_Click(object sender, RoutedEventArgs e)
         {
@@ -250,15 +262,15 @@ namespace PracticaProfesionalVivarsan.Paginas
                 factura.Total = Convert.ToDouble(txtSubTotal.Text);
                 factura.TipoPago = cboTipoPago.Text;
 
-                foreach (var item in listaDetalle)
+                foreach (var item in dataGridLineaDetalle.ItemsSource as List<LineaDetalleCompras>)
                 {
                     item.IdFactua = factura.Id;
                 }
-                factura.LineasDetalleCompras = listaDetalle;
+                factura.LineasDetalleCompras = dataGridLineaDetalle.ItemsSource as List<LineaDetalleCompras>;
 
                 logica.GuardarFactura(factura);
 
-                //MessageBox.Show("funciona");
+
                 txtTextBlockDialogo.Text = "Registro Procesado";
                 dialogoMENS.IsOpen = true;
 
@@ -266,7 +278,9 @@ namespace PracticaProfesionalVivarsan.Paginas
                 proveedor = new Proveedor();
                 listaInventario = new List<Inventario>();
                 listaDetalle = new List<LineaDetalleCompras>();
-            }         
+
+                Limpiar();
+            }
         }
 
         private Boolean ValidacionesFacturar()
@@ -294,7 +308,7 @@ namespace PracticaProfesionalVivarsan.Paginas
                 error = "Debe digitar la cantidad.";
                 bandera = true;
             }
-            if(string.IsNullOrEmpty(txtPrecioCosto.Text))
+            if (string.IsNullOrEmpty(txtPrecioCosto.Text))
             {
                 error = "Debe digitar el precio de compra del producto.";
                 bandera = true;
@@ -331,5 +345,21 @@ namespace PracticaProfesionalVivarsan.Paginas
             //Consultar si solo son numeros o tambien letras
             //SoloNumeros(e);
         }
+
+        public void Limpiar()
+        {
+            txtNumeroFactura.Text = string.Empty;
+            fecha.SelectedDate = null;
+            txtidProducto.Text = string.Empty;
+            txtProducto.Text = string.Empty;
+            txtCantidad.Text = string.Empty;
+            txtPrecioCosto.Text = string.Empty;
+            dataGridLineaDetalle.ItemsSource = null;
+            txtSubTotal.Text = string.Empty;
+            Producto producto = new Producto();
+            List<LineaDetalleCompras> listaDetalle = new List<LineaDetalleCompras>();
+            List<Inventario> listaInventario = new List<Inventario>();
+        }
+
     }
 }
