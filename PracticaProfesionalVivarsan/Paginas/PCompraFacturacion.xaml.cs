@@ -239,7 +239,7 @@ namespace PracticaProfesionalVivarsan.Paginas
             FacturaCompras factura = new FacturaCompras();
             FacturaComprasLogica logica = new FacturaComprasLogica();
 
-            var count = logica.ObtenerContadorFacturas();
+          
 
             Usuario usuarioGlobal = new Usuario();
 
@@ -255,6 +255,16 @@ namespace PracticaProfesionalVivarsan.Paginas
             }
             else
             {
+                var error = logica.ObtenerVerificacionNumeroFactura(Convert.ToInt32(txtNumeroFactura.Text),proveedor.Id);
+
+                if (error == "ERROR")
+                {
+                    txtTextBlockDialogo.Text = "No puedes ingresar el mismo numero de factura";
+                    dialogoMENS.IsOpen = true;
+                    return;
+                }
+
+
                 factura.Id = Convert.ToInt32(txtNumeroFactura.Text);
                 factura.Usuario = usuarioGlobal;
                 factura.IdProveedor = proveedor.Id;
@@ -361,5 +371,6 @@ namespace PracticaProfesionalVivarsan.Paginas
             List<Inventario> listaInventario = new List<Inventario>();
         }
 
+      
     }
 }
