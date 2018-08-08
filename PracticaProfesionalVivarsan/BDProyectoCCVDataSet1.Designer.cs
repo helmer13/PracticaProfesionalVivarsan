@@ -7174,6 +7174,10 @@ namespace PracticaProfesionalVivarsan {
             
             private global::System.Data.DataColumn columnLINEAS;
             
+            private global::System.Data.DataColumn columnNombreProveedor;
+            
+            private global::System.Data.DataColumn columnNombre;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public SPR_REPORTE_TOTALCOMPRASDataTable() {
@@ -7265,6 +7269,22 @@ namespace PracticaProfesionalVivarsan {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NombreProveedorColumn {
+                get {
+                    return this.columnNombreProveedor;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NombreColumn {
+                get {
+                    return this.columnNombre;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -7300,7 +7320,7 @@ namespace PracticaProfesionalVivarsan {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SPR_REPORTE_TOTALCOMPRASRow AddSPR_REPORTE_TOTALCOMPRASRow(int ID, string IDUsuario, string IDProveedor, System.DateTime Fecha, decimal Total, string TipoPago, int LINEAS) {
+            public SPR_REPORTE_TOTALCOMPRASRow AddSPR_REPORTE_TOTALCOMPRASRow(int ID, string IDUsuario, string IDProveedor, System.DateTime Fecha, decimal Total, string TipoPago, int LINEAS, string NombreProveedor, string Nombre) {
                 SPR_REPORTE_TOTALCOMPRASRow rowSPR_REPORTE_TOTALCOMPRASRow = ((SPR_REPORTE_TOTALCOMPRASRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ID,
@@ -7309,7 +7329,9 @@ namespace PracticaProfesionalVivarsan {
                         Fecha,
                         Total,
                         TipoPago,
-                        LINEAS};
+                        LINEAS,
+                        NombreProveedor,
+                        Nombre};
                 rowSPR_REPORTE_TOTALCOMPRASRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowSPR_REPORTE_TOTALCOMPRASRow);
                 return rowSPR_REPORTE_TOTALCOMPRASRow;
@@ -7346,6 +7368,8 @@ namespace PracticaProfesionalVivarsan {
                 this.columnTotal = base.Columns["Total"];
                 this.columnTipoPago = base.Columns["TipoPago"];
                 this.columnLINEAS = base.Columns["LINEAS"];
+                this.columnNombreProveedor = base.Columns["NombreProveedor"];
+                this.columnNombre = base.Columns["Nombre"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7365,6 +7389,10 @@ namespace PracticaProfesionalVivarsan {
                 base.Columns.Add(this.columnTipoPago);
                 this.columnLINEAS = new global::System.Data.DataColumn("LINEAS", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLINEAS);
+                this.columnNombreProveedor = new global::System.Data.DataColumn("NombreProveedor", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNombreProveedor);
+                this.columnNombre = new global::System.Data.DataColumn("Nombre", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNombre);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AllowDBNull = false;
@@ -7522,6 +7550,12 @@ namespace PracticaProfesionalVivarsan {
             
             private global::System.Data.DataColumn columnLINEAS;
             
+            private global::System.Data.DataColumn columnNombre;
+            
+            private global::System.Data.DataColumn columnIDCliente;
+            
+            private global::System.Data.DataColumn columnNombreCliente;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public SPR_REPORTE_TOTALVENTASDataTable() {
@@ -7605,6 +7639,30 @@ namespace PracticaProfesionalVivarsan {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NombreColumn {
+                get {
+                    return this.columnNombre;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn IDClienteColumn {
+                get {
+                    return this.columnIDCliente;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NombreClienteColumn {
+                get {
+                    return this.columnNombreCliente;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -7640,7 +7698,7 @@ namespace PracticaProfesionalVivarsan {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SPR_REPORTE_TOTALVENTASRow AddSPR_REPORTE_TOTALVENTASRow(int ID, string IDUsuario, System.DateTime Fecha, string TipoPago, decimal Total, int LINEAS) {
+            public SPR_REPORTE_TOTALVENTASRow AddSPR_REPORTE_TOTALVENTASRow(int ID, string IDUsuario, System.DateTime Fecha, string TipoPago, decimal Total, int LINEAS, string Nombre, string IDCliente, string NombreCliente) {
                 SPR_REPORTE_TOTALVENTASRow rowSPR_REPORTE_TOTALVENTASRow = ((SPR_REPORTE_TOTALVENTASRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ID,
@@ -7648,7 +7706,10 @@ namespace PracticaProfesionalVivarsan {
                         Fecha,
                         TipoPago,
                         Total,
-                        LINEAS};
+                        LINEAS,
+                        Nombre,
+                        IDCliente,
+                        NombreCliente};
                 rowSPR_REPORTE_TOTALVENTASRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowSPR_REPORTE_TOTALVENTASRow);
                 return rowSPR_REPORTE_TOTALVENTASRow;
@@ -7684,6 +7745,9 @@ namespace PracticaProfesionalVivarsan {
                 this.columnTipoPago = base.Columns["TipoPago"];
                 this.columnTotal = base.Columns["Total"];
                 this.columnLINEAS = base.Columns["LINEAS"];
+                this.columnNombre = base.Columns["Nombre"];
+                this.columnIDCliente = base.Columns["IDCliente"];
+                this.columnNombreCliente = base.Columns["NombreCliente"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7701,6 +7765,12 @@ namespace PracticaProfesionalVivarsan {
                 base.Columns.Add(this.columnTotal);
                 this.columnLINEAS = new global::System.Data.DataColumn("LINEAS", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLINEAS);
+                this.columnNombre = new global::System.Data.DataColumn("Nombre", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNombre);
+                this.columnIDCliente = new global::System.Data.DataColumn("IDCliente", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIDCliente);
+                this.columnNombreCliente = new global::System.Data.DataColumn("NombreCliente", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNombreCliente);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AllowDBNull = false;
@@ -11779,6 +11849,39 @@ namespace PracticaProfesionalVivarsan {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string NombreProveedor {
+                get {
+                    try {
+                        return ((string)(this[this.tableSPR_REPORTE_TOTALCOMPRAS.NombreProveedorColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NombreProveedor\' in table \'SPR_REPORTE_TOTALCOMPRAS\' is DBN" +
+                                "ull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSPR_REPORTE_TOTALCOMPRAS.NombreProveedorColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Nombre {
+                get {
+                    try {
+                        return ((string)(this[this.tableSPR_REPORTE_TOTALCOMPRAS.NombreColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Nombre\' in table \'SPR_REPORTE_TOTALCOMPRAS\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSPR_REPORTE_TOTALCOMPRAS.NombreColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsTipoPagoNull() {
                 return this.IsNull(this.tableSPR_REPORTE_TOTALCOMPRAS.TipoPagoColumn);
             }
@@ -11799,6 +11902,30 @@ namespace PracticaProfesionalVivarsan {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetLINEASNull() {
                 this[this.tableSPR_REPORTE_TOTALCOMPRAS.LINEASColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNombreProveedorNull() {
+                return this.IsNull(this.tableSPR_REPORTE_TOTALCOMPRAS.NombreProveedorColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNombreProveedorNull() {
+                this[this.tableSPR_REPORTE_TOTALCOMPRAS.NombreProveedorColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNombreNull() {
+                return this.IsNull(this.tableSPR_REPORTE_TOTALCOMPRAS.NombreColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNombreNull() {
+                this[this.tableSPR_REPORTE_TOTALCOMPRAS.NombreColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -11889,6 +12016,55 @@ namespace PracticaProfesionalVivarsan {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Nombre {
+                get {
+                    try {
+                        return ((string)(this[this.tableSPR_REPORTE_TOTALVENTAS.NombreColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Nombre\' in table \'SPR_REPORTE_TOTALVENTAS\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSPR_REPORTE_TOTALVENTAS.NombreColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string IDCliente {
+                get {
+                    try {
+                        return ((string)(this[this.tableSPR_REPORTE_TOTALVENTAS.IDClienteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'IDCliente\' in table \'SPR_REPORTE_TOTALVENTAS\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSPR_REPORTE_TOTALVENTAS.IDClienteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string NombreCliente {
+                get {
+                    try {
+                        return ((string)(this[this.tableSPR_REPORTE_TOTALVENTAS.NombreClienteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NombreCliente\' in table \'SPR_REPORTE_TOTALVENTAS\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableSPR_REPORTE_TOTALVENTAS.NombreClienteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsLINEASNull() {
                 return this.IsNull(this.tableSPR_REPORTE_TOTALVENTAS.LINEASColumn);
             }
@@ -11897,6 +12073,42 @@ namespace PracticaProfesionalVivarsan {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetLINEASNull() {
                 this[this.tableSPR_REPORTE_TOTALVENTAS.LINEASColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNombreNull() {
+                return this.IsNull(this.tableSPR_REPORTE_TOTALVENTAS.NombreColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNombreNull() {
+                this[this.tableSPR_REPORTE_TOTALVENTAS.NombreColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsIDClienteNull() {
+                return this.IsNull(this.tableSPR_REPORTE_TOTALVENTAS.IDClienteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetIDClienteNull() {
+                this[this.tableSPR_REPORTE_TOTALVENTAS.IDClienteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNombreClienteNull() {
+                return this.IsNull(this.tableSPR_REPORTE_TOTALVENTAS.NombreClienteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNombreClienteNull() {
+                this[this.tableSPR_REPORTE_TOTALVENTAS.NombreClienteColumn] = global::System.Convert.DBNull;
             }
         }
         

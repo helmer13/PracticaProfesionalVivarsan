@@ -76,5 +76,10 @@ namespace Logica
             AccesoDatos.FacturaVentasDato.InsertarDevolucion(idDevolucion,lineaDetalle.IdFactura,fechaDevolucion,0,
                 lineaDetalle.Id,cantidad,tipo,idEmpresa,idBodega,lineaDetalle.Producto.IdProducto);
         }
+
+        public DataTable ReporteTotalVentas(DateTime fechaInicio, DateTime fechaFin)
+        {
+            return AccesoDatos.FacturaVentasDato.ReporteTotalVentas(fechaInicio, fechaFin);
+        }
     }
 }
