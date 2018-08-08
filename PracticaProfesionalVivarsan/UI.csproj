@@ -73,6 +73,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BDProyectoCCVDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="BDProyectoCCVDataSet1.cs">
+      <DependentUpon>BDProyectoCCVDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BDProyectoCCVDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -110,6 +113,12 @@
     </Compile>
     <Compile Include="Paginas\PProducto.xaml.cs">
       <DependentUpon>PProducto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmReporteTotalCompras.xaml.cs">
+      <DependentUpon>frmReporteTotalCompras.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmReporteTotalVentas.xaml.cs">
+      <DependentUpon>frmReporteTotalVentas.xaml</DependentUpon>
     </Compile>
     <Page Include="frmCliente.xaml">
       <SubType>Designer</SubType>
@@ -214,6 +223,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Reportes\frmReporteTotalCompras.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reportes\frmReporteTotalVentas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Paginas\PProveedor.xaml.cs">
@@ -247,6 +264,8 @@
     <EmbeddedResource Include="Reportes\ReporteInventario.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteProductos.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteProveedores.rdlc" />
+    <EmbeddedResource Include="Reportes\ReporteTotalCompras.rdlc" />
+    <EmbeddedResource Include="Reportes\ReporteTotalVentas.rdlc" />
     <None Include="BDProyectoCCVDataSet.xsc">
       <DependentUpon>BDProyectoCCVDataSet.xsd</DependentUpon>
     </None>

@@ -11,6 +11,7 @@ using System.Windows.Shapes;
 using Entidad;
 using Logica;
 using PracticaProfesionalVivarsan.Paginas;
+using PracticaProfesionalVivarsan.Reportes;
 using System;
 
 namespace PracticaProfesionalVivarsan
@@ -213,6 +214,18 @@ namespace PracticaProfesionalVivarsan
         {
             //frame.Content = new PReporteProductos();
             frmReporteProd r = new frmReporteProd();
+            r.Show();
+        }
+
+        private void ReporteTotalCompras_Click(object sender, RoutedEventArgs e)
+        {
+            frmReporteTotalCompras r = new frmReporteTotalCompras();
+            r.Show();
+        }
+
+        private void ReporteTotalVentas_Click(object sender, RoutedEventArgs e)
+        {
+            frmReporteTotalVentas r = new frmReporteTotalVentas();
             r.Show();
         }
     }

@@ -57,5 +57,21 @@ namespace AccesoDatos
             return ds;
 
         }
+        public static DataTable ReporteTotalCompras(DateTime fecha1, DateTime fecha2)
+        {
+
+            Database db = DatabaseFactory.CreateDatabase("Default");
+            DataTable dt = new DataTable();
+            SqlCommand comando = new SqlCommand("SPR_REPORTE_TOTALCOMPRAS");
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@FECHAINICIO", fecha1);
+            comando.Parameters.AddWithValue("@FECHAFIN", fecha2);
+            DataSet ds = db.ExecuteReader(comando, "producto");
+
+            SqlDataAdapter adp = new SqlDataAdapter(comando);
+            adp.Fill(dt);
+            return dt;
+
+        }
     }
 }

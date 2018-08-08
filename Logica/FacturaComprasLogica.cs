@@ -66,6 +66,9 @@ namespace Logica
           
             return resultado;
         }
-
+        public DataTable ReporteTotalCompras(DateTime fechaInicio, DateTime fechaFin)
+        {
+            return AccesoDatos.FacturaComprasDato.ReporteTotalCompras(fechaInicio,fechaFin);
+        }
     }
 }
