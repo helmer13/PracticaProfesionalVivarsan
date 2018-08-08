@@ -28,6 +28,24 @@ namespace AccesoDatos
 
         }
 
+        public static DataTable ReporteClientes()
+        {
+
+            Database db = DatabaseFactory.CreateDatabase("Default");
+            DataTable dt = new DataTable();
+            SqlCommand comando = new SqlCommand("SPR_CLIENTE_VISTA");
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@TIPOCONSULTA", "TODO");
+            comando.Parameters.AddWithValue("@IDCLIENTE", DBNull.Value);
+
+            DataSet ds = db.ExecuteReader(comando, "cliente");
+
+            SqlDataAdapter adp = new SqlDataAdapter(comando);
+            adp.Fill(dt);
+            return dt;
+
+        }
+
         public static DataSet seleccionarClientePorID(string idCliente)
         {
 

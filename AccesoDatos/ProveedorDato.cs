@@ -28,6 +28,25 @@ namespace AccesoDatos
 
         }
 
+        public static DataTable ReporteProveedores()
+        {
+
+            Database db = DatabaseFactory.CreateDatabase("Default");
+            DataTable dt = new DataTable();
+
+            SqlCommand comando = new SqlCommand("SPR_PROVEEDOR_VISTA");
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@TIPOCONSULTA", "TODO");
+            comando.Parameters.AddWithValue("@IDPROVEEDOR", DBNull.Value);
+
+            DataSet ds = db.ExecuteReader(comando, "proveedor");
+
+            SqlDataAdapter adp = new SqlDataAdapter(comando);
+            adp.Fill(dt);
+            return dt;
+
+        }
+
 
         public static DataSet seleccionarProveedorPorID(string idProveedor)
         {
