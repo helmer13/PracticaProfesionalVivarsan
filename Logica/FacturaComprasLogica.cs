@@ -47,5 +47,25 @@ namespace Logica
 
            
         }
+
+        public string ObtenerVerificacionNumeroFactura(int numeroFactura,string idProveedor)
+        {
+            FacturaCompras factura = new FacturaCompras();
+
+            DataSet ds = AccesoDatos.FacturaComprasDato.seleccionarValidarNumeroFactura(numeroFactura, idProveedor);
+
+            string resultado="";
+
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {
+                resultado = row["RESULTADO"].ToString();
+
+
+
+            }
+          
+            return resultado;
+        }
+
     }
 }

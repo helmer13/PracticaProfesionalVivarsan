@@ -42,6 +42,20 @@ namespace AccesoDatos
             db.ExecuteNonQuery(comando);
         }
 
+        public static DataSet seleccionarValidarNumeroFactura(int numueroFactura,string idProveedor)
+        {
 
+            Database db = DatabaseFactory.CreateDatabase("Default");
+
+            SqlCommand comando = new SqlCommand("SPR_VALIDA_NUMEROFACTURACOMPRAS");
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@NUMEROFACTURA", numueroFactura);
+            comando.Parameters.AddWithValue("@IDPROVEEDOR", idProveedor);
+
+
+            DataSet ds = db.ExecuteReader(comando, "factura");
+            return ds;
+
+        }
     }
 }
