@@ -6,9 +6,9 @@
         xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
         xmlns:local="clr-namespace:PracticaProfesionalVivarsan"
         mc:Ignorable="d"
-        Title="Reporte de Productos" Height="570.098" Width="885.954" Loaded="Window_Loaded">
+        Title="Reporte de Productos" Height="647.98" Width="917.107" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight">
     <Grid>
-        <WindowsFormsHost HorizontalAlignment="Left" Height="438" Margin="68,47,0,0" VerticalAlignment="Top" Width="746">
+        <WindowsFormsHost HorizontalAlignment="Center" Height="510" Margin="72,53,66,54" VerticalAlignment="Center" Width="771">
             <rv:ReportViewer x:Name="DemoReporte"></rv:ReportViewer>
         </WindowsFormsHost>
 

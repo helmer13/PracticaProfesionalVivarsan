@@ -62,5 +62,9 @@ namespace Logica
         {
             AccesoDatos.ProveedorDato.InsertarActaulizarProveedor(proveedor.Id, proveedor.NombreProveedor, proveedor.NombreContacto, proveedor.Correo, proveedor.Telefono);
         }
+        public DataTable ReporteProveedores()
+        {
+            return AccesoDatos.ProveedorDato.ReporteProveedores();
+        }
     }
 }

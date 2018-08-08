@@ -26,6 +26,24 @@ namespace AccesoDatos
 
         }
 
+        public static DataTable ReporteGastos(DateTime fechaInicio, DateTime fechaFin)
+        {
+
+            Database db = DatabaseFactory.CreateDatabase("Default");
+            DataTable dt = new DataTable();
+            SqlCommand comando = new SqlCommand("SPR_REPORTE_GASTOS_DEVOLUCION");
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@TIPOCOSULTA", "GASTOS");
+            comando.Parameters.AddWithValue("@FECHAINICIO", fechaInicio);
+            comando.Parameters.AddWithValue("@FECHAFIN", fechaFin);
+
+            DataSet ds = db.ExecuteReader(comando, "Gasto");
+            SqlDataAdapter adp = new SqlDataAdapter(comando);
+            adp.Fill(dt);
+            return dt;
+
+        }
+
 
         public static DataSet seleccionarGastoPorID(string id)
         {

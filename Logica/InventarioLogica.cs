@@ -30,5 +30,9 @@ namespace Logica
             }
             return resultado;
         }
+        public DataTable ReporteInventario(int empresa)
+        {
+            return AccesoDatos.InventarioDato.ReporteInventario(empresa);
+        }
     }
 }

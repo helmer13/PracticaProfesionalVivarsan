@@ -1,0 +1,16 @@
+﻿<Window x:Class="PracticaProfesionalVivarsan.Reportes.frmReporteInventario"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
+        xmlns:local="clr-namespace:PracticaProfesionalVivarsan.Reportes"
+        mc:Ignorable="d"
+        Title="Reporte de Inventario" Height="675.016" Width="1079.397" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight">
+    <Grid >
+        <WindowsFormsHost HorizontalAlignment="Center" Height="561" Margin="65,44,65,39" VerticalAlignment="Center" Width="941">
+            <rv:ReportViewer x:Name="ReportInventario"></rv:ReportViewer>
+        </WindowsFormsHost>
+
+    </Grid>
+</Window>

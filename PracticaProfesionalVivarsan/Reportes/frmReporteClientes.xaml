@@ -1,0 +1,16 @@
+﻿<Window x:Class="PracticaProfesionalVivarsan.Reportes.frmReporteClientes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
+        xmlns:local="clr-namespace:PracticaProfesionalVivarsan.Reportes"
+        mc:Ignorable="d"
+        Title="Reporte de Clientes" Height="655.344" Width="885.954" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight">
+    <Grid>
+        <WindowsFormsHost HorizontalAlignment="Center" Height="538" Margin="79,43,53,43" VerticalAlignment="Center" Width="746">
+            <rv:ReportViewer x:Name="ReportClientes"></rv:ReportViewer>
+        </WindowsFormsHost>
+
+    </Grid>
+</Window>

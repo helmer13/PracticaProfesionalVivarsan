@@ -12,6 +12,7 @@ using Entidad;
 using Logica;
 using PracticaProfesionalVivarsan.Paginas;
 using System;
+using PracticaProfesionalVivarsan.Reportes;
 
 namespace PracticaProfesionalVivarsan
 {
@@ -210,10 +211,38 @@ namespace PracticaProfesionalVivarsan
         }
 
         private void ReporteProductos_Click(object sender, RoutedEventArgs e)
-        {
-            //frame.Content = new PReporteProductos();
+        {            
             frmReporteProd r = new frmReporteProd();
             r.Show();
+        }
+
+        private void ReporteInventario_Click(object sender, RoutedEventArgs e)
+        {
+            frmReporteInventario r = new frmReporteInventario();
+            r.Show();
+        }
+
+        private void ReporteClientes_Click(object sender, RoutedEventArgs e)
+        {
+            frmReporteClientes r = new frmReporteClientes();
+            r.Show();
+        }
+
+        private void ReporteProveedores_Click(object sender, RoutedEventArgs e)
+        {
+            frmReporteProveedores r = new frmReporteProveedores();
+            r.Show();
+        }
+
+        private void ReporteGastos_Click(object sender, RoutedEventArgs e)
+        {
+            Usuario usuarioGlobal = new Usuario();
+            usuarioGlobal = (Usuario)App.Current.Properties["usuarioSesion"];
+            if (usuarioGlobal.Tipo == "Administrador")
+            {
+                frmReporteGastos r = new frmReporteGastos();
+                r.Show();
+            }
         }
     }
 }

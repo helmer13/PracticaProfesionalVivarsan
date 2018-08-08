@@ -1,0 +1,34 @@
+﻿<Window x:Class="PracticaProfesionalVivarsan.Reportes.frmReporteGastos"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14" 
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
+        xmlns:local="clr-namespace:PracticaProfesionalVivarsan.Reportes"
+        mc:Ignorable="d"
+        Title="Reporte de Gastos" Height="745.508" Width="885.954" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight">
+    <Grid>
+        <DatePicker  IsEnabled="True"  Name="fechaInicio" Language="es-US" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha Inicio" materialDesign:HintAssist.IsFloating="True" Margin="162,52,566,637"  />
+        <DatePicker  IsEnabled="True"  Name="fechaFin" Language="es-US" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha Final" materialDesign:HintAssist.IsFloating="True" Margin="588,52,140,637"  />
+        <WindowsFormsHost HorizontalAlignment="Center" Height="501" Margin="69,168,63,46" VerticalAlignment="Center" Width="746">
+            <rv:ReportViewer x:Name="ReportGastos"></rv:ReportViewer>
+        </WindowsFormsHost>
+        <Button x:Name="btnGenerar" Content="Generar Reporte" HorizontalAlignment="Center" Margin="369,94,348,589" VerticalAlignment="Center" Width="161" RenderTransformOrigin="-2.334,-8.176" Click="btnGenerar_Click"/>
+
+
+        <materialDesign:DialogHost IsOpen="False" x:Name="dialogoMENS" VerticalAlignment="Center" HorizontalAlignment="Center" >
+            <materialDesign:DialogHost.DialogContent>
+                <StackPanel Margin="15" Orientation="Vertical">
+                    <TextBlock x:Name="txtTextBlockDialogo" Text="Registro procesado"/>
+                    <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandTarget="{Binding ElementName=dialogoMENS}" 
+                        Style="{DynamicResource MaterialDesignFlatButton}" Content="Aceptar" Margin="0 10 0 0"/>
+                </StackPanel>
+            </materialDesign:DialogHost.DialogContent>
+        </materialDesign:DialogHost>
+    </Grid>
+</Window>

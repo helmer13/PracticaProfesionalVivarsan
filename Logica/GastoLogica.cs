@@ -59,5 +59,9 @@ namespace Logica
         {
             AccesoDatos.GastoDato.InsertarGasto(gasto.Id, gasto.Usuario.Id, gasto.Descripcion, gasto.Tipo, gasto.Fecha, gasto.Monto);
         }
+        public DataTable ReporteGastos(DateTime fechaInicio, DateTime fechaFin)
+        {
+            return AccesoDatos.GastoDato.ReporteGastos(fechaInicio, fechaFin);
+        }
     }
 }

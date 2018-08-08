@@ -80,6 +80,7 @@ namespace PracticaProfesionalVivarsan
                         this.Hide();
                         txtTextBlockDialogo.Text = "Iniciaste correctamente";
                         dialogo.IsOpen = false;
+                        contador = 0;
 
                     }
                 }

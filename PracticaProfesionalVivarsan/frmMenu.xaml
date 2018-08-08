@@ -10,7 +10,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PracticaProfesionalVivarsan"
-       mc:Ignorable="d" Height="768" Width="1366" ResizeMode="NoResize" 
+       mc:Ignorable="d" Height="768" Width="1366" ResizeMode="NoResize" Title="Repuestos Vini"
         WindowStartupLocation="CenterScreen" WindowStyle="SingleBorderWindow" WindowState="Maximized" Loaded="Window_Loaded" Closing="Window_Closing">
     <Window.Resources>
         <Style x:Key="{x:Type ContextMenu}" TargetType="{x:Type ContextMenu}">
@@ -64,10 +64,10 @@
                     <Button.ContextMenu>
                         <ContextMenu >
                             <MenuItem Name="ReporteProductos" Foreground="Snow" Header="Productos" Click="ReporteProductos_Click"/>
-                            <MenuItem  Foreground="Snow" Header="Compras" />
-                            <MenuItem Foreground="Snow" Header="Ventas"/>
-                            <MenuItem Foreground="Snow" Header="Gastos"/>
-                            <MenuItem Foreground="Snow" Header="Contabilidad"/>
+                            <MenuItem Name="ReporteInventario" Foreground="Snow" Header="Inventario" Click="ReporteInventario_Click"/>
+                            <MenuItem Name="ReporteClientes" Foreground="Snow" Header="Clientes" Click="ReporteClientes_Click"/>
+                            <MenuItem Name="ReporteProveedores" Foreground="Snow" Header="Proveedores" Click="ReporteProveedores_Click"/>
+                            <MenuItem Name="ReporteGastos" Foreground="Snow" Header="Gastos" Click="ReporteGastos_Click"/>
                         </ContextMenu>
                     </Button.ContextMenu>
                 </Button>

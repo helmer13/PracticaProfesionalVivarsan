@@ -25,6 +25,21 @@ namespace AccesoDatos
 
         }
 
+        public static DataTable ReporteInventario(int empresa)
+        {
+
+            Database db = DatabaseFactory.CreateDatabase("Default");
+            DataTable dt = new DataTable();
+            SqlCommand comando = new SqlCommand("SPR_REPORTEINVENTARIO");
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@IDEMPRESA", empresa);
+            DataSet ds = db.ExecuteReader(comando, "Inventario");
+            SqlDataAdapter adp = new SqlDataAdapter(comando);
+            adp.Fill(dt);
+            return dt;
+
+        }
+
         public static DataSet seleccionarInventarioPorPRODEMPBOD(int empresa)
         {
 

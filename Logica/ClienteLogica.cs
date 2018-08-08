@@ -64,6 +64,10 @@ namespace Logica
         {
             AccesoDatos.ClienteDato.InsertarActaulizarCliente(cliente.Id, cliente.Indentificacion, cliente.Nombre, cliente.Correo, cliente.Direccion, cliente.Telefono);
         }
+        public DataTable ReporteClientes()
+        {
+            return AccesoDatos.ClienteDato.ReporteClientes();
+        }
 
     }
 }
