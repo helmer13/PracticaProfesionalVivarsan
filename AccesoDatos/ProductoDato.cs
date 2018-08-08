@@ -59,6 +59,20 @@ namespace AccesoDatos
 
             db.ExecuteNonQuery(comando);
         }
+        public static DataTable ReporteProductos()
+        {
 
+            Database db = DatabaseFactory.CreateDatabase("Default");
+            DataTable dt = new DataTable();
+            SqlCommand comando = new SqlCommand("SPR_REPORTEPRODUCTOS");
+            comando.CommandType = CommandType.StoredProcedure;
+
+            DataSet ds = db.ExecuteReader(comando, "producto");
+
+            SqlDataAdapter adp = new SqlDataAdapter(comando);
+            adp.Fill(dt);
+            return dt;
+
+        }
     }
 }

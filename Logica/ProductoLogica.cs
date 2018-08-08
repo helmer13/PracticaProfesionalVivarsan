@@ -63,5 +63,10 @@ namespace Logica
         {
             AccesoDatos.ProductoDato.InsertarActaulizarProducto(producto.IdProducto, producto.Nombre, producto.Modelo.Id, producto.PrecioCompra, producto.PrecioVenta);
         }
+
+        public DataTable ReporteProductos()
+        {
+            return AccesoDatos.ProductoDato.ReporteProductos();
+        }
     }
 }

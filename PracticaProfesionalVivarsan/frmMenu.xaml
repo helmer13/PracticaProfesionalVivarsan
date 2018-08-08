@@ -63,6 +63,7 @@
 
                     <Button.ContextMenu>
                         <ContextMenu >
+                            <MenuItem Name="ReporteProductos" Foreground="Snow" Header="Productos" Click="ReporteProductos_Click"/>
                             <MenuItem  Foreground="Snow" Header="Compras" />
                             <MenuItem Foreground="Snow" Header="Ventas"/>
                             <MenuItem Foreground="Snow" Header="Gastos"/>

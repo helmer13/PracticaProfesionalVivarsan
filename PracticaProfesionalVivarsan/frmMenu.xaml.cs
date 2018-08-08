@@ -208,5 +208,12 @@ namespace PracticaProfesionalVivarsan
             pusuario.gridTabla.Visibility = Visibility.Collapsed;
             frame.Content =  pusuario;
         }
+
+        private void ReporteProductos_Click(object sender, RoutedEventArgs e)
+        {
+            //frame.Content = new PReporteProductos();
+            frmReporteProd r = new frmReporteProd();
+            r.Show();
+        }
     }
 }
