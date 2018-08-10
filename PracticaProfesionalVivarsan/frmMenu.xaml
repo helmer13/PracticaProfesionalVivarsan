@@ -70,6 +70,8 @@
                             <MenuItem Name="ReporteGastos" Foreground="Snow" Header="Gastos" Click="ReporteGastos_Click"/>
                             <MenuItem Name="ReporteTotalCompras" Foreground="Snow" Header="Total Compras" Click="ReporteTotalCompras_Click"/>
                             <MenuItem Name="ReporteTotalVentas" Foreground="Snow" Header="Total Ventas" Click="ReporteTotalVentas_Click"/>
+                            <MenuItem Name="ReporteComprasProveedor" Foreground="Snow" Header="Compras x Proveedor" Click="ReporteComprasProveedor_Click"/>
+                            <MenuItem Name="ReporteVentasCliente" Foreground="Snow" Header="Ventas x Cliente" Click="ReporteVentasCliente_Click"/>
                         </ContextMenu>
                     </Button.ContextMenu>
                 </Button>

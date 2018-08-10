@@ -1,0 +1,63 @@
+﻿<Window x:Class="PracticaProfesionalVivarsan.Reportes.frmReporteVentasCliente"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PracticaProfesionalVivarsan.Reportes"
+        mc:Ignorable="d"
+          xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
+        Title="Reporte Ventas Cliente"  Height="697.449" Width="1274.832" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight">
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="340"/>
+            <ColumnDefinition Width="300"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="200"/>
+            <RowDefinition  Height="200"/>
+            <RowDefinition  Height="200"/>
+            <RowDefinition  Height="50"/>
+        </Grid.RowDefinitions>
+
+        <TextBox x:Name="txtId" Visibility="Collapsed" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Margin="0 0 0 0" Width="200" Height="50" HorizontalAlignment="Left"  VerticalAlignment="Bottom" materialDesign:HintAssist.Hint="Buscar" materialDesign:HintAssist.IsFloating="True" />
+
+
+
+        <TextBlock Text="Reporte de ventas por cliente" Margin="0 0 0 90"  HorizontalAlignment="Left" VerticalAlignment="Center"  Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" FontSize="22" />
+        <TextBlock Text="Muestra el reporte de ventas por un cliente" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Margin="0 0 0 90" HorizontalAlignment="Left" VerticalAlignment="Bottom" Style="{StaticResource MaterialDesignSubheadingTextBlock}" />
+
+        <TextBox x:Name="txtBuscar" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Margin="0 0 0 0" Width="200" Height="50" HorizontalAlignment="Left"  VerticalAlignment="Bottom" materialDesign:HintAssist.Hint="Buscar" materialDesign:HintAssist.IsFloating="True" TextChanged="txtBuscar_TextChanged"/>
+
+        <RadioButton x:Name="rbIndentificacion" GroupName="rbBuscar" Grid.Row="0" Grid.Column="1"  VerticalAlignment="Bottom" HorizontalAlignment="Right"  Content="Indentificación"  />
+        <RadioButton x:Name="rbNombre" GroupName="rbBuscar"  Grid.Row="0" Grid.Column="2"  VerticalAlignment="Bottom" HorizontalAlignment="Left" Content="Nombre" Margin="20 0 0 0"   />
+        <RadioButton x:Name="rbCorreo" GroupName="rbBuscar"  Grid.Row="0" Grid.Column="2"  VerticalAlignment="Bottom" HorizontalAlignment="Left" Content="Correo" Margin="110 0 0 0"  />
+
+
+
+        <DataGrid x:Name="dataGrid"  Margin="0 30 0 0"   Grid.Row="1" Grid.ColumnSpan="4" Grid.RowSpan="4" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="dataGrid_SelectionChanged"  VerticalAlignment="Top" Height="230" Width="700">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Indentificación" Binding="{Binding Indentificacion}" />
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" />
+                <DataGridTextColumn Header="Correo" Binding="{Binding Correo}" />
+                <DataGridTextColumn Header="Dirección" Binding="{Binding Direccion}" />
+                <DataGridTextColumn Header="Teléfono" Binding="{Binding Telefono}" />
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+        <DatePicker Name="fechaInicio"  Grid.Row="2" Grid.Column="1"  Language="es-US" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha Inicio" materialDesign:HintAssist.IsFloating="True"   />
+
+        <DatePicker Name="fechaFin" Grid.Row="2" Grid.Column="2" Margin="0 0 150 0 " Language="es-US" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha Final" materialDesign:HintAssist.IsFloating="True"  />
+        <Button x:Name="btnGuardar" Content="Generar"  Grid.Row="2" Grid.Column="2"  HorizontalAlignment="Right"  VerticalAlignment="Bottom" Width="117" Click="btnGuardar_Click" Margin="0,0,0,85"/>
+
+    </Grid>
+</Window>

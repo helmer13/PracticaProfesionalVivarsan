@@ -12,12 +12,12 @@
         mc:Ignorable="d"
          xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
         Title="ReporteTotalCompras" Height="697.449" Width="1274.832" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight">
+   
     <Grid Margin="0,-46,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
         <DatePicker Name="fechaInicio"    Language="es-US" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha Inicio" materialDesign:HintAssist.IsFloating="True"  Margin="355,95,762,591" />
 
         <DatePicker Name="fechaFin"     Language="es-US" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha Final" materialDesign:HintAssist.IsFloating="True"  Margin="606,95,511,591" />
         <Button x:Name="btnGuardar" Content="Generar" HorizontalAlignment="Left" Margin="829,95,0,0" VerticalAlignment="Top" Width="117" Click="btnGuardar_Click"/>
-
 
 
 

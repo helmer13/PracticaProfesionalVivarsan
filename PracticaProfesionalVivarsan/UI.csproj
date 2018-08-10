@@ -84,6 +84,9 @@
     <Compile Include="Reportes\frmReporteClientes.xaml.cs">
       <DependentUpon>frmReporteClientes.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\frmReporteComprasProveedor.xaml.cs">
+      <DependentUpon>frmReporteComprasProveedor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\frmReporteGastos.xaml.cs">
       <DependentUpon>frmReporteGastos.xaml</DependentUpon>
     </Compile>
@@ -132,6 +135,9 @@
     <Compile Include="Reportes\frmReporteTotalVentas.xaml.cs">
       <DependentUpon>frmReporteTotalVentas.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\frmReporteVentasCliente.xaml.cs">
+      <DependentUpon>frmReporteVentasCliente.xaml</DependentUpon>
+    </Compile>
     <Page Include="frmCliente.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -151,6 +157,10 @@
     <Page Include="Reportes\frmReporteClientes.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Reportes\frmReporteComprasProveedor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Reportes\frmReporteGastos.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -256,6 +266,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Reportes\frmReporteTotalVentas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reportes\frmReporteVentasCliente.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
