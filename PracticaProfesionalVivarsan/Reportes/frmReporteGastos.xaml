@@ -11,14 +11,10 @@
         xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
         xmlns:local="clr-namespace:PracticaProfesionalVivarsan.Reportes"
         mc:Ignorable="d"
-        Title="Reporte de Gastos" Height="745.508" Width="885.954" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight">
-    <Grid>
-        <DatePicker  IsEnabled="True"  Name="fechaInicio" Language="es-US" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha Inicio" materialDesign:HintAssist.IsFloating="True" Margin="162,52,566,637"  />
-        <DatePicker  IsEnabled="True"  Name="fechaFin" Language="es-US" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha Final" materialDesign:HintAssist.IsFloating="True" Margin="588,52,140,637"  />
-        <WindowsFormsHost HorizontalAlignment="Center" Height="501" Margin="69,168,63,46" VerticalAlignment="Center" Width="746">
-            <rv:ReportViewer x:Name="ReportGastos"></rv:ReportViewer>
-        </WindowsFormsHost>
-        <Button x:Name="btnGenerar" Content="Generar Reporte" HorizontalAlignment="Center" Margin="369,94,348,589" VerticalAlignment="Center" Width="161" RenderTransformOrigin="-2.334,-8.176" Click="btnGenerar_Click"/>
+        Title="Reporte de Gastos" Height="535.603" Width="987.954" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" >
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Margin="140,44,456,369">
+        <DatePicker IsEnabled="True" Name="fechaFin" Language="es-US" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha Fin" materialDesign:HintAssist.IsFloating="True" Margin="308,-42,-308,42"  />
+        <DatePicker  IsEnabled="True"  Name="fechaInicio" Language="es-US" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha Inicio" materialDesign:HintAssist.IsFloating="True" Margin="-4,-42,0,42"  />
 
 
         <materialDesign:DialogHost IsOpen="False" x:Name="dialogoMENS" VerticalAlignment="Center" HorizontalAlignment="Center" >
@@ -30,5 +26,9 @@
                 </StackPanel>
             </materialDesign:DialogHost.DialogContent>
         </materialDesign:DialogHost>
+        <Button x:Name="btnGenerar" Content="Generar" HorizontalAlignment="Left" Margin="178,5,-131,-11" VerticalAlignment="Top" Width="103" Click="btnGenerar_Click"/>
+        <WindowsFormsHost HorizontalAlignment="Left" Height="350" Margin="-158,61,-478,-385" VerticalAlignment="Top" Width="786">
+            <rv:ReportViewer x:Name="ReportGastos"></rv:ReportViewer>
+        </WindowsFormsHost>
     </Grid>
 </Window>

@@ -11,34 +11,28 @@
         xmlns:local="clr-namespace:PracticaProfesionalVivarsan.Reportes"
         mc:Ignorable="d"
          xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
-        Title="ReporteTotalVentas"  Height="670.098" Width="885.954" Loaded="Window_Loaded">
-    <Grid>
+        Title="Reporte Total Ventas"  Height="675.098" Width="898.954" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="642" Margin="0,0,0,2">
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
-            <ColumnDefinition Width="200"/>
-            <ColumnDefinition Width="200"/>
-            <ColumnDefinition Width="400"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition  Height="100"/>
-            <RowDefinition  Height="100"/>
-            <RowDefinition  Height="100"/>
-            <RowDefinition  Height="100"/>
-            <RowDefinition  Height="100"/>
-            <RowDefinition  Height="100"/>
-            <RowDefinition  Height="100"/>
-        </Grid.RowDefinitions>
+        <DatePicker Name="fechaInicio"   Language="es-US" HorizontalAlignment="Center" VerticalAlignment="Center" materialDesign:HintAssist.Hint="Fecha Inicio" materialDesign:HintAssist.IsFloating="True" Width="147"  Margin="176,78,555,538"   />
 
-        <DatePicker Name="fechaInicio"  Grid.Row="0" Grid.Column="1"   Language="es-US" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha Inicio" materialDesign:HintAssist.IsFloating="True"   />
-
-        <DatePicker Name="fechaFin"  Grid.Row="0" Grid.Column="2"   Language="es-US" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha Inicio" materialDesign:HintAssist.IsFloating="True"   />
-
-        <Button x:Name="btnGuardar"  Grid.Row="0" Grid.Column="3" Content="Generar" HorizontalAlignment="Left"  VerticalAlignment="Center"  Width="90" Height="29"   Click="btnGuardar_Click"/>
+        <DatePicker Name="fechaFin"  Language="es-US" HorizontalAlignment="Center" VerticalAlignment="Center" materialDesign:HintAssist.Hint="Fecha Final" materialDesign:HintAssist.IsFloating="True" Width="148" Margin="428,78,302,538"   />
 
 
-        <WindowsFormsHost Grid.Row="1" HorizontalAlignment="Left"  Height="438" Margin="68,0,0,0" VerticalAlignment="Top" Width="746">
+
+        <WindowsFormsHost HorizontalAlignment="Center"  Height="417" Margin="67,171,65,0" VerticalAlignment="Top" Width="746">
             <rv:ReportViewer x:Name="ReporteTotalVentas"></rv:ReportViewer>
         </WindowsFormsHost>
+        <Button x:Name="btnGuardar" Content="Generar" HorizontalAlignment="Left" Margin="641,72,0,0" VerticalAlignment="Top" Width="107" Click="btnGuardar_Click"/>
+        <materialDesign:DialogHost IsOpen="False" x:Name="dialogoMENS" VerticalAlignment="Center" HorizontalAlignment="Center" >
+            <materialDesign:DialogHost.DialogContent>
+                <StackPanel Margin="15" Orientation="Vertical">
+                    <TextBlock x:Name="txtTextBlockDialogo" Text="Registro procesado"/>
+                    <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandTarget="{Binding ElementName=dialogoMENS}" 
+                        Style="{DynamicResource MaterialDesignFlatButton}" Content="Aceptar" Margin="0 10 0 0"/>
+                </StackPanel>
+            </materialDesign:DialogHost.DialogContent>
+        </materialDesign:DialogHost>
+
     </Grid>
 </Window>
