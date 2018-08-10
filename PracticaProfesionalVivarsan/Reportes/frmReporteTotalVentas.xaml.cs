@@ -14,6 +14,8 @@ using System.Windows.Shapes;
 using Logica;
 using Microsoft.Reporting.WinForms;
 using System.Data;
+using Entidad;
+
 namespace PracticaProfesionalVivarsan.Reportes
 {
     /// <summary>
@@ -34,18 +36,20 @@ namespace PracticaProfesionalVivarsan.Reportes
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
             FacturaVentasLogica pl = new FacturaVentasLogica();
+            Usuario usuario = new Usuario();
+            usuario = (Usuario)App.Current.Properties["usuarioSesion"];
             DataTable dt = pl.ReporteTotalVentas(fechaInicio.SelectedDate.Value, fechaFin.SelectedDate.Value);
 
             ReporteTotalVentas.Reset();
             ReportDataSource rd = new ReportDataSource("DataSet1", dt);
             ReporteTotalVentas.LocalReport.DataSources.Add(rd);
 
-            //   ReportParameter ReportParameter1 = new ReportParameter();
-            // ReportParameter1.Name = "paramUsuario";
-            //ReportParameter1.Values.Add(usuario.Nombre);
+            ReportParameter ReportParameter1 = new ReportParameter();
+            ReportParameter1.Name = "paramUsuario";
+            ReportParameter1.Values.Add(usuario.Nombre);
 
             ReporteTotalVentas.LocalReport.ReportEmbeddedResource = "PracticaProfesionalVivarsan.Reportes.ReporteTotalVentas.rdlc";
-            // ReporteTotalCompras.LocalReport.SetParameters(ReportParameter1);
+            ReporteTotalVentas.LocalReport.SetParameters(ReportParameter1);
             ReporteTotalVentas.RefreshReport();
         }
     }

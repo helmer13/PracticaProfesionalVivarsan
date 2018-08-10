@@ -11,7 +11,7 @@
         xmlns:local="clr-namespace:PracticaProfesionalVivarsan.Reportes"
         mc:Ignorable="d"
          xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
-        Title="ReporteTotalCompras" Height="670.098" Width="885.954" Loaded="Window_Loaded">
+        Title="ReporteTotalCompras" Height="670.098" Width="1087.934" Loaded="Window_Loaded">
     <Grid>
 
         <Grid.ColumnDefinitions>
@@ -30,14 +30,14 @@
             <RowDefinition  Height="100"/>
         </Grid.RowDefinitions>
 
-        <DatePicker Name="fechaInicio"  Grid.Row="0" Grid.Column="1"   Language="es-US" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha Inicio" materialDesign:HintAssist.IsFloating="True"   />
+        <DatePicker Name="fechaInicio"    Language="es-US" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha Inicio" materialDesign:HintAssist.IsFloating="True" Grid.Column="1" Margin="0,37,51,37"   />
 
-        <DatePicker Name="fechaFin"  Grid.Row="0" Grid.Column="2"   Language="es-US" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha Inicio" materialDesign:HintAssist.IsFloating="True"   />
+        <DatePicker Name="fechaFin"     Language="es-US" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha Inicio" materialDesign:HintAssist.IsFloating="True" Grid.Column="2" Margin="51,37,0,37"   />
 
-        <Button x:Name="btnGuardar"  Grid.Row="0" Grid.Column="3" Content="Generar" HorizontalAlignment="Left"  VerticalAlignment="Center"  Width="90" Height="29"   Click="btnGuardar_Click"/>
+        <Button x:Name="btnGuardar"   Content="Generar" HorizontalAlignment="Center"  VerticalAlignment="Center"  Width="90" Height="29"   Click="btnGuardar_Click" RenderTransformOrigin="-0.572,0.368" Margin="86,34,225,37" Grid.Column="3"/>
 
 
-        <WindowsFormsHost Grid.Row="1" HorizontalAlignment="Left"  Height="438" Margin="68,0,0,0" VerticalAlignment="Top" Width="746">
+        <WindowsFormsHost Grid.Row="1" HorizontalAlignment="Center"  Height="480" Margin="92,10,10,10" VerticalAlignment="Center" Width="902" Grid.ColumnSpan="4" Grid.RowSpan="5">
             <rv:ReportViewer x:Name="ReporteTotalCompras"></rv:ReportViewer>
         </WindowsFormsHost>
     </Grid>

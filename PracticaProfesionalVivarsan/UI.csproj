@@ -81,6 +81,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BDProyectoCCVDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\frmReporteClientes.xaml.cs">
+      <DependentUpon>frmReporteClientes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmReporteGastos.xaml.cs">
+      <DependentUpon>frmReporteGastos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmReporteInventario.xaml.cs">
+      <DependentUpon>frmReporteInventario.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\frmReporteProd.xaml.cs">
       <DependentUpon>frmReporteProd.xaml</DependentUpon>
     </Compile>
@@ -114,6 +123,9 @@
     <Compile Include="Paginas\PProducto.xaml.cs">
       <DependentUpon>PProducto.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\frmReporteProveedores.xaml.cs">
+      <DependentUpon>frmReporteProveedores.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\frmReporteTotalCompras.xaml.cs">
       <DependentUpon>frmReporteTotalCompras.xaml</DependentUpon>
     </Compile>
@@ -135,6 +147,18 @@
     <Page Include="frmProveedor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reportes\frmReporteClientes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Reportes\frmReporteGastos.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Reportes\frmReporteInventario.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Reportes\frmReporteProd.xaml">
       <SubType>Designer</SubType>
@@ -222,6 +246,10 @@
     <Page Include="Paginas\PVentaFacturacion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reportes\frmReporteProveedores.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Reportes\frmReporteTotalCompras.xaml">
       <SubType>Designer</SubType>
