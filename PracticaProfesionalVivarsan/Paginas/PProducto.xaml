@@ -60,22 +60,10 @@
         <TextBox x:Name="txtPrecioVenta" Grid.Row="3" Grid.Column="3" Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Precio Venta" materialDesign:HintAssist.IsFloating="True" PreviewTextInput="txtPrecioVenta_PreviewTextInput"/>
 
         <!--botones-->
-        <Button x:Name="btnGuardar"  Content="Guardar" Margin="-0 0 0 160" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left"  VerticalAlignment="Center"    Width="90" Height="29" Click="btnGuardar_Click"/>
+        <Button x:Name="btnGuardar"  Content="Guardar"  Grid.Row="3" Grid.Column="3" HorizontalAlignment="Left"  VerticalAlignment="Bottom"    Width="90" Height="29" Click="btnGuardar_Click"/>
         <TextBox x:Name="txtid" Visibility="Collapsed"  Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center"  VerticalAlignment="Center"   Height="23" TextWrapping="Wrap" Text="" Width="120"/>
        
-        <!--datagrid--><!--
-
-        <DataGrid x:Name="dataGridProductos" Margin="30,55,224,-34" Grid.Row="3" Grid.ColumnSpan="3" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="dataGridProductos_SelectionChanged"  VerticalAlignment="Top" Height="180" Grid.Column="1">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Código" Binding="{Binding IdProducto}" />
-                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" />
-                <DataGridTextColumn Header="Marca" Binding="{Binding Modelo.Marca}" />
-                <DataGridTextColumn Header="Modelo" Binding="{Binding Modelo}" />
-                <DataGridTextColumn Header="Precio Compra" Binding="{Binding PrecioCompra}" />
-                <DataGridTextColumn Header="Precio Venta" Binding="{Binding PrecioVenta}" />
-            </DataGrid.Columns>
-
-        </DataGrid>-->
+     
 
         <materialDesign:DialogHost IsOpen="False" x:Name="dialogo" Grid.ColumnSpan="4" Grid.RowSpan="4" Margin="0,0,-186,-132">
             <materialDesign:DialogHost.DialogContent>

@@ -67,6 +67,8 @@ namespace PracticaProfesionalVivarsan
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+  
+
             Usuario usuarioGlobal = new Usuario();
             usuarioGlobal = (Usuario)App.Current.Properties["usuarioSesion"];
             //lnlNombreUsuario.Content = "Usuario: " + usuarioGlobal.Nombre;
@@ -74,6 +76,7 @@ namespace PracticaProfesionalVivarsan
             btn4.Content = "Usuario: " + usuarioGlobal.Nombre;
 
             frame.Content = new PMenuLogo();
+
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -288,5 +291,7 @@ namespace PracticaProfesionalVivarsan
                 r.Show();
             }
         }
+
+        
     }
 }
