@@ -78,7 +78,7 @@
                     </Button.ContextMenu>
                 </Button>
 
-                <Button Content="Usuario" Margin="700 0 0 0" Height="50" HorizontalAlignment="Center"  Name="btn4" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" FontSize="16" Width="199" Click="button1_Click" >
+                <Button Content="Usuario" Margin="520 0 0 0" Height="50" HorizontalAlignment="Center"  Name="btn4" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" FontSize="16" Width="199" Click="button1_Click" >
 
                     <Button.ContextMenu>
                         <ContextMenu >
@@ -87,6 +87,9 @@
                         </ContextMenu>
                     </Button.ContextMenu>
                 </Button>
+
+                <Image Width="150" Height="150" Margin="15 -10 0 0" Source="/PracticaProfesionalVivarsan;component/imagenes/Background Transparent.png" />
+                
             </StackPanel>
 
             <!--<Label Content="" Height="55" Margin="1050 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Stretch"  Name="lnlNombreUsuario" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" Width="300" />-->
