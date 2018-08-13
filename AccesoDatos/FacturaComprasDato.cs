@@ -103,5 +103,23 @@ namespace AccesoDatos
 
             db.ExecuteNonQuery(comando);
         }
+
+        public static void RestoreBD(string ruta)
+        {
+            string str = "use master";
+            string str1 = "alter database BDProyectoCCV set SINGLE_USER WITH ROLLBACK IMMEDIATE;";
+            string str2 = "RESTORE DATABASE BDProyectoCCV FROM DISK = '"+ ruta +"' WITH REPLACE";
+
+            Database db = DatabaseFactory.CreateDatabase("Default");
+
+            SqlCommand comando = new SqlCommand(str);
+            SqlCommand comando1 = new SqlCommand(str1);
+            SqlCommand comando2 = new SqlCommand(str2);
+
+            db.ExecuteNonQuery(comando);
+            db.ExecuteNonQuery(comando1);
+            db.ExecuteNonQuery(comando2);
+        }
+
     }
 }

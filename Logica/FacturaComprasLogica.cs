@@ -82,5 +82,10 @@ namespace Logica
 
         }
 
+        public void RestoreDB( string ruta)
+        {
+            AccesoDatos.FacturaComprasDato.RestoreBD(ruta);
+        }
+
     }
 }

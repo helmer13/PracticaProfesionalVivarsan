@@ -14,6 +14,7 @@ using PracticaProfesionalVivarsan.Paginas;
 using System;
 using PracticaProfesionalVivarsan.Reportes;
 using System.IO;
+using Microsoft.Win32;
 
 namespace PracticaProfesionalVivarsan
 {
@@ -327,6 +328,46 @@ namespace PracticaProfesionalVivarsan
             dialogo.IsOpen = true;
             txtTextBlockDialogo.Text = "Backup realizado con éxito";
          
+        }
+
+        private void restore_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+
+           
+
+            OpenFileDialog open = new OpenFileDialog();
+          //  open.InitialDirectory = @"C:/";
+            open.Title = "Buscar respaldo";
+
+            open.CheckFileExists=true;
+            open.CheckPathExists = true;
+
+            open.DefaultExt = "BAK";
+            open.Filter = "Text files (*.bak)|*.bak";
+            open.FilterIndex = 2;
+            open.RestoreDirectory = true;
+
+            open.ReadOnlyChecked = true;
+            open.ShowReadOnly = true;
+
+            Nullable<bool> result1 = open.ShowDialog();
+
+            if (result1==true)
+            {
+                FacturaComprasLogica logica = new FacturaComprasLogica();
+                logica.RestoreDB(open.FileName);
+                dialogo.IsOpen = true;
+                txtTextBlockDialogo.Text = "Restore realizado con éxito";
+            }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
         }
     }
 }
