@@ -30,9 +30,9 @@ namespace PracticaProfesionalVivarsan.Paginas
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             fecha.SelectedDate = DateTime.Now;
-         
+
             Usuario usuario = new Usuario();
-        
+
 
             usuario = (Usuario)App.Current.Properties["usuarioSesion"];
             txtUsuario.Text = usuario.Nombre;
@@ -50,21 +50,61 @@ namespace PracticaProfesionalVivarsan.Paginas
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            Caja caja = new Caja();
+            if (string.IsNullOrEmpty(txtMonto.Text))
+            {
+                dialogo.IsOpen = true;
+                txtTextBlockDialogo.Text = "Debe digitar el monto de la caja";
+                return;
+            }
+
             Usuario usuario = new Usuario();
-            CajaLogica logica = new CajaLogica();
-
             usuario = (Usuario)App.Current.Properties["usuarioSesion"];
+            CajaLogica logica = new CajaLogica();
+            Caja cajaValidar = new Caja();
+            cajaValidar = logica.ObtenerCajaAbierta(usuario.Id);
 
+            if (cajaValidar.Estado == "ABIERTA")
+            {
+                dialogo.IsOpen = true;
+                txtTextBlockDialogo.Text = "La caja ya se encuentra abierta";
+                return;
+            }
+
+
+
+                Caja caja = new Caja();
             caja.Id = Guid.NewGuid().ToString();
-            caja.MontoApertura =Convert.ToDouble( txtMonto.Text);
+            caja.MontoApertura = Convert.ToDouble(txtMonto.Text);
             caja.FechaApertura = fecha.SelectedDate.Value;
             caja.Estado = "ABIERTA";
             caja.Usuario = usuario;
 
             logica.InsertarInsertaAbirCaja(caja);
 
-            MessageBox.Show("Se guardo con exito");
+            txtMonto.Text = string.Empty;
+
+            dialogo.IsOpen = true;
+            txtTextBlockDialogo.Text = "Registro procesado";
         }
+
+
+        private void txtMonto_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            bool approvedDecimalPoint = false;
+
+            if (e.Text == ",")
+            {
+                if (!((TextBox)sender).Text.Contains("."))
+                    approvedDecimalPoint = true;
+            }
+
+            if (!(char.IsDigit(e.Text, e.Text.Length - 1) || approvedDecimalPoint))
+            {
+                e.Handled = true;
+            }
+
+        }
+
     }
 }
+
