@@ -51,7 +51,7 @@
 
             <TextBox x:Name="txtAnno"  Grid.Row="2" Grid.Column="1"  Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Año" materialDesign:HintAssist.IsFloating="True" PreviewTextInput="txtAnno_PreviewTextInput"/>
 
-            <Button x:Name="btnGuardar" Content="Guardar"  Grid.Row="2" Grid.Column="3" Margin="0 0 15 0" HorizontalAlignment="Right"  VerticalAlignment="Center"    Width="90" Height="29" Click="btnGuardar_Click"/>
+            <Button x:Name="btnGuardar" Content="Guardar"  Grid.Row="2" Grid.Column="3" Margin="0 20 0 0" HorizontalAlignment="Left"  VerticalAlignment="Center"    Width="90" Height="29" Click="btnGuardar_Click"/>
 
 
 

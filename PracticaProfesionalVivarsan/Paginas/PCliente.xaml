@@ -50,10 +50,10 @@
             <TextBox x:Name="txtDireccion" Grid.Row="2" Grid.Column="3" Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Dirección" materialDesign:HintAssist.IsFloating="True" />
 
 
-            <TextBox x:Name="txtTelefono" Grid.Row="3" Grid.Column="1"  Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Teléfono" materialDesign:HintAssist.IsFloating="True" PreviewTextInput="txtTelefono_PreviewTextInput"/>
+            <TextBox x:Name="txtTelefono" Grid.Row="3" Grid.Column="1"  Width="200" Height="50" Margin="0 20 0 0"  HorizontalAlignment="Center"  VerticalAlignment="Top" materialDesign:HintAssist.Hint="Teléfono" materialDesign:HintAssist.IsFloating="True" PreviewTextInput="txtTelefono_PreviewTextInput"/>
 
             <!--botones-->
-            <Button x:Name="btnGuardar"  Content="Guardar"  Grid.Row="3" Grid.Column="3" HorizontalAlignment="Left"  VerticalAlignment="Center"   Width="90" Height="29" Click="btnGuardar_Click"/>
+            <Button x:Name="btnGuardar"  Content="Guardar"  Grid.Row="3" Grid.Column="3" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="0 45 0 0"  Width="90" Height="29" Click="btnGuardar_Click"/>
             <TextBox x:Name="txtid" Visibility="Collapsed"  Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center"  VerticalAlignment="Center"   Height="23" TextWrapping="Wrap" Text="" Width="120"/>
 
 

@@ -86,6 +86,11 @@ namespace PracticaProfesionalVivarsan.Paginas
                 List<Producto> listaAuxiliar = new List<Producto>();
                 lista = logica.obtenerProductos();
                 dataGridProductos.ItemsSource = lista;
+                if (rbCodigo.IsChecked.Value)
+                {
+                    listaAuxiliar = lista.Where(p => p.IdProducto.ToLower().Contains(txtBuscar.Text.ToLower())).ToList();
+                    dataGridProductos.ItemsSource = listaAuxiliar;
+                }
                 if (rbNombre.IsChecked.Value)
                 {
                     listaAuxiliar = lista.Where(p => p.Nombre.ToLower().Contains(txtBuscar.Text.ToLower())).ToList();
@@ -230,6 +235,7 @@ namespace PracticaProfesionalVivarsan.Paginas
 
             lista.RemoveAt(index);
             dataGridLineaDetalle.ItemsSource = lista;
+            txtSubTotal.Text= this.ActializarTotal();
         }
 
 
@@ -371,6 +377,18 @@ namespace PracticaProfesionalVivarsan.Paginas
             List<Inventario> listaInventario = new List<Inventario>();
         }
 
-      
+      private string ActializarTotal()
+        {
+            txtSubTotal.Text = string.Empty;
+            var data = dataGridLineaDetalle.ItemsSource as List<LineaDetalleCompras>;
+            double total = 0;
+            for (int i = 0; i < listaDetalle.Count; i++)
+            {
+                total += listaDetalle[i].SubTotal;
+
+            }
+            
+            return total.ToString();
+        }
     }
 }

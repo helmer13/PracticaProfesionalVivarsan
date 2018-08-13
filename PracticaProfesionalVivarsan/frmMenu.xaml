@@ -11,7 +11,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PracticaProfesionalVivarsan"
        mc:Ignorable="d" Height="768" Width="1366" ResizeMode="NoResize" Title="Repuestos Vini"
-        WindowStartupLocation="CenterScreen" WindowStyle="SingleBorderWindow" WindowState="Maximized" Loaded="Window_Loaded" Closing="Window_Closing">
+        WindowStartupLocation="CenterScreen" WindowStyle="SingleBorderWindow" WindowState="Maximized" Loaded="Window_Loaded" Closing="Window_Closing" >
     <Window.Resources>
         <Style x:Key="{x:Type ContextMenu}" TargetType="{x:Type ContextMenu}">
             <Setter Property="OverridesDefaultStyle" Value="True"/>

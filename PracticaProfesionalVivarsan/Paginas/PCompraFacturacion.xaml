@@ -80,15 +80,16 @@
                                     <ColumnDefinition Width="100"/>
                                     <ColumnDefinition Width="100"/>
                                     <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="100"/>
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
                                     <RowDefinition  Height="50"/>
 
                                 </Grid.RowDefinitions>
-
-                                <RadioButton x:Name="rbNombre" GroupName="rbBuscar" Grid.Row="0" Grid.Column="0" Content="Nombre" Margin="10"  />
-                                <RadioButton x:Name="rbMarca" GroupName="rbBuscar"  Grid.Row="0" Grid.Column="1" Content="Marca" Margin="10"  />
-                                <RadioButton x:Name="rbModelo" GroupName="rbBuscar"  Grid.Row="0" Grid.Column="2" Content="Modelo" Margin="10"  />
+                                <RadioButton x:Name="rbCodigo" GroupName="rbBuscar" Grid.Row="0" Grid.Column="0" Content="Código" Margin="10"  />
+                                <RadioButton x:Name="rbNombre" GroupName="rbBuscar" Grid.Row="0" Grid.Column="1" Content="Nombre" Margin="10"  />
+                                <RadioButton x:Name="rbMarca" GroupName="rbBuscar"  Grid.Row="0" Grid.Column="2" Content="Marca" Margin="10"  />
+                                <RadioButton x:Name="rbModelo" GroupName="rbBuscar"  Grid.Row="0" Grid.Column="3" Content="Modelo" Margin="10"  />
                             </Grid>
 
 

@@ -196,6 +196,7 @@ namespace PracticaProfesionalVivarsan.Paginas
 
             lista.RemoveAt(index);
             dataGridLineaDetalle.ItemsSource = lista;
+            txtSubTotal.Text = this.ActializarTotal();
         }
 
         private void Refrescar()
@@ -208,21 +209,27 @@ namespace PracticaProfesionalVivarsan.Paginas
                 Usuario usuarioGlobal = (Usuario)App.Current.Properties["usuarioSesion"];
                 lista = logica.obtenerInventario(usuarioGlobal.Empresa.IdEmpresa);
                 dataGridProductos.ItemsSource = lista;
-                //if (rbNombre.IsChecked.Value)
-                //{
-                //    listaAuxiliar = lista.Where(p => p.Nombre.ToLower().Contains(txtBuscar.Text.ToLower())).ToList();
-                //    dataGridProductos.ItemsSource = listaAuxiliar;
-                //}
-                //if (rbMarca.IsChecked.Value)
-                //{
-                //    listaAuxiliar = lista.Where(p => p.Modelo.Marca.Descripcion.ToLower().Contains(txtBuscar.Text.ToLower())).ToList();
-                //    dataGridProductos.ItemsSource = listaAuxiliar;
-                //}
-                //if (rbModelo.IsChecked.Value)
-                //{
-                //    listaAuxiliar = lista.Where(p => p.Modelo.NombreCompleto.ToLower().Contains(txtBuscar.Text.ToLower())).ToList();
-                //    dataGridProductos.ItemsSource = listaAuxiliar;
-                //}
+
+                if (rbCodigo.IsChecked.Value)
+                {
+                    listaAuxiliar = lista.Where(p => p.Producto.IdProducto.ToLower().Contains(txtBuscar.Text.ToLower())).ToList();
+                    dataGridProductos.ItemsSource = listaAuxiliar;
+                }
+                if (rbNombre.IsChecked.Value)
+                {
+                    listaAuxiliar = lista.Where(p => p.Producto.Nombre.ToLower().Contains(txtBuscar.Text.ToLower())).ToList();
+                    dataGridProductos.ItemsSource = listaAuxiliar;
+                }
+                if (rbMarca.IsChecked.Value)
+                {
+                    listaAuxiliar = lista.Where(p => p.Producto.Modelo.Marca.Descripcion.ToLower().Contains(txtBuscar.Text.ToLower())).ToList();
+                    dataGridProductos.ItemsSource = listaAuxiliar;
+                }
+                if (rbModelo.IsChecked.Value)
+                {
+                    listaAuxiliar = lista.Where(p => p.Producto.Modelo.NombreCompleto.ToLower().Contains(txtBuscar.Text.ToLower())).ToList();
+                    dataGridProductos.ItemsSource = listaAuxiliar;
+                }
 
 
             }
@@ -340,6 +347,19 @@ namespace PracticaProfesionalVivarsan.Paginas
 
             if (!(char.IsDigit(e.Text, e.Text.Length - 1) || approvedDecimalPoint))
                 e.Handled = true;
+        }
+          private string ActializarTotal()
+        {
+            txtSubTotal.Text = string.Empty;
+            var data = dataGridLineaDetalle.ItemsSource as List<LineaDetalleVentas>;
+            double total = 0;
+            for (int i = 0; i < listaDetalle.Count; i++)
+            {
+                total += listaDetalle[i].SubTotal;
+
+            }
+            
+            return total.ToString();
         }
     }
 }
