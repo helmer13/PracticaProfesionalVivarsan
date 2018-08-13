@@ -89,7 +89,7 @@
 
             </DataGrid>
 
-            <Button x:Name="btnGuardar" Content="Procesar"  Grid.Row="0" Grid.Column="3" Margin="0 0 0 0" HorizontalAlignment="Left"  VerticalAlignment="Center"    Width="100" Height="29" Click="btnGuardar_Click"/>
+            <Button x:Name="btnGuardar" Content="Procesar"  Grid.Row="5" Grid.Column="3" Margin="160 0 0 0" HorizontalAlignment="Left"  VerticalAlignment="Center"    Width="100" Height="29" Click="btnGuardar_Click"/>
 
 
 
