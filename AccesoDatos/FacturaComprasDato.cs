@@ -91,5 +91,17 @@ namespace AccesoDatos
             return dt;
 
         }
+
+
+        public static void BackUpUsuario()
+        {
+
+            string comandoBackUp = "BACKUP DATABASE[BDProyectoCCV] TO DISK = N'C:\\backupCCV\\backUp_backupCCV.bak' WITH NOFORMAT, NOINIT, NAME = N'BDProyectoCCV-Full Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10";
+            Database db = DatabaseFactory.CreateDatabase("Default");
+
+            SqlCommand comando = new SqlCommand(comandoBackUp);
+
+            db.ExecuteNonQuery(comando);
+        }
     }
 }

@@ -74,5 +74,13 @@ namespace Logica
         {
             return AccesoDatos.FacturaComprasDato.ReporteTotalComprasProv(fechaInicio, fechaFin,  id);
         }
+
+
+        public void GuardarBackUp()
+        {
+            AccesoDatos.FacturaComprasDato.BackUpUsuario();
+
+        }
+
     }
 }

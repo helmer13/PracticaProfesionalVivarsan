@@ -74,15 +74,37 @@ namespace PracticaProfesionalVivarsan.Paginas
         {
             try
             {
-                Caja cajaCerrar = new Caja();
+                if (string.IsNullOrEmpty(txtTotalEfectivoCaja.Text))
+                {
+                    dialogo.IsOpen = true;
+                    txtTextBlockDialogo.Text = "Debe de insertar el total del efectivo de la caja";
+                    txtTotalEfectivoCaja.Focus();
+                    return;
+                }
 
                 Usuario usuario = new Usuario();
+                usuario = (Usuario)App.Current.Properties["usuarioSesion"];
+                CajaLogica logica = new CajaLogica();
+                Caja caja = new Caja();
+                caja = logica.ObtenerCajaAbierta(usuario.Id);
+
+                if (caja.Estado == "CERRADO")
+                {
+                    dialogo.IsOpen = true;
+                    txtTextBlockDialogo.Text = "La caja ya se encuentra cerrada";
+                    return;
+                }
+
+
+                Caja cajaCerrar = new Caja();
+
+               
                 TotalesCierreCaja totales = new TotalesCierreCaja();
 
-                usuario = (Usuario)App.Current.Properties["usuarioSesion"];
+              
                 txtUsuario.Text = usuario.Nombre;
 
-                CajaLogica logica = new CajaLogica();
+             
                 totales = logica.ObtenerTotalesCierrreCaja(fechaCierre.SelectedDate.Value,fechaCierre.SelectedDate.Value, usuario.Id);
 
                 cajaCerrar.Id = totales.Id;

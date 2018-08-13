@@ -84,6 +84,7 @@
                         <ContextMenu >
                             <MenuItem  Foreground="Snow" Header="Cerrar Sesión" Click="MenuItem_Click" />
                             <MenuItem  Name="UsuarioMantenimientoPersonal"  Foreground="Snow" Header="Usuario" Click="UsuarioMantenimientoPersonal_Click" />
+                            <MenuItem  Name="backup"  Foreground="Snow" Header="Backup" Click="backup_Click" />
                         </ContextMenu>
                     </Button.ContextMenu>
                 </Button>

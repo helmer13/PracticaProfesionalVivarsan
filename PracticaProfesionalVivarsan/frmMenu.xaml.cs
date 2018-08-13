@@ -13,6 +13,7 @@ using Logica;
 using PracticaProfesionalVivarsan.Paginas;
 using System;
 using PracticaProfesionalVivarsan.Reportes;
+using System.IO;
 
 namespace PracticaProfesionalVivarsan
 {
@@ -315,6 +316,17 @@ namespace PracticaProfesionalVivarsan
                 frmReporteCajas r = new frmReporteCajas();
                 r.Show();
             }
+        }
+
+        private void backup_Click(object sender, RoutedEventArgs e)
+        {
+            FacturaComprasLogica logica = new FacturaComprasLogica();
+
+            File.Delete("C:\\backupCCV\\backUp_backupCCV.bak");
+            logica.GuardarBackUp();
+            dialogo.IsOpen = true;
+            txtTextBlockDialogo.Text = "Backup realizado con éxito";
+         
         }
     }
 }
