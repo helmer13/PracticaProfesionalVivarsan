@@ -20,6 +20,7 @@ namespace PracticaProfesionalVivarsan.Reportes
     /// </summary>
     public partial class frmReporteComprasProveedor : Window
     {
+        private string error = "";
         public frmReporteComprasProveedor()
         {
             InitializeComponent();
@@ -79,7 +80,24 @@ namespace PracticaProfesionalVivarsan.Reportes
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-
+            if (Validaciones() == true)
+            {
+                txtTextBlockDialogo.Text = error;
+                dialogoMENS.IsOpen = true;
+                return;
+            }
+            else
+            {
+                frmComprasProveedor frm = new frmComprasProveedor();
+                FacturaComprasLogica log = new FacturaComprasLogica();
+                ProveedorLogica pl = new ProveedorLogica();
+                Proveedor p = pl.obtenerProveedor(txtId.Text);
+                DateTime inicio = fechaInicio.SelectedDate.Value;
+                DateTime fin = fechaFin.SelectedDate.Value;
+                frm.GenerarReporte(p.NombreProveedor, log.ReporteTotalComprasProv(inicio, fin, p.Id), inicio, fin);
+                frm.Show();
+            }
+                
         }
 
         private void Refrescar()
@@ -88,6 +106,28 @@ namespace PracticaProfesionalVivarsan.Reportes
             List<Proveedor> lista = new List<Proveedor>();
             lista = logica.obtenerProveedores();
             dataGrid.ItemsSource = lista;
+            
+        }
+
+        private Boolean Validaciones()
+        {
+            Boolean bandera = false;
+            if (string.IsNullOrEmpty(txtId.Text))
+            {
+                error = "Debe elegir un proveedor de la lista.";
+                bandera = true;
+            }
+            if (string.IsNullOrEmpty(fechaInicio.Text))
+            {
+                error = "Debe digitar la fecha de inicio.";
+                bandera = true;
+            }
+            if (string.IsNullOrEmpty(fechaFin.Text))
+            {
+                error = "Debe digitar la fecha final.";
+                bandera = true;
+            }
+            return bandera;
         }
     }
 }

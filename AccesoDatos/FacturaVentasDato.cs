@@ -94,5 +94,39 @@ namespace AccesoDatos
             return dt;
 
         }
+        public static DataTable ReporteTotalVentasCl(DateTime fecha1, DateTime fecha2, string id)
+        {
+
+            Database db = DatabaseFactory.CreateDatabase("Default");
+            DataTable dt = new DataTable();
+            SqlCommand comando = new SqlCommand("SPR_REPORTE_VENTAS_CLIENTE");
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@FECHAINICIO", fecha1);
+            comando.Parameters.AddWithValue("@FECHAFIN", fecha2);
+            comando.Parameters.AddWithValue("@IDCLIENTE", id);
+            DataSet ds = db.ExecuteReader(comando, "facturas");
+
+            SqlDataAdapter adp = new SqlDataAdapter(comando);
+            adp.Fill(dt);
+            return dt;
+
+        }
+
+        public static DataTable ReporteDevoluciones(DateTime fecha1, DateTime fecha2)
+        {
+
+            Database db = DatabaseFactory.CreateDatabase("Default");
+            DataTable dt = new DataTable();
+            SqlCommand comando = new SqlCommand("SPR_REPORTEDEVOLUCIONES");
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@FECHAINICIO", fecha1);
+            comando.Parameters.AddWithValue("@FECHAFIN", fecha2);
+            DataSet ds = db.ExecuteReader(comando, "facturas");
+
+            SqlDataAdapter adp = new SqlDataAdapter(comando);
+            adp.Fill(dt);
+            return dt;
+
+        }
     }
 }

@@ -81,11 +81,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BDProyectoCCVDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="BDProyectoCCVDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BDProyectoCCVDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmComprasProveedor.xaml.cs">
+      <DependentUpon>frmComprasProveedor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\frmReporteClientes.xaml.cs">
       <DependentUpon>frmReporteClientes.xaml</DependentUpon>
     </Compile>
     <Compile Include="Reportes\frmReporteComprasProveedor.xaml.cs">
       <DependentUpon>frmReporteComprasProveedor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmReporteDevoluciones.xaml.cs">
+      <DependentUpon>frmReporteDevoluciones.xaml</DependentUpon>
     </Compile>
     <Compile Include="Reportes\frmReporteGastos.xaml.cs">
       <DependentUpon>frmReporteGastos.xaml</DependentUpon>
@@ -138,6 +149,9 @@
     <Compile Include="Reportes\frmReporteVentasCliente.xaml.cs">
       <DependentUpon>frmReporteVentasCliente.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\frmVentasCliente.xaml.cs">
+      <DependentUpon>frmVentasCliente.xaml</DependentUpon>
+    </Compile>
     <Page Include="frmCliente.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -154,11 +168,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Reportes\frmComprasProveedor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Reportes\frmReporteClientes.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Reportes\frmReporteComprasProveedor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reportes\frmReporteDevoluciones.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -273,6 +295,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Reportes\frmVentasCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Paginas\PProveedor.xaml.cs">
@@ -302,12 +328,15 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\ReporteClientes.rdlc" />
+    <EmbeddedResource Include="Reportes\ReporteComprasProveedor.rdlc" />
+    <EmbeddedResource Include="Reportes\ReporteDevoluciones.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteGastos.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteInventario.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteProductos.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteProveedores.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteTotalCompras.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteTotalVentas.rdlc" />
+    <EmbeddedResource Include="Reportes\ReporteVentasCliente.rdlc" />
     <None Include="BDProyectoCCVDataSet.xsc">
       <DependentUpon>BDProyectoCCVDataSet.xsd</DependentUpon>
     </None>
@@ -329,6 +358,17 @@
     </None>
     <None Include="BDProyectoCCVDataSet1.xss">
       <DependentUpon>BDProyectoCCVDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="BDProyectoCCVDataSet2.xsc">
+      <DependentUpon>BDProyectoCCVDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="BDProyectoCCVDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BDProyectoCCVDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BDProyectoCCVDataSet2.xss">
+      <DependentUpon>BDProyectoCCVDataSet2.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

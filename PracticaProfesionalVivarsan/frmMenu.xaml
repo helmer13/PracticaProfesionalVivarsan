@@ -72,6 +72,8 @@
                             <MenuItem Name="ReporteTotalVentas" Foreground="Snow" Header="Total Ventas" Click="ReporteTotalVentas_Click"/>
                             <MenuItem Name="ReporteComprasProveedor" Foreground="Snow" Header="Compras x Proveedor" Click="ReporteComprasProveedor_Click"/>
                             <MenuItem Name="ReporteVentasCliente" Foreground="Snow" Header="Ventas x Cliente" Click="ReporteVentasCliente_Click"/>
+                            <MenuItem Name="ReporteDevoluciones" Foreground="Snow" Header="Devoluciones" Click="ReporteDevoluciones_Click"/>
+                            <MenuItem Name="ReporteCajas" Foreground="Snow" Header="Aperturas y Cierre de Caja" Click="ReporteCajas_Click"/>
                         </ContextMenu>
                     </Button.ContextMenu>
                 </Button>

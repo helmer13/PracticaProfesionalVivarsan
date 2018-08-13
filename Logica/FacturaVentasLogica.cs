@@ -81,5 +81,14 @@ namespace Logica
         {
             return AccesoDatos.FacturaVentasDato.ReporteTotalVentas(fechaInicio, fechaFin);
         }
+
+        public DataTable ReporteTotalVentasCl(DateTime fechaInicio, DateTime fechaFin, string id)
+        {
+            return AccesoDatos.FacturaVentasDato.ReporteTotalVentasCl(fechaInicio, fechaFin, id);
+        }
+        public DataTable ReporteDevoluciones(DateTime fechaInicio, DateTime fechaFin)
+        {
+            return AccesoDatos.FacturaVentasDato.ReporteDevoluciones(fechaInicio, fechaFin);
+        }
     }
 }

@@ -58,6 +58,14 @@
 
         <DatePicker Name="fechaFin" Grid.Row="2" Grid.Column="2" Margin="0 0 150 0 " Language="es-US" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha Final" materialDesign:HintAssist.IsFloating="True"  />
         <Button x:Name="btnGuardar" Content="Generar"  Grid.Row="2" Grid.Column="2"  HorizontalAlignment="Right"  VerticalAlignment="Bottom" Width="117" Click="btnGuardar_Click" Margin="0,0,0,85"/>
-
+        <materialDesign:DialogHost IsOpen="False" x:Name="dialogoMENS" VerticalAlignment="Center" HorizontalAlignment="Center" >
+            <materialDesign:DialogHost.DialogContent>
+                <StackPanel Margin="15" Orientation="Vertical">
+                    <TextBlock x:Name="txtTextBlockDialogo" Text="Registro procesado"/>
+                    <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandTarget="{Binding ElementName=dialogoMENS}" 
+                        Style="{DynamicResource MaterialDesignFlatButton}" Content="Aceptar" Margin="0 10 0 0"/>
+                </StackPanel>
+            </materialDesign:DialogHost.DialogContent>
+        </materialDesign:DialogHost>
     </Grid>
 </Window>

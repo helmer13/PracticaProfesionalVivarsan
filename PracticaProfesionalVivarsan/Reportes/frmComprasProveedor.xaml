@@ -1,0 +1,16 @@
+﻿<Window x:Class="PracticaProfesionalVivarsan.Reportes.frmComprasProveedor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
+        xmlns:local="clr-namespace:PracticaProfesionalVivarsan.Reportes"
+        mc:Ignorable="d"
+        Title="Compras Por Proveedor" Height="740.388" Width="1134.465">
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <WindowsFormsHost HorizontalAlignment="Left" Height="635" Margin="-528,-315,-533,-320" VerticalAlignment="Top" Width="1061" RenderTransformOrigin="0.5,0.5">
+            <rv:ReportViewer x:Name="ReporteCP"></rv:ReportViewer>
+        </WindowsFormsHost>
+
+    </Grid>
+</Window>

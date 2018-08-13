@@ -20,6 +20,7 @@ namespace PracticaProfesionalVivarsan.Reportes
     /// </summary>
     public partial class frmReporteVentasCliente : Window
     {
+        private string error = "";
         public frmReporteVentasCliente()
         {
             InitializeComponent();
@@ -110,7 +111,43 @@ namespace PracticaProfesionalVivarsan.Reportes
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-
+            if (Validaciones() == true)
+            {
+                txtTextBlockDialogo.Text = error;
+                dialogoMENS.IsOpen = true;
+                return;
+            }
+            else
+            {                
+                frmVentasCliente frm = new frmVentasCliente();
+                FacturaVentasLogica log = new FacturaVentasLogica();
+                ClienteLogica pl = new ClienteLogica();
+                Cliente c = pl.obtenerCliente(txtId.Text);
+                DateTime inicio = fechaInicio.SelectedDate.Value;
+                DateTime fin = fechaFin.SelectedDate.Value;
+                frm.GenerarReporte(c.Nombre, log.ReporteTotalVentasCl(inicio, fin, c.Id), inicio, fin);
+                frm.Show();
+            }
+        }
+        private Boolean Validaciones()
+        {
+            Boolean bandera = false;
+            if (string.IsNullOrEmpty(txtId.Text))
+            {
+                error = "Debe elegir un proveedor de la lista.";
+                bandera = true;
+            }
+            if (string.IsNullOrEmpty(fechaInicio.Text))
+            {
+                error = "Debe digitar la fecha de inicio.";
+                bandera = true;
+            }
+            if (string.IsNullOrEmpty(fechaFin.Text))
+            {
+                error = "Debe digitar la fecha final.";
+                bandera = true;
+            }
+            return bandera;
         }
     }
 }

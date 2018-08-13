@@ -70,5 +70,9 @@ namespace Logica
         {
             return AccesoDatos.FacturaComprasDato.ReporteTotalCompras(fechaInicio,fechaFin);
         }
+        public DataTable ReporteTotalComprasProv(DateTime fechaInicio, DateTime fechaFin, string id)
+        {
+            return AccesoDatos.FacturaComprasDato.ReporteTotalComprasProv(fechaInicio, fechaFin,  id);
+        }
     }
 }

@@ -56,7 +56,7 @@ namespace AccesoDatos
             SqlCommand comando = new SqlCommand("SPR_PROVEEDOR_VISTA");
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@TIPOCONSULTA", "IDPROVEEDOR");
-            comando.Parameters.AddWithValue("@IDCLIENTE", idProveedor);
+            comando.Parameters.AddWithValue("@IDPROVEEDOR", idProveedor);
 
             DataSet ds = db.ExecuteReader(comando, "proveedor");
             return ds;

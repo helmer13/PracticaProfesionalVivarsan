@@ -288,5 +288,21 @@ namespace PracticaProfesionalVivarsan
                 r.Show();
             }
         }
+
+        private void ReporteDevoluciones_Click(object sender, RoutedEventArgs e)
+        {
+            Usuario usuarioGlobal = new Usuario();
+            usuarioGlobal = (Usuario)App.Current.Properties["usuarioSesion"];
+            if (usuarioGlobal.Tipo == "Administrador")
+            {
+                frmReporteDevoluciones r = new frmReporteDevoluciones();
+                r.Show();
+            }
+        }
+
+        private void ReporteCajas_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

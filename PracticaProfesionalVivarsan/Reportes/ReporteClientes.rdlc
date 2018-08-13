@@ -6,19 +6,19 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>2.881cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>4.13216cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>3.09572cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>2.74871cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>2.74871cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -36,8 +36,8 @@
                             <TextRun>
                               <Value>Identificación</Value>
                               <Style>
+                                <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
-                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -52,7 +52,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
-                        <BackgroundColor>RoyalBlue</BackgroundColor>
+                        <BackgroundColor>DodgerBlue</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -72,8 +72,8 @@
                             <TextRun>
                               <Value>Nombre</Value>
                               <Style>
+                                <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
-                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -88,7 +88,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
-                        <BackgroundColor>RoyalBlue</BackgroundColor>
+                        <BackgroundColor>DodgerBlue</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -108,8 +108,8 @@
                             <TextRun>
                               <Value>Correo</Value>
                               <Style>
+                                <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
-                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -124,7 +124,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
-                        <BackgroundColor>RoyalBlue</BackgroundColor>
+                        <BackgroundColor>DodgerBlue</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -144,8 +144,8 @@
                             <TextRun>
                               <Value>Dirección</Value>
                               <Style>
+                                <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
-                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -160,7 +160,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
-                        <BackgroundColor>RoyalBlue</BackgroundColor>
+                        <BackgroundColor>DodgerBlue</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -180,8 +180,8 @@
                             <TextRun>
                               <Value>Teléfono</Value>
                               <Style>
+                                <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
-                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -196,7 +196,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
-                        <BackgroundColor>RoyalBlue</BackgroundColor>
+                        <BackgroundColor>DodgerBlue</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -384,10 +384,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>1.42558cm</Top>
-        <Left>2.23636cm</Left>
+        <Top>0.60537cm</Top>
+        <Left>0.64581cm</Left>
         <Height>1.2cm</Height>
-        <Width>12.5cm</Width>
+        <Width>15.6063cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -401,7 +401,7 @@
   <Width>6.74342in</Width>
   <Page>
     <PageHeader>
-      <Height>4.4337cm</Height>
+      <Height>3.87808cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -454,8 +454,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox14</rd:DefaultName>
-          <Top>2.27969cm</Top>
-          <Left>0.37073cm</Left>
+          <Top>1.35365cm</Top>
+          <Left>12.89558cm</Left>
           <Height>0.6cm</Height>
           <Width>1.20354cm</Width>
           <ZIndex>1</ZIndex>
@@ -484,8 +484,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox15</rd:DefaultName>
-          <Top>3.20573cm</Top>
-          <Left>0.37073cm</Left>
+          <Top>2.27969cm</Top>
+          <Left>12.89558cm</Left>
           <Height>0.6cm</Height>
           <Width>1.20354cm</Width>
           <ZIndex>2</ZIndex>
@@ -516,8 +516,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>ExecutionTime</rd:DefaultName>
-          <Top>2.27969cm</Top>
-          <Left>1.57427cm</Left>
+          <Top>1.35365cm</Top>
+          <Left>14.09912cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <ZIndex>3</ZIndex>
@@ -548,8 +548,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>ExecutionTime1</rd:DefaultName>
-          <Top>3.20573cm</Top>
-          <Left>1.57427cm</Left>
+          <Top>2.27969cm</Top>
+          <Left>14.09912cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <ZIndex>4</ZIndex>
@@ -567,8 +567,7 @@
           <Source>Embedded</Source>
           <Value>BackgroundTransparent</Value>
           <Sizing>FitProportional</Sizing>
-          <Top>1.42557cm</Top>
-          <Left>12.23636cm</Left>
+          <Top>0.84536cm</Top>
           <Height>3.00813cm</Height>
           <Width>4.36276cm</Width>
           <ZIndex>5</ZIndex>
@@ -578,18 +577,6 @@
             </Border>
           </Style>
         </Image>
-      </ReportItems>
-      <Style>
-        <Border>
-          <Style>None</Style>
-        </Border>
-      </Style>
-    </PageHeader>
-    <PageFooter>
-      <Height>2.54cm</Height>
-      <PrintOnFirstPage>true</PrintOnFirstPage>
-      <PrintOnLastPage>true</PrintOnLastPage>
-      <ReportItems>
         <Textbox Name="Textbox19">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
@@ -605,10 +592,11 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox19</rd:DefaultName>
-          <Top>0.52021cm</Top>
-          <Left>0.37073cm</Left>
+          <Top>2.98552cm</Top>
+          <Left>10.43905cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
+          <ZIndex>6</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -634,11 +622,11 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>paramUsuario</rd:DefaultName>
-          <Top>0.52021cm</Top>
-          <Left>3.04712cm</Left>
+          <Top>2.98552cm</Top>
+          <Left>12.93905cm</Left>
           <Height>0.6cm</Height>
           <Width>4.18924cm</Width>
-          <ZIndex>1</ZIndex>
+          <ZIndex>7</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -649,6 +637,18 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageHeader>
+    <PageFooter>
+      <Height>2.54cm</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
         <Textbox Name="PageNumber">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
@@ -668,7 +668,6 @@
           <Left>14.09912cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
-          <ZIndex>2</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>

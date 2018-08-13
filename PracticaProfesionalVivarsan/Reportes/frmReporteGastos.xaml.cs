@@ -67,12 +67,15 @@ namespace PracticaProfesionalVivarsan.Reportes
                 ReportDataSource rd = new ReportDataSource("DataSet1", dt);
                 ReportGastos.LocalReport.DataSources.Add(rd);
 
-                ReportParameter ReportParameter1 = new ReportParameter();
-                ReportParameter1.Name = "paramUsuario";
-                ReportParameter1.Values.Add(usuario.Nombre);
+                //Array que contendrá los parámetros
+                ReportParameter[] parameters = new ReportParameter[3];
+                //Establecemos el valor de los parámetros
+                parameters[0] = new ReportParameter("paramUsuario", usuario.Nombre);
+                parameters[1] = new ReportParameter("fechaInicio", fechaInicio.SelectedDate.Value.ToString());
+                parameters[2] = new ReportParameter("fechaFin", fechaFin.SelectedDate.Value.ToString());
 
                 ReportGastos.LocalReport.ReportEmbeddedResource = "PracticaProfesionalVivarsan.Reportes.ReporteGastos.rdlc";
-                ReportGastos.LocalReport.SetParameters(ReportParameter1);
+                ReportGastos.LocalReport.SetParameters(parameters);
                 ReportGastos.RefreshReport();
             }
         }
