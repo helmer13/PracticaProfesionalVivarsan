@@ -116,7 +116,8 @@ namespace PracticaProfesionalVivarsan
 
             if (caja.Id == null)
             {
-                MessageBox.Show("La caja no se encuentra abierta");
+                dialogo.IsOpen = true;
+                txtTextBlockDialogo.Text = "La caja no se encuentra abierta";
                 return;
 
             }
@@ -124,7 +125,8 @@ namespace PracticaProfesionalVivarsan
             {
                 if (caja.FechaApertura.Date<caja.FechaCierre.Date)
                 {
-                    MessageBox.Show("No puedes facturar ventas un dia despues de haber abierto la caja");
+                    dialogo.IsOpen = true;
+                    txtTextBlockDialogo.Text = "No puedes facturar ventas un día después de haber abierto la caja";
                     return;
                 }
 
@@ -143,7 +145,8 @@ namespace PracticaProfesionalVivarsan
 
             if (caja.Id == null)
             {
-                MessageBox.Show("La caja no se encuentra abierta");
+                dialogo.IsOpen = true;
+                txtTextBlockDialogo.Text = "La caja no se encuentra abierta";
                 return;
 
             }
@@ -151,7 +154,8 @@ namespace PracticaProfesionalVivarsan
             {
                 if (caja.FechaApertura.Date < caja.FechaCierre.Date)
                 {
-                    MessageBox.Show("No puedes ingresar gastos un dia despues de haber abierto la caja");
+                    dialogo.IsOpen = true;
+                    txtTextBlockDialogo.Text = "No puedes facturar gastos un día después de haber abierto la caja";
                     return;
                 }
 
@@ -180,7 +184,8 @@ namespace PracticaProfesionalVivarsan
 
             if (caja.Id == null)
             {
-                MessageBox.Show("La caja no se encuentra abierta");
+                dialogo.IsOpen = true;
+                txtTextBlockDialogo.Text = "La caja no se encuentra abierta";
                 return;
 
             }
@@ -303,7 +308,13 @@ namespace PracticaProfesionalVivarsan
 
         private void ReporteCajas_Click(object sender, RoutedEventArgs e)
         {
-
+            Usuario usuarioGlobal = new Usuario();
+            usuarioGlobal = (Usuario)App.Current.Properties["usuarioSesion"];
+            if (usuarioGlobal.Tipo == "Administrador")
+            {
+                frmReporteCajas r = new frmReporteCajas();
+                r.Show();
+            }
         }
     }
 }

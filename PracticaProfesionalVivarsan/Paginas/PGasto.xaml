@@ -32,12 +32,12 @@
         </Grid.RowDefinitions>
 
         <TextBlock Text="Gastos" Margin="0 0 0 30"  HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" FontSize="22" />
-        <TextBlock Text="Gestion de los gastos del día" Grid.Row="0" Grid.Column="1"  Grid.ColumnSpan="2" Margin="0 0 0 30" HorizontalAlignment="Left" VerticalAlignment="Bottom" Style="{StaticResource MaterialDesignSubheadingTextBlock}" />
+        <TextBlock Text="Gestión de los gastos del día" Grid.Row="0" Grid.Column="1"  Grid.ColumnSpan="2" Margin="0 0 0 30" HorizontalAlignment="Left" VerticalAlignment="Bottom" Style="{StaticResource MaterialDesignSubheadingTextBlock}" />
 
 
         <TextBox x:Name="txtTipo" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center"   VerticalAlignment="Center" Width="200" Height="50"   materialDesign:HintAssist.Hint="Tipo de Gasto" materialDesign:HintAssist.IsFloating="True"/>
        
-        <DatePicker Name="fecha"  Grid.Row="1" Grid.Column="3" IsEnabled="False"  Language="es-US" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha factura" materialDesign:HintAssist.IsFloating="True"   />
+        <DatePicker Name="fecha"  Grid.Row="1" Grid.Column="3" IsEnabled="False"  Language="es-ES" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha factura" materialDesign:HintAssist.IsFloating="True"   />
 
         <TextBox x:Name="txtDescripcion"  Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  Width="200" Height="60" TextWrapping="Wrap" AcceptsReturn="True"  VerticalScrollBarVisibility="Visible"   materialDesign:HintAssist.Hint="Descripción" materialDesign:HintAssist.IsFloating="True"/>
 

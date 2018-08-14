@@ -79,7 +79,9 @@ namespace PracticaProfesionalVivarsan.Paginas
                 lineaDetalle.Producto = pLogica.obtenerProducto(txtidProducto.Text);
                 lineaDetalle.Producto.IdBodega = Convert.ToInt32(txtidBodega.Text);
                 lineaDetalle.Producto.IdLineaDetalle = lineaDetalle.Id;
-                lineaDetalle.SubTotal = Convert.ToDouble(lineaDetalle.Cantidad * lineaDetalle.Producto.PrecioVenta);
+                //precio con impuesto
+                Double impuesto = Convert.ToDouble(Convert.ToDouble(lineaDetalle.Producto.PrecioVenta) * 0.13) + Convert.ToDouble(lineaDetalle.Producto.PrecioVenta);
+                lineaDetalle.SubTotal = Convert.ToDouble(lineaDetalle.Cantidad * lineaDetalle.Producto.PrecioVenta) + (impuesto*lineaDetalle.Cantidad);
 
                 listaDetalle.Add(lineaDetalle);
                 dataGridLineaDetalle.ItemsSource = listaDetalle;
@@ -151,7 +153,6 @@ namespace PracticaProfesionalVivarsan.Paginas
 
                 logica.GuardarFactura(factura);
 
-                //MessageBox.Show("funciona");
                 txtTextBlockDialogo.Text = "Registro Procesado";
                 dialogoMENS.IsOpen = true;
 
@@ -160,7 +161,20 @@ namespace PracticaProfesionalVivarsan.Paginas
                 cliente = new Cliente();
                 listaInventario = new List<Inventario>();
                 listaDetalle = new List<LineaDetalleVentas>();
-                }
+                inventario = new Inventario();
+                var contador = logica.ObtenerContadorFacturas().Id + 1;
+                txtNumeroFactura.Text = contador.ToString();
+                CargarCboClientes();
+                txtidProducto.Text = string.Empty;
+                txtProducto.Text = string.Empty;
+                txtidBodega.Text = string.Empty;
+                txtidEmpresa.Text = string.Empty;
+                txtCantDisp.Text = string.Empty;
+                txtCantidad.Text = string.Empty;
+                txtSubTotal.Text = string.Empty;
+                dataGridLineaDetalle.ItemsSource = null;
+
+            }
 
             }
 
@@ -179,6 +193,12 @@ namespace PracticaProfesionalVivarsan.Paginas
                 txtidBodega.Text = inventario.Bodega.Id.ToString();
                 txtidEmpresa.Text = inventario.Empresa.IdEmpresa.ToString();
                 txtCantDisp.Text = inventario.Cantidad.ToString();
+                //campos de impuesto y precio normal
+                Double impuesto = Convert.ToDouble(Convert.ToDouble(inventario.Producto.PrecioVenta) * 0.13);
+                txtPrecioImpuesto.Text = impuesto.ToString();
+                txtPrecioNormal.Text = inventario.Producto.PrecioVenta.ToString();
+                //lineaDetalle.SubTotal = Convert.ToDouble(inventario.Cantidad * inventario.Producto.PrecioVenta) + (impuesto * inventario.Cantidad);
+
             }
             catch (Exception ex)
             {

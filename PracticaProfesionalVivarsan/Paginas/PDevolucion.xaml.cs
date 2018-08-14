@@ -121,6 +121,12 @@ namespace PracticaProfesionalVivarsan.Paginas
                 usuarioGlobal = (Usuario)App.Current.Properties["usuarioSesion"];
 
                 logica.InsertarDevolucion(lineaDetalle, idDevolucion, fecha.SelectedDate.Value, Convert.ToInt32(txtCantidad.Text), cboTipo.Text, bodega.Id, usuarioGlobal.Empresa.IdEmpresa);
+                dialogo.IsOpen = true;
+                txtTextBlockDialogo.Text = "Registro procesado";
+
+                txtBuscar.Text = "";
+                txtCantidad.Text = "";
+                fecha.Text = "";
             }
         }
 

@@ -1,4 +1,4 @@
-﻿<Window x:Class="PracticaProfesionalVivarsan.Reportes.frmReporteTotalCompras"
+﻿<Window x:Class="PracticaProfesionalVivarsan.Reportes.frmReporteCajas"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
@@ -8,21 +8,16 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
         xmlns:local="clr-namespace:PracticaProfesionalVivarsan.Reportes"
         mc:Ignorable="d"
-         xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
-        Title="Reporte Total Compras" Height="697.449" Width="1274.832" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight">
-   
-    <Grid Margin="0,-46,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <DatePicker Name="fechaInicio"    Language="es-ES" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha Inicio" materialDesign:HintAssist.IsFloating="True"  Margin="355,95,762,591" />
-
-        <DatePicker Name="fechaFin"     Language="es-ES" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha Final" materialDesign:HintAssist.IsFloating="True"  Margin="606,95,511,591" />
-        <Button x:Name="btnGuardar" Content="Generar" HorizontalAlignment="Left" Margin="829,95,0,0" VerticalAlignment="Top" Width="117" Click="btnGuardar_Click"/>
-
-
-
-        <WindowsFormsHost  HorizontalAlignment="Center"  Height="480" Margin="83,180,91,52" VerticalAlignment="Center" Width="1093">
-            <rv:ReportViewer x:Name="ReporteTotalCompras"></rv:ReportViewer>
+        Title="Reporte Cajas" Height="697.79" Width="1231.492">
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <DatePicker  IsEnabled="True"  Name="fechaInicio" Language="es-ES" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha Inicio" materialDesign:HintAssist.IsFloating="True" Margin="292,49,0,580"  />
+        <DatePicker  IsEnabled="True"  Name="fechaFin" Language="es-ES" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha Final" materialDesign:HintAssist.IsFloating="True" Margin="564,49,0,580"  />
+        <Button x:Name="btnGenerar" Content="Generar" HorizontalAlignment="Left" Margin="802,43,0,0" VerticalAlignment="Top" Width="97" Click="btnGenerar_Click"/>
+        <WindowsFormsHost HorizontalAlignment="Left" Height="491" Margin="51,136,0,0" VerticalAlignment="Top" Width="1120">
+            <rv:ReportViewer x:Name="ReporteCajas"></rv:ReportViewer>
         </WindowsFormsHost>
 
         <materialDesign:DialogHost IsOpen="False" x:Name="dialogoMENS" VerticalAlignment="Center" HorizontalAlignment="Center" >
@@ -34,6 +29,5 @@
                 </StackPanel>
             </materialDesign:DialogHost.DialogContent>
         </materialDesign:DialogHost>
-
     </Grid>
 </Window>

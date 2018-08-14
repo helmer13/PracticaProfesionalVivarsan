@@ -13,8 +13,8 @@
         mc:Ignorable="d"
         Title="Reporte de Gastos" Height="535.603" Width="987.954" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" >
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Margin="140,44,456,369">
-        <DatePicker IsEnabled="True" Name="fechaFin" Language="es-US" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha Fin" materialDesign:HintAssist.IsFloating="True" Margin="308,-42,-308,42"  />
-        <DatePicker  IsEnabled="True"  Name="fechaInicio" Language="es-US" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha Inicio" materialDesign:HintAssist.IsFloating="True" Margin="-4,-42,0,42"  />
+        <DatePicker IsEnabled="True" Name="fechaFin" Language="es-ES" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha Fin" materialDesign:HintAssist.IsFloating="True" Margin="308,-42,-308,42"  />
+        <DatePicker  IsEnabled="True"  Name="fechaInicio" Language="es-ES" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha Inicio" materialDesign:HintAssist.IsFloating="True" Margin="-4,-42,0,42"  />
 
 
         <materialDesign:DialogHost IsOpen="False" x:Name="dialogoMENS" VerticalAlignment="Center" HorizontalAlignment="Center" >

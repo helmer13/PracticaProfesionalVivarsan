@@ -53,7 +53,7 @@
 
                 <ComboBox x:Name="cboProveedores" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="200" Height="50" materialDesign:HintAssist.Hint="Proveedores" materialDesign:HintAssist.IsFloating="True" />
 
-                <DatePicker Grid.Row="2" Grid.Column="3" Name="fecha" Language="es-US" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha factura" materialDesign:HintAssist.IsFloating="True"  />
+                <DatePicker Grid.Row="2" Grid.Column="3" Name="fecha" Language="es-ES" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha factura" materialDesign:HintAssist.IsFloating="True"  />
 
                 <!--<Grid Grid.Row="3" Grid.ColumnSpan="4">
                     <materialDesign:ColorZone Mode="Standard">
@@ -122,7 +122,7 @@
 
                 <DataGrid  x:Name="dataGridLineaDetalle"
                    Margin="0,55,10,-89" Grid.Row="5" Grid.RowSpan="2" Grid.ColumnSpan="4" CanUserDeleteRows="True"  IsReadOnly="True"
-                   CanUserAddRows="False" AutoGenerateColumns="False"  VerticalAlignment="Top" Height="180" Width="500">
+                   CanUserAddRows="False" AutoGenerateColumns="False"  VerticalAlignment="Top" Height="180" Width="550">
                     <DataGrid.Columns>
                         <DataGridTemplateColumn Header="Eliminar" >
                             <DataGridTemplateColumn.CellTemplate>

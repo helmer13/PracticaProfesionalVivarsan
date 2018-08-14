@@ -40,7 +40,7 @@
                 </Grid.RowDefinitions>
 
                 <TextBlock Text="Facturación de ventas" Margin="0 0 0 30"  HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" FontSize="22" />
-                <TextBlock Text="Encabezado de la facura" Grid.Row="0" Grid.Column="1"  Grid.ColumnSpan="2" Margin="0 0 0 30" HorizontalAlignment="Left" VerticalAlignment="Bottom" Style="{StaticResource MaterialDesignSubheadingTextBlock}" />
+                <TextBlock Text="Encabezado de la factura" Grid.Row="0" Grid.Column="1"  Grid.ColumnSpan="2" Margin="0 0 0 30" HorizontalAlignment="Left" VerticalAlignment="Bottom" Style="{StaticResource MaterialDesignSubheadingTextBlock}" />
 
 
                 <TextBox x:Name="txtNumeroFactura" IsReadOnly="True" Grid.Row="1"  Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Factura No." materialDesign:HintAssist.IsFloating="True"/>
@@ -54,7 +54,7 @@
          
                 </ComboBox>
 
-                <DatePicker Grid.Row="2" IsEnabled="False" Grid.Column="3" Name="fecha" Language="es-US" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha Factura" materialDesign:HintAssist.IsFloating="True"  />
+                <DatePicker Grid.Row="2" IsEnabled="False" Grid.Column="3" Name="fecha" Language="es-ES" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha Factura" materialDesign:HintAssist.IsFloating="True"  />
 
                 <!--<Grid Grid.Row="3" Grid.ColumnSpan="4">
                     <materialDesign:ColorZone Mode="Standard">
@@ -127,7 +127,7 @@
                 <DataGrid  x:Name="dataGridLineaDetalle" 
                   
                    Margin="0,55,10,-89" Grid.Row="5" Grid.RowSpan="2" Grid.ColumnSpan="4" CanUserDeleteRows="True"  IsReadOnly="True"
-                   CanUserAddRows="False" AutoGenerateColumns="False"  VerticalAlignment="Top" Height="180" Width="600">
+                   CanUserAddRows="False" AutoGenerateColumns="False"  VerticalAlignment="Top" Height="180" Width="650">
                     <DataGrid.Columns>
                         <DataGridTemplateColumn Header="Eliminar" >
                             <DataGridTemplateColumn.CellTemplate>
@@ -162,6 +162,8 @@
                         </StackPanel>
                     </materialDesign:DialogHost.DialogContent>
                 </materialDesign:DialogHost>
+                <TextBox x:Name="txtPrecioNormal" IsReadOnly="True" Grid.Row="4"  Grid.Column="1" HorizontalAlignment="Left" Width="200" Height="50"  VerticalAlignment="Top"  materialDesign:HintAssist.Hint="Precio Venta" materialDesign:HintAssist.IsFloating="True"/>
+                <TextBox x:Name="txtPrecioImpuesto" IsReadOnly="True" Grid.Row="4"  Grid.Column="3" HorizontalAlignment="Left" Width="200" Height="50"  VerticalAlignment="Top"  materialDesign:HintAssist.Hint="Precio con Impuesto" materialDesign:HintAssist.IsFloating="True"/>
             </Grid>
 
 

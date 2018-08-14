@@ -52,10 +52,10 @@
 
             <TextBox x:Name="txtUsuario" IsReadOnly="True"  Grid.Row="1" Grid.Column="1"  Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Usuario/Cajero" materialDesign:HintAssist.IsFloating="True" />
 
-            <DatePicker Grid.Row="1" Grid.Column="3" x:Name="fechaApertura" IsEnabled="False"  Language="es-US" HorizontalAlignment="Left" VerticalAlignment="Center" Width="190" materialDesign:HintAssist.Hint="Fecha apertura" materialDesign:HintAssist.IsFloating="True"  >
+            <DatePicker Grid.Row="1" Grid.Column="3" x:Name="fechaApertura" IsEnabled="False"  Language="es-ES" HorizontalAlignment="Left" VerticalAlignment="Center" Width="190" materialDesign:HintAssist.Hint="Fecha apertura" materialDesign:HintAssist.IsFloating="True"  >
             </DatePicker>
 
-            <DatePicker Grid.Row="2" Grid.Column="1" x:Name="fechaCierre" IsEnabled="False"  Language="es-US" HorizontalAlignment="Left" VerticalAlignment="Center" Width="190" materialDesign:HintAssist.Hint="Fecha cierre" materialDesign:HintAssist.IsFloating="True"  >
+            <DatePicker Grid.Row="2" Grid.Column="1" x:Name="fechaCierre" IsEnabled="False"  Language="es-ES" HorizontalAlignment="Left" VerticalAlignment="Center" Width="190" materialDesign:HintAssist.Hint="Fecha cierre" materialDesign:HintAssist.IsFloating="True"  >
             </DatePicker>
 
 

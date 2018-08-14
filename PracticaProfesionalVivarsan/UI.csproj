@@ -89,6 +89,9 @@
     <Compile Include="Reportes\frmComprasProveedor.xaml.cs">
       <DependentUpon>frmComprasProveedor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\frmReporteCajas.xaml.cs">
+      <DependentUpon>frmReporteCajas.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\frmReporteClientes.xaml.cs">
       <DependentUpon>frmReporteClientes.xaml</DependentUpon>
     </Compile>
@@ -169,6 +172,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Reportes\frmComprasProveedor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reportes\frmReporteCajas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -327,6 +334,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ReporteCajas.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteClientes.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteComprasProveedor.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteDevoluciones.rdlc" />

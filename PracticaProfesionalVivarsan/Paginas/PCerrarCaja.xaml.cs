@@ -74,33 +74,31 @@ namespace PracticaProfesionalVivarsan.Paginas
         {
             try
             {
+                Caja cajaCerrar = new Caja();
 
-    
-          
+                Usuario usuario = new Usuario();
+                TotalesCierreCaja totales = new TotalesCierreCaja();
 
-            Caja cajaCerrar = new Caja();
+                usuario = (Usuario)App.Current.Properties["usuarioSesion"];
+                txtUsuario.Text = usuario.Nombre;
 
-            Usuario usuario = new Usuario();
-            TotalesCierreCaja totales = new TotalesCierreCaja();
+                CajaLogica logica = new CajaLogica();
+                totales = logica.ObtenerTotalesCierrreCaja(fechaCierre.SelectedDate.Value,fechaCierre.SelectedDate.Value, usuario.Id);
 
-            usuario = (Usuario)App.Current.Properties["usuarioSesion"];
-            txtUsuario.Text = usuario.Nombre;
+                cajaCerrar.Id = totales.Id;
+                cajaCerrar.FechaCierre = fechaCierre.SelectedDate.Value;
+                cajaCerrar.MontoCierre = Convert.ToDouble( txtTotalEfectivoCaja.Text);
+                cajaCerrar.Usuario = usuario;
+                cajaCerrar.Estado = "CERRADO";
+                cajaCerrar.FechaApertura = fechaApertura.SelectedDate.Value;
+                cajaCerrar.MontoApertura =Convert.ToDouble( txtbase.Text);
 
-            CajaLogica logica = new CajaLogica();
-            totales = logica.ObtenerTotalesCierrreCaja(fechaCierre.SelectedDate.Value,fechaCierre.SelectedDate.Value, usuario.Id);
+                logica.ActualizarCerrarCaja(cajaCerrar, Convert.ToDouble(txtefectivoSinBase.Text), 
+                    Convert.ToDouble(txtTotalGastos.Text), Convert.ToDouble(txtTotalEfectivoSistema.Text));
 
-            cajaCerrar.Id = totales.Id;
-            cajaCerrar.FechaCierre = fechaCierre.SelectedDate.Value;
-            cajaCerrar.MontoCierre = Convert.ToDouble( txtTotalEfectivoCaja.Text);
-            cajaCerrar.Usuario = usuario;
-            cajaCerrar.Estado = "CERRADO";
-            cajaCerrar.FechaApertura = fechaApertura.SelectedDate.Value;
-            cajaCerrar.MontoApertura =Convert.ToDouble( txtbase.Text);
-
-            logica.ActualizarCerrarCaja(cajaCerrar, Convert.ToDouble(txtefectivoSinBase.Text), 
-                Convert.ToDouble(txtTotalGastos.Text), Convert.ToDouble(txtTotalEfectivoSistema.Text));
-
-            MessageBox.Show("Inserto");
+                //MessageBox.Show("Inserto");
+                dialogo.IsOpen = true;
+                txtTextBlockDialogo.Text = "Registro procesado";
             }
             catch (Exception ex)
             {

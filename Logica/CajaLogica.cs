@@ -77,6 +77,9 @@ namespace Logica
 
             return caja;
         }
-
+        public DataTable ReporteCajas(DateTime fechaInicio, DateTime fechaFin)
+        {
+            return AccesoDatos.CajaDato.ReporteCajas(fechaInicio, fechaFin);
+        }
     }
 }

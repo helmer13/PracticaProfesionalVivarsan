@@ -52,9 +52,9 @@
 
         </DataGrid>
 
-        <DatePicker Name="fechaInicio"  Grid.Row="2" Grid.Column="1"  Language="es-US" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha Inicio" materialDesign:HintAssist.IsFloating="True"   />
+        <DatePicker Name="fechaInicio"  Grid.Row="2" Grid.Column="1"  Language="es-ES" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha Inicio" materialDesign:HintAssist.IsFloating="True"   />
 
-        <DatePicker Name="fechaFin" Grid.Row="2" Grid.Column="2" Margin="0 0 150 0 " Language="es-US" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha Final" materialDesign:HintAssist.IsFloating="True"  />
+        <DatePicker Name="fechaFin" Grid.Row="2" Grid.Column="2" Margin="0 0 150 0 " Language="es-ES" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha Final" materialDesign:HintAssist.IsFloating="True"  />
         <Button x:Name="btnGuardar" Content="Generar"  Grid.Row="2" Grid.Column="2"  HorizontalAlignment="Right"  VerticalAlignment="Bottom" Width="117" Click="btnGuardar_Click" Margin="0,0,0,85"/>
 
 
