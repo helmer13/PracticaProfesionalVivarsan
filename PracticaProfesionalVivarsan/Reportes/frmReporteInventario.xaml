@@ -7,7 +7,12 @@
         xmlns:local="clr-namespace:PracticaProfesionalVivarsan.Reportes"
         mc:Ignorable="d"
         Title="Reporte de Inventario" Height="675.016" Width="1003.186" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
-    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+    <Grid >
+
+        <Grid.Background>
+            <ImageBrush   ImageSource="/PracticaProfesionalVivarsan;component/imagenes/brushed-alum.png"  ></ImageBrush>
+        </Grid.Background>
+
         <WindowsFormsHost HorizontalAlignment="Right" Height="561" Margin="0,40,47,43" VerticalAlignment="Center" Width="893">
             <rv:ReportViewer x:Name="ReportInventario"></rv:ReportViewer>
         </WindowsFormsHost>

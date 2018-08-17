@@ -88,7 +88,7 @@ namespace PracticaProfesionalVivarsan.Paginas
                 Caja caja = new Caja();
                 caja = logica.ObtenerCajaAbierta(usuario.Id);
 
-                if (caja.Estado == "CERRADO")
+                if (caja.Estado == null)
                 {
                     dialogo.IsOpen = true;
                     txtTextBlockDialogo.Text = "La caja ya se encuentra cerrada";
@@ -154,11 +154,11 @@ namespace PracticaProfesionalVivarsan.Paginas
             txtUsuario.Text = usuario.Nombre;
 
             CajaLogica logica = new CajaLogica();
-            totales = logica.ObtenerTotalesCierrreCaja(fechaCierre.SelectedDate.Value,fechaCierre.SelectedDate.Value, usuario.Id);
+            totales = logica.ObtenerTotalesCierrreCaja(fechaApertura.SelectedDate.Value,fechaCierre.SelectedDate.Value, usuario.Id);
 
             List<object> lista = new List<object>();
             lista.Add(new { formaPago = "Efectivo", valorCajero = 0.00, valorSistema = txtTotalEfectivoSistema.Text });
-            lista.Add(new { formaPago = "Tarjeta", valorCajero = 0.00, valorSistema = totales.Tarjeta });
+            lista.Add(new { formaPago = "Crédito", valorCajero = 0.00, valorSistema = totales.Tarjeta });
 
             dataGridDetallePago.ItemsSource = lista;
         }
@@ -176,7 +176,7 @@ namespace PracticaProfesionalVivarsan.Paginas
 
             List<object> lista = new List<object>();
             lista.Add(new { formaPago = "Efectivo", valorCajero = txtTotalEfectivoCaja.Text, valorSistema = txtTotalEfectivoSistema.Text });
-            lista.Add(new { formaPago = "Tarjeta", valorCajero = 0.00, valorSistema = totales.Tarjeta });
+            lista.Add(new { formaPago = "Crédito", valorCajero = 0.00, valorSistema = totales.Tarjeta });
 
             dataGridDetallePago.ItemsSource = lista;
         }

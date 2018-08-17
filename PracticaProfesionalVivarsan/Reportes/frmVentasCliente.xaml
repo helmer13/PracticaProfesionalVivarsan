@@ -7,7 +7,12 @@
         xmlns:local="clr-namespace:PracticaProfesionalVivarsan.Reportes"
         mc:Ignorable="d"
         Title="Ventas Por Cliente" Height="740.388" Width="1134.465">
-    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+    <Grid >
+
+        <Grid.Background>
+            <ImageBrush   ImageSource="/PracticaProfesionalVivarsan;component/imagenes/brushed-alum.png"  ></ImageBrush>
+        </Grid.Background>
+
         <WindowsFormsHost HorizontalAlignment="Left" Height="645" Margin="39,34,0,0" VerticalAlignment="Top" Width="1047">
             <rv:ReportViewer x:Name="ReporteVC"></rv:ReportViewer>
         </WindowsFormsHost>

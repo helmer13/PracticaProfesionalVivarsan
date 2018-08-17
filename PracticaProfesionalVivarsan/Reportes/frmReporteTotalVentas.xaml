@@ -12,7 +12,11 @@
         mc:Ignorable="d"
          xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
         Title="Reporte Total Ventas"  Height="675.098" Width="898.954" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
-    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="642" Margin="0,0,0,2">
+    <Grid Height="642" Margin="0,0,0,2">
+
+        <Grid.Background>
+            <ImageBrush   ImageSource="/PracticaProfesionalVivarsan;component/imagenes/brushed-alum.png"  ></ImageBrush>
+        </Grid.Background>
 
         <DatePicker Name="fechaInicio"   Language="es-ES" HorizontalAlignment="Center" VerticalAlignment="Center" materialDesign:HintAssist.Hint="Fecha Inicio" materialDesign:HintAssist.IsFloating="True" Width="147"  Margin="176,78,555,538"   />
 

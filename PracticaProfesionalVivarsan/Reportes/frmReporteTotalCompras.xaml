@@ -13,7 +13,12 @@
          xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
         Title="Reporte Total Compras" Height="697.449" Width="1274.832" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight">
    
-    <Grid Margin="0,-46,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <Grid Margin="0,-46,0,0" >
+
+        <Grid.Background>
+            <ImageBrush   ImageSource="/PracticaProfesionalVivarsan;component/imagenes/brushed-alum.png"  ></ImageBrush>
+        </Grid.Background>
+
         <DatePicker Name="fechaInicio"    Language="es-ES" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha Inicio" materialDesign:HintAssist.IsFloating="True"  Margin="355,95,762,591" />
 
         <DatePicker Name="fechaFin"     Language="es-ES" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha Final" materialDesign:HintAssist.IsFloating="True"  Margin="606,95,511,591" />
