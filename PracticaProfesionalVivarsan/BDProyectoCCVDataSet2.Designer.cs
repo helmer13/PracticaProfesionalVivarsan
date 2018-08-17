@@ -2546,9 +2546,7 @@ namespace PracticaProfesionalVivarsan {
             
             private global::System.Data.DataColumn columnIDUsuario;
             
-            private global::System.Data.DataColumn columnNombre;
-            
-            private global::System.Data.DataColumn columnIdentificacion;
+            private global::System.Data.DataColumn columnIDCliente;
             
             private global::System.Data.DataColumn columnFecha;
             
@@ -2607,17 +2605,9 @@ namespace PracticaProfesionalVivarsan {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn NombreColumn {
+            public global::System.Data.DataColumn IDClienteColumn {
                 get {
-                    return this.columnNombre;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn IdentificacionColumn {
-                get {
-                    return this.columnIdentificacion;
+                    return this.columnIDCliente;
                 }
             }
             
@@ -2682,13 +2672,12 @@ namespace PracticaProfesionalVivarsan {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SPR_DETALLEFACTURA_VENTASRow AddSPR_DETALLEFACTURA_VENTASRow(int ID, string IDUsuario, string Nombre, string Identificacion, System.DateTime Fecha, string TipoPago, decimal Total) {
+            public SPR_DETALLEFACTURA_VENTASRow AddSPR_DETALLEFACTURA_VENTASRow(int ID, string IDUsuario, string IDCliente, System.DateTime Fecha, string TipoPago, decimal Total) {
                 SPR_DETALLEFACTURA_VENTASRow rowSPR_DETALLEFACTURA_VENTASRow = ((SPR_DETALLEFACTURA_VENTASRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ID,
                         IDUsuario,
-                        Nombre,
-                        Identificacion,
+                        IDCliente,
                         Fecha,
                         TipoPago,
                         Total};
@@ -2723,8 +2712,7 @@ namespace PracticaProfesionalVivarsan {
             internal void InitVars() {
                 this.columnID = base.Columns["ID"];
                 this.columnIDUsuario = base.Columns["IDUsuario"];
-                this.columnNombre = base.Columns["Nombre"];
-                this.columnIdentificacion = base.Columns["Identificacion"];
+                this.columnIDCliente = base.Columns["IDCliente"];
                 this.columnFecha = base.Columns["Fecha"];
                 this.columnTipoPago = base.Columns["TipoPago"];
                 this.columnTotal = base.Columns["Total"];
@@ -2737,10 +2725,8 @@ namespace PracticaProfesionalVivarsan {
                 base.Columns.Add(this.columnID);
                 this.columnIDUsuario = new global::System.Data.DataColumn("IDUsuario", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnIDUsuario);
-                this.columnNombre = new global::System.Data.DataColumn("Nombre", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNombre);
-                this.columnIdentificacion = new global::System.Data.DataColumn("Identificacion", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnIdentificacion);
+                this.columnIDCliente = new global::System.Data.DataColumn("IDCliente", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIDCliente);
                 this.columnFecha = new global::System.Data.DataColumn("Fecha", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFecha);
                 this.columnTipoPago = new global::System.Data.DataColumn("TipoPago", typeof(string), null, global::System.Data.MappingType.Element);
@@ -2753,10 +2739,8 @@ namespace PracticaProfesionalVivarsan {
                 this.columnID.Unique = true;
                 this.columnIDUsuario.AllowDBNull = false;
                 this.columnIDUsuario.MaxLength = 50;
-                this.columnNombre.AllowDBNull = false;
-                this.columnNombre.MaxLength = 100;
-                this.columnIdentificacion.AllowDBNull = false;
-                this.columnIdentificacion.MaxLength = 50;
+                this.columnIDCliente.AllowDBNull = false;
+                this.columnIDCliente.MaxLength = 50;
                 this.columnFecha.AllowDBNull = false;
                 this.columnTipoPago.AllowDBNull = false;
                 this.columnTipoPago.MaxLength = 50;
@@ -7046,6 +7030,8 @@ namespace PracticaProfesionalVivarsan {
             
             private global::System.Data.DataColumn columnIDUsuario;
             
+            private global::System.Data.DataColumn columnNombre;
+            
             private global::System.Data.DataColumn columnMontoEfectivoSinBase;
             
             private global::System.Data.DataColumn columnMontoGastos;
@@ -7151,6 +7137,14 @@ namespace PracticaProfesionalVivarsan {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NombreColumn {
+                get {
+                    return this.columnNombre;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn MontoEfectivoSinBaseColumn {
                 get {
                     return this.columnMontoEfectivoSinBase;
@@ -7210,7 +7204,7 @@ namespace PracticaProfesionalVivarsan {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SPR_REPORTE_CAJA_FECHARow AddSPR_REPORTE_CAJA_FECHARow(string ID, System.DateTime FechaApertura, System.DateTime FechaCierre, decimal MontoApertura, decimal MontoCierreCaja, string Descripcion, string Estado, string IDUsuario, string MontoEfectivoSinBase, decimal MontoGastos, decimal MontoEfectivoSistema) {
+            public SPR_REPORTE_CAJA_FECHARow AddSPR_REPORTE_CAJA_FECHARow(string ID, System.DateTime FechaApertura, System.DateTime FechaCierre, decimal MontoApertura, decimal MontoCierreCaja, string Descripcion, string Estado, string IDUsuario, string Nombre, decimal MontoEfectivoSinBase, decimal MontoGastos, decimal MontoEfectivoSistema) {
                 SPR_REPORTE_CAJA_FECHARow rowSPR_REPORTE_CAJA_FECHARow = ((SPR_REPORTE_CAJA_FECHARow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ID,
@@ -7221,6 +7215,7 @@ namespace PracticaProfesionalVivarsan {
                         Descripcion,
                         Estado,
                         IDUsuario,
+                        Nombre,
                         MontoEfectivoSinBase,
                         MontoGastos,
                         MontoEfectivoSistema};
@@ -7261,6 +7256,7 @@ namespace PracticaProfesionalVivarsan {
                 this.columnDescripcion = base.Columns["Descripcion"];
                 this.columnEstado = base.Columns["Estado"];
                 this.columnIDUsuario = base.Columns["IDUsuario"];
+                this.columnNombre = base.Columns["Nombre"];
                 this.columnMontoEfectivoSinBase = base.Columns["MontoEfectivoSinBase"];
                 this.columnMontoGastos = base.Columns["MontoGastos"];
                 this.columnMontoEfectivoSistema = base.Columns["MontoEfectivoSistema"];
@@ -7285,7 +7281,9 @@ namespace PracticaProfesionalVivarsan {
                 base.Columns.Add(this.columnEstado);
                 this.columnIDUsuario = new global::System.Data.DataColumn("IDUsuario", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnIDUsuario);
-                this.columnMontoEfectivoSinBase = new global::System.Data.DataColumn("MontoEfectivoSinBase", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnNombre = new global::System.Data.DataColumn("Nombre", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNombre);
+                this.columnMontoEfectivoSinBase = new global::System.Data.DataColumn("MontoEfectivoSinBase", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMontoEfectivoSinBase);
                 this.columnMontoGastos = new global::System.Data.DataColumn("MontoGastos", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMontoGastos);
@@ -7300,8 +7298,8 @@ namespace PracticaProfesionalVivarsan {
                 this.columnEstado.MaxLength = 50;
                 this.columnIDUsuario.AllowDBNull = false;
                 this.columnIDUsuario.MaxLength = 50;
-                this.columnMontoEfectivoSinBase.AllowDBNull = false;
-                this.columnMontoEfectivoSinBase.MaxLength = 50;
+                this.columnNombre.AllowDBNull = false;
+                this.columnNombre.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12294,23 +12292,12 @@ namespace PracticaProfesionalVivarsan {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Nombre {
+            public string IDCliente {
                 get {
-                    return ((string)(this[this.tableSPR_DETALLEFACTURA_VENTAS.NombreColumn]));
+                    return ((string)(this[this.tableSPR_DETALLEFACTURA_VENTAS.IDClienteColumn]));
                 }
                 set {
-                    this[this.tableSPR_DETALLEFACTURA_VENTAS.NombreColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Identificacion {
-                get {
-                    return ((string)(this[this.tableSPR_DETALLEFACTURA_VENTAS.IdentificacionColumn]));
-                }
-                set {
-                    this[this.tableSPR_DETALLEFACTURA_VENTAS.IdentificacionColumn] = value;
+                    this[this.tableSPR_DETALLEFACTURA_VENTAS.IDClienteColumn] = value;
                 }
             }
             
@@ -13443,9 +13430,26 @@ namespace PracticaProfesionalVivarsan {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string MontoEfectivoSinBase {
+            public string Nombre {
                 get {
-                    return ((string)(this[this.tableSPR_REPORTE_CAJA_FECHA.MontoEfectivoSinBaseColumn]));
+                    return ((string)(this[this.tableSPR_REPORTE_CAJA_FECHA.NombreColumn]));
+                }
+                set {
+                    this[this.tableSPR_REPORTE_CAJA_FECHA.NombreColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal MontoEfectivoSinBase {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableSPR_REPORTE_CAJA_FECHA.MontoEfectivoSinBaseColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MontoEfectivoSinBase\' in table \'SPR_REPORTE_CAJA_FECHA\' is " +
+                                "DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableSPR_REPORTE_CAJA_FECHA.MontoEfectivoSinBaseColumn] = value;
@@ -13555,6 +13559,18 @@ namespace PracticaProfesionalVivarsan {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetEstadoNull() {
                 this[this.tableSPR_REPORTE_CAJA_FECHA.EstadoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMontoEfectivoSinBaseNull() {
+                return this.IsNull(this.tableSPR_REPORTE_CAJA_FECHA.MontoEfectivoSinBaseColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMontoEfectivoSinBaseNull() {
+                this[this.tableSPR_REPORTE_CAJA_FECHA.MontoEfectivoSinBaseColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17028,8 +17044,7 @@ namespace PracticaProfesionalVivarsan.BDProyectoCCVDataSet2TableAdapters {
             tableMapping.DataSetTable = "SPR_DETALLEFACTURA_VENTAS";
             tableMapping.ColumnMappings.Add("ID", "ID");
             tableMapping.ColumnMappings.Add("IDUsuario", "IDUsuario");
-            tableMapping.ColumnMappings.Add("Nombre", "Nombre");
-            tableMapping.ColumnMappings.Add("Identificacion", "Identificacion");
+            tableMapping.ColumnMappings.Add("IDCliente", "IDCliente");
             tableMapping.ColumnMappings.Add("Fecha", "Fecha");
             tableMapping.ColumnMappings.Add("TipoPago", "TipoPago");
             tableMapping.ColumnMappings.Add("Total", "Total");
@@ -19780,6 +19795,7 @@ namespace PracticaProfesionalVivarsan.BDProyectoCCVDataSet2TableAdapters {
             tableMapping.ColumnMappings.Add("Descripcion", "Descripcion");
             tableMapping.ColumnMappings.Add("Estado", "Estado");
             tableMapping.ColumnMappings.Add("IDUsuario", "IDUsuario");
+            tableMapping.ColumnMappings.Add("Nombre", "Nombre");
             tableMapping.ColumnMappings.Add("MontoEfectivoSinBase", "MontoEfectivoSinBase");
             tableMapping.ColumnMappings.Add("MontoGastos", "MontoGastos");
             tableMapping.ColumnMappings.Add("MontoEfectivoSistema", "MontoEfectivoSistema");

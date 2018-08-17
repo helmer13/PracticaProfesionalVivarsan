@@ -62,6 +62,10 @@ namespace PracticaProfesionalVivarsan.Paginas
             }
             else
             {
+                //if (string.IsNullOrEmpty(txtContrasena.Password))
+                //{
+                //    usu.Contrasena = "123456";
+                //}
                 usu.Id = txtIndentificacion.Text;
                 usu.Nombre = txtNombre.Text;
                 usu.UsuarioGeneral = txtUsuarioGeneral.Text;
@@ -84,6 +88,7 @@ namespace PracticaProfesionalVivarsan.Paginas
                 Refrescar();
                 txtTextBlockDialogo.Text = "Registro procesado";
                 dialogo.IsOpen = true;
+                btnVolver_Click(sender,e);
             }
             
         }
@@ -104,6 +109,7 @@ namespace PracticaProfesionalVivarsan.Paginas
             txtNombre.Text = string.Empty;
             txtUsuarioGeneral.Text = string.Empty;
             txtContrasena.Password = string.Empty;
+            txtContrasena.IsEnabled = true;
             txtid.Text= string.Empty;
             cboTipo.Text = "Administrador";
             gridTabla.Visibility = Visibility.Collapsed;

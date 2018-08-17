@@ -48,7 +48,7 @@
 
                 <ComboBox x:Name="cboTipoPago" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="200" Height="50" materialDesign:HintAssist.Hint="Tipo Pago" materialDesign:HintAssist.IsFloating="True" >
                     <ComboBoxItem IsSelected="True">Contado</ComboBoxItem>
-                    <ComboBoxItem >Credito</ComboBoxItem>
+                    <ComboBoxItem >Crédito</ComboBoxItem>
                 </ComboBox>
 
                 <ComboBox x:Name="cboProveedores" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="200" Height="50" materialDesign:HintAssist.Hint="Proveedores" materialDesign:HintAssist.IsFloating="True" />

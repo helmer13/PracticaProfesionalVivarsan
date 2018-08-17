@@ -24,7 +24,7 @@
 
 
 
-        <WindowsFormsHost HorizontalAlignment="Center"  Height="417" Margin="67,171,65,0" VerticalAlignment="Top" Width="746">
+        <WindowsFormsHost HorizontalAlignment="Center"  Height="417" Margin="67,171,65,0" VerticalAlignment="Top" Width="846">
             <rv:ReportViewer x:Name="ReporteTotalVentas"></rv:ReportViewer>
         </WindowsFormsHost>
         <Button x:Name="btnGuardar" Content="Generar" HorizontalAlignment="Left" Margin="641,72,0,0" VerticalAlignment="Top" Width="107" Click="btnGuardar_Click"/>

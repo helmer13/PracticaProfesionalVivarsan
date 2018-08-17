@@ -53,6 +53,7 @@ namespace PracticaProfesionalVivarsan.Paginas
                 Refrescar();
                 txtTextBlockDialogo.Text = "Registro procesado";
                 dialogo.IsOpen = true;
+                btnVolver_Click(sender, e);
             }
             
 
