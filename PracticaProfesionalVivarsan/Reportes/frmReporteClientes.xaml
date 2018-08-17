@@ -8,6 +8,11 @@
         mc:Ignorable="d"
         Title="Reporte de Clientes" Height="655.344" Width="885.954" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight">
     <Grid>
+
+        <Grid.Background>
+            <ImageBrush   ImageSource="/PracticaProfesionalVivarsan;component/imagenes/brushed-alum.png"  ></ImageBrush>
+        </Grid.Background>
+
         <WindowsFormsHost HorizontalAlignment="Center" Height="538" Margin="79,43,53,43" VerticalAlignment="Center" Width="746">
             <rv:ReportViewer x:Name="ReportClientes"></rv:ReportViewer>
         </WindowsFormsHost>

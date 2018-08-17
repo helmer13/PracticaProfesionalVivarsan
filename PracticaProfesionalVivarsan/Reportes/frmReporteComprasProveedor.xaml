@@ -14,6 +14,10 @@
         Title="Reporte Compras Proveedor"  Height="697.449" Width="1274.832" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight" >
     <Grid>
 
+        <Grid.Background>
+            <ImageBrush   ImageSource="/PracticaProfesionalVivarsan;component/imagenes/brushed-alum.png"  ></ImageBrush>
+        </Grid.Background>
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="300"/>
             <ColumnDefinition Width="300"/>

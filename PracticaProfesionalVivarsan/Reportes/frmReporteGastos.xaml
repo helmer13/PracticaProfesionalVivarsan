@@ -11,11 +11,39 @@
         xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
         xmlns:local="clr-namespace:PracticaProfesionalVivarsan.Reportes"
         mc:Ignorable="d"
-        Title="Reporte de Gastos" Height="535.603" Width="987.954" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" >
-    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Margin="140,44,456,369">
-        <DatePicker IsEnabled="True" Name="fechaFin" Language="es-ES" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha Fin" materialDesign:HintAssist.IsFloating="True" Margin="308,-42,-308,42"  />
-        <DatePicker  IsEnabled="True"  Name="fechaInicio" Language="es-ES" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha Inicio" materialDesign:HintAssist.IsFloating="True" Margin="-4,-42,0,42"  />
+        Title="Reporte de Gastos" Height="697.449" Width="1274.832" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" >
 
+ 
+
+    <Grid >
+
+        <Grid.Background>
+            <ImageBrush   ImageSource="/PracticaProfesionalVivarsan;component/imagenes/brushed-alum.png"  ></ImageBrush>
+        </Grid.Background>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="340"/>
+            <ColumnDefinition Width="300"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="200"/>
+            <RowDefinition  Height="200"/>
+            <RowDefinition  Height="200"/>
+            <RowDefinition  Height="50"/>
+        </Grid.RowDefinitions>
+        
+        <DatePicker IsEnabled="True" Grid.Row="0" Grid.Column="1" Name="fechaFin" Language="es-ES" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha Fin" materialDesign:HintAssist.IsFloating="True"   />
+
+        <DatePicker  IsEnabled="True" Grid.Row="0" Grid.Column="2"  Name="fechaInicio" Language="es-ES" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha Inicio" materialDesign:HintAssist.IsFloating="True"  />
+
+        <Button x:Name="btnGenerar" Grid.Row="0" Grid.Column="3" Content="Generar" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="103" Click="btnGenerar_Click"/>
+
+
+        <WindowsFormsHost HorizontalAlignment="Right" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Margin="0 0 150 0" Height="374"   Width="929"  VerticalAlignment="Top" >
+            <rv:ReportViewer x:Name="ReportGastos"></rv:ReportViewer>
+        </WindowsFormsHost>
 
         <materialDesign:DialogHost IsOpen="False" x:Name="dialogoMENS" VerticalAlignment="Center" HorizontalAlignment="Center" >
             <materialDesign:DialogHost.DialogContent>
@@ -26,9 +54,9 @@
                 </StackPanel>
             </materialDesign:DialogHost.DialogContent>
         </materialDesign:DialogHost>
-        <Button x:Name="btnGenerar" Content="Generar" HorizontalAlignment="Left" Margin="178,5,-131,-11" VerticalAlignment="Top" Width="103" Click="btnGenerar_Click"/>
-        <WindowsFormsHost HorizontalAlignment="Left" Height="350" Margin="-158,61,-478,-385" VerticalAlignment="Top" Width="786">
-            <rv:ReportViewer x:Name="ReportGastos"></rv:ReportViewer>
-        </WindowsFormsHost>
+       
+       
+       
+   
     </Grid>
 </Window>

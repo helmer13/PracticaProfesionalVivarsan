@@ -11,14 +11,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PracticaProfesionalVivarsan.Reportes"
         mc:Ignorable="d"
-        Title="Reporte Devoluciones" Height="542.97" Width="1018.812">
-    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-        <DatePicker  IsEnabled="True"  Name="fechaInicio" Language="es-ES" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha Inicio" materialDesign:HintAssist.IsFloating="True" Margin="-189,-193,0,193"  />
-        <DatePicker  IsEnabled="True"  Name="fechaFin" Language="es-ES" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha Final" materialDesign:HintAssist.IsFloating="True" Margin="60,-193,-60,193"  />
-        <Button x:Name="btnGenerar" Content="Generar" HorizontalAlignment="Left" Margin="292,-199,-239,0" VerticalAlignment="Top" Width="97" Click="btnGenerar_Click"/>
-        <WindowsFormsHost HorizontalAlignment="Left" Height="374" Margin="-386,-129,-393,-219" VerticalAlignment="Top" Width="929">
+        Title="Reporte Devoluciones"  Height="697.449" Width="1274.832">
+   
+    <Grid >
+
+        <Grid.Background>
+            <ImageBrush   ImageSource="/PracticaProfesionalVivarsan;component/imagenes/brushed-alum.png"  ></ImageBrush>
+        </Grid.Background>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="340"/>
+            <ColumnDefinition Width="300"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="200"/>
+            <RowDefinition  Height="200"/>
+            <RowDefinition  Height="200"/>
+            <RowDefinition  Height="50"/>
+        </Grid.RowDefinitions>
+
+        <DatePicker Grid.Row="0" Grid.Column="1" IsEnabled="True"  Name="fechaInicio" Language="es-ES" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha Inicio" materialDesign:HintAssist.IsFloating="True"   />
+
+        <DatePicker Grid.Row="0" Grid.Column="2" IsEnabled="True"  Name="fechaFin" Language="es-ES" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha Final" materialDesign:HintAssist.IsFloating="True"  />
+
+        <Button x:Name="btnGenerar" Grid.Row="0" Grid.Column="3" Content="Generar" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="97" Click="btnGenerar_Click"/>
+
+        <WindowsFormsHost HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Margin="0 0 150 0 " Height="374"   Width="929">
             <rv:ReportViewer x:Name="ReporteDevoluciones"></rv:ReportViewer>
         </WindowsFormsHost>
+        
+        
+        
         <materialDesign:DialogHost IsOpen="False" x:Name="dialogoMENS" VerticalAlignment="Center" HorizontalAlignment="Center" >
             <materialDesign:DialogHost.DialogContent>
                 <StackPanel Margin="15" Orientation="Vertical">
@@ -28,5 +53,7 @@
                 </StackPanel>
             </materialDesign:DialogHost.DialogContent>
         </materialDesign:DialogHost>
+        
+        
     </Grid>
 </Window>

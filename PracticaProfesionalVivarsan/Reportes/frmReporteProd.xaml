@@ -1,4 +1,10 @@
 ﻿<Window x:Class="PracticaProfesionalVivarsan.frmReporteProd"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,7 +13,15 @@
         xmlns:local="clr-namespace:PracticaProfesionalVivarsan"
         mc:Ignorable="d"
         Title="Reporte de Productos" Height="647.98" Width="917.107" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight">
+
+  
+
     <Grid>
+
+        <Grid.Background>
+            <ImageBrush   ImageSource="/PracticaProfesionalVivarsan;component/imagenes/brushed-alum.png"  ></ImageBrush>
+        </Grid.Background>
+        
         <WindowsFormsHost HorizontalAlignment="Center" Height="510" Margin="72,53,66,54" VerticalAlignment="Center" Width="771">
             <rv:ReportViewer x:Name="DemoReporte"></rv:ReportViewer>
         </WindowsFormsHost>
