@@ -953,7 +953,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Firma:</Value>
+                  <Value>Firma Cliente:</Value>
                   <Style />
                 </TextRun>
               </TextRuns>
@@ -982,7 +982,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Cédula:</Value>
+                  <Value>Cédula Cliente:</Value>
                   <Style />
                 </TextRun>
               </TextRuns>
