@@ -83,7 +83,7 @@ namespace PracticaProfesionalVivarsan.Paginas
                 }
 
                 Usuario usuario = new Usuario();
-                usuario = (Usuario)App.Current.Properties["usuarioSesion"];
+                usuario = (Usuario)App.Current.Properties["usuarioSesion"]; 
                 CajaLogica logica = new CajaLogica();
                 Caja caja = new Caja();
                 caja = logica.ObtenerCajaAbierta(usuario.Id);
