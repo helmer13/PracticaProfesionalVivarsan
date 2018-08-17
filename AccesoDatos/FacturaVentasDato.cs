@@ -128,5 +128,34 @@ namespace AccesoDatos
             return dt;
 
         }
+        public static DataSet EncabezadoFactura(int idFacturaVentas)
+        {
+
+            Database db = DatabaseFactory.CreateDatabase("Default");
+
+            SqlCommand comando = new SqlCommand("SPR_DETALLEFACTURA_VENTAS");
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@NUMEROFACTURA", idFacturaVentas);
+
+            DataSet ds = db.ExecuteReader(comando, "factura");
+            return ds;
+
+        }
+
+        public static DataTable ReporteFactura2(int id)
+        {
+
+            Database db = DatabaseFactory.CreateDatabase("Default");
+            DataTable dt = new DataTable();
+            SqlCommand comando = new SqlCommand("SPR_DETALLEFACTURA2_VENTAS");
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@NUMEROFACTURA", id);
+            DataSet ds = db.ExecuteReader(comando, "facturas");
+
+            SqlDataAdapter adp = new SqlDataAdapter(comando);
+            adp.Fill(dt);
+            return dt;
+
+        }
     }
 }

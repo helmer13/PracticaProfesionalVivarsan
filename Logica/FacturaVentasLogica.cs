@@ -90,5 +90,32 @@ namespace Logica
         {
             return AccesoDatos.FacturaVentasDato.ReporteDevoluciones(fechaInicio, fechaFin);
         }
+
+        public FacturaVentas EncabezadoFactura(int idFacturaVentas)
+        {
+
+
+            DataSet ds = AccesoDatos.FacturaVentasDato.EncabezadoFactura(idFacturaVentas);
+
+            FacturaVentas resultado = new FacturaVentas();
+            UsuarioLogica uL = new UsuarioLogica();
+            ClienteLogica cL = new ClienteLogica();
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {               
+                resultado.Id = Convert.ToInt32(row["ID"].ToString());
+                resultado.Usuario = uL.seleccionarUsuario(row["IDUsuario"].ToString());
+                resultado.Cliente = cL.obtenerCliente(row["IDCliente"].ToString());
+                resultado.Fecha = Convert.ToDateTime(row["Fecha"].ToString());
+                resultado.TipoPago = row["TipoPago"].ToString();
+                resultado.Total = Convert.ToDouble(row["Total"].ToString());
+
+            }
+
+            return resultado;
+        }
+        public DataTable ReporteFactura2(int id)
+        {
+            return AccesoDatos.FacturaVentasDato.ReporteFactura2(id);
+        }
     }
 }

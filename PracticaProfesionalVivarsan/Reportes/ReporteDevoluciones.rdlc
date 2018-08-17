@@ -20,7 +20,7 @@
         </Paragraphs>
         <rd:DefaultName>fechaFin</rd:DefaultName>
         <Top>0.34823cm</Top>
-        <Left>6.49664cm</Left>
+        <Left>5.57249cm</Left>
         <Height>0.6cm</Height>
         <Width>2.65875cm</Width>
         <Style>
@@ -51,7 +51,7 @@
         </Paragraphs>
         <rd:DefaultName>fechaInicio</rd:DefaultName>
         <Top>0.34823cm</Top>
-        <Left>3.84843cm</Left>
+        <Left>2.92428cm</Left>
         <Height>0.6cm</Height>
         <Width>2.02693cm</Width>
         <ZIndex>1</ZIndex>
@@ -81,7 +81,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox39</rd:DefaultName>
         <Top>0.34823cm</Top>
-        <Left>1.85114cm</Left>
+        <Left>0.89171cm</Left>
         <Height>0.6cm</Height>
         <Width>1.99729cm</Width>
         <ZIndex>2</ZIndex>
@@ -111,7 +111,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox40</rd:DefaultName>
         <Top>0.34823cm</Top>
-        <Left>5.91064cm</Left>
+        <Left>4.98649cm</Left>
         <Height>0.6cm</Height>
         <Width>0.54208cm</Width>
         <ZIndex>3</ZIndex>
@@ -135,13 +135,13 @@
               <Width>3.67221cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.70789cm</Width>
+              <Width>1.99351cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.70789cm</Width>
+              <Width>2.36393cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.70789cm</Width>
+              <Width>2.52268cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>3.79945cm</Width>
@@ -160,7 +160,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value># Factura</Value>
+                              <Value>Factura</Value>
                               <Style>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -532,7 +532,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!FechaDevolucion.Value</Value>
-                              <Style />
+                              <Style>
+                                <Format>dd/MM/yy</Format>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -578,9 +580,9 @@
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>1.39842cm</Top>
-        <Left>1.85114cm</Left>
+        <Left>0.89171cm</Left>
         <Height>1.2cm</Height>
-        <Width>18.30322cm</Width>
+        <Width>17.05968cm</Width>
         <ZIndex>4</ZIndex>
         <Style>
           <Border>
@@ -592,10 +594,10 @@
     <Height>3.07292in</Height>
     <Style />
   </Body>
-  <Width>8.8125in</Width>
+  <Width>8.46875in</Width>
   <Page>
     <PageHeader>
-      <Height>3.12278cm</Height>
+      <Height>3.54611cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -648,8 +650,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox14</rd:DefaultName>
-          <Top>0.69453cm</Top>
-          <Left>15.58159cm</Left>
+          <Top>0.94148cm</Top>
+          <Left>14.86722cm</Left>
           <Height>0.6cm</Height>
           <Width>1.20354cm</Width>
           <ZIndex>1</ZIndex>
@@ -678,8 +680,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox15</rd:DefaultName>
-          <Top>1.62057cm</Top>
-          <Left>15.58159cm</Left>
+          <Top>1.86752cm</Top>
+          <Left>14.86722cm</Left>
           <Height>0.6cm</Height>
           <Width>1.20354cm</Width>
           <ZIndex>2</ZIndex>
@@ -710,8 +712,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>ExecutionTime</rd:DefaultName>
-          <Top>0.69453cm</Top>
-          <Left>16.78513cm</Left>
+          <Top>0.94148cm</Top>
+          <Left>16.07075cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <ZIndex>3</ZIndex>
@@ -742,8 +744,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>ExecutionTime1</rd:DefaultName>
-          <Top>1.62057cm</Top>
-          <Left>16.78513cm</Left>
+          <Top>1.86752cm</Top>
+          <Left>16.07075cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <ZIndex>4</ZIndex>
@@ -772,8 +774,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox19</rd:DefaultName>
-          <Top>2.41474cm</Top>
-          <Left>15.58159cm</Left>
+          <Top>2.66169cm</Top>
+          <Left>14.86722cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <ZIndex>5</ZIndex>
@@ -802,8 +804,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>paramUsuario</rd:DefaultName>
-          <Top>2.41694cm</Top>
-          <Left>17.91402cm</Left>
+          <Top>2.66389cm</Top>
+          <Left>17.19964cm</Left>
           <Height>0.6cm</Height>
           <Width>4.15632cm</Width>
           <ZIndex>6</ZIndex>
@@ -821,6 +823,8 @@
           <Source>Embedded</Source>
           <Value>BackgroundTransparent</Value>
           <Sizing>FitProportional</Sizing>
+          <Top>0.14111cm</Top>
+          <Left>0.42333cm</Left>
           <Height>3.0875cm</Height>
           <Width>5cm</Width>
           <ZIndex>7</ZIndex>
@@ -880,8 +884,8 @@
     </PageFooter>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
-    <LeftMargin>2cm</LeftMargin>
-    <RightMargin>2cm</RightMargin>
+    <LeftMargin>0cm</LeftMargin>
+    <RightMargin>0cm</RightMargin>
     <TopMargin>2cm</TopMargin>
     <BottomMargin>2cm</BottomMargin>
     <ColumnSpacing>0.13cm</ColumnSpacing>

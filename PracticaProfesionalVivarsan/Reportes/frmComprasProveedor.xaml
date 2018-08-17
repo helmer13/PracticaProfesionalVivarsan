@@ -6,9 +6,9 @@
         xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
         xmlns:local="clr-namespace:PracticaProfesionalVivarsan.Reportes"
         mc:Ignorable="d"
-        Title="Compras Por Proveedor" Height="740.388" Width="1134.465">
+        Title="Compras Por Proveedor" Height="740.388" Width="1034.95">
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-        <WindowsFormsHost HorizontalAlignment="Left" Height="635" Margin="-528,-315,-533,-320" VerticalAlignment="Top" Width="1061" RenderTransformOrigin="0.5,0.5">
+        <WindowsFormsHost HorizontalAlignment="Left" Height="635" Margin="-488,-315,-489,-320" VerticalAlignment="Top" Width="977" RenderTransformOrigin="0.5,0.5">
             <rv:ReportViewer x:Name="ReporteCP"></rv:ReportViewer>
         </WindowsFormsHost>
 

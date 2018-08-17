@@ -6,10 +6,10 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>1.94174cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.19333cm</Width>
+              <Width>3.42328cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>4.00812cm</Width>
@@ -18,10 +18,10 @@
               <Width>2.5cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>2.23542cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>2.76458cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2.5cm</Width>
@@ -76,7 +76,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Nombre Usuario</Value>
+                              <Value>Usuario</Value>
                               <Style>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -112,7 +112,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Nombre Cliente</Value>
+                              <Value>Cliente</Value>
                               <Style>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -749,7 +749,7 @@
         <Top>1.43991cm</Top>
         <Left>1.16099cm</Left>
         <Height>1.98521cm</Height>
-        <Width>20.70145cm</Width>
+        <Width>19.37314cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -884,7 +884,7 @@
     <Height>2.59375in</Height>
     <Style />
   </Body>
-  <Width>9.108in</Width>
+  <Width>9.0455in</Width>
   <Page>
     <PageHeader>
       <Height>3.82213cm</Height>
@@ -912,7 +912,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox28</rd:DefaultName>
           <Top>0.35278cm</Top>
-          <Left>9.15892cm</Left>
+          <Left>8.86788cm</Left>
           <Height>0.70583cm</Height>
           <Width>6.40167cm</Width>
           <Style>
@@ -940,8 +940,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox14</rd:DefaultName>
-          <Top>1.19366cm</Top>
-          <Left>16.45399cm</Left>
+          <Top>1.22894cm</Top>
+          <Left>16.13649cm</Left>
           <Height>0.6cm</Height>
           <Width>1.20354cm</Width>
           <ZIndex>1</ZIndex>
@@ -970,8 +970,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox15</rd:DefaultName>
-          <Top>2.1197cm</Top>
-          <Left>16.45399cm</Left>
+          <Top>2.15498cm</Top>
+          <Left>16.13649cm</Left>
           <Height>0.6cm</Height>
           <Width>1.20354cm</Width>
           <ZIndex>2</ZIndex>
@@ -1002,8 +1002,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>ExecutionTime</rd:DefaultName>
-          <Top>1.19366cm</Top>
-          <Left>17.65753cm</Left>
+          <Top>1.22894cm</Top>
+          <Left>17.34003cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <ZIndex>3</ZIndex>
@@ -1034,8 +1034,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>ExecutionTime1</rd:DefaultName>
-          <Top>2.1197cm</Top>
-          <Left>17.65753cm</Left>
+          <Top>2.15498cm</Top>
+          <Left>17.34003cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <ZIndex>4</ZIndex>
@@ -1064,8 +1064,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox19</rd:DefaultName>
-          <Top>3.04574cm</Top>
-          <Left>16.45399cm</Left>
+          <Top>3.08102cm</Top>
+          <Left>16.13649cm</Left>
           <Height>0.6cm</Height>
           <Width>2.42944cm</Width>
           <ZIndex>5</ZIndex>
@@ -1094,8 +1094,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>paramUsuario</rd:DefaultName>
-          <Top>3.04574cm</Top>
-          <Left>18.95399cm</Left>
+          <Top>3.08102cm</Top>
+          <Left>18.63649cm</Left>
           <Height>0.6cm</Height>
           <Width>4.10095cm</Width>
           <ZIndex>6</ZIndex>
@@ -1151,7 +1151,7 @@
           </Paragraphs>
           <rd:DefaultName>PageNumber</rd:DefaultName>
           <Top>1.46636cm</Top>
-          <Left>19.97287cm</Left>
+          <Left>19.41725cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <Style>
@@ -1173,10 +1173,10 @@
     </PageFooter>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
-    <LeftMargin>2cm</LeftMargin>
-    <RightMargin>2cm</RightMargin>
-    <TopMargin>2cm</TopMargin>
-    <BottomMargin>2cm</BottomMargin>
+    <LeftMargin>0cm</LeftMargin>
+    <RightMargin>0cm</RightMargin>
+    <TopMargin>1cm</TopMargin>
+    <BottomMargin>1cm</BottomMargin>
     <ColumnSpacing>0.13cm</ColumnSpacing>
     <Style />
   </Page>

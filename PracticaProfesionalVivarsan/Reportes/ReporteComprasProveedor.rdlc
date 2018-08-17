@@ -9,19 +9,19 @@
               <Width>2.54536cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.75889cm</Width>
+              <Width>3.99205cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>5.57988cm</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>2.54536cm</Width>
+              <Width>5.33006cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2.54536cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.83098cm</Width>
+              <Width>2.54536cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>2.31311cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2.54536cm</Width>
@@ -749,7 +749,7 @@
         <Top>2.2072cm</Top>
         <Left>0.97578cm</Left>
         <Height>1.8cm</Height>
-        <Width>22.35118cm</Width>
+        <Width>21.81666cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1225,7 +1225,7 @@
           </Paragraphs>
           <rd:DefaultName>PageNumber</rd:DefaultName>
           <Top>1.68438cm</Top>
-          <Left>21.47771cm</Left>
+          <Left>19.76495cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <Style>
@@ -1247,8 +1247,8 @@
     </PageFooter>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
-    <LeftMargin>2cm</LeftMargin>
-    <RightMargin>2cm</RightMargin>
+    <LeftMargin>0cm</LeftMargin>
+    <RightMargin>0cm</RightMargin>
     <TopMargin>2cm</TopMargin>
     <BottomMargin>2cm</BottomMargin>
     <ColumnSpacing>0.13cm</ColumnSpacing>

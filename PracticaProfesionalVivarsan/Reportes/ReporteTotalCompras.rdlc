@@ -6,22 +6,22 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.89687cm</Width>
+              <Width>2.39416cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>5.06645cm</Width>
+              <Width>3.86291cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.43146cm</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>4.18201cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2.5cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2.5cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>2.65875cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2.5cm</Width>
@@ -40,7 +40,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value># Factura</Value>
+                              <Value>Factura</Value>
                               <Style>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -76,7 +76,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Nombre Usuario</Value>
+                              <Value>Usuario</Value>
                               <Style>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -112,7 +112,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Nombre Proveedor</Value>
+                              <Value>Proveedor</Value>
                               <Style>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -749,7 +749,7 @@
         <Top>1.50495cm</Top>
         <Left>0.73766cm</Left>
         <Height>2.54084cm</Height>
-        <Width>22.39478cm</Width>
+        <Width>20.59783cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -884,7 +884,7 @@
     <Height>2.55208in</Height>
     <Style />
   </Body>
-  <Width>9.40934in</Width>
+  <Width>9.05605in</Width>
   <Page>
     <PageHeader>
       <Height>4.05447cm</Height>
@@ -940,8 +940,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox14</rd:DefaultName>
-          <Top>0.96697cm</Top>
-          <Left>16.8382cm</Left>
+          <Top>1.30239cm</Top>
+          <Left>15.70272cm</Left>
           <Height>0.6cm</Height>
           <Width>1.20354cm</Width>
           <ZIndex>1</ZIndex>
@@ -970,8 +970,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox15</rd:DefaultName>
-          <Top>1.89301cm</Top>
-          <Left>16.8382cm</Left>
+          <Top>2.22843cm</Top>
+          <Left>15.70272cm</Left>
           <Height>0.6cm</Height>
           <Width>1.20354cm</Width>
           <ZIndex>2</ZIndex>
@@ -1002,8 +1002,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>ExecutionTime</rd:DefaultName>
-          <Top>0.96697cm</Top>
-          <Left>18.04174cm</Left>
+          <Top>1.30239cm</Top>
+          <Left>16.90626cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <ZIndex>3</ZIndex>
@@ -1034,8 +1034,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>ExecutionTime1</rd:DefaultName>
-          <Top>1.89301cm</Top>
-          <Left>18.04174cm</Left>
+          <Top>2.22843cm</Top>
+          <Left>16.90626cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <ZIndex>4</ZIndex>
@@ -1054,6 +1054,7 @@
           <Value>BackgroundTransparent</Value>
           <Sizing>FitProportional</Sizing>
           <Top>0.96697cm</Top>
+          <Left>0.73766cm</Left>
           <Height>3.0875cm</Height>
           <Width>5cm</Width>
           <ZIndex>5</ZIndex>
@@ -1078,8 +1079,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox19</rd:DefaultName>
-          <Top>2.97794cm</Top>
-          <Left>16.8382cm</Left>
+          <Top>3.31336cm</Top>
+          <Left>15.70272cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <ZIndex>6</ZIndex>
@@ -1108,8 +1109,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>paramUsuario</rd:DefaultName>
-          <Top>2.97794cm</Top>
-          <Left>19.17722cm</Left>
+          <Top>3.31336cm</Top>
+          <Left>18.04174cm</Left>
           <Height>0.6cm</Height>
           <Width>4.7225cm</Width>
           <ZIndex>7</ZIndex>
@@ -1151,7 +1152,7 @@
           </Paragraphs>
           <rd:DefaultName>PageNumber</rd:DefaultName>
           <Top>1.17229cm</Top>
-          <Left>21.05577cm</Left>
+          <Left>19.09785cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <Style>
@@ -1173,10 +1174,10 @@
     </PageFooter>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
-    <LeftMargin>2cm</LeftMargin>
-    <RightMargin>2cm</RightMargin>
-    <TopMargin>2cm</TopMargin>
-    <BottomMargin>2cm</BottomMargin>
+    <LeftMargin>0cm</LeftMargin>
+    <RightMargin>0cm</RightMargin>
+    <TopMargin>1cm</TopMargin>
+    <BottomMargin>1cm</BottomMargin>
     <ColumnSpacing>0.13cm</ColumnSpacing>
     <Style />
   </Page>

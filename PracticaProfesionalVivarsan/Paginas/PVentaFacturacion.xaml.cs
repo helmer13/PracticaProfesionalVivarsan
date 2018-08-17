@@ -1,5 +1,6 @@
 ﻿using Entidad;
 using Logica;
+using PracticaProfesionalVivarsan.Reportes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,7 @@ namespace PracticaProfesionalVivarsan.Paginas
         List<LineaDetalleVentas> listaDetalle = new List<LineaDetalleVentas>();
         List<Inventario> listaInventario = new List<Inventario>();
         private string error = "";
+        private Double iv = 0;
         public PVentaFacturacion()
         {
             InitializeComponent();
@@ -81,7 +83,11 @@ namespace PracticaProfesionalVivarsan.Paginas
                 lineaDetalle.Producto.IdLineaDetalle = lineaDetalle.Id;
                 //precio con impuesto
                 Double impuesto = Convert.ToDouble(Convert.ToDouble(lineaDetalle.Producto.PrecioVenta) * 0.13) + Convert.ToDouble(lineaDetalle.Producto.PrecioVenta);
-                lineaDetalle.SubTotal = Convert.ToDouble(lineaDetalle.Cantidad * lineaDetalle.Producto.PrecioVenta) + (impuesto*lineaDetalle.Cantidad);
+                Double precioarticulos = Convert.ToDouble(lineaDetalle.Cantidad * lineaDetalle.Producto.PrecioVenta);
+                Double precioImpuestos = (Convert.ToDouble(lineaDetalle.Producto.PrecioVenta) * 0.13) * lineaDetalle.Cantidad;
+                lineaDetalle.SubTotal = precioarticulos + precioImpuestos;
+
+                iv += precioImpuestos;
 
                 listaDetalle.Add(lineaDetalle);
                 dataGridLineaDetalle.ItemsSource = listaDetalle;
@@ -110,7 +116,8 @@ namespace PracticaProfesionalVivarsan.Paginas
             txtCantDisp.Text = string.Empty;
 
             txtCantidad.Text= string.Empty;
-           
+            txtPrecioImpuesto.Text = "";
+            txtPrecioNormal.Text = "";
         }
 
       
@@ -156,6 +163,9 @@ namespace PracticaProfesionalVivarsan.Paginas
                 txtTextBlockDialogo.Text = "Registro Procesado";
                 dialogoMENS.IsOpen = true;
 
+                frmFacturaVenta fr = new frmFacturaVenta();              
+                fr.GenerarReporte(iv,logica.EncabezadoFactura(factura.Id), logica.ReporteFactura2(factura.Id));
+                fr.Show();
 
                 factura = new FacturaVentas();
                 cliente = new Cliente();
@@ -173,6 +183,9 @@ namespace PracticaProfesionalVivarsan.Paginas
                 txtCantidad.Text = string.Empty;
                 txtSubTotal.Text = string.Empty;
                 dataGridLineaDetalle.ItemsSource = null;
+                iv = 0;
+                txtPrecioImpuesto.Text = "";
+                txtPrecioNormal.Text = "";
 
             }
 
@@ -194,7 +207,7 @@ namespace PracticaProfesionalVivarsan.Paginas
                 txtidEmpresa.Text = inventario.Empresa.IdEmpresa.ToString();
                 txtCantDisp.Text = inventario.Cantidad.ToString();
                 //campos de impuesto y precio normal
-                Double impuesto = Convert.ToDouble(Convert.ToDouble(inventario.Producto.PrecioVenta) * 0.13);
+                Double impuesto = Convert.ToDouble(Convert.ToDouble(inventario.Producto.PrecioVenta) * 0.13) + Convert.ToDouble(inventario.Producto.PrecioVenta);
                 txtPrecioImpuesto.Text = impuesto.ToString();
                 txtPrecioNormal.Text = inventario.Producto.PrecioVenta.ToString();
                 //lineaDetalle.SubTotal = Convert.ToDouble(inventario.Cantidad * inventario.Producto.PrecioVenta) + (impuesto * inventario.Cantidad);
