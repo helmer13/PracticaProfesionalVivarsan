@@ -42,7 +42,7 @@
             <ComboBoxItem >Internet</ComboBoxItem>
             <ComboBoxItem >Combustible</ComboBoxItem>
         </ComboBox>
-        <DatePicker Name="fecha"  Grid.Row="1" Grid.Column="3" IsEnabled="False"  Language="es-ES" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha factura" materialDesign:HintAssist.IsFloating="True"   />
+        <DatePicker Name="fecha"  Grid.Row="1" Grid.Column="3" IsEnabled="False"  Language="es-ES" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha" materialDesign:HintAssist.IsFloating="True"   />
 
         <TextBox x:Name="txtDescripcion"  Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  Width="200" Height="60" TextWrapping="Wrap" AcceptsReturn="True"  VerticalScrollBarVisibility="Visible"   materialDesign:HintAssist.Hint="Descripción" materialDesign:HintAssist.IsFloating="True"/>
 
