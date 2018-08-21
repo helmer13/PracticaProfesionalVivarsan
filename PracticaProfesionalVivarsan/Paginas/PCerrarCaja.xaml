@@ -62,7 +62,7 @@
 
             <TextBox x:Name="txtbase" IsReadOnly="True" Grid.Row="3" Grid.Column="1"  Width="200" Height="50"  HorizontalAlignment="Center"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Base en caja" materialDesign:HintAssist.IsFloating="True" />
 
-                <TextBox x:Name="txtTotalEfectivoCaja" Text="{Binding MontoCierre, StringFormat=C}" PreviewTextInput="txtTotalEfectivoCaja_PreviewTextInput" TextChanged="txtTotalEfectivoCaja_TextChanged" Grid.Row="3" Grid.Column="3"  Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Total efectivo en caja" materialDesign:HintAssist.IsFloating="True" />
+                <TextBox x:Name="txtTotalEfectivoCaja" LostFocus="txtTotalEfectivoCaja_LostFocus" KeyDown="txtTotalEfectivoCaja_KeyDown" PreviewTextInput="txtTotalEfectivoCaja_PreviewTextInput" TextChanged="txtTotalEfectivoCaja_TextChanged" Grid.Row="3" Grid.Column="3"  Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Total efectivo en caja" materialDesign:HintAssist.IsFloating="True" />
 
 
 

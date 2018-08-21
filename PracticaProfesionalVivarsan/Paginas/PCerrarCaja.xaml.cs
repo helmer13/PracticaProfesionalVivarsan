@@ -40,25 +40,26 @@ namespace PracticaProfesionalVivarsan.Paginas
             txtUsuario.Text = usuario.Nombre;
             CajaLogica logica = new CajaLogica();
 
-            caja = logica.ObtenerCajaAbierta( usuario.Id);
+            caja = logica.ObtenerCajaAbierta(usuario.Id);
 
             fechaApertura.SelectedDate = caja.FechaApertura;
 
 
 
-            totales = logica.ObtenerTotalesCierrreCaja(fechaApertura.SelectedDate.Value,fechaCierre.SelectedDate.Value, usuario.Id);
+            totales = logica.ObtenerTotalesCierrreCaja(fechaApertura.SelectedDate.Value, fechaCierre.SelectedDate.Value, usuario.Id);
             txtefectivoSinBase.Text = totales.Contado.ToString();
-            txtbase.Text = totales.MobtoApertura.ToString();
+           // txtbase.Text = totales.MobtoApertura.ToString();
+            txtbase.Text= string.Format("{0:N2}", Convert.ToDecimal(totales.MobtoApertura));
             txtTotalGastos.Text = totales.Gastos.ToString();
-            
-          
+
+
             var totalEfectivoSistema = (totales.MobtoApertura + totales.Contado) - totales.Gastos;
             txtTotalEfectivoSistema.Text = totalEfectivoSistema.ToString();
 
 
             LlenarDataGrid();
 
-          
+
         }
 
         private void btnVolver_Click(object sender, RoutedEventArgs e)
@@ -84,7 +85,7 @@ namespace PracticaProfesionalVivarsan.Paginas
                 }
 
                 Usuario usuario = new Usuario();
-                usuario = (Usuario)App.Current.Properties["usuarioSesion"]; 
+                usuario = (Usuario)App.Current.Properties["usuarioSesion"];
                 CajaLogica logica = new CajaLogica();
                 Caja caja = new Caja();
                 caja = logica.ObtenerCajaAbierta(usuario.Id);
@@ -99,22 +100,22 @@ namespace PracticaProfesionalVivarsan.Paginas
 
                 Caja cajaCerrar = new Caja();
 
-               
+
                 TotalesCierreCaja totales = new TotalesCierreCaja();
 
-              
+
                 txtUsuario.Text = usuario.Nombre;
 
-             
-                totales = logica.ObtenerTotalesCierrreCaja(fechaCierre.SelectedDate.Value,fechaCierre.SelectedDate.Value, usuario.Id);
+
+                totales = logica.ObtenerTotalesCierrreCaja(fechaCierre.SelectedDate.Value, fechaCierre.SelectedDate.Value, usuario.Id);
 
                 cajaCerrar.Id = totales.Id;
                 cajaCerrar.FechaCierre = fechaCierre.SelectedDate.Value;
-                cajaCerrar.MontoCierre = Convert.ToDouble( txtTotalEfectivoCaja.Text);
+                cajaCerrar.MontoCierre = Convert.ToDouble(txtTotalEfectivoCaja.Text);
                 cajaCerrar.Usuario = usuario;
                 cajaCerrar.Estado = "CERRADO";
                 cajaCerrar.FechaApertura = fechaApertura.SelectedDate.Value;
-                cajaCerrar.MontoApertura =Convert.ToDouble( txtbase.Text);
+                cajaCerrar.MontoApertura = Convert.ToDouble(txtbase.Text);
 
                 //if (Convert.ToDouble( txtTotalEfectivoCaja.Text)== Convert.ToDouble(txtTotalEfectivoSistema.Text))
                 //{
@@ -145,7 +146,7 @@ namespace PracticaProfesionalVivarsan.Paginas
 
                     cajaCerrar.Mensaje = "Hay un faltante de dinero por un monto de: " + monto;
                 }
-                logica.ActualizarCerrarCaja(cajaCerrar, Convert.ToDouble(txtefectivoSinBase.Text), 
+                logica.ActualizarCerrarCaja(cajaCerrar, Convert.ToDouble(txtefectivoSinBase.Text),
                     Convert.ToDouble(txtTotalGastos.Text), Convert.ToDouble(txtTotalEfectivoSistema.Text));
 
                 //MessageBox.Show("Inserto");
@@ -155,7 +156,7 @@ namespace PracticaProfesionalVivarsan.Paginas
                 frmCaja frm = new frmCaja();
                 frm.GenerarReporte(logica.ReporteCajaID(cajaCerrar.Id));
                 frm.Show();
-                
+
             }
             catch (Exception ex)
             {
@@ -189,7 +190,7 @@ namespace PracticaProfesionalVivarsan.Paginas
             txtUsuario.Text = usuario.Nombre;
 
             CajaLogica logica = new CajaLogica();
-            totales = logica.ObtenerTotalesCierrreCaja(fechaApertura.SelectedDate.Value,fechaCierre.SelectedDate.Value, usuario.Id);
+            totales = logica.ObtenerTotalesCierrreCaja(fechaApertura.SelectedDate.Value, fechaCierre.SelectedDate.Value, usuario.Id);
 
             List<object> lista = new List<object>();
             lista.Add(new { formaPago = "Efectivo", valorCajero = 0.00, valorSistema = txtTotalEfectivoSistema.Text });
@@ -200,23 +201,23 @@ namespace PracticaProfesionalVivarsan.Paginas
 
         private void txtTotalEfectivoCaja_TextChanged(object sender, TextChangedEventArgs e)
         {
-            Usuario usuario = new Usuario();
-            TotalesCierreCaja totales = new TotalesCierreCaja();
+            //Usuario usuario = new Usuario();
+            //TotalesCierreCaja totales = new TotalesCierreCaja();
 
-            usuario = (Usuario)App.Current.Properties["usuarioSesion"];
-            txtUsuario.Text = usuario.Nombre;
+            //usuario = (Usuario)App.Current.Properties["usuarioSesion"];
+            //txtUsuario.Text = usuario.Nombre;
 
-            CajaLogica logica = new CajaLogica();
-            totales = logica.ObtenerTotalesCierrreCaja(fechaCierre.SelectedDate.Value,fechaCierre.SelectedDate.Value, usuario.Id);
+            //CajaLogica logica = new CajaLogica();
+            //totales = logica.ObtenerTotalesCierrreCaja(fechaCierre.SelectedDate.Value,fechaCierre.SelectedDate.Value, usuario.Id);
 
-            List<object> lista = new List<object>();
-            lista.Add(new { formaPago = "Efectivo", valorCajero = txtTotalEfectivoCaja.Text, valorSistema = txtTotalEfectivoSistema.Text });
-            lista.Add(new { formaPago = "Crédito", valorCajero = 0.00, valorSistema = totales.Tarjeta });
+            //List<object> lista = new List<object>();
+            //lista.Add(new { formaPago = "Efectivo", valorCajero = txtTotalEfectivoCaja.Text, valorSistema = txtTotalEfectivoSistema.Text });
+            //lista.Add(new { formaPago = "Crédito", valorCajero = 0.00, valorSistema = totales.Tarjeta });
 
-            dataGridDetallePago.ItemsSource = lista;
+            //dataGridDetallePago.ItemsSource = lista;
         }
 
-   
+
 
         private void txtTotalEfectivoCaja_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
@@ -231,5 +232,42 @@ namespace PracticaProfesionalVivarsan.Paginas
             if (!(char.IsDigit(e.Text, e.Text.Length - 1) || approvedDecimalPoint))
                 e.Handled = true;
         }
+
+        private void txtTotalEfectivoCaja_LostFocus(object sender, RoutedEventArgs e)
+        {
+            
+
+            if (!string.IsNullOrEmpty(txtTotalEfectivoCaja.Text))
+            {
+                if (txtTotalEfectivoCaja.Text.Substring(0, 1) == ".")
+                {
+                    var v = txtTotalEfectivoCaja.Text.Remove(0, 1);
+                    txtTotalEfectivoCaja.Text = v;
+                }
+
+                txtTotalEfectivoCaja.Text = string.Format("{0:N2}", Convert.ToDecimal(txtTotalEfectivoCaja.Text));
+            }
+        }
+
+        private void txtTotalEfectivoCaja_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                
+
+                if (!string.IsNullOrEmpty(txtTotalEfectivoCaja.Text))
+                {
+                    if (txtTotalEfectivoCaja.Text.Substring(0, 1) == ".")
+                    {
+                        var v = txtTotalEfectivoCaja.Text.Remove(0, 1);
+                        txtTotalEfectivoCaja.Text = v;
+                    }
+
+                    txtTotalEfectivoCaja.Text = string.Format("{0:N2}", Convert.ToDecimal(txtTotalEfectivoCaja.Text));
+                }
+            }
+        }
+
+
     }
 }

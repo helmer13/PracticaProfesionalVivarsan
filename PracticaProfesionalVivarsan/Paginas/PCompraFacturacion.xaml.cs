@@ -390,5 +390,38 @@ namespace PracticaProfesionalVivarsan.Paginas
             
             return total.ToString();
         }
+
+        private void txtPrecioCosto_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+
+
+                if (!string.IsNullOrEmpty(txtPrecioCosto.Text))
+                {
+                    if (txtPrecioCosto.Text.Substring(0, 1) == ".")
+                    {
+                        var v = txtPrecioCosto.Text.Remove(0, 1);
+                        txtPrecioCosto.Text = v;
+                    }
+
+                    txtPrecioCosto.Text = string.Format("{0:N2}", Convert.ToDecimal(txtPrecioCosto.Text));
+                }
+            }
+        }
+
+        private void txtPrecioCosto_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtPrecioCosto.Text))
+            {
+                if (txtPrecioCosto.Text.Substring(0, 1) == ".")
+                {
+                    var v = txtPrecioCosto.Text.Remove(0, 1);
+                    txtPrecioCosto.Text = v;
+                }
+
+                txtPrecioCosto.Text = string.Format("{0:N2}", Convert.ToDecimal(txtPrecioCosto.Text));
+            }
+        }
     }
 }

@@ -162,8 +162,12 @@
                         </StackPanel>
                     </materialDesign:DialogHost.DialogContent>
                 </materialDesign:DialogHost>
+                
+             
                 <TextBox x:Name="txtPrecioNormal" IsReadOnly="True" Grid.Row="4"  Grid.Column="1" HorizontalAlignment="Left" Width="200" Height="50"  VerticalAlignment="Top"  materialDesign:HintAssist.Hint="Precio Venta" materialDesign:HintAssist.IsFloating="True"/>
+              
                 <TextBox x:Name="txtPrecioImpuesto" IsReadOnly="True" Grid.Row="4"  Grid.Column="3" HorizontalAlignment="Left" Width="200" Height="50"  VerticalAlignment="Top"  materialDesign:HintAssist.Hint="Precio con Impuesto" materialDesign:HintAssist.IsFloating="True"/>
+        
             </Grid>
 
 

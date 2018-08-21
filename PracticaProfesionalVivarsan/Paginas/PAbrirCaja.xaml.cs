@@ -105,6 +105,45 @@ namespace PracticaProfesionalVivarsan.Paginas
 
         }
 
+        private void txtMonto_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.Key == Key.Enter)
+            {
+
+
+                if (!string.IsNullOrEmpty(txtMonto.Text))
+                {
+                    if (txtMonto.Text.Substring(0, 1) == ".")
+                    {
+                        var v = txtMonto.Text.Remove(0, 1);
+                        txtMonto.Text = v;
+                    }
+
+                    txtMonto.Text = string.Format("{0:N2}", Convert.ToDecimal(txtMonto.Text));
+                }
+            }
+        }
+
+
+    
+
+        private void txtMonto_LostFocus(object sender, RoutedEventArgs e)
+        {
+
+            if (!string.IsNullOrEmpty(txtMonto.Text))
+            {
+                if (txtMonto.Text.Substring(0, 1) == ".")
+                {
+                    var v = txtMonto.Text.Remove(0, 1);
+                    txtMonto.Text = v;
+                }
+
+                txtMonto.Text = string.Format("{0:N2}", Convert.ToDecimal(txtMonto.Text));
+            }
+
+
+        }
     }
 }
 

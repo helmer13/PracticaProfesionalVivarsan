@@ -46,7 +46,7 @@
 
         <TextBox x:Name="txtDescripcion"  Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  Width="200" Height="60" TextWrapping="Wrap" AcceptsReturn="True"  VerticalScrollBarVisibility="Visible"   materialDesign:HintAssist.Hint="Descripción" materialDesign:HintAssist.IsFloating="True"/>
 
-        <TextBox x:Name="txtMonto"  Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left"   VerticalAlignment="Center" Width="200" Height="50" materialDesign:HintAssist.Hint="Monto" materialDesign:HintAssist.IsFloating="True" PreviewTextInput="textBox2_PreviewTextInput"/>
+        <TextBox x:Name="txtMonto" KeyDown="txtMonto_KeyDown" LostFocus="txtMonto_LostFocus" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left"   VerticalAlignment="Center" Width="200" Height="50" materialDesign:HintAssist.Hint="Monto" materialDesign:HintAssist.IsFloating="True" PreviewTextInput="textBox2_PreviewTextInput"/>
 
         <Button x:Name="btnGuardar"  Grid.Row="3" Grid.Column="3" Content="Guardar" HorizontalAlignment="Left"  VerticalAlignment="Center"  Width="90" Height="29"   Click="btnGuardar_Click"/>
         

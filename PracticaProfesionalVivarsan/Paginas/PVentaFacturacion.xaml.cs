@@ -107,7 +107,8 @@ namespace PracticaProfesionalVivarsan.Paginas
                     total += listaDetalle[i].SubTotal;
 
                 }
-                txtSubTotal.Text = total.ToString();
+              //  txtSubTotal.Text = total.ToString();
+                txtSubTotal.Text = string.Format("{0:N2}", Convert.ToDecimal(total));
             }
             txtidProducto.Text = string.Empty;
             txtProducto.Text = string.Empty;
@@ -208,8 +209,10 @@ namespace PracticaProfesionalVivarsan.Paginas
                 txtCantDisp.Text = inventario.Cantidad.ToString();
                 //campos de impuesto y precio normal
                 Double impuesto = Convert.ToDouble(Convert.ToDouble(inventario.Producto.PrecioVenta) * 0.13) + Convert.ToDouble(inventario.Producto.PrecioVenta);
-                txtPrecioImpuesto.Text = impuesto.ToString();
-                txtPrecioNormal.Text = inventario.Producto.PrecioVenta.ToString();
+                //   txtPrecioImpuesto.Text = impuesto.ToString();
+                txtPrecioImpuesto.Text = string.Format("{0:N2}", Convert.ToDecimal(impuesto));
+                //  txtPrecioNormal.Text = inventario.Producto.PrecioVenta.ToString();
+                txtPrecioNormal.Text = string.Format("{0:N2}", Convert.ToDecimal(inventario.Producto.PrecioVenta));
                 //lineaDetalle.SubTotal = Convert.ToDouble(inventario.Cantidad * inventario.Producto.PrecioVenta) + (impuesto * inventario.Cantidad);
 
             }
@@ -229,7 +232,8 @@ namespace PracticaProfesionalVivarsan.Paginas
 
             lista.RemoveAt(index);
             dataGridLineaDetalle.ItemsSource = lista;
-            txtSubTotal.Text = this.ActializarTotal();
+          //  txtSubTotal.Text = this.ActializarTotal();
+            txtSubTotal.Text = string.Format("{0:N2}", Convert.ToDecimal(this.ActializarTotal()));
         }
 
         private void Refrescar()

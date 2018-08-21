@@ -38,9 +38,10 @@ namespace PracticaProfesionalVivarsan.Paginas
                 CargarCboModelos();
                 cboModelos.SelectedValue = (Convert.ToString(c.Modelo.Id));
                 txtNombre.Text = c.Nombre;
-                txtPrecioCompra.Text = c.PrecioCompra.ToString();
-                txtPrecioVenta.Text = c.PrecioVenta.ToString();
-
+                //  txtPrecioCompra.Text = c.PrecioCompra.ToString();
+                txtPrecioCompra.Text = string.Format("{0:N2}", Convert.ToDecimal(c.PrecioCompra));
+                // txtPrecioVenta.Text = c.PrecioVenta.ToString();
+                txtPrecioVenta.Text = string.Format("{0:N2}", Convert.ToDecimal(c.PrecioVenta));
                 gridTabla.Visibility = Visibility.Collapsed;
                 gridForm.Visibility = Visibility.Visible;
 
@@ -265,6 +266,39 @@ namespace PracticaProfesionalVivarsan.Paginas
 
             gridTabla.Visibility = Visibility.Visible;
             gridForm.Visibility = Visibility.Collapsed;
+        }
+
+        private void txtPrecioVenta_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+
+
+                if (!string.IsNullOrEmpty(txtPrecioVenta.Text))
+                {
+                    if (txtPrecioVenta.Text.Substring(0, 1) == ".")
+                    {
+                        var v = txtPrecioVenta.Text.Remove(0, 1);
+                        txtPrecioVenta.Text = v;
+                    }
+
+                    txtPrecioVenta.Text = string.Format("{0:N2}", Convert.ToDecimal(txtPrecioVenta.Text));
+                }
+            }
+        }
+
+        private void txtPrecioVenta_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtPrecioVenta.Text))
+            {
+                if (txtPrecioVenta.Text.Substring(0, 1) == ".")
+                {
+                    var v = txtPrecioVenta.Text.Remove(0, 1);
+                    txtPrecioVenta.Text = v;
+                }
+
+                txtPrecioVenta.Text = string.Format("{0:N2}", Convert.ToDecimal(txtPrecioVenta.Text));
+            }
         }
     }
 }

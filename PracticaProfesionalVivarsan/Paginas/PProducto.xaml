@@ -57,7 +57,7 @@
         <TextBox x:Name="txtPrecioCompra" Grid.Row="3" IsReadOnly="True" Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Precio Compra" materialDesign:HintAssist.IsFloating="True" PreviewTextInput="txtPrecioCompra_PreviewTextInput"/>
 
 
-        <TextBox x:Name="txtPrecioVenta" Grid.Row="3" Grid.Column="3" Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Precio Venta" materialDesign:HintAssist.IsFloating="True" PreviewTextInput="txtPrecioVenta_PreviewTextInput"/>
+        <TextBox x:Name="txtPrecioVenta" KeyDown="txtPrecioVenta_KeyDown" LostFocus="txtPrecioVenta_LostFocus" Grid.Row="3" Grid.Column="3" Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Precio Venta" materialDesign:HintAssist.IsFloating="True" PreviewTextInput="txtPrecioVenta_PreviewTextInput"/>
 
         <!--botones-->
         <Button x:Name="btnGuardar"  Content="Guardar"  Grid.Row="3" Grid.Column="3" HorizontalAlignment="Left"  VerticalAlignment="Bottom"    Width="90" Height="29" Click="btnGuardar_Click"/>

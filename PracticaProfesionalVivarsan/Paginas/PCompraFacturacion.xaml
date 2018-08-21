@@ -112,7 +112,9 @@
                 </materialDesign:DialogHost>
 
                 <TextBox x:Name="txtCantidad" Grid.Row="3"  Grid.Column="3" Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Cantidad" materialDesign:HintAssist.IsFloating="True" PreviewTextInput="txtCantidad_PreviewTextInput"/>
-                <TextBox x:Name="txtPrecioCosto" Grid.Row="4"  Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Precio Costo" materialDesign:HintAssist.IsFloating="True" PreviewTextInput="txtPrecioCosto_PreviewTextInput"/>
+               
+                <TextBox x:Name="txtPrecioCosto" KeyDown="txtPrecioCosto_KeyDown" LostFocus="txtPrecioCosto_LostFocus" Grid.Row="4"  Grid.Column="1" Width="200" Height="50"  HorizontalAlignment="Stretch"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Precio Costo" materialDesign:HintAssist.IsFloating="True" PreviewTextInput="txtPrecioCosto_PreviewTextInput"/>
+               
                 <ComboBox x:Name="cboBodegas" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="200" Height="50" materialDesign:HintAssist.Hint="Bodegas" materialDesign:HintAssist.IsFloating="True" >
                 </ComboBox>
 
