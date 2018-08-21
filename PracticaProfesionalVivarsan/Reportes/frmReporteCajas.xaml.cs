@@ -77,8 +77,8 @@ namespace PracticaProfesionalVivarsan.Reportes
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            fechaInicio.SelectedDate = DateTime.Now;
-            fechaFin.SelectedDate = DateTime.Now;
+            fechaInicio.SelectedDate = DateTime.Now.Date;
+            fechaFin.SelectedDate = DateTime.Now.Date;
         }
     }
 }

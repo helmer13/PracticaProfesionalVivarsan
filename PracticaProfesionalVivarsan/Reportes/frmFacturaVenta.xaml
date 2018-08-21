@@ -7,8 +7,13 @@
         xmlns:local="clr-namespace:PracticaProfesionalVivarsan.Reportes"
         mc:Ignorable="d"
         Title="Factura de Venta" Height="583.06" Width="895.523" WindowStartupLocation="CenterScreen">
-    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-        <WindowsFormsHost HorizontalAlignment="Left" Height="492" Margin="-417,-246,-414,-246" VerticalAlignment="Top" Width="831">
+    <Grid >
+
+        <Grid.Background>
+            <ImageBrush   ImageSource="/PracticaProfesionalVivarsan;component/imagenes/brushed-alum.png"  ></ImageBrush>
+        </Grid.Background>
+
+        <WindowsFormsHost HorizontalAlignment="Center" Height="492" VerticalAlignment="Center" Width="831">
             <rv:ReportViewer x:Name="ReporteFactura"></rv:ReportViewer>
         </WindowsFormsHost>
 

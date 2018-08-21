@@ -105,7 +105,7 @@
             </Grid.RowDefinitions>
 
             <TextBlock Text="Mantenimiento de marca" Margin="-60 0 0 30"  HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.ColumnSpan="3" FontSize="22" />
-            <TextBlock Text="Listado de las marcas" Grid.Row="0"  Grid.ColumnSpan="3" Margin="-165 0 0 30" HorizontalAlignment="Center" VerticalAlignment="Bottom" Style="{StaticResource MaterialDesignSubheadingTextBlock}" />
+            <TextBlock Text="Listado de las marcas" Grid.Row="0"  Grid.ColumnSpan="3" Margin="-171 0 0 30" HorizontalAlignment="Center" VerticalAlignment="Bottom" Style="{StaticResource MaterialDesignSubheadingTextBlock}" />
 
             <Button x:Name="btnNuevo" Content="Nuevo" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right"  VerticalAlignment="Bottom"  Width="78" Height="29" Click="btnNuevo_Click" Margin="0 -40 30 0" />
 

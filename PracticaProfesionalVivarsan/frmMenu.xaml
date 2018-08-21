@@ -53,9 +53,9 @@
                             <MenuItem Name="ProcesoCompras" Foreground="Snow" Header="Compras" Click="ProcesoCompras_Click"/>
                             <MenuItem Name="ProcesoVentas" Foreground="Snow" Header="Ventas" Click="ProcesoVentas_Click"/>
                             <MenuItem Name="ProcesoGastos" Foreground="Snow" Header="Gastos" Click="ProcesoGastos_Click"/>
-                            <MenuItem Name="ProcesoDevoluciones" Foreground="Snow" Header="Devoluciones" Click="ProcesoDevoluciones_Click"/>
                             <MenuItem Name="AbrirCaja" Foreground="Snow" Header="Abrir Caja" Click="AbrirCaja_Click"/>
                             <MenuItem Name="cerrarCaja" Foreground="Snow" Header="Cerrar Caja" Click="cerrarCaja_Click"/>
+                            <MenuItem Name="ProcesoDevoluciones" Foreground="Snow" Header="Devoluciones" Click="ProcesoDevoluciones_Click"/>
                         </ContextMenu>
                     </Button.ContextMenu>
                 </Button>
@@ -63,22 +63,22 @@
 
                     <Button.ContextMenu>
                         <ContextMenu >
-                            <MenuItem Name="ReporteProductos" Foreground="Snow" Header="Productos" Click="ReporteProductos_Click"/>
                             <MenuItem Name="ReporteInventario" Foreground="Snow" Header="Inventario" Click="ReporteInventario_Click"/>
-                            <MenuItem Name="ReporteClientes" Foreground="Snow" Header="Clientes" Click="ReporteClientes_Click"/>
-                            <MenuItem Name="ReporteProveedores" Foreground="Snow" Header="Proveedores" Click="ReporteProveedores_Click"/>
-                            <MenuItem Name="ReporteGastos" Foreground="Snow" Header="Gastos" Click="ReporteGastos_Click"/>
+                            <MenuItem Name="ReporteProductos" Foreground="Snow" Header="Productos" Click="ReporteProductos_Click"/>
                             <MenuItem Name="ReporteTotalCompras" Foreground="Snow" Header="Total Compras" Click="ReporteTotalCompras_Click"/>
                             <MenuItem Name="ReporteTotalVentas" Foreground="Snow" Header="Total Ventas" Click="ReporteTotalVentas_Click"/>
                             <MenuItem Name="ReporteComprasProveedor" Foreground="Snow" Header="Compras x Proveedor" Click="ReporteComprasProveedor_Click"/>
                             <MenuItem Name="ReporteVentasCliente" Foreground="Snow" Header="Ventas x Cliente" Click="ReporteVentasCliente_Click"/>
-                            <MenuItem Name="ReporteDevoluciones" Foreground="Snow" Header="Devoluciones" Click="ReporteDevoluciones_Click"/>
                             <MenuItem Name="ReporteCajas" Foreground="Snow" Header="Aperturas y Cierre de Caja" Click="ReporteCajas_Click"/>
+                            <MenuItem Name="ReporteClientes" Foreground="Snow" Header="Clientes" Click="ReporteClientes_Click"/>
+                            <MenuItem Name="ReporteProveedores" Foreground="Snow" Header="Proveedores" Click="ReporteProveedores_Click"/>
+                            <MenuItem Name="ReporteGastos" Foreground="Snow" Header="Gastos" Click="ReporteGastos_Click"/>
+                            <MenuItem Name="ReporteDevoluciones" Foreground="Snow" Header="Devoluciones" Click="ReporteDevoluciones_Click"/>
                         </ContextMenu>
                     </Button.ContextMenu>
                 </Button>
 
-                <Button Content="Usuario" Margin="520 0 0 0" Height="50" HorizontalAlignment="Center"  Name="btn4" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" FontSize="16" Width="199" Click="button1_Click" >
+                <Button Content="Usuario" Margin="500 0 0 0" Height="50" HorizontalAlignment="Center"  Name="btn4" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" FontSize="16" Width="199" Click="button1_Click" >
 
                     <Button.ContextMenu>
                         <ContextMenu >

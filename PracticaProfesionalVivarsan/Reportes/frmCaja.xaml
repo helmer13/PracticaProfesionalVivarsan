@@ -7,8 +7,13 @@
         xmlns:local="clr-namespace:PracticaProfesionalVivarsan.Reportes"
         mc:Ignorable="d"
         Title="Reporte de Caja" Height="598.401" Width="957.867" WindowStartupLocation="CenterScreen">
-    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-        <WindowsFormsHost HorizontalAlignment="Left" Height="511" Margin="-438,-254,-439,-257" VerticalAlignment="Top" Width="877">
+    <Grid >
+
+        <Grid.Background>
+            <ImageBrush   ImageSource="/PracticaProfesionalVivarsan;component/imagenes/brushed-alum.png"  ></ImageBrush>
+        </Grid.Background>
+
+        <WindowsFormsHost HorizontalAlignment="Center" Height="511" VerticalAlignment="Center" Width="877">
             <rv:ReportViewer x:Name="ReporteCaja"></rv:ReportViewer>
         </WindowsFormsHost>
 
