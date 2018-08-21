@@ -1191,6 +1191,8 @@
           <Source>Embedded</Source>
           <Value>BackgroundTransparent</Value>
           <Sizing>FitProportional</Sizing>
+          <Top>0.06173cm</Top>
+          <Left>0.75231cm</Left>
           <Height>3.0875cm</Height>
           <Width>5cm</Width>
           <ZIndex>7</ZIndex>

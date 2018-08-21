@@ -46,6 +46,7 @@ namespace PracticaProfesionalVivarsan.Paginas
             CargarCboBodegas();
 
             txtSubTotal.Text = "0";
+            fecha.SelectedDate = DateTime.Now;
             CargarCboProveedores();
             // Style dpStyle = new Style(typeof(System.Windows.Controls.DatePicker));
             // dpStyle.Setters.Add(new Setter(System.Windows.Controls.DatePicker.LanguageProperty, System.Windows.Markup.XmlLanguage.GetLanguage("es-US")));
@@ -119,6 +120,10 @@ namespace PracticaProfesionalVivarsan.Paginas
 
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+
+           
 
             Usuario usuario = new Usuario();
             LineaDetalleCompras lineaDetalle = new LineaDetalleCompras();
@@ -152,7 +157,7 @@ namespace PracticaProfesionalVivarsan.Paginas
                 producto.IdLineaDetalle = lineaDetalle.Id;
                 producto.IdBodega = (int)cboBodegas.SelectedValue;
                 lineaDetalle.Producto = producto;
-                lineaDetalle.SubTotal = lineaDetalle.Cantidad * Convert.ToInt32(txtPrecioCosto.Text);
+                lineaDetalle.SubTotal = lineaDetalle.Cantidad * Convert.ToDouble(txtPrecioCosto.Text);
 
                 listaDetalle.Add(lineaDetalle);
                 dataGridLineaDetalle.ItemsSource = listaDetalle;
@@ -171,14 +176,22 @@ namespace PracticaProfesionalVivarsan.Paginas
                     total += listaDetalle[i].SubTotal;
 
                 }
-                txtSubTotal.Text = total.ToString();
-            }
+              //  txtSubTotal.Text = total.ToString();
+                    txtSubTotal.Text = string.Format("{0:N2}", Convert.ToDecimal(total));
+                }
             txtidProducto.Text = string.Empty;
             txtProducto.Text = string.Empty;
             txtCantidad.Text = string.Empty;
             txtPrecioCosto.Text = string.Empty;
             producto = new Producto();
+            }
+            catch (Exception)
+            {
 
+                txtTextBlockDialogo.Text = "Ocurrio un error al registrar la linea de detalle";
+                dialogoMENS.IsOpen = true;
+                return;
+            }
 
         }
 
@@ -235,13 +248,19 @@ namespace PracticaProfesionalVivarsan.Paginas
 
             lista.RemoveAt(index);
             dataGridLineaDetalle.ItemsSource = lista;
-            txtSubTotal.Text= this.ActializarTotal();
+           // txtSubTotal.Text= this.ActializarTotal();
+            txtSubTotal.Text = string.Format("{0:N2}", Convert.ToDecimal(this.ActializarTotal()));
         }
 
 
 
         private void btnFacturar_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+
+           
+
             FacturaCompras factura = new FacturaCompras();
             FacturaComprasLogica logica = new FacturaComprasLogica();
 
@@ -297,6 +316,16 @@ namespace PracticaProfesionalVivarsan.Paginas
 
                 Limpiar();
             }
+
+            }
+            catch (Exception)
+            {
+
+                txtTextBlockDialogo.Text = "Ocurrio un error al registrar la factura";
+                dialogoMENS.IsOpen = true;
+                return;
+            }
+
         }
 
         private Boolean ValidacionesFacturar()

@@ -22,7 +22,7 @@
             <ImageBrush   ImageSource="/PracticaProfesionalVivarsan;component/imagenes/brushed-alum.png"  ></ImageBrush>
         </Grid.Background>
         
-        <WindowsFormsHost HorizontalAlignment="Center" Height="510" Margin="72,53,66,54" VerticalAlignment="Center" Width="771">
+        <WindowsFormsHost HorizontalAlignment="Center" Height="510" Margin="72,53,66,54" VerticalAlignment="Center" Width="841">
             <rv:ReportViewer x:Name="DemoReporte"></rv:ReportViewer>
         </WindowsFormsHost>
 

@@ -328,7 +328,7 @@
     <Height>2in</Height>
     <Style />
   </Body>
-  <Width>6.6705in</Width>
+  <Width>7.61515in</Width>
   <Page>
     <PageHeader>
       <Height>4.38079cm</Height>
@@ -497,6 +497,7 @@
           <Value>BackgroundTransparent</Value>
           <Sizing>FitProportional</Sizing>
           <Top>1.10807cm</Top>
+          <Left>0.78402cm</Left>
           <Height>3.16688cm</Height>
           <Width>4.20234cm</Width>
           <ZIndex>5</ZIndex>
@@ -521,8 +522,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox19</rd:DefaultName>
-          <Top>3.67495cm</Top>
-          <Left>9.74344cm</Left>
+          <Top>3.63968cm</Top>
+          <Left>12.314cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <ZIndex>6</ZIndex>
@@ -551,8 +552,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>paramUsuario</rd:DefaultName>
-          <Top>3.67495cm</Top>
-          <Left>12.314cm</Left>
+          <Top>3.63968cm</Top>
+          <Left>14.88456cm</Left>
           <Height>0.6cm</Height>
           <Width>4.45791cm</Width>
           <ZIndex>7</ZIndex>

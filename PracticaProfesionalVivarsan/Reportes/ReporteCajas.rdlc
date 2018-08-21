@@ -15,7 +15,9 @@
                 </Style>
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>fechaFin</rd:DefaultName>
@@ -46,7 +48,9 @@
                 </Style>
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>fechaInicio</rd:DefaultName>
@@ -1038,6 +1042,7 @@
           <Value>BackgroundTransparent</Value>
           <Sizing>FitProportional</Sizing>
           <Top>0.09667cm</Top>
+          <Left>0.64735cm</Left>
           <Height>3.0875cm</Height>
           <Width>5cm</Width>
           <ZIndex>7</ZIndex>
