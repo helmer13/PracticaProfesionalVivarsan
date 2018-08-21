@@ -23,7 +23,7 @@ namespace Logica
             double montoGastos, double montoEfectivoSistema)
         {
             AccesoDatos.CajaDato.ActualizarCerrarCaja(caja.Id, caja.FechaCierre, caja.MontoCierre, caja.Estado, caja.Usuario.Id,montoEfectivoSinBase,
-              montoGastos,montoEfectivoSistema  );
+              montoGastos,montoEfectivoSistema,caja.Mensaje  );
         }
 
 

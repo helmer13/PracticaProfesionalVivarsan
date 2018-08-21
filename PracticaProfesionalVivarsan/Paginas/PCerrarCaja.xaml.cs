@@ -115,6 +115,20 @@ namespace PracticaProfesionalVivarsan.Paginas
                 cajaCerrar.FechaApertura = fechaApertura.SelectedDate.Value;
                 cajaCerrar.MontoApertura =Convert.ToDouble( txtbase.Text);
 
+                if (Convert.ToDouble( txtTotalEfectivoCaja.Text)== Convert.ToDouble(txtTotalEfectivoSistema.Text))
+                {
+                    cajaCerrar.Mensaje = "Monto correcto";
+                }
+                if (Convert.ToDouble(txtTotalEfectivoCaja.Text) > Convert.ToDouble(txtTotalEfectivoSistema.Text))
+                {
+                    cajaCerrar.Mensaje = "Sobrante";
+                }
+                if (Convert.ToDouble(txtTotalEfectivoCaja.Text) < Convert.ToDouble(txtTotalEfectivoSistema.Text))
+                {
+                    var monto = Convert.ToDouble(txtTotalEfectivoCaja.Text) - Convert.ToDouble(txtTotalEfectivoSistema.Text);
+
+                    cajaCerrar.Mensaje = "Falta: "+monto;
+                }
                 logica.ActualizarCerrarCaja(cajaCerrar, Convert.ToDouble(txtefectivoSinBase.Text), 
                     Convert.ToDouble(txtTotalGastos.Text), Convert.ToDouble(txtTotalEfectivoSistema.Text));
 

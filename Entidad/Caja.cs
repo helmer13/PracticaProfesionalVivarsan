@@ -18,6 +18,8 @@ namespace Entidad
         string estado;
         Usuario usuario;
 
+        string mensaje;
+
         public string Id
         {
             get
@@ -119,6 +121,19 @@ namespace Entidad
             set
             {
                 usuario = value;
+            }
+        }
+
+        public string Mensaje
+        {
+            get
+            {
+                return mensaje;
+            }
+
+            set
+            {
+                mensaje = value;
             }
         }
     }
