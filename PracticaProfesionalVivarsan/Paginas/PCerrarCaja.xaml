@@ -94,7 +94,7 @@
 
 
             <materialDesign:DialogHost IsOpen="False" x:Name="dialogo" Grid.ColumnSpan="4" Grid.RowSpan="4" Margin="0,0,-186,-132">
-                <materialDesign:DialogHost.DialogContent>
+                <materialDesign:DialogHost.DialogContent> 
                     <StackPanel Margin="15" Orientation="Vertical">
                         <TextBlock x:Name="txtTextBlockDialogo" Text="Registro procesado"/>
                         <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandTarget="{Binding ElementName=dialogo}" 
