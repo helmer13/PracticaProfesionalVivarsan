@@ -31,6 +31,8 @@ namespace PracticaProfesionalVivarsan.Reportes
             try
             {
                 rbIndentificacion.IsChecked = true;
+                fechaInicio.SelectedDate = DateTime.Now;
+                fechaFin.SelectedDate = DateTime.Now;
                 Refrescar();
             }
             catch (Exception ex)

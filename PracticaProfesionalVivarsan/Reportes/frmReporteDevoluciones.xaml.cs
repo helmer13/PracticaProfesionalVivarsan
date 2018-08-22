@@ -77,5 +77,11 @@ namespace PracticaProfesionalVivarsan.Reportes
             }
             return bandera;
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            fechaInicio.SelectedDate = DateTime.Now;
+            fechaFin.SelectedDate = DateTime.Now;
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Entidad;
 using Logica;
+using PracticaProfesionalVivarsan.Reportes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -115,19 +116,34 @@ namespace PracticaProfesionalVivarsan.Paginas
                 cajaCerrar.FechaApertura = fechaApertura.SelectedDate.Value;
                 cajaCerrar.MontoApertura =Convert.ToDouble( txtbase.Text);
 
-                if (Convert.ToDouble( txtTotalEfectivoCaja.Text)== Convert.ToDouble(txtTotalEfectivoSistema.Text))
-                {
-                    cajaCerrar.Mensaje = "Monto correcto";
-                }
-                if (Convert.ToDouble(txtTotalEfectivoCaja.Text) > Convert.ToDouble(txtTotalEfectivoSistema.Text))
-                {
-                    cajaCerrar.Mensaje = "Sobrante";
-                }
-                if (Convert.ToDouble(txtTotalEfectivoCaja.Text) < Convert.ToDouble(txtTotalEfectivoSistema.Text))
-                {
-                    var monto = Convert.ToDouble(txtTotalEfectivoCaja.Text) - Convert.ToDouble(txtTotalEfectivoSistema.Text);
+                //if (Convert.ToDouble( txtTotalEfectivoCaja.Text)== Convert.ToDouble(txtTotalEfectivoSistema.Text))
+                //{
+                //    cajaCerrar.Mensaje = "Monto correcto";
+                //}
+                //if (Convert.ToDouble(txtTotalEfectivoCaja.Text) > Convert.ToDouble(txtTotalEfectivoSistema.Text))
+                //{
+                //    cajaCerrar.Mensaje = "Sobrante";
+                //}
+                //if (Convert.ToDouble(txtTotalEfectivoCaja.Text) < Convert.ToDouble(txtTotalEfectivoSistema.Text))
+                //{
+                //    var monto = Convert.ToDouble(txtTotalEfectivoCaja.Text) - Convert.ToDouble(txtTotalEfectivoSistema.Text);
 
-                    cajaCerrar.Mensaje = "Falta: "+monto;
+                //    cajaCerrar.Mensaje = "Falta: "+monto;
+                //}
+                var monto = Convert.ToDouble(txtTotalEfectivoCaja.Text) - Convert.ToDouble(txtTotalEfectivoSistema.Text);
+                if (Convert.ToDouble(txtTotalEfectivoCaja.Text) == Convert.ToDouble(txtTotalEfectivoSistema.Text))
+                {
+                    cajaCerrar.Mensaje = "Caja cerrada correctamente.";
+                }
+                if (0 < monto)
+                {
+                    cajaCerrar.Mensaje = "Caja cerrada con un sobrante de dinero.";
+                }
+                if (0 > monto)
+                {
+                    var monto2 = Convert.ToDouble(txtTotalEfectivoCaja.Text) - Convert.ToDouble(txtTotalEfectivoSistema.Text);
+
+                    cajaCerrar.Mensaje = "Hay un faltante de dinero por un monto de: " + monto;
                 }
                 logica.ActualizarCerrarCaja(cajaCerrar, Convert.ToDouble(txtefectivoSinBase.Text), 
                     Convert.ToDouble(txtTotalGastos.Text), Convert.ToDouble(txtTotalEfectivoSistema.Text));
@@ -135,6 +151,11 @@ namespace PracticaProfesionalVivarsan.Paginas
                 //MessageBox.Show("Inserto");
                 dialogo.IsOpen = true;
                 txtTextBlockDialogo.Text = "Registro procesado";
+
+                frmCaja frm = new frmCaja();
+                frm.GenerarReporte(logica.ReporteCajaID(cajaCerrar.Id));
+                frm.Show();
+                
             }
             catch (Exception ex)
             {

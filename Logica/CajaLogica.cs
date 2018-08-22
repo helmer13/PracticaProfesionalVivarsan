@@ -81,5 +81,9 @@ namespace Logica
         {
             return AccesoDatos.CajaDato.ReporteCajas(fechaInicio, fechaFin);
         }
+        public DataTable ReporteCajaID(string id)
+        {
+            return AccesoDatos.CajaDato.ReporteCajaID(id);
+        }
     }
 }

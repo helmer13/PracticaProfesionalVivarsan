@@ -478,7 +478,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!Total.Value</Value>
-                              <Style />
+                              <Style>
+                                <Format>'₡' #,0.00;('₡' #,0.00)</Format>
+                                <rd:FormatSymbolCulture>es-CR</rd:FormatSymbolCulture>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -697,6 +700,8 @@
                               <Value>=Sum(Fields!Total.Value)</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
+                                <Format>'₡' #,0.00;('₡' #,0.00)</Format>
+                                <rd:FormatSymbolCulture>es-CR</rd:FormatSymbolCulture>
                               </Style>
                             </TextRun>
                           </TextRuns>

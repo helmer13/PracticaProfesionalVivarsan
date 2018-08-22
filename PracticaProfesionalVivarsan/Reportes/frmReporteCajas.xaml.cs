@@ -74,5 +74,11 @@ namespace PracticaProfesionalVivarsan.Reportes
                 ReporteCajas.RefreshReport();
             }
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            fechaInicio.SelectedDate = DateTime.Now;
+            fechaFin.SelectedDate = DateTime.Now;
+        }
     }
 }

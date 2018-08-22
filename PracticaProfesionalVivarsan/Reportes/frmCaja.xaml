@@ -1,0 +1,16 @@
+﻿<Window x:Class="PracticaProfesionalVivarsan.Reportes.frmCaja"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
+        xmlns:local="clr-namespace:PracticaProfesionalVivarsan.Reportes"
+        mc:Ignorable="d"
+        Title="Reporte de Caja" Height="598.401" Width="957.867" WindowStartupLocation="CenterScreen">
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <WindowsFormsHost HorizontalAlignment="Left" Height="511" Margin="-438,-254,-439,-257" VerticalAlignment="Top" Width="877">
+            <rv:ReportViewer x:Name="ReporteCaja"></rv:ReportViewer>
+        </WindowsFormsHost>
+
+    </Grid>
+</Window>

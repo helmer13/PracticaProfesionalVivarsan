@@ -448,7 +448,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!PrecioCompra.Value</Value>
-                              <Style />
+                              <Style>
+                                <Format>'₡' #,0.00;('₡' #,0.00)</Format>
+                                <rd:FormatSymbolCulture>es-CR</rd:FormatSymbolCulture>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -478,7 +481,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!PrecioVenta.Value</Value>
-                              <Style />
+                              <Style>
+                                <Format>'₡' #,0.00;('₡' #,0.00)</Format>
+                                <rd:FormatSymbolCulture>es-CR</rd:FormatSymbolCulture>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />

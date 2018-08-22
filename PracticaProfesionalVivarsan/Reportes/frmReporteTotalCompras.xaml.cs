@@ -30,7 +30,8 @@ namespace PracticaProfesionalVivarsan.Reportes
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-           
+            fechaInicio.SelectedDate = DateTime.Now;
+            fechaFin.SelectedDate = DateTime.Now;
         }
         private Boolean Validaciones()
         {

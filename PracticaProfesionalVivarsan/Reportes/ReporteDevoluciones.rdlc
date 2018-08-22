@@ -502,7 +502,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!Monto.Value</Value>
-                              <Style />
+                              <Style>
+                                <Format>'₡' #,0.00;('₡' #,0.00)</Format>
+                                <rd:FormatSymbolCulture>es-CR</rd:FormatSymbolCulture>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -582,7 +585,7 @@
         <Top>1.39842cm</Top>
         <Left>0.89171cm</Left>
         <Height>1.2cm</Height>
-        <Width>17.05968cm</Width>
+        <Width>17.05967cm</Width>
         <ZIndex>4</ZIndex>
         <Style>
           <Border>

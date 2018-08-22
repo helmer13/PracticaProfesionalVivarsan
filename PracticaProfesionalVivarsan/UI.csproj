@@ -117,6 +117,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BDProyectoCCVDataSet2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\frmCaja.xaml.cs">
+      <DependentUpon>frmCaja.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\frmComprasProveedor.xaml.cs">
       <DependentUpon>frmComprasProveedor.xaml</DependentUpon>
     </Compile>
@@ -202,6 +205,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="frmProveedor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reportes\frmCaja.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -372,6 +379,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ReporteCajaCierre.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteCajas.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteClientes.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteComprasProveedor.rdlc" />

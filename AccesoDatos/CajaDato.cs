@@ -114,5 +114,20 @@ namespace AccesoDatos
             return dt;
 
         }
+        public static DataTable ReporteCajaID(string id)
+        {
+
+            Database db = DatabaseFactory.CreateDatabase("Default");
+            DataTable dt = new DataTable();
+            SqlCommand comando = new SqlCommand("SPR_REPORTE_CAJA");
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@ID", id);
+            DataSet ds = db.ExecuteReader(comando, "cajas");
+
+            SqlDataAdapter adp = new SqlDataAdapter(comando);
+            adp.Fill(dt);
+            return dt;
+
+        }
     }
 }

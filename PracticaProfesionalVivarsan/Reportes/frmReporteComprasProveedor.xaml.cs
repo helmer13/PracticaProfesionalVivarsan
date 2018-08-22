@@ -29,6 +29,8 @@ namespace PracticaProfesionalVivarsan.Reportes
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             rbProveedor.IsChecked = true;
+            fechaInicio.SelectedDate = DateTime.Now;
+            fechaFin.SelectedDate = DateTime.Now;
             Refrescar();
         }
 

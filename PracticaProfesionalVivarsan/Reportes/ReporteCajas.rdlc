@@ -580,7 +580,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!MontoApertura.Value</Value>
-                              <Style />
+                              <Style>
+                                <Format>'₡' #,0.00;('₡' #,0.00)</Format>
+                                <rd:FormatSymbolCulture>es-CR</rd:FormatSymbolCulture>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -610,7 +613,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!MontoCierreCaja.Value</Value>
-                              <Style />
+                              <Style>
+                                <Format>'₡' #,0.00;'₡' -#,0.00</Format>
+                                <rd:FormatSymbolCulture>es-CR</rd:FormatSymbolCulture>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -670,7 +676,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!MontoGastos.Value</Value>
-                              <Style />
+                              <Style>
+                                <Format>'₡' #,0.00;('₡' #,0.00)</Format>
+                                <rd:FormatSymbolCulture>es-CR</rd:FormatSymbolCulture>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -700,7 +709,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!MontoEfectivoSinBase.Value</Value>
-                              <Style />
+                              <Style>
+                                <Format>'₡' #,0.00;('₡' #,0.00)</Format>
+                                <rd:FormatSymbolCulture>es-CR</rd:FormatSymbolCulture>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -730,7 +742,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!MontoEfectivoSistema.Value</Value>
-                              <Style />
+                              <Style>
+                                <Format>'₡' #,0.00;'₡' -#,0.00</Format>
+                                <rd:FormatSymbolCulture>es-CR</rd:FormatSymbolCulture>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />

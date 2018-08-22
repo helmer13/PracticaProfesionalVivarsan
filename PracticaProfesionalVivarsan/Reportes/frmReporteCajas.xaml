@@ -11,7 +11,7 @@
         xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
         xmlns:local="clr-namespace:PracticaProfesionalVivarsan.Reportes"
         mc:Ignorable="d"
-        Title="Reporte Cajas" Height="697.79" Width="1231.492">
+        Title="Reporte Cajas" Height="697.79" Width="1231.492" Loaded="Window_Loaded">
     
     
     <Grid>

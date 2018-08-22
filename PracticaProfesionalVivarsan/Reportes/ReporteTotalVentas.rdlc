@@ -9,10 +9,10 @@
               <Width>1.94174cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.42328cm</Width>
+              <Width>3.95508cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.00812cm</Width>
+              <Width>4.48437cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2.5cm</Width>
@@ -478,7 +478,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!Total.Value</Value>
-                              <Style />
+                              <Style>
+                                <Format>'₡' #,0.00;('₡' #,0.00)</Format>
+                                <rd:FormatSymbolCulture>es-CR</rd:FormatSymbolCulture>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -697,6 +700,8 @@
                               <Value>=Sum(Fields!Total.Value)</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
+                                <Format>'₡' #,0.00;('₡' #,0.00)</Format>
+                                <rd:FormatSymbolCulture>es-CR</rd:FormatSymbolCulture>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -749,7 +754,7 @@
         <Top>1.43991cm</Top>
         <Left>1.16099cm</Left>
         <Height>1.98521cm</Height>
-        <Width>19.37314cm</Width>
+        <Width>20.38119cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
