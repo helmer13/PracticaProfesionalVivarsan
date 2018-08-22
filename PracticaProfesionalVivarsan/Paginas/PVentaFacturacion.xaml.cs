@@ -201,6 +201,7 @@ namespace PracticaProfesionalVivarsan.Paginas
         {
             try
             {
+                dataGridProductos.UnselectAll();
                 inventario = (Inventario)dataGridProductos.SelectedCells[0].Item;
                 txtidProducto.Text = inventario.Producto.IdProducto;
                 txtProducto.Text = inventario.Producto.Nombre;
@@ -321,8 +322,10 @@ namespace PracticaProfesionalVivarsan.Paginas
 
         private void btnBuscarProducto_Click(object sender, RoutedEventArgs e)
         {
+            txtBuscar.Text = string.Empty;
             Refrescar();
             dialogo.IsOpen = true;
+          
         }
 
         private Boolean ValidacionesFacturar()
@@ -397,6 +400,17 @@ namespace PracticaProfesionalVivarsan.Paginas
             }
             
             return total.ToString();
+        }
+
+        private void txtBuscar_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.Key == Key.Enter)
+            {
+
+                btnEncontrarProducto_Click(sender, e);
+            }
+
         }
     }
 }

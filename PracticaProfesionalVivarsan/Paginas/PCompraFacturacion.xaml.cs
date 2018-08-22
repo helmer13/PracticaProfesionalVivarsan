@@ -37,8 +37,14 @@ namespace PracticaProfesionalVivarsan.Paginas
 
         private void btnBuscarProducto_Click(object sender, RoutedEventArgs e)
         {
+            txtBuscar.Text = string.Empty;
             Refrescar();
             dialogo.IsOpen = true;
+           
+
+            //producto = new Producto();
+            //txtidProducto.Text = string.Empty;
+            //txtProducto.Text = string.Empty;
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -59,10 +65,13 @@ namespace PracticaProfesionalVivarsan.Paginas
         {
             try
             {
+                dataGridProductos.UnselectAll();
+                var index = dataGridLineaDetalle.SelectedIndex;
+              
                 producto = (Producto)dataGridProductos.SelectedCells[0].Item;
                 txtidProducto.Text = producto.IdProducto;
                 txtProducto.Text = producto.Nombre;
-
+              
             }
             catch (Exception ex)
             {
@@ -123,67 +132,67 @@ namespace PracticaProfesionalVivarsan.Paginas
             try
             {
 
-           
 
-            Usuario usuario = new Usuario();
-            LineaDetalleCompras lineaDetalle = new LineaDetalleCompras();
-            Inventario inventario = new Inventario();
-            BodegaLogica bLogica = new BodegaLogica();
 
-            usuario = (Usuario)App.Current.Properties["usuarioSesion"];
+                Usuario usuario = new Usuario();
+                LineaDetalleCompras lineaDetalle = new LineaDetalleCompras();
+                Inventario inventario = new Inventario();
+                BodegaLogica bLogica = new BodegaLogica();
 
-            if (ValidacionesAgregar() == true)
-            {
-                txtTextBlockDialogo.Text = error;
-                dialogoMENS.IsOpen = true;
-                return;
-            }
-            else
-            {
-                if (dataGridLineaDetalle.ItemsSource != null)
+                usuario = (Usuario)App.Current.Properties["usuarioSesion"];
+
+                if (ValidacionesAgregar() == true)
                 {
-                    foreach (var item in dataGridLineaDetalle.ItemsSource as List<LineaDetalleCompras>)
+                    txtTextBlockDialogo.Text = error;
+                    dialogoMENS.IsOpen = true;
+                    return;
+                }
+                else
+                {
+                    if (dataGridLineaDetalle.ItemsSource != null)
                     {
-                        if (producto.IdProducto == item.Producto.IdProducto)
+                        foreach (var item in dataGridLineaDetalle.ItemsSource as List<LineaDetalleCompras>)
                         {
-                            txtTextBlockDialogo.Text = "No puedes ingresar el mismo producto más de una vez";
-                            dialogoMENS.IsOpen = true;
-                            return;
+                            if (producto.IdProducto == item.Producto.IdProducto)
+                            {
+                                txtTextBlockDialogo.Text = "No puedes ingresar el mismo producto más de una vez";
+                                dialogoMENS.IsOpen = true;
+                                return;
+                            }
                         }
                     }
-                }
-                lineaDetalle.Id = Guid.NewGuid().ToString();
-                lineaDetalle.Cantidad = Convert.ToInt32(txtCantidad.Text);
-                producto.IdLineaDetalle = lineaDetalle.Id;
-                producto.IdBodega = (int)cboBodegas.SelectedValue;
-                lineaDetalle.Producto = producto;
-                lineaDetalle.SubTotal = lineaDetalle.Cantidad * Convert.ToDouble(txtPrecioCosto.Text);
+                    lineaDetalle.Id = Guid.NewGuid().ToString();
+                    lineaDetalle.Cantidad = Convert.ToInt32(txtCantidad.Text);
+                    producto.IdLineaDetalle = lineaDetalle.Id;
+                    producto.IdBodega = (int)cboBodegas.SelectedValue;
+                    lineaDetalle.Producto = producto;
+                    lineaDetalle.SubTotal = lineaDetalle.Cantidad * Convert.ToDouble(txtPrecioCosto.Text);
 
-                listaDetalle.Add(lineaDetalle);
-                dataGridLineaDetalle.ItemsSource = listaDetalle;
-                dataGridLineaDetalle.Items.Refresh();
-                //inventario
-                inventario.Cantidad = Convert.ToInt32(txtCantidad.Text);
-                inventario.Bodega = bLogica.obtenerBodega((int)cboBodegas.SelectedValue);
-                inventario.Empresa = usuario.Empresa;
-                inventario.Producto = producto;
-                listaInventario.Add(inventario);
+                    listaDetalle.Add(lineaDetalle);
+                    dataGridLineaDetalle.ItemsSource = listaDetalle;
+                    dataGridLineaDetalle.Items.Refresh();
+                    //inventario
+                    inventario.Cantidad = Convert.ToInt32(txtCantidad.Text);
+                    inventario.Bodega = bLogica.obtenerBodega((int)cboBodegas.SelectedValue);
+                    inventario.Empresa = usuario.Empresa;
+                    inventario.Producto = producto;
+                    listaInventario.Add(inventario);
 
-                //para el label del total
-                double total = 0;
-                for (int i = 0; i < listaDetalle.Count; i++)
-                {
-                    total += listaDetalle[i].SubTotal;
+                    //para el label del total
+                    double total = 0;
+                    for (int i = 0; i < listaDetalle.Count; i++)
+                    {
+                        total += listaDetalle[i].SubTotal;
 
-                }
-              //  txtSubTotal.Text = total.ToString();
+                    }
+                    //  txtSubTotal.Text = total.ToString();
                     txtSubTotal.Text = string.Format("{0:N2}", Convert.ToDecimal(total));
                 }
-            txtidProducto.Text = string.Empty;
-            txtProducto.Text = string.Empty;
-            txtCantidad.Text = string.Empty;
-            txtPrecioCosto.Text = string.Empty;
-            producto = new Producto();
+                txtidProducto.Text = string.Empty;
+                txtProducto.Text = string.Empty;
+                txtCantidad.Text = string.Empty;
+                txtPrecioCosto.Text = string.Empty;
+                producto = new Producto();
             }
             catch (Exception)
             {
@@ -241,14 +250,14 @@ namespace PracticaProfesionalVivarsan.Paginas
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
 
-            var lista = dataGridLineaDetalle.ItemsSource as List<LineaDetalleCompras>; ;
+            var lista = dataGridLineaDetalle.ItemsSource as List<LineaDetalleCompras>; 
             var index = dataGridLineaDetalle.SelectedIndex;
             dataGridLineaDetalle.ItemsSource = null;
 
 
             lista.RemoveAt(index);
             dataGridLineaDetalle.ItemsSource = lista;
-           // txtSubTotal.Text= this.ActializarTotal();
+            // txtSubTotal.Text= this.ActializarTotal();
             txtSubTotal.Text = string.Format("{0:N2}", Convert.ToDecimal(this.ActializarTotal()));
         }
 
@@ -259,63 +268,71 @@ namespace PracticaProfesionalVivarsan.Paginas
             try
             {
 
-           
 
-            FacturaCompras factura = new FacturaCompras();
-            FacturaComprasLogica logica = new FacturaComprasLogica();
 
-          
+                FacturaCompras factura = new FacturaCompras();
+                FacturaComprasLogica logica = new FacturaComprasLogica();
 
-            Usuario usuarioGlobal = new Usuario();
 
-            Proveedor proveedor = (Proveedor)cboProveedores.SelectedItem;
 
-            usuarioGlobal = (Usuario)App.Current.Properties["usuarioSesion"];
+                Usuario usuarioGlobal = new Usuario();
 
-            if (ValidacionesFacturar() == true)
-            {
-                txtTextBlockDialogo.Text = "Debe completar todos los campos solicitados";
-                dialogoMENS.IsOpen = true;
-                return;
-            }
-            else
-            {
-                var error = logica.ObtenerVerificacionNumeroFactura(Convert.ToInt32(txtNumeroFactura.Text),proveedor.Id);
+                Proveedor proveedor = (Proveedor)cboProveedores.SelectedItem;
 
-                if (error == "ERROR")
+                usuarioGlobal = (Usuario)App.Current.Properties["usuarioSesion"];
+
+                if (ValidacionesFacturar() == true)
                 {
-                    txtTextBlockDialogo.Text = "No puedes ingresar el mismo numero de factura";
+                    txtTextBlockDialogo.Text = "Debe completar todos los campos solicitados";
                     dialogoMENS.IsOpen = true;
                     return;
                 }
-
-
-                factura.Id = Convert.ToInt32(txtNumeroFactura.Text);
-                factura.Usuario = usuarioGlobal;
-                factura.IdProveedor = proveedor.Id;
-                factura.Fecha = fecha.SelectedDate.Value;
-                factura.Total = Convert.ToDouble(txtSubTotal.Text);
-                factura.TipoPago = cboTipoPago.Text;
-
-                foreach (var item in dataGridLineaDetalle.ItemsSource as List<LineaDetalleCompras>)
+                else
                 {
-                    item.IdFactua = factura.Id;
+                    var error = logica.ObtenerVerificacionNumeroFactura(Convert.ToInt32(txtNumeroFactura.Text), proveedor.Id);
+
+                    if (error == "ERROR")
+                    {
+                        txtTextBlockDialogo.Text = "No puedes ingresar el mismo numero de factura";
+                        dialogoMENS.IsOpen = true;
+                        return;
+                    }
+
+                    var fecha1 = DateTime.Now;
+
+                    var hora = fecha1.Hour;
+                    var minutos = fecha1.Minute;
+                    var segundos = fecha1.Second;
+
+                    var fechaNueva = fecha.SelectedDate.Value;
+                    var fechaNueva1 = new DateTime(fechaNueva.Year, fechaNueva.Month, fechaNueva.Day, hora, minutos, segundos);
+                    factura.Id = Convert.ToInt32(txtNumeroFactura.Text);
+                    factura.Usuario = usuarioGlobal;
+                    factura.IdProveedor = proveedor.Id;
+                    // factura.Fecha = fecha.SelectedDate.Value.ToLocalTime();
+                    factura.Fecha = fechaNueva1;
+                    factura.Total = Convert.ToDouble(txtSubTotal.Text);
+                    factura.TipoPago = cboTipoPago.Text;
+
+                    foreach (var item in dataGridLineaDetalle.ItemsSource as List<LineaDetalleCompras>)
+                    {
+                        item.IdFactua = factura.Id;
+                    }
+                    factura.LineasDetalleCompras = dataGridLineaDetalle.ItemsSource as List<LineaDetalleCompras>;
+
+                    logica.GuardarFactura(factura);
+
+
+                    txtTextBlockDialogo.Text = "Registro Procesado";
+                    dialogoMENS.IsOpen = true;
+
+                    factura = new FacturaCompras();
+                    proveedor = new Proveedor();
+                    listaInventario = new List<Inventario>();
+                    listaDetalle = new List<LineaDetalleCompras>();
+
+                    Limpiar();
                 }
-                factura.LineasDetalleCompras = dataGridLineaDetalle.ItemsSource as List<LineaDetalleCompras>;
-
-                logica.GuardarFactura(factura);
-
-
-                txtTextBlockDialogo.Text = "Registro Procesado";
-                dialogoMENS.IsOpen = true;
-
-                factura = new FacturaCompras();
-                proveedor = new Proveedor();
-                listaInventario = new List<Inventario>();
-                listaDetalle = new List<LineaDetalleCompras>();
-
-                Limpiar();
-            }
 
             }
             catch (Exception)
@@ -394,7 +411,7 @@ namespace PracticaProfesionalVivarsan.Paginas
         public void Limpiar()
         {
             txtNumeroFactura.Text = string.Empty;
-            fecha.SelectedDate = null;
+            fecha.SelectedDate = DateTime.Now;
             txtidProducto.Text = string.Empty;
             txtProducto.Text = string.Empty;
             txtCantidad.Text = string.Empty;
@@ -406,7 +423,7 @@ namespace PracticaProfesionalVivarsan.Paginas
             List<Inventario> listaInventario = new List<Inventario>();
         }
 
-      private string ActializarTotal()
+        private string ActializarTotal()
         {
             txtSubTotal.Text = string.Empty;
             var data = dataGridLineaDetalle.ItemsSource as List<LineaDetalleCompras>;
@@ -416,7 +433,7 @@ namespace PracticaProfesionalVivarsan.Paginas
                 total += listaDetalle[i].SubTotal;
 
             }
-            
+
             return total.ToString();
         }
 
@@ -451,6 +468,17 @@ namespace PracticaProfesionalVivarsan.Paginas
 
                 txtPrecioCosto.Text = string.Format("{0:N2}", Convert.ToDecimal(txtPrecioCosto.Text));
             }
+        }
+
+        private void txtBuscar_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.Key == Key.Enter)
+            {
+
+                btnEncontrarProducto_Click(sender, e);
+            }
+
         }
     }
 }

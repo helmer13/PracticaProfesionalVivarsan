@@ -74,7 +74,7 @@
                         <StackPanel Margin="25" Orientation="Vertical">
 
 
-                            <TextBox x:Name="txtBuscar"  Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Buscar" materialDesign:HintAssist.IsFloating="True"/>
+                            <TextBox x:Name="txtBuscar" KeyDown="txtBuscar_KeyDown"  Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Center" materialDesign:HintAssist.Hint="Buscar" materialDesign:HintAssist.IsFloating="True"/>
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="100"/>
@@ -86,7 +86,7 @@
                                     <RowDefinition  Height="50"/>
 
                                 </Grid.RowDefinitions>
-                                <RadioButton x:Name="rbCodigo" GroupName="rbBuscar" Grid.Row="0" Grid.Column="0" Content="Código" Margin="10"  />
+                                <RadioButton x:Name="rbCodigo"  IsChecked="True"  GroupName="rbBuscar" Grid.Row="0" Grid.Column="0" Content="Código" Margin="10"  />
                                 <RadioButton x:Name="rbNombre" GroupName="rbBuscar" Grid.Row="0" Grid.Column="1" Content="Nombre" Margin="10"  />
                                 <RadioButton x:Name="rbMarca" GroupName="rbBuscar"  Grid.Row="0" Grid.Column="2" Content="Marca" Margin="10"  />
                                 <RadioButton x:Name="rbModelo" GroupName="rbBuscar"  Grid.Row="0" Grid.Column="3" Content="Modelo" Margin="10"  />

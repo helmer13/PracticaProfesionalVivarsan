@@ -42,6 +42,9 @@ namespace PracticaProfesionalVivarsan.Paginas
                 txtPrecioCompra.Text = string.Format("{0:N2}", Convert.ToDecimal(c.PrecioCompra));
                 // txtPrecioVenta.Text = c.PrecioVenta.ToString();
                 txtPrecioVenta.Text = string.Format("{0:N2}", Convert.ToDecimal(c.PrecioVenta));
+
+                txtCodigo.IsReadOnly = true;
+
                 gridTabla.Visibility = Visibility.Collapsed;
                 gridForm.Visibility = Visibility.Visible;
 
@@ -112,6 +115,8 @@ namespace PracticaProfesionalVivarsan.Paginas
             txtPrecioVenta.Text = string.Empty;
             txtCodigo.Text = string.Empty;
             //cboMarcas.SelectedValue = 1;
+            txtCodigo.IsReadOnly = false;
+
             gridTabla.Visibility = Visibility.Collapsed;
             gridForm.Visibility = Visibility.Visible;
 
