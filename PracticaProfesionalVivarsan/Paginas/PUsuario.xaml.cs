@@ -45,6 +45,8 @@ namespace PracticaProfesionalVivarsan.Paginas
             gridTabla.Visibility = Visibility.Collapsed;
 
             txtIndentificacion.IsReadOnly = true;
+
+            txtIndentificacion.IsReadOnly = true;
             txtContrasena.IsEnabled = false;
         }
 
@@ -112,6 +114,9 @@ namespace PracticaProfesionalVivarsan.Paginas
             txtContrasena.IsEnabled = true;
             txtid.Text= string.Empty;
             cboTipo.Text = "Administrador";
+
+            txtIndentificacion.IsReadOnly = false;
+
             gridTabla.Visibility = Visibility.Collapsed;
             gridForm.Visibility = Visibility.Visible;
         }
