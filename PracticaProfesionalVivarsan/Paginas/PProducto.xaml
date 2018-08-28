@@ -112,7 +112,7 @@
 
             <TextBox x:Name="txtBuscar" Grid.Row="1" Grid.ColumnSpan="2" Margin="90 0 0 0" Width="200" Height="50"  HorizontalAlignment="Center"  VerticalAlignment="Top" materialDesign:HintAssist.Hint="Buscar" materialDesign:HintAssist.IsFloating="True" TextChanged="txtBuscar_TextChanged"/>
 
-            <RadioButton x:Name="rbCodigo" GroupName="rbBuscar" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Content="Codigo" Margin="150 20 0 0"  />
+            <RadioButton x:Name="rbCodigo" GroupName="rbBuscar" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Content="Código" Margin="150 20 0 0"  />
             <RadioButton x:Name="rbNombre" GroupName="rbBuscar"  Grid.Row="1" Grid.Column="2" Content="Nombre" Margin="35 20 0 0"   />
             <RadioButton x:Name="rbMarca" GroupName="rbBuscar"  Grid.Row="1" Grid.Column="3" Content="Marca" Margin="-75 20 0 0"  />
             <RadioButton x:Name="rbModelo" GroupName="rbBuscar"  Grid.Row="1" Grid.Column="3" Content="Modelo" Margin="1 20 0 0"  />
