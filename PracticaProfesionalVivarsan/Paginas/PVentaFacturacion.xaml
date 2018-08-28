@@ -75,7 +75,7 @@
                 <Button x:Name="btnBuscarProducto"  Content="Buscar"  Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="0 0 0 -30"   Width="90" Height="29" Click="btnBuscarProducto_Click"/>
 
                 <!--POPUP CON LA TABLA DE PRODUCTOS-->
-                <materialDesign:DialogHost IsOpen="False" x:Name="dialogo" Grid.ColumnSpan="4" Grid.RowSpan="6" Margin="0,0,0,0">
+                <materialDesign:DialogHost IsOpen="False" x:Name="dialogo" Grid.ColumnSpan="4" Grid.RowSpan="9" Margin="0,0,0,0">
                     <materialDesign:DialogHost.DialogContent>
                         <StackPanel Margin="25" Orientation="Vertical">
 

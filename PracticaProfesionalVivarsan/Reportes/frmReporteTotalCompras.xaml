@@ -11,22 +11,34 @@
         xmlns:local="clr-namespace:PracticaProfesionalVivarsan.Reportes"
         mc:Ignorable="d"
          xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
-        Title="Reporte Total Compras" Height="697.449" Width="1274.832" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight">
+        Title="Reporte Total Compras" Height="697.449" Width="1274.832" Loaded="Window_Loaded"  WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight">
    
-    <Grid Margin="0,-46,0,0" >
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="424.944"/>
+            <ColumnDefinition Width="424.944"/>
+            <ColumnDefinition Width="424.944"/>
+            
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="232.483"/>
+            <RowDefinition  Height="232.483"/>
+            <RowDefinition  Height="232.483"/>
+           
+        </Grid.RowDefinitions>
 
         <Grid.Background>
             <ImageBrush   ImageSource="/PracticaProfesionalVivarsan;component/imagenes/brushed-alum.png"  ></ImageBrush>
         </Grid.Background>
 
-        <DatePicker Name="fechaInicio"    Language="es-ES" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha Inicio" materialDesign:HintAssist.IsFloating="True"  Margin="355,95,762,591" />
+        <DatePicker Name="fechaInicio" Grid.Row="0" Grid.Column="0"  Language="es-ES" HorizontalAlignment="Right" VerticalAlignment="Top" Width="150" materialDesign:HintAssist.Hint="Fecha Inicio" materialDesign:HintAssist.IsFloating="True"  Margin="0 60 0 0 " />
 
-        <DatePicker Name="fechaFin"     Language="es-ES" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha Final" materialDesign:HintAssist.IsFloating="True"  Margin="606,95,511,591" />
-        <Button x:Name="btnGuardar" Content="Generar" HorizontalAlignment="Left" Margin="829,95,0,0" VerticalAlignment="Top" Width="117" Click="btnGuardar_Click"/>
+        <DatePicker Name="fechaFin"   Grid.Row="0" Grid.Column="1"   Language="es-ES" HorizontalAlignment="Center" VerticalAlignment="Top" Width="150" materialDesign:HintAssist.Hint="Fecha Final" materialDesign:HintAssist.IsFloating="True"  Margin="0 60 0 0 "  />
+        <Button x:Name="btnGuardar" Grid.Row="0" Grid.Column="2"  Content="Generar" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="117" Click="btnGuardar_Click"  Margin="0 60 0 0 " />
 
 
 
-        <WindowsFormsHost  HorizontalAlignment="Center"  Height="480" Margin="83,180,91,52" VerticalAlignment="Center" Width="1093">
+        <WindowsFormsHost  Grid.Row="1" Grid.Column="1"  Height="480" HorizontalAlignment="Center" Margin="0 40 0 0 " VerticalAlignment="Center" Width="1093">
             <rv:ReportViewer x:Name="ReporteTotalCompras"></rv:ReportViewer>
         </WindowsFormsHost>
 
