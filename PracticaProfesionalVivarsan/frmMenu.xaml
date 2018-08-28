@@ -87,6 +87,7 @@
                             <MenuItem  Name="UsuarioMantenimientoPersonal"  Foreground="Snow" Header="Usuario" Click="UsuarioMantenimientoPersonal_Click" />
                             <MenuItem  Name="backup"  Foreground="Snow" Header="Backup" Click="backup_Click" />
                             <MenuItem  Name="restore"  Foreground="Snow" Header="Restore" Click="restore_Click" />
+                            <MenuItem  Name="AcercaDe"  Foreground="Snow" Header="Acerca de" Click="AcercaDe_Click" />
                         </ContextMenu>
                     </Button.ContextMenu>
                 </Button>
@@ -105,7 +106,7 @@
             </Grid.Background>
             <Frame Name="frame" Content="" Height="600" Width="1360"  HorizontalAlignment="Left"  VerticalAlignment="Top" NavigationUIVisibility="Hidden" />
            
-            <materialDesign:DialogHost IsOpen="False" x:Name="dialogo" Grid.ColumnSpan="4" Grid.RowSpan="4" Margin="0,0,-186,-132">
+            <materialDesign:DialogHost IsOpen="False" x:Name="dialogo" Grid.ColumnSpan="4" Grid.RowSpan="4" Margin="0,0,-186,-90">
                 <materialDesign:DialogHost.DialogContent>
                     <StackPanel Margin="15" Orientation="Vertical">
                         <TextBlock x:Name="txtTextBlockDialogo" Text="Registro procesado"/>

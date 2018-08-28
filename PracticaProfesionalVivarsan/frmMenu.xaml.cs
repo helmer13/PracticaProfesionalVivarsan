@@ -43,10 +43,10 @@ namespace PracticaProfesionalVivarsan
         {
             Usuario usuarioGlobal = new Usuario();
             usuarioGlobal = (Usuario)App.Current.Properties["usuarioSesion"];
-            if(usuarioGlobal.Tipo == "Administrador")
+            if (usuarioGlobal.Tipo == "Administrador")
             {
                 frame.Content = new PProducto();
-            }            
+            }
         }
 
         private void mantProveedor_Click(object sender, RoutedEventArgs e)
@@ -67,7 +67,7 @@ namespace PracticaProfesionalVivarsan
             {
                 frame.Content = new PUsuario();
             }
-            
+
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -106,7 +106,7 @@ namespace PracticaProfesionalVivarsan
             MainWindow frmlogin = new MainWindow();
             this.Hide();
             frmlogin.Show();
-            
+
 
         }
 
@@ -127,7 +127,7 @@ namespace PracticaProfesionalVivarsan
             }
             else
             {
-                if (caja.FechaApertura.Date<caja.FechaCierre.Date)
+                if (caja.FechaApertura.Date < caja.FechaCierre.Date)
                 {
                     dialogo.IsOpen = true;
                     txtTextBlockDialogo.Text = "No puedes facturar ventas un día después de haber abierto la caja";
@@ -217,11 +217,11 @@ namespace PracticaProfesionalVivarsan
             pusuario.cboTipo.IsEnabled = false;
             pusuario.gridForm.Visibility = Visibility.Visible;
             pusuario.gridTabla.Visibility = Visibility.Collapsed;
-            frame.Content =  pusuario;
+            frame.Content = pusuario;
         }
 
         private void ReporteProductos_Click(object sender, RoutedEventArgs e)
-        {            
+        {
             frmReporteProd r = new frmReporteProd();
             r.Show();
         }
@@ -329,7 +329,7 @@ namespace PracticaProfesionalVivarsan
             logica.GuardarBackUp();
             dialogo.IsOpen = true;
             txtTextBlockDialogo.Text = "Backup realizado con éxito";
-         
+
         }
 
         private void restore_Click(object sender, RoutedEventArgs e)
@@ -337,32 +337,32 @@ namespace PracticaProfesionalVivarsan
             try
             {
 
-           
 
-            OpenFileDialog open = new OpenFileDialog();
-          //  open.InitialDirectory = @"C:/";
-            open.Title = "Buscar respaldo";
 
-            open.CheckFileExists=true;
-            open.CheckPathExists = true;
+                OpenFileDialog open = new OpenFileDialog();
+                //  open.InitialDirectory = @"C:/";
+                open.Title = "Buscar respaldo";
 
-            open.DefaultExt = "BAK";
-            open.Filter = "Text files (*.bak)|*.bak";
-            open.FilterIndex = 2;
-            open.RestoreDirectory = true;
+                open.CheckFileExists = true;
+                open.CheckPathExists = true;
 
-            open.ReadOnlyChecked = true;
-            open.ShowReadOnly = true;
+                open.DefaultExt = "BAK";
+                open.Filter = "Text files (*.bak)|*.bak";
+                open.FilterIndex = 2;
+                open.RestoreDirectory = true;
 
-            Nullable<bool> result1 = open.ShowDialog();
+                open.ReadOnlyChecked = true;
+                open.ShowReadOnly = true;
 
-            if (result1==true)
-            {
-                FacturaComprasLogica logica = new FacturaComprasLogica();
-                logica.RestoreDB(open.FileName);
-                dialogo.IsOpen = true;
-                txtTextBlockDialogo.Text = "Restore realizado con éxito";
-            }
+                Nullable<bool> result1 = open.ShowDialog();
+
+                if (result1 == true)
+                {
+                    FacturaComprasLogica logica = new FacturaComprasLogica();
+                    logica.RestoreDB(open.FileName);
+                    dialogo.IsOpen = true;
+                    txtTextBlockDialogo.Text = "Restore realizado con éxito";
+                }
             }
             catch (Exception ex)
             {
@@ -381,6 +381,20 @@ namespace PracticaProfesionalVivarsan
                 frmReporteBitacora r = new frmReporteBitacora();
                 r.Show();
             }
+        }
+
+        private void AcercaDe_Click(object sender, RoutedEventArgs e)
+        {
+            txtTextBlockDialogo.Text = string.Format(
+                "                      Acerca de " +
+                "\n       Control de Compras Vivarsan " +
+                "\n                   Repuestos Vini \n " +
+                "\n            Helmer Zúñiga Salas " +
+                "\n            Kevin Chaves Parajeles \n "+
+                  "\n                     versión: 1.0 ");
+            dialogo.IsOpen = true;
+
+
         }
     }
 }
