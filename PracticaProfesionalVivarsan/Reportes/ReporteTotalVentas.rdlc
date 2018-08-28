@@ -6,10 +6,10 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.94174cm</Width>
+              <Width>2.31681cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.95508cm</Width>
+              <Width>3.63758cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>4.48437cm</Width>
@@ -40,7 +40,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value># Factura</Value>
+                              <Value>Factura No.</Value>
                               <Style>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -220,7 +220,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>LINEAS</Value>
+                              <Value>Líneas</Value>
                               <Style>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -754,7 +754,7 @@
         <Top>1.43991cm</Top>
         <Left>1.16099cm</Left>
         <Height>1.98521cm</Height>
-        <Width>20.38119cm</Width>
+        <Width>20.43876cm</Width>
         <Style>
           <Border>
             <Style>None</Style>

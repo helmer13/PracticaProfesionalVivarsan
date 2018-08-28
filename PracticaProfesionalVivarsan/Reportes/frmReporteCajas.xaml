@@ -21,8 +21,11 @@
         </Grid.Background>
 
         <DatePicker  IsEnabled="True"  Name="fechaInicio" Language="es-ES" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha Inicio" materialDesign:HintAssist.IsFloating="True" Margin="292,49,0,580"  />
+    
         <DatePicker  IsEnabled="True"  Name="fechaFin" Language="es-ES" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" materialDesign:HintAssist.Hint="Fecha Final" materialDesign:HintAssist.IsFloating="True" Margin="564,49,0,580"  />
+      
         <Button x:Name="btnGenerar" Content="Generar" HorizontalAlignment="Left" Margin="802,43,0,0" VerticalAlignment="Top" Width="97" Click="btnGenerar_Click"/>
+       
         <WindowsFormsHost HorizontalAlignment="Left" Height="491" Margin="51,136,0,0" VerticalAlignment="Top" Width="1120">
             <rv:ReportViewer x:Name="ReporteCajas"></rv:ReportViewer>
         </WindowsFormsHost>

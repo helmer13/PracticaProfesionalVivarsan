@@ -108,7 +108,7 @@
 
             <TextBox x:Name="txtBuscar" Grid.Row="1" Grid.ColumnSpan="2" Margin="90 0 0 0" Width="200" Height="50"  HorizontalAlignment="Center"  VerticalAlignment="Top" materialDesign:HintAssist.Hint="Buscar" materialDesign:HintAssist.IsFloating="True" TextChanged="txtBuscar_TextChanged"/>
 
-            <RadioButton x:Name="rbIndentificacion" GroupName="rbBuscar" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Content="Indentificacion" Margin="150 20 0 0"  />
+            <RadioButton x:Name="rbIndentificacion" GroupName="rbBuscar" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Content="Indentificación" Margin="150 20 0 0"  />
             <RadioButton x:Name="rbNombreCompleto" GroupName="rbBuscar"  Grid.Row="1" Grid.Column="2" Content="Nombre" Margin="70 20 0 0"   />
             <RadioButton x:Name="rbUsuario" GroupName="rbBuscar"  Grid.Row="1" Grid.Column="3" Content="Usuario" Margin="-45 20 0 0"  />
             <!--datagrid-->

@@ -31,7 +31,7 @@
             <RowDefinition  Height="50"/>
         </Grid.RowDefinitions>
 
-        <TextBox x:Name="txtId" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Margin="0 0 0 0" Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Bottom" materialDesign:HintAssist.Hint="Buscar" materialDesign:HintAssist.IsFloating="True" />
+        <TextBox x:Name="txtId" Grid.Row="0" Visibility="Collapsed" Grid.Column="1" Grid.ColumnSpan="2" Margin="0 0 0 0" Width="200" Height="50"  HorizontalAlignment="Left"  VerticalAlignment="Bottom" materialDesign:HintAssist.Hint="Buscar" materialDesign:HintAssist.IsFloating="True" />
 
 
         <TextBlock Text="Reporte de compras por proveedor" Margin="0 0 0 90"  HorizontalAlignment="Left" VerticalAlignment="Center"  Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" FontSize="22" />
@@ -49,9 +49,9 @@
         <DataGrid x:Name="dataGrid" Margin="0 30 0 0"   Grid.Row="1" Grid.ColumnSpan="4" Grid.RowSpan="4" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="dataGrid_SelectionChanged" HorizontalAlignment="Center" VerticalAlignment="Top" Height="230" Width="700">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Nombre Proveedor" Binding="{Binding NombreProveedor}" />
-                <DataGridTextColumn Header="Nombre Conacto" Binding="{Binding NombreContacto}" />
+                <DataGridTextColumn Header="Nombre Contacto" Binding="{Binding NombreContacto}" />
                 <DataGridTextColumn Header="Correo" Binding="{Binding Correo}" />
-                <DataGridTextColumn Header="Telefono" Binding="{Binding Telefono}" />
+                <DataGridTextColumn Header="Teléfono" Binding="{Binding Telefono}" />
             </DataGrid.Columns>
 
         </DataGrid>

@@ -223,7 +223,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value># Factura</Value>
+                              <Value>Factura No.</Value>
                               <Style>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -403,7 +403,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>LINEAS</Value>
+                              <Value>Líneas</Value>
                               <Style>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
