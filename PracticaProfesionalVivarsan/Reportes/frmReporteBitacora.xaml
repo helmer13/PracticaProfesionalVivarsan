@@ -11,7 +11,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PracticaProfesionalVivarsan.Reportes"
         mc:Ignorable="d"
-        Title="Reporte Bitácora" Height="697.449" Width="1100.832" Loaded="Window_Loaded">
+        Title="Reporte Bitácora" Height="697.449" Width="1100.832" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
     <Grid >
 
         <Grid.Background>
