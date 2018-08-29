@@ -19,12 +19,12 @@ using System.Windows.Shapes;
 namespace PracticaProfesionalVivarsan.Reportes
 {
     /// <summary>
-    /// Interaction logic for frmReporteDevoluciones.xaml
+    /// Interaction logic for frmReporteBitacora.xaml
     /// </summary>
-    public partial class frmReporteDevoluciones : Window
+    public partial class frmReporteBitacora : Window
     {
         private string error = "";
-        public frmReporteDevoluciones()
+        public frmReporteBitacora()
         {
             InitializeComponent();
             Uri iconUri = new Uri("pack://application:,,,/PracticaProfesionalVivarsan;component/imagenes/Background White.png");
@@ -41,49 +41,39 @@ namespace PracticaProfesionalVivarsan.Reportes
             }
             else
             {
-                FacturaVentasLogica pl = new FacturaVentasLogica();
+                UsuarioLogica log = new UsuarioLogica();
                 Usuario usuario = new Usuario();
                 usuario = (Usuario)App.Current.Properties["usuarioSesion"];
-                DataTable dt = pl.ReporteDevoluciones(fechaInicio.SelectedDate.Value, fechaFin.SelectedDate.Value);
-
-                ReporteDevoluciones.Reset();
+                DataTable dt = log.ReporteBitacora(fechaInicio.SelectedDate.Value);
+                ReportGastos.Reset();
                 ReportDataSource rd = new ReportDataSource("DataSet1", dt);
-                ReporteDevoluciones.LocalReport.DataSources.Add(rd);
+                ReportGastos.LocalReport.DataSources.Add(rd);
 
-                DateTime f1 = fechaInicio.SelectedDate.Value;
-                DateTime f2 = fechaFin.SelectedDate.Value;
                 //Array que contendrá los parámetros
-                ReportParameter[] parameters = new ReportParameter[3];
+                ReportParameter[] parameters = new ReportParameter[1];
                 //Establecemos el valor de los parámetros
                 parameters[0] = new ReportParameter("paramUsuario", usuario.Nombre);
-                parameters[1] = new ReportParameter("fechaInicio", f1.ToString());
-                parameters[2] = new ReportParameter("fechaFin", f2.ToString());
+                //parameters[1] = new ReportParameter("fechaInicio", fechaInicio.SelectedDate.Value.ToString());
 
-                ReporteDevoluciones.LocalReport.ReportEmbeddedResource = "PracticaProfesionalVivarsan.Reportes.ReporteDevoluciones.rdlc";
-                ReporteDevoluciones.LocalReport.SetParameters(parameters);
-                ReporteDevoluciones.RefreshReport();
+                ReportGastos.LocalReport.ReportEmbeddedResource = "PracticaProfesionalVivarsan.Reportes.ReporteBitacora.rdlc";
+                ReportGastos.LocalReport.SetParameters(parameters);
+                ReportGastos.RefreshReport();
             }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            fechaInicio.SelectedDate = DateTime.Now.Date;
         }
         private Boolean Validaciones()
         {
             Boolean bandera = false;
             if (string.IsNullOrEmpty(fechaInicio.Text))
             {
-                error = "Debe digitar la fecha de inicio.";
+                error = "Debe digitar la fecha.";
                 bandera = true;
-            }
-            if (string.IsNullOrEmpty(fechaFin.Text))
-            {
-                error = "Debe digitar la fecha final.";
-                bandera = true;
-            }
+            }           
             return bandera;
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            fechaInicio.SelectedDate = DateTime.Now.Date;
-            fechaFin.SelectedDate = DateTime.Now.Date;
         }
     }
 }

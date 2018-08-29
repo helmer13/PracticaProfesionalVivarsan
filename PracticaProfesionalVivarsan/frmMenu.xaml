@@ -74,6 +74,7 @@
                             <MenuItem Name="ReporteProveedores" Foreground="Snow" Header="Proveedores" Click="ReporteProveedores_Click"/>
                             <MenuItem Name="ReporteGastos" Foreground="Snow" Header="Gastos" Click="ReporteGastos_Click"/>
                             <MenuItem Name="ReporteDevoluciones" Foreground="Snow" Header="Devoluciones" Click="ReporteDevoluciones_Click"/>
+                            <MenuItem Name="ReporteBitacora" Foreground="Snow" Header="Bitácora" Click="ReporteBitacora_Click"/>
                         </ContextMenu>
                     </Button.ContextMenu>
                 </Button>

@@ -25,6 +25,8 @@ namespace PracticaProfesionalVivarsan.Reportes
         public frmFacturaVenta()
         {
             InitializeComponent();
+            Uri iconUri = new Uri("pack://application:,,,/PracticaProfesionalVivarsan;component/imagenes/Background White.png");
+            this.Icon = BitmapFrame.Create(iconUri);
         }
         public void GenerarReporte(double impuesto, FacturaVentas factura, DataTable dt2)
         {

@@ -25,6 +25,8 @@ namespace PracticaProfesionalVivarsan.Reportes
         public frmCaja()
         {
             InitializeComponent();
+            Uri iconUri = new Uri("pack://application:,,,/PracticaProfesionalVivarsan;component/imagenes/Background White.png");
+            this.Icon = BitmapFrame.Create(iconUri);
         }
 
         public void GenerarReporte(DataTable dt)

@@ -97,7 +97,21 @@ namespace AccesoDatos
             db.ExecuteNonQuery(comando);
         }
 
+        public static DataTable ReporteBitacora(DateTime fechaInicio)
+        {
 
+            Database db = DatabaseFactory.CreateDatabase("Default");
+            DataTable dt = new DataTable();
+            SqlCommand comando = new SqlCommand("SPR_REPORTE_BITACORA");
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@FECHA", fechaInicio);
+
+            DataSet ds = db.ExecuteReader(comando, "usuario");
+            SqlDataAdapter adp = new SqlDataAdapter(comando);
+            adp.Fill(dt);
+            return dt;
+
+        }
 
 
     }

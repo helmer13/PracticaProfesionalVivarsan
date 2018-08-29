@@ -26,6 +26,8 @@ namespace PracticaProfesionalVivarsan
         public frmMenu()
         {
             InitializeComponent();
+            Uri iconUri = new Uri("pack://application:,,,/PracticaProfesionalVivarsan;component/imagenes/Background White.png");
+            this.Icon = BitmapFrame.Create(iconUri);
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
@@ -368,6 +370,17 @@ namespace PracticaProfesionalVivarsan
                 throw ex;
             }
 
+        }
+
+        private void ReporteBitacora_Click(object sender, RoutedEventArgs e)
+        {
+            Usuario usuarioGlobal = new Usuario();
+            usuarioGlobal = (Usuario)App.Current.Properties["usuarioSesion"];
+            if (usuarioGlobal.Tipo == "Administrador")
+            {
+                frmReporteBitacora r = new frmReporteBitacora();
+                r.Show();
+            }
         }
     }
 }

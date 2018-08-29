@@ -75,6 +75,9 @@ namespace Logica
         {
             AccesoDatos.UsuarioDato.InsertarActualizarUsuarioPrincipal(usu.Id, usu.Nombre, usu.UsuarioGeneral, usu.Contrasena, usu.Empresa.IdEmpresa);
         }
-
+        public DataTable ReporteBitacora(DateTime fechaInicio)
+        {
+            return AccesoDatos.UsuarioDato.ReporteBitacora(fechaInicio);
+        }
     }
 }
